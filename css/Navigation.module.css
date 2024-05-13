@@ -1,0 +1,34 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  padding: 25px 50px;
+  align-items: center;
+  gap: 350px;
+}
+
+.list {
+  list-style-type: none;
+}
+.list li {
+  display: inline;
+  margin: 0px 15px;
+}
+.list li a {
+  text-decoration: none;
+  color: white;
+  font-family: "Poppins";
+  font-size: 20px;
+}
+
+a.active {
+  color: yellow !important;
+}
+
+a.pending {
+  color: white;
+}
+
+a.navLink {
+  color: "white";
+}/*# sourceMappingURL=Navigation.module.css.map */

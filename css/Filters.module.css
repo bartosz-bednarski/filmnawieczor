@@ -1,0 +1,8 @@
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffe500;
+}
+.filters-container h1 {
+  text-align: center;
+}/*# sourceMappingURL=Filters.module.css.map */
