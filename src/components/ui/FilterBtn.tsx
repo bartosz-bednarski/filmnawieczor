@@ -1,4 +1,3 @@
-import { useState } from "react";
 import classes from "./filterBtn.module.scss";
 const FilterBtn: React.FC<{
   value: string | number;
