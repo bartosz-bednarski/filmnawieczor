@@ -1,0 +1,27 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  background-color: black;
+  color: #ffe500;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+    background-color: #d20000;
+    color: black;
+  }
+  &--active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    background-color: #d20000;
+    color: black;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+}
