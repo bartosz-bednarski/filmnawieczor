@@ -1,5 +1,5 @@
 import classes from "./filters.module.scss";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import FilterBtn from "../ui/FilterBtn";
 import { CATEGORIES } from "../../utils/data/moviesCategories";
 import { useState } from "react";
@@ -13,7 +13,21 @@ const MovieFilter: React.FC = () => {
     mainCategoryName: string;
     data: { id: string; catName: string }[];
   }>({ mainCategoryName: "", data: [] });
+  const secondaryFiltersStore = useAppSelector(
+    (state) => state.moviesFilter.secondaryFilters
+  );
 
+  const activeFiltersList = [];
+
+  for (let i = 0; i < secondaryFiltersStore.length; i++) {
+    for (let x = 0; x < secondaryFiltersStore[i].active_filters.length; x++) {
+      activeFiltersList.push({
+        ...secondaryFiltersStore[i].active_filters[x],
+        mainCategoryName: secondaryFiltersStore[i].mainCategoryName,
+      });
+      // {mainCategoryName:secondaryFiltersStore[i].mainCategoryName,}
+    }
+  }
   const setSecondaryFiltersHandler = (catId: string) => {
     const categoryIndex = Movies.findIndex((item) => item.id === catId);
     const mainCategoryName = Movies[categoryIndex].catName;
@@ -29,7 +43,6 @@ const MovieFilter: React.FC = () => {
     id: string;
     catName: string;
   }) => {
-    console.log(secondaryCat);
     const mainCategoryIndex = Movies.findIndex(
       (cat) => cat.catName === secondaryFilters.mainCategoryName
     );
@@ -96,6 +109,17 @@ const MovieFilter: React.FC = () => {
           </>
         )}
       </>
+      <div className={classes["filters-container__active-filters-container"]}>
+        {activeFiltersList.map((filter) => {
+          return (
+            <FilterBtn
+              value={filter.name}
+              key={filter.id}
+              onClick={() => console.log("nic")}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
