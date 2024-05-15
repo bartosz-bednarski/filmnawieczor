@@ -2,9 +2,7 @@ import classes from "./filterBtn.module.scss";
 const FilterBtn: React.FC<{
   value: string | number;
   onClick: any;
-  id: string;
-  active: boolean;
-}> = ({ value, onClick, id, active }) => {
+}> = ({ value, onClick }) => {
   //   const [btnActive, setBtnActive] = useState(false);
 
   //   const onClickHandler = () => {
@@ -13,7 +11,8 @@ const FilterBtn: React.FC<{
   //   };
   return (
     <div
-      className={active ? classes["box--active"] : classes["box"]}
+      // className={active ? classes["box--active"] : classes["box"]}
+      className={classes["box"]}
       onClick={() => onClick()}
     >
       {value}
