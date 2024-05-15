@@ -2,10 +2,14 @@ import FilterBtn from "../ui/FilterBtn";
 import classes from "./filters.module.scss";
 import { CATEGORIES } from "../../utils/data/moviesCategories";
 import { useState } from "react";
-import arrowBack from "../../assets/arrow-back-outline.svg";
+import arrowup from "../../assets/chevron-up.png";
+import { useAppDispatch } from "../../redux/hooks";
+import { setSecondaryFilter } from "../../redux/moviesFilter-slice";
 const Filters = () => {
+  const dispatch = useAppDispatch();
   const [showSecondaryCats, setShowSecondaryCats] = useState({
     status: false,
+    mainCategoryName: "",
     data: [{ id: "S0", catName: "Brak" }],
   });
   const [activeMainFilter, setActiveMainFilter] = useState<null | {
@@ -23,16 +27,24 @@ const Filters = () => {
     const secondaryCatsToShow = CATEGORIES[categoryIndex].secondaryCats;
 
     if (secondaryCatsToShow.length > 0) {
-      setShowSecondaryCats({ status: true, data: secondaryCatsToShow });
+      setShowSecondaryCats({
+        status: true,
+        mainCategoryName: CATEGORIES[categoryIndex].catName,
+        data: secondaryCatsToShow,
+      });
     }
   };
+  // const onClickSecondaryFilterHandler = (cat) => {
+  //   setActiveSecondaryFilter(cat);
+  //   dispatch(setSecondaryFilter({mainCategoryName:showSecondaryCats.mainCategoryName,}));
+  // };
   return (
     <div className={classes["filters-container"]}>
-      <h1>Wybierz coś z naszego katalogu filmów</h1>
+      {/* <h1>Wybierz coś z naszego katalogu filmów</h1> */}
       <>
         {!showSecondaryCats.status && (
           <div className={classes["filters-container__main-cats-container"]}>
-            {CATEGORIES.map((cat) => {
+            {/* {CATEGORIES.map((cat) => {
               return (
                 <FilterBtn
                   value={cat.catName}
@@ -45,31 +57,42 @@ const Filters = () => {
                   active={cat === activeMainFilter}
                 />
               );
-            })}
+            })} */}
           </div>
         )}
         {showSecondaryCats.status && (
-          <div className={classes["filters-container__sec-cats-container"]}>
-            <img
-              src={arrowBack}
-              width="50px"
-              alt="arrow-back"
-              onClick={() => setShowSecondaryCats({ status: false, data: [] })}
-            />
-            {showSecondaryCats.data.map((cat) => {
-              return (
-                <FilterBtn
-                  value={cat.catName}
-                  key={cat.id}
-                  onClick={() => {
-                    setActiveSecondaryFilter(cat);
-                  }}
-                  id={cat.id}
-                  active={cat === activeSecondaryFilter}
-                />
-              );
-            })}
-          </div>
+          <>
+            <span className={classes["filters-container__arrow-up-box"]}>
+              <img
+                src={arrowup}
+                width="50px"
+                alt="arrow-back"
+                onClick={() =>
+                  setShowSecondaryCats({
+                    status: false,
+                    mainCategoryName: "",
+                    data: [],
+                  })
+                }
+              />
+              <span>Kategorie główne</span>
+            </span>
+            <div className={classes["filters-container__sec-cats-container"]}>
+              {/* {showSecondaryCats.data.map((cat) => {
+                return (
+                  <FilterBtn
+                    value={cat.catName}
+                    key={cat.id}
+                    onClick={() => {
+                      setActiveSecondaryFilter(cat);
+                    }}
+                    id={cat.id}
+                    active={cat === activeSecondaryFilter}
+                  />
+                );
+              })} */}
+            </div>
+          </>
         )}
       </>
     </div>

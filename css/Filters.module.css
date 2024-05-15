@@ -8,6 +8,12 @@
 .filters-container h1 {
   text-align: center;
 }
+.filters-container__arrow-up-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .filters-container__main-cats-container {
   display: flex;
   flex-direction: row;
@@ -24,4 +30,4 @@
   gap: 10px;
   justify-content: center;
   padding: 20px;
-}/*# sourceMappingURL=filters.module.css.map */
+}/*# sourceMappingURL=Filters.module.css.map */
