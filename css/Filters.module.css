@@ -24,10 +24,18 @@
 }
 .filters-container__sec-cats-container {
   display: flex;
-  background-color: red;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
   padding: 20px;
-}/*# sourceMappingURL=Filters.module.css.map */
+}
+.filters-container__active-filters-container {
+  display: flex;
+  background-color: green;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px;
+}/*# sourceMappingURL=filters.module.css.map */

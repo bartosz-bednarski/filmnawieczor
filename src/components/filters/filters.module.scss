@@ -23,7 +23,15 @@
   }
   &__sec-cats-container {
     display: flex;
-    background-color: red;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+  }
+  &__active-filters-container {
+    display: flex;
+    background-color: green;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
