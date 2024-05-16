@@ -30,4 +30,21 @@
   cursor: pointer;
   background-color: #d20000;
   color: black;
-}/*# sourceMappingURL=filterBtn.module.css.map */
+}
+
+.arrow-up-button-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.arrow-up-button-box:hover {
+  cursor: pointer;
+  color: green;
+}
+.arrow-up-button-box__text {
+  font-weight: 500;
+  font-size: 0.9em;
+}/*# sourceMappingURL=buttons.module.css.map */

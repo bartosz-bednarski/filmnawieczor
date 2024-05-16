@@ -10,16 +10,17 @@
   border-radius: 10px;
   gap: 20px;
   color: white;
+  padding-right: 10px;
   &__main-img {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    width: 200px;
+    width: 175px;
   }
   &__content-box {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     font-size: 0.8rem;
     &__cat-box {
       //   display: flex;
