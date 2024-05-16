@@ -1,4 +1,4 @@
-import classes from "./filterBtn.module.scss";
+import classes from "./buttons.module.scss";
 const FilterBtn: React.FC<{
   value: string | number;
   onClick: any;

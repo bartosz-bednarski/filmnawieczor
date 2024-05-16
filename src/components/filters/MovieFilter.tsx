@@ -3,8 +3,12 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import FilterBtn from "../ui/FilterBtn";
 import { CATEGORIES } from "../../utils/data/moviesCategories";
 import { useState } from "react";
-import arrowup from "../../assets/chevron-up.png";
-import { setSecondaryFilter } from "../../redux/moviesFilter-slice";
+import {
+  removeSecondaryFilter,
+  setSecondaryFilter,
+} from "../../redux/moviesFilter-slice";
+import ActiveFilterBtn from "../ui/ActiveFilterBtn";
+import ArrowUpBtn from "../ui/ArrowUpBtn";
 const MovieFilter: React.FC = () => {
   const dispatch = useAppDispatch();
   const Movies = CATEGORIES;
@@ -17,17 +21,6 @@ const MovieFilter: React.FC = () => {
     (state) => state.moviesFilter.secondaryFilters
   );
 
-  const activeFiltersList = [];
-
-  for (let i = 0; i < secondaryFiltersStore.length; i++) {
-    for (let x = 0; x < secondaryFiltersStore[i].active_filters.length; x++) {
-      activeFiltersList.push({
-        ...secondaryFiltersStore[i].active_filters[x],
-        mainCategoryName: secondaryFiltersStore[i].mainCategoryName,
-      });
-      // {mainCategoryName:secondaryFiltersStore[i].mainCategoryName,}
-    }
-  }
   const setSecondaryFiltersHandler = (catId: string) => {
     const categoryIndex = Movies.findIndex((item) => item.id === catId);
     const mainCategoryName = Movies[categoryIndex].catName;
@@ -56,70 +49,109 @@ const MovieFilter: React.FC = () => {
     });
     dispatch(
       setSecondaryFilter({
-        mainCategoryName: Movies[mainCategoryIndex].catName,
-        secondaryCategory: { id: secondaryCat.id, name: secondaryCat.catName },
+        data: { [Movies[mainCategoryIndex].catName]: secondaryCat.catName },
+        mainCatName: Movies[mainCategoryIndex].catDisplayName,
+        displayName: secondaryCat.catName,
       })
     );
+  };
+
+  const removeActiveFilterHandler = (filter) => {
+    dispatch(removeSecondaryFilter(filter.displayName));
+    const mainCategoryIndex = Movies.findIndex(
+      (cat) => cat.catDisplayName === filter.mainCatName
+    );
+    console.log(filter.mainCatName);
+    console.log(Movies);
+    Movies[mainCategoryIndex].secondaryCats.push({
+      id: `S${(Math.random() * 3).toFixed(0)}}`,
+      catName: filter.displayName,
+    });
   };
   return (
     <div className={classes["filters-container"]}>
       {/* <h1>Wybierz coś z naszego katalogu filmów</h1> */}
       <>
         {!showSecondaryFilters && (
-          <div className={classes["filters-container__main-cats-container"]}>
-            {Movies.map((cat) => {
-              return (
-                <FilterBtn
-                  value={cat.catName}
-                  onClick={() => {
-                    setShowSecondaryFilters(true);
-                    setSecondaryFiltersHandler(cat.id);
-                  }}
-                />
-              );
-            })}
+          <div
+            className={classes["filters-container__primary-filters-container"]}
+          >
+            <h2>Kategorie filtrów</h2>
+            <div
+              className={
+                classes["filters-container__primary-filters-container__box"]
+              }
+            >
+              {Movies.map((cat) => {
+                return (
+                  <FilterBtn
+                    value={cat.catDisplayName}
+                    onClick={() => {
+                      setShowSecondaryFilters(true);
+                      setSecondaryFiltersHandler(cat.id);
+                    }}
+                  />
+                );
+              })}
+            </div>
           </div>
         )}
 
         {showSecondaryFilters && (
           <>
-            <span
-              className={classes["filters-container__arrow-up-box"]}
-              onClick={() => setShowSecondaryFilters(false)}
+            <div
+              className={
+                classes["filters-container__secondary-filters-container"]
+              }
             >
-              <img
-                src={arrowup}
-                width="50px"
-                alt="arrow-back"
+              <ArrowUpBtn
                 onClick={() => setShowSecondaryFilters(false)}
+                text="Kategorie główne"
               />
-              <span>Kategorie główne</span>
-            </span>
-            <div className={classes["filters-container__sec-cats-container"]}>
-              {secondaryFilters.data.map((secondaryCat) => {
-                return (
-                  <FilterBtn
-                    value={secondaryCat.catName}
-                    key={secondaryCat.id}
-                    onClick={() => selectSecondaryFilterHandler(secondaryCat)}
-                  />
-                );
-              })}
+              <div
+                className={
+                  classes["filters-container__secondary-filters-container__box"]
+                }
+              >
+                {secondaryFilters.data.map((secondaryCat) => {
+                  return (
+                    <FilterBtn
+                      value={secondaryCat.catName}
+                      key={secondaryCat.id}
+                      onClick={() => selectSecondaryFilterHandler(secondaryCat)}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </>
         )}
       </>
-      <div className={classes["filters-container__active-filters-container"]}>
-        {activeFiltersList.map((filter) => {
-          return (
-            <FilterBtn
-              value={filter.name}
-              key={filter.id}
-              onClick={() => console.log("nic")}
-            />
-          );
-        })}
-      </div>
+      {secondaryFiltersStore.length > 0 && (
+        <div className={classes["filters-container__active-filters-container"]}>
+          <h2>Aktywne filtry</h2>
+          <div
+            className={
+              classes["filters-container__active-filters-container__box"]
+            }
+          >
+            {secondaryFiltersStore.map((filter) => {
+              return (
+                <ActiveFilterBtn
+                  value={filter.displayName}
+                  key={filter.id}
+                  onClick={() => {
+                    removeActiveFilterHandler(filter);
+                    // dispatch(removeSecondaryFilter(filter.displayName));
+                    // console.log("filterRemoved", filter);
+                    // console.log("filtersState", secondaryFilters);
+                  }}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

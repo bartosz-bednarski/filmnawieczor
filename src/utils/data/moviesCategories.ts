@@ -1,7 +1,8 @@
 export const CATEGORIES = [
   {
     id: "M0",
-    catName: "Gatunek",
+    catDisplayName: "Gatunek",
+    catName: "gatunek",
     secondaryCats: [
       { id: "S0", catName: "Akcja" },
       { id: "S1", catName: "Dokumentalny" },
@@ -19,7 +20,8 @@ export const CATEGORIES = [
   },
   {
     id: "M1",
-    catName: "Miejsce akcji",
+    catDisplayName: "Miejsce akcji",
+    catName: "miejsce_akcji",
     secondaryCats: [
       { id: "S0", catName: "Francja" },
       { id: "S1", catName: "USA" },
@@ -37,7 +39,8 @@ export const CATEGORIES = [
   },
   {
     id: "M2",
-    catName: "Lata akcji",
+    catDisplayName: "Lata akcji",
+    catName: "lata_akcji",
     secondaryCats: [
       { id: "S0", catName: "0-500r" },
       { id: "S1", catName: "500-1000r" },
@@ -54,7 +57,8 @@ export const CATEGORIES = [
   },
   {
     id: "M3",
-    catName: "Rok produkcji",
+    catDisplayName: "Rok produkcji",
+    catName: "rok_produkcji",
     secondaryCats: [
       { id: "S0", catName: "1950-1955" },
       { id: "S1", catName: "1955-1960" },
