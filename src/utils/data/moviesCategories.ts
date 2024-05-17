@@ -39,8 +39,8 @@ export const CATEGORIES = [
   },
   {
     id: "M2",
-    catDisplayName: "Lata akcji",
-    catName: "lata_akcji",
+    catDisplayName: "Czas akcji",
+    catName: "czas_akcji",
     secondaryCats: [
       { id: "S0", catName: "0-500r" },
       { id: "S1", catName: "500-1000r" },

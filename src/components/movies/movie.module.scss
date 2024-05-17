@@ -8,9 +8,9 @@
     rgba(255, 229, 0, 1) 100%
   );
   border-radius: 10px;
-  gap: 20px;
+  gap: 50px;
   color: white;
-  padding-right: 10px;
+  justify-content: space-between;
   &__main-img {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -26,7 +26,7 @@
       //   display: flex;
       //   flex-direction: row;
       //   flex-wrap: wrap;
-      width: 100%;
+      width: auto;
       &__cat-bold {
         font-weight: 600;
         margin-right: 5px;
@@ -40,7 +40,9 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: 200px;
+    justify-content: flex-end;
+    width: 150px;
+    padding: 20px 20px 0 0;
     &__rate {
       display: flex;
       justify-content: center;
