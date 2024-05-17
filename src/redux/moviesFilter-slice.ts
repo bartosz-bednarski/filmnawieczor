@@ -18,6 +18,16 @@ const moviesFilterSlice = createSlice({
       const secondaryFilters = state.secondaryFilters;
       state.secondaryFilters = [...state.secondaryFilters, action.payload];
     },
+    setSecondaryFilterActionTimeRange: (state, action) => {
+      const itemIndex = state.secondaryFilters.findIndex(
+        (item) => item.mainCatName === "Czas akcji"
+      );
+      if (itemIndex !== -1) {
+        state.secondaryFilters[itemIndex] = action.payload;
+      } else if (itemIndex === -1) {
+        state.secondaryFilters = [...state.secondaryFilters, action.payload];
+      }
+    },
     removeSecondaryFilter: (state, action) => {
       state.secondaryFilters = state.secondaryFilters.filter(
         (item) => item.displayName !== action.payload
@@ -28,5 +38,7 @@ const moviesFilterSlice = createSlice({
 
 export default moviesFilterSlice.reducer;
 export const setSecondaryFilter = moviesFilterSlice.actions.setSecondaryFilter;
+export const setSecondaryFilterActionTimeRange =
+  moviesFilterSlice.actions.setSecondaryFilterActionTimeRange;
 export const removeSecondaryFilter =
   moviesFilterSlice.actions.removeSecondaryFilter;

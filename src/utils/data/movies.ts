@@ -19,6 +19,7 @@ export const MOVIES: movies = [
     gatunek: "Wojenny",
     image_cover: "szeregowiec-ryan.webp",
     miejsce_akcji: ["Francja"],
+    czas_akcji: ["1944"],
     rok_produkcji: 1998,
   },
   {
@@ -40,6 +41,7 @@ export const MOVIES: movies = [
     gatunek: "Wojenny",
     image_cover: "wielka-ucieczka.webp",
     miejsce_akcji: ["Polska"],
+    czas_akcji: ["1944"],
     rok_produkcji: 1998,
   },
   {
@@ -61,6 +63,7 @@ export const MOVIES: movies = [
     gatunek: "Wojenny",
     image_cover: "bekarty-wojny.webp",
     miejsce_akcji: ["Francja"],
+    czas_akcji: ["1943"],
     rok_produkcji: 2009,
   },
   {
@@ -82,6 +85,7 @@ export const MOVIES: movies = [
     gatunek: "Wojenny",
     image_cover: "helikopter-w-ogniu.webp",
     miejsce_akcji: ["Somalia"],
+    czas_akcji: ["1993"],
     rok_produkcji: 2001,
   },
   {
@@ -96,7 +100,7 @@ export const MOVIES: movies = [
       miejsce_akcji: { title: "Miejsce akcji:", value: "Irak, USA" },
       czas_akcji: {
         title: "Czas akcji:",
-        value: "2003-2023",
+        value: "2003-2013",
       },
       gatunek: { title: "Gatunek:", value: "Wojenny" },
       rok_produkcji: { title: "Rok produkcji:", value: "2014" },
@@ -106,6 +110,19 @@ export const MOVIES: movies = [
     gatunek: "Wojenny",
     image_cover: "snajper.webp",
     miejsce_akcji: ["Irak", "USA"],
+    czas_akcji: [
+      "2003",
+      "2004",
+      "2005",
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010",
+      "2011",
+      "2012",
+      "2013",
+    ],
     rok_produkcji: 2014,
   },
   {
@@ -133,6 +150,7 @@ export const MOVIES: movies = [
     gatunek: "Wojenny",
     image_cover: "pearl-harbor.webp",
     miejsce_akcji: ["USA", "Wielka Brytania", "Japonia", "Chiny"],
+    czas_akcji: ["1941"],
     rok_produkcji: 2001,
   },
   {
@@ -160,6 +178,16 @@ export const MOVIES: movies = [
     gatunek: "Wojenny",
     image_cover: "jeniec.webp",
     miejsce_akcji: ["Rosja", "Polska", "Niemcy"],
+    czas_akcji: [
+      "1945",
+      "1946",
+      "1947",
+      "1948",
+      "1949",
+      "1950",
+      "1951",
+      "1952",
+    ],
     rok_produkcji: 2001,
   },
 ];
@@ -177,6 +205,7 @@ export type movie = {
   };
   gatunek: string;
   image_cover: string;
+  czas_akcji: string[];
   miejsce_akcji: string[];
   rok_produkcji: number;
 };
