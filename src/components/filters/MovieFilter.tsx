@@ -9,7 +9,9 @@ import {
 } from "../../redux/moviesFilter-slice";
 import ActiveFilterBtn from "../ui/ActiveFilterBtn";
 import ArrowUpBtn from "../ui/ArrowUpBtn";
-import DateFilter from "./DateFilter";
+import DateFilter from "./ActionTimeFilter";
+import ActionTimeFilter from "./ActionTimeFilter";
+import DateReleaseFilter from "./DateReleaseFilter";
 const MovieFilter: React.FC = () => {
   const dispatch = useAppDispatch();
   const Movies = CATEGORIES;
@@ -115,6 +117,7 @@ const MovieFilter: React.FC = () => {
                 }
               >
                 {secondaryFilters.mainCategoryName !== "czas_akcji" &&
+                  secondaryFilters.mainCategoryName !== "rok_produkcji" &&
                   secondaryFilters.data.map((secondaryCat) => {
                     return (
                       <FilterBtn
@@ -127,8 +130,10 @@ const MovieFilter: React.FC = () => {
                     );
                   })}
                 {secondaryFilters.mainCategoryName === "czas_akcji" && (
-                  // <h2>XD</h2>
-                  <DateFilter />
+                  <ActionTimeFilter />
+                )}
+                {secondaryFilters.mainCategoryName === "rok_produkcji" && (
+                  <DateReleaseFilter />
                 )}
               </div>
             </div>
