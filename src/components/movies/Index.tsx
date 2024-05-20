@@ -58,6 +58,8 @@ const Movies = () => {
       const value = filter[key];
       if (key === "czas_akcji") {
         filterValues[key] = parseRange(value);
+      } else if (key === "rok_produkcji") {
+        filterValues[key] = parseRange(value);
       } else {
         filterValues[key] = value.split(", ").map((val) => val.trim());
       }
@@ -71,6 +73,8 @@ const Movies = () => {
     return movies.filter((movie) => {
       return Object.keys(filterValues).every((key) => {
         if (key === "czas_akcji") {
+          return isRangeOverlapWithYears(movie[key], filterValues[key]);
+        } else if (key === "rok_produkcji") {
           return isRangeOverlapWithYears(movie[key], filterValues[key]);
         } else if (Array.isArray(movie[key])) {
           return movie[key].some((value) => filterValues[key].includes(value));

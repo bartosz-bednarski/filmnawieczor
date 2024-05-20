@@ -3,7 +3,7 @@ import { useAppDispatch } from "../../redux/hooks";
 import FilterBtn from "../ui/FilterBtn";
 import classes from "./dateFilter.module.scss";
 import { setSecondaryFilterActionTimeRange } from "../../redux/moviesFilter-slice";
-const DateFilter = () => {
+const ActionTimeFilter = () => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState("");
   const [dateRangeEnd, setDateRangeEnd] = useState("");
@@ -97,4 +97,4 @@ const DateFilter = () => {
   );
 };
 
-export default DateFilter;
+export default ActionTimeFilter;
