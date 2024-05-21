@@ -1,4 +1,4 @@
-type MoviesCategories =
+type SeriesCategories =
   | "Wojenny"
   | "Dokumentalny"
   | "Gangsterski"
@@ -11,7 +11,7 @@ type MoviesCategories =
   | "Sztuki walki"
   | "Western"
   | "Wojenny";
-export const MOVIES: movies = [
+export const SERIES: series = [
   {
     id: 0,
     name: "Szeregowiec Ryan",
@@ -256,7 +256,7 @@ export const MOVIES: movies = [
     gatunek: "Wojenny",
     image_cover: "bitwa-o-anglie.webp",
     miejsce_akcji: ["Anglia", "Francja", "Niemcy"],
-    czas_akcji: ["1940"],
+    czas_akcji: ["1942", "1943", "1944", "1945"],
     rok_produkcji: ["1969"],
   },
   {
@@ -428,22 +428,22 @@ export const MOVIES: movies = [
     rok_produkcji: ["2001"],
   },
 ];
-export type movie = {
+export type serie = {
   id: number;
   name: string;
   description: {
     opis: { title: string; value: string };
     miejsce_akcji: { title: string; value: string };
     czas_akcji: { title: string; value: string };
-    gatunek: { title: string; value: MoviesCategories };
+    gatunek: { title: string; value: SeriesCategories };
     rok_produkcji: { title: string; value: string };
     dlugosc_filmu: { title: string; value: string };
     ocena: number;
   };
-  gatunek: MoviesCategories;
+  gatunek: SeriesCategories;
   image_cover: string;
   czas_akcji: string[];
   miejsce_akcji: string[];
   rok_produkcji: string[];
 };
-export type movies = movie[];
+export type series = serie[];

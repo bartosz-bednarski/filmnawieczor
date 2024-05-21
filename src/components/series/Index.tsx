@@ -1,12 +1,12 @@
 import { useAppSelector } from "../../redux/hooks";
-import { MOVIES } from "../../utils/data/movies";
-import MovieFilter from "../filters/movie/MovieFilter";
+import { SERIES } from "../../utils/data/series";
+import SeriesFilter from "../filters/series/SeriesFilter";
 // import Filters from "../globals/Filters";
-import Movie from "./Movie";
-import classes from "./movies.module.scss";
-const Movies = () => {
+import Serie from "./Serie";
+import classes from "./series.module.scss";
+const Series = () => {
   const activeSecondaryFiltersStore = useAppSelector(
-    (state) => state.moviesFilter.secondaryFilters
+    (state) => state.seriesFilter.secondaryFilters
   );
   const activeFiltersArray = activeSecondaryFiltersStore.map(
     (item) => item.data
@@ -40,34 +40,34 @@ const Movies = () => {
     return filterValues;
   };
 
-  const applyFilters = (movies, filters) => {
+  const applyFilters = (series, filters) => {
     const filterValues = getFilterValues(activeFiltersArray);
 
-    return movies.filter((movie) => {
+    return series.filter((serie) => {
       return Object.keys(filterValues).every((key) => {
         if (key === "czas_akcji") {
-          return isRangeOverlapWithYears(movie[key], filterValues[key]);
+          return isRangeOverlapWithYears(serie[key], filterValues[key]);
         } else if (key === "rok_produkcji") {
-          return isRangeOverlapWithYears(movie[key], filterValues[key]);
-        } else if (Array.isArray(movie[key])) {
-          return movie[key].some((value) => filterValues[key].includes(value));
+          return isRangeOverlapWithYears(serie[key], filterValues[key]);
+        } else if (Array.isArray(serie[key])) {
+          return serie[key].some((value) => filterValues[key].includes(value));
         } else {
-          return filterValues[key].includes(movie[key]);
+          return filterValues[key].includes(serie[key]);
         }
       });
     });
   };
 
-  const filteredMovies = applyFilters(MOVIES, activeFiltersArray);
+  const filteredSeries = applyFilters(SERIES, activeFiltersArray);
   console.log("active", activeFiltersArray);
   return (
     <div className={classes.container}>
-      <MovieFilter />
+      <SeriesFilter />
       <div className={classes["main-container"]}>
         <div className={classes["main-container__advert-box"]}> </div>
         <div className={classes["main-container__movies-container"]}>
-          {filteredMovies.map((data) => {
-            return <Movie movie={data} />;
+          {filteredSeries.map((data) => {
+            return <Serie serie={data} />;
           })}
         </div>
         <div className={classes["main-container__advert-box"]}> </div>
@@ -75,4 +75,4 @@ const Movies = () => {
     </div>
   );
 };
-export default Movies;
+export default Series;

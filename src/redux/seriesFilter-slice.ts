@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export type MoviesFilterInitialState = {
+export type SeriesFilterInitialState = {
   primaryFilters: any;
   secondaryFilters: any;
 };
-const moviesFilterInitialState: MoviesFilterInitialState = {
+const seriesFilterInitialState: SeriesFilterInitialState = {
   primaryFilters: [],
   secondaryFilters: [],
 };
 
-const moviesFilterSlice = createSlice({
-  name: "MoviesFilter",
-  initialState: moviesFilterInitialState,
+const seriesFilterSlice = createSlice({
+  name: "SeriesFilter",
+  initialState: seriesFilterInitialState,
   reducers: {
     setSecondaryFilter: (state, action) => {
       state.secondaryFilters = [...state.secondaryFilters, action.payload];
@@ -44,11 +44,11 @@ const moviesFilterSlice = createSlice({
   },
 });
 
-export default moviesFilterSlice.reducer;
-export const setSecondaryFilter = moviesFilterSlice.actions.setSecondaryFilter;
+export default seriesFilterSlice.reducer;
+export const setSecondaryFilter = seriesFilterSlice.actions.setSecondaryFilter;
 export const setSecondaryFilterActionTimeRange =
-  moviesFilterSlice.actions.setSecondaryFilterActionTimeRange;
+  seriesFilterSlice.actions.setSecondaryFilterActionTimeRange;
 export const removeSecondaryFilter =
-  moviesFilterSlice.actions.removeSecondaryFilter;
+  seriesFilterSlice.actions.removeSecondaryFilter;
 export const setSecondaryFilterReleaseDateRange =
-  moviesFilterSlice.actions.setSecondaryFilterReleaseDateRange;
+  seriesFilterSlice.actions.setSecondaryFilterReleaseDateRange;

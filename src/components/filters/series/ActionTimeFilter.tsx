@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../redux/hooks";
-import FilterBtn from "../ui/FilterBtn";
-import classes from "./dateFilter.module.scss";
-import { setSecondaryFilterActionTimeRange } from "../../redux/moviesFilter-slice";
+import { useAppDispatch } from "../../../redux/hooks";
+import FilterBtn from "../../ui/FilterBtn";
+import classes from "../dateFilter.module.scss";
+import { setSecondaryFilterActionTimeRange } from "../../../redux/seriesFilter-slice";
 const ActionTimeFilter = () => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState("");

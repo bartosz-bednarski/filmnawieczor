@@ -1,5 +1,7 @@
+import News from "../components/news/Index";
+
 const NewsPage = () => {
-  return <div>News page!</div>;
+  return <News />;
 };
 
 export default NewsPage;
