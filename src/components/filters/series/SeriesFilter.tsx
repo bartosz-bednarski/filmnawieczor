@@ -1,33 +1,32 @@
-import classes from "./filters.module.scss";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import FilterBtn from "../ui/FilterBtn";
-import { CATEGORIES } from "../../utils/data/moviesCategories";
+import classes from "../filters.module.scss";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import FilterBtn from "../../ui/FilterBtn";
+import { CATEGORIES } from "../../../utils/data/seriesCategories";
 import { useState } from "react";
 import {
   removeSecondaryFilter,
   setSecondaryFilter,
-} from "../../redux/moviesFilter-slice";
-import ActiveFilterBtn from "../ui/ActiveFilterBtn";
-import ArrowUpBtn from "../ui/ArrowUpBtn";
-import DateFilter from "./ActionTimeFilter";
+} from "../../../redux/seriesFilter-slice";
+import ActiveFilterBtn from "../../ui/ActiveFilterBtn";
+import ArrowUpBtn from "../../ui/ArrowUpBtn";
 import ActionTimeFilter from "./ActionTimeFilter";
 import DateReleaseFilter from "./DateReleaseFilter";
-const MovieFilter: React.FC = () => {
+const SeriesFilter: React.FC = () => {
   const dispatch = useAppDispatch();
-  const Movies = CATEGORIES;
+  const Series = CATEGORIES;
   const [showSecondaryFilters, setShowSecondaryFilters] = useState(false);
   const [secondaryFilters, setSecondaryFilters] = useState<{
     mainCategoryName: string;
     data: { id: string; catName: string }[];
   }>({ mainCategoryName: "", data: [] });
   const secondaryFiltersStore = useAppSelector(
-    (state) => state.moviesFilter.secondaryFilters
+    (state) => state.seriesFilter.secondaryFilters
   );
 
   const setSecondaryFiltersHandler = (catId: string) => {
-    const categoryIndex = Movies.findIndex((item) => item.id === catId);
-    const mainCategoryName = Movies[categoryIndex].catName;
-    const secondaryCatsToShow = Movies[categoryIndex].secondaryCats;
+    const categoryIndex = Series.findIndex((item) => item.id === catId);
+    const mainCategoryName = Series[categoryIndex].catName;
+    const secondaryCatsToShow = Series[categoryIndex].secondaryCats;
     if (secondaryCatsToShow.length > 0) {
       setSecondaryFilters({
         mainCategoryName: mainCategoryName,
@@ -39,21 +38,21 @@ const MovieFilter: React.FC = () => {
     id: string;
     catName: string;
   }) => {
-    const mainCategoryIndex = Movies.findIndex(
+    const mainCategoryIndex = Series.findIndex(
       (cat) => cat.catName === secondaryFilters.mainCategoryName
     );
-    const secondaryCategoryIndex = Movies[
+    const secondaryCategoryIndex = Series[
       mainCategoryIndex
     ].secondaryCats.findIndex((secCat) => secCat.id === secondaryCat.id);
-    Movies[mainCategoryIndex].secondaryCats.splice(secondaryCategoryIndex, 1);
+    Series[mainCategoryIndex].secondaryCats.splice(secondaryCategoryIndex, 1);
     setSecondaryFilters({
-      mainCategoryName: Movies[mainCategoryIndex].catName,
-      data: Movies[mainCategoryIndex].secondaryCats,
+      mainCategoryName: Series[mainCategoryIndex].catName,
+      data: Series[mainCategoryIndex].secondaryCats,
     });
     dispatch(
       setSecondaryFilter({
-        data: { [Movies[mainCategoryIndex].catName]: secondaryCat.catName },
-        mainCatName: Movies[mainCategoryIndex].catDisplayName,
+        data: { [Series[mainCategoryIndex].catName]: secondaryCat.catName },
+        mainCatName: Series[mainCategoryIndex].catDisplayName,
         displayName: secondaryCat.catName,
       })
     );
@@ -61,12 +60,10 @@ const MovieFilter: React.FC = () => {
 
   const removeActiveFilterHandler = (filter) => {
     dispatch(removeSecondaryFilter(filter.displayName));
-    const mainCategoryIndex = Movies.findIndex(
+    const mainCategoryIndex = Series.findIndex(
       (cat) => cat.catDisplayName === filter.mainCatName
     );
-    console.log(filter.mainCatName);
-    console.log(Movies);
-    Movies[mainCategoryIndex].secondaryCats.push({
+    Series[mainCategoryIndex].secondaryCats.push({
       id: `S${(Math.random() * 3).toFixed(0)}}`,
       catName: filter.displayName,
     });
@@ -85,7 +82,7 @@ const MovieFilter: React.FC = () => {
                 classes["filters-container__primary-filters-container__box"]
               }
             >
-              {Movies.map((cat) => {
+              {Series.map((cat) => {
                 return (
                   <FilterBtn
                     value={cat.catDisplayName}
@@ -155,9 +152,6 @@ const MovieFilter: React.FC = () => {
                   key={filter.id}
                   onClick={() => {
                     removeActiveFilterHandler(filter);
-                    // dispatch(removeSecondaryFilter(filter.displayName));
-                    // console.log("filterRemoved", filter);
-                    // console.log("filtersState", secondaryFilters);
                   }}
                 />
               );
@@ -168,4 +162,4 @@ const MovieFilter: React.FC = () => {
     </div>
   );
 };
-export default MovieFilter;
+export default SeriesFilter;

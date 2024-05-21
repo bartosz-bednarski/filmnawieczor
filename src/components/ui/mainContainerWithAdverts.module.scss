@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+  &__content-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // background-color: red;
+    padding: 10px;
+    gap: 20px;
+  }
+  &__advert-box {
+    width: 800px;
+  }
+}

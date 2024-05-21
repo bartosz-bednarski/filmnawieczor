@@ -1,5 +1,7 @@
+import Series from "../components/series/Index";
+
 const SeriesPage = () => {
-  return <div>Series page!</div>;
+  return <Series />;
 };
 
 export default SeriesPage;
