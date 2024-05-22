@@ -1,0 +1,39 @@
+.newsBox-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ffe500;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.newsBox-container:hover {
+  cursor: pointer;
+}
+.newsBox-container__title {
+  padding-left: 20px;
+  border-bottom: 1px solid black;
+  background: linear-gradient(135deg, #ffe500 0%, #d20000 100%);
+}
+.newsBox-container__box {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.newsBox-container__box__image {
+  width: 325;
+  border-bottom-left-radius: 15px;
+  box-shadow: 0px 1px 1px black;
+}
+.newsBox-container__box__text {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  color: black;
+  font-weight: 600;
+}
+.newsBox-container__box__text p {
+  margin: 0;
+}/*# sourceMappingURL=newsBox.module.css.map */

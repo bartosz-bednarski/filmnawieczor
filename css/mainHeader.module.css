@@ -1,0 +1,9 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe500;
+}
+.header-container header {
+  color: black;
+}/*# sourceMappingURL=mainHeader.module.css.map */

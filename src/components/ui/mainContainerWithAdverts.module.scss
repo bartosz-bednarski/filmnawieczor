@@ -1,19 +1,24 @@
 .container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  min-height: 80vh;
 }
 .main-container {
   display: flex;
   flex-direction: row;
+  background-color: black;
+  min-height: 60vh;
   &__content-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    // background-color: red;
-    padding: 10px;
+    background-color: #ffe500;
+    padding: 10px 5px;
     gap: 20px;
   }
   &__advert-box {
     width: 800px;
+    border-top: 1px solid black;
   }
 }
