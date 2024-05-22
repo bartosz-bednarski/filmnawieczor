@@ -5,6 +5,8 @@ import RootLayout from "./pages/Root";
 import MoviesPage from "./pages/Movies";
 import NewsPage from "./pages/News";
 import SeriesPage from "./pages/Series";
+import NewsArticlePage from "./pages/NewsArticle";
+import { NEWS_ARTICLES } from "./utils/data/newsArticles";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,19 @@ const router = createBrowserRouter([
       {
         path: "aktualnosci",
         element: <NewsPage />,
+      },
+      {
+        path: "aktualnosci/artykul/:articleId",
+        element: <NewsArticlePage />,
+        loader: async ({ params }) => {
+          const article = NEWS_ARTICLES.find(
+            (article) => article.url === params.articleId
+          );
+          return {
+            title: article.title,
+            articleContent: article.articleContent,
+          };
+        },
       },
       {
         path: "filmy",
