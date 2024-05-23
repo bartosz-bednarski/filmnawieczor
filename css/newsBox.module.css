@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #ffe500;
+  background-color: black;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 }
@@ -11,8 +11,9 @@
 }
 .newsBox-container__title {
   padding-left: 20px;
-  border-bottom: 1px solid black;
-  background: linear-gradient(135deg, #ffe500 0%, #d20000 100%);
+  color: #ffe500;
+  background-color: black;
+  border-bottom: 1px solid #ffe500;
 }
 .newsBox-container__box {
   display: flex;
@@ -31,7 +32,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1em;
-  color: black;
+  color: white;
   font-weight: 600;
 }
 .newsBox-container__box__text p {
