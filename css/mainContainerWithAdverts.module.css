@@ -1,24 +1,25 @@
 .container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  min-height: 80vh;
 }
 
 .main-container {
   display: flex;
   flex-direction: row;
-  gap: 50px;
-  padding: 50px 50px;
   background-color: black;
+  min-height: 60vh;
 }
 .main-container__content-container {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 10px;
+  background-color: #ffe500;
+  padding: 10px 5px;
   gap: 20px;
 }
 .main-container__advert-box {
   width: 800px;
-  background-color: #ffe500;
   border-top: 1px solid black;
 }/*# sourceMappingURL=mainContainerWithAdverts.module.css.map */
