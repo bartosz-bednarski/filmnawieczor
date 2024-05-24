@@ -11,7 +11,27 @@ type MoviesCategories =
   | "Sztuki walki"
   | "Western"
   | "Wojenny";
-export const MOVIES: movies = [
+export interface MovieDescription {
+  opis: { title: string; value: string };
+  miejsce_akcji: { title: string; value: string };
+  czas_akcji: { title: string; value: string };
+  gatunek: { title: string; value: MoviesCategories };
+  rok_produkcji: { title: string; value: string };
+  dlugosc_filmu: { title: string; value: string };
+  ocena: number;
+}
+export interface MovieType {
+  id: number;
+  name: string;
+  description: MovieDescription;
+  gatunek: MoviesCategories;
+  image_cover: string;
+  czas_akcji: string[];
+  miejsce_akcji: string[];
+  rok_produkcji: string[];
+}
+export type Movies = MovieType[];
+export const MOVIES: Movies = [
   {
     id: 0,
     name: "Szeregowiec Ryan",
@@ -428,22 +448,22 @@ export const MOVIES: movies = [
     rok_produkcji: ["2001"],
   },
 ];
-export type movie = {
-  id: number;
-  name: string;
-  description: {
-    opis: { title: string; value: string };
-    miejsce_akcji: { title: string; value: string };
-    czas_akcji: { title: string; value: string };
-    gatunek: { title: string; value: MoviesCategories };
-    rok_produkcji: { title: string; value: string };
-    dlugosc_filmu: { title: string; value: string };
-    ocena: number;
-  };
-  gatunek: MoviesCategories;
-  image_cover: string;
-  czas_akcji: string[];
-  miejsce_akcji: string[];
-  rok_produkcji: string[];
-};
-export type movies = movie[];
+
+// export type movie = {
+//   id: number;
+//   name: string;
+//   description: {
+//     opis: { title: string; value: string };
+//     miejsce_akcji: { title: string; value: string };
+//     czas_akcji: { title: string; value: string };
+//     gatunek: { title: string; value: MoviesCategories };
+//     rok_produkcji: { title: string; value: string };
+//     dlugosc_filmu: { title: string; value: string };
+//     ocena: number;
+//   };
+//   gatunek: MoviesCategories;
+//   image_cover: string;
+//   czas_akcji: string[];
+//   miejsce_akcji: string[];
+//   rok_produkcji: string[];
+// };

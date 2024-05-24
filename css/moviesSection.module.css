@@ -1,0 +1,26 @@
+.home-container__movies-section-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid #ffe500;
+}
+.home-container__movies-section-container__movies-box {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  justify-content: space-between;
+}
+.home-container__movies-section-container__movies-box__single-movie-box {
+  display: flex;
+  flex-direction: column;
+  width: 175px;
+}
+.home-container__movies-section-container__movies-box__single-movie-box__image {
+  width: 175px;
+  height: 255px;
+}
+.home-container__movies-section-container__movies-box__single-movie-box__title {
+  font-size: 1rem;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+}/*# sourceMappingURL=moviesSection.module.css.map */
