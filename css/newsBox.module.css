@@ -5,6 +5,8 @@
   background-color: black;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  border: 1px solid #ffe500;
+  padding: 0 0 1px 1px;
 }
 .newsBox-container:hover {
   cursor: pointer;
@@ -12,8 +14,10 @@
 .newsBox-container__title {
   padding-left: 20px;
   color: #ffe500;
-  background-color: black;
-  border-bottom: 1px solid #ffe500;
+  background-color: #ffe500;
+  border-top-left-radius: 15px;
+  color: black;
+  border-bottom: 3px solid black;
 }
 .newsBox-container__box {
   display: flex;

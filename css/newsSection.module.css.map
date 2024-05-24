@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/components/home/newsSection/newsSection.module.scss","newsSection.module.css"],"names":[],"mappings":"AACE;EACE,aAAA;EACA,sBAAA;EACA,gCAAA;ACAJ;ADCI;EACE,aAAA;EACA,mBAAA;EACA,aAAA;ACCN;ADAM;EACE,aAAA;EACA,sBAAA;ACER;ADDQ;EACE,YAAA;EACA,aAAA;ACGV;ADDQ;EACE,eAAA;EACA,YAAA;EACA,iBAAA;ACGV","file":"newsSection.module.css"}

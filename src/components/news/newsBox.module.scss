@@ -9,13 +9,17 @@
   &:hover {
     cursor: pointer;
   }
+  border: 1px solid #ffe500;
+  padding: 0 0 1px 1px;
   &__title {
     padding-left: 20px;
     color: #ffe500;
+    background-color: #ffe500;
+    border-top-left-radius: 15px;
     // border-bottom: 1px solid black;
     // background: linear-gradient(135deg, #ffe500 0%, #d20000 100%);
-    background-color: black;
-    border-bottom: 1px solid #ffe500;
+    color: black;
+    border-bottom: 3px solid black;
   }
   &__box {
     display: flex;

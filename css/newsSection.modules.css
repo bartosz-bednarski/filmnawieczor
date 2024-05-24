@@ -1,0 +1,12 @@
+.home-container__news-section-container {
+  display: flex;
+  flex-direction: column;
+}
+.home-container__news-section-container__news-box {
+  display: flex;
+  flex-direction: row;
+}
+.home-container__news-section-container__news-box__single-news-box {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=newsSection.modules.css.map */

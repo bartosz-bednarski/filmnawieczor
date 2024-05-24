@@ -2,6 +2,9 @@ import classes from "./home.module.scss";
 import Slider from "./Slider";
 import { useState, useEffect } from "react";
 import TvIcon from "../ui/icons/TvIcon";
+import NewsSection from "./newsSection/NewsSection";
+import MoviesSection from "./moviesSection/MoviesSection";
+import SeriesSection from "./seriesSection/SeriesSection";
 const Home = () => {
   const slides = [
     { image: "slider-movies-and-series.png" },
@@ -36,17 +39,26 @@ const Home = () => {
 
   return (
     <div className={classes["home-container"]}>
-      <Slider image={sliderImage.image} />
-      <div className={classes["active-slide-box"]}>
-        <TvIcon
-          status={sliderImage.index === 0 ? "active" : "inactive"}
-          onClick={() => changeSlideOnClick(0)}
-        />
-        <TvIcon
-          status={sliderImage.index === 1 ? "active" : "inactive"}
-          onClick={() => changeSlideOnClick(1)}
-        />
+      <div className={classes["home-container__slider-container"]}>
+        <Slider image={sliderImage.image} />
+        <div
+          className={
+            classes["home-container__slider-container__active-slide-box"]
+          }
+        >
+          <TvIcon
+            status={sliderImage.index === 0 ? "active" : "inactive"}
+            onClick={() => changeSlideOnClick(0)}
+          />
+          <TvIcon
+            status={sliderImage.index === 1 ? "active" : "inactive"}
+            onClick={() => changeSlideOnClick(1)}
+          />
+        </div>
       </div>
+      <NewsSection />
+      <MoviesSection />
+      <SeriesSection />
     </div>
   );
 };
