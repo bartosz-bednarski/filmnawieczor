@@ -2,15 +2,25 @@ import { MovieType, MOVIES } from "../../utils/data/movies";
 import CategoryText from "./CategoryText";
 import classes from "./movie.module.scss";
 import star from "../../assets/star.png";
+import { getMovies } from "../../api/movies";
 const Movie: React.FC<{ movie: MovieType }> = ({ movie }) => {
   const movieCoverImage = require(`../../assets/movies/${movie.image_cover}`);
   // const privateRyan = require("../../assets/movies/saving-private-ryan.png");
+  let check = [];
+  const setCheck = async () => {
+    check = await getMovies();
+  };
+
   return (
     <div className={classes["container"]}>
       <img
         src={movieCoverImage}
         alt="movie image"
         className={classes["container__main-img"]}
+        onClick={() => {
+          setCheck();
+          console.log(check);
+        }}
       />
       <div className={classes["container__content-box"]}>
         <h2>{movie.name}</h2>
