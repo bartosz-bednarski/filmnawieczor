@@ -1,10 +1,20 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navigation from "../components/globals/Navigation";
+import { useLayoutEffect } from "react";
+const Wrapper = ({ children }) => {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
+  return children;
+};
 const RootLayout = () => {
   return (
     <div>
-      <Navigation />
-      <Outlet />
+      <Wrapper>
+        <Navigation />
+        <Outlet />
+      </Wrapper>
     </div>
   );
 };

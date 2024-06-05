@@ -1,23 +1,36 @@
 import { SERIES } from "../../../utils/data/series";
-import MainHeader from "../../ui/MainHeader";
+import H2Banner from "../../ui/H2Banner";
 import classes from "./seriesSection.module.scss";
 import SingleSerie from "./SingleSerie";
-
+import { useState, useEffect } from "react";
+import { getLatestMovies } from "../../../api/homePage";
 const SeriesSection = () => {
-  const seriesToDisplay = SERIES.slice(
-    SERIES.length - 8,
-    SERIES.length
-  ).reverse();
+  const [latestMovies, setLatestMovies] = useState([]);
+  const getLatestMoviesHandler = async () => {
+    const latestMoviesFetched = await getLatestMovies();
+    setLatestMovies(latestMoviesFetched);
+  };
+  useEffect(() => {
+    getLatestMoviesHandler();
+  }, []);
+  // const seriesToDisplay = SERIES.slice(
+  //   SERIES.length - 8,
+  //   SERIES.length
+  // ).reverse();
   return (
     <div className={classes["home-container__series-section-container"]}>
-      <MainHeader title="Nowe seriale w bazie danych" />
+      <H2Banner title="Nowe seriale w bazie danych" />
       <div
         className={
           classes["home-container__series-section-container__series-box"]
         }
       >
-        {seriesToDisplay.map((serie) => (
-          <SingleSerie title={serie.name} image={serie.image_cover} />
+        {latestMovies.map((movie) => (
+          <SingleSerie
+            title={movie.name}
+            image={movie.image_cover}
+            key={movie.id}
+          />
         ))}
       </div>
     </div>

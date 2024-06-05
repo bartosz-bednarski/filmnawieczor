@@ -12,12 +12,11 @@ const ActionTimeFilter = () => {
       dispatch(
         setSecondaryFilterActionTimeRange({
           data: {
-            czas_akcji: `${Number(dateRangeStart) - 1}-${
-              Number(dateRangeEnd) + 1
-            }`,
+            czas_akcji: `${dateRangeStart}`,
           },
           mainCatName: "Czas akcji",
           displayName: `${dateRangeStart}`,
+          queryName: "at.action_time",
         })
       );
     } else {
@@ -26,6 +25,7 @@ const ActionTimeFilter = () => {
           data: { czas_akcji: `${dateRangeStart}-${dateRangeEnd}` },
           mainCatName: "Czas akcji",
           displayName: `${dateRangeStart}-${dateRangeEnd}`,
+          queryName: "at.action_time",
         })
       );
     }

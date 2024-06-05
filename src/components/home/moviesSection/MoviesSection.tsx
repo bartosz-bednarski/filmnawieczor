@@ -1,22 +1,26 @@
-import { MOVIES } from "../../../utils/data/movies";
-import { NEWS_ARTICLES } from "../../../utils/data/newsArticles";
-import MainHeader from "../../ui/MainHeader";
+import H2Banner from "../../ui/H2Banner";
 import classes from "./moviesSection.module.scss";
 import SingleMovie from "./SingleMovie";
+import { useState, useEffect } from "react";
+import { getLatestMovies } from "../../../api/homePage";
 const MoviesSection = () => {
-  const moviesToDisplay = MOVIES.slice(
-    MOVIES.length - 8,
-    MOVIES.length
-  ).reverse();
+  const [latestMovies, setLatestMovies] = useState([]);
+  const getLatestMoviesHandler = async () => {
+    const latestMoviesFetched = await getLatestMovies();
+    setLatestMovies(latestMoviesFetched);
+  };
+  useEffect(() => {
+    getLatestMoviesHandler();
+  }, []);
   return (
     <div className={classes["home-container__movies-section-container"]}>
-      <MainHeader title="Nowe filmy w bazie danych" />
+      <H2Banner title="Nowe filmy w bazie danych" />
       <div
         className={
           classes["home-container__movies-section-container__movies-box"]
         }
       >
-        {moviesToDisplay.map((movie) => (
+        {latestMovies.map((movie) => (
           <SingleMovie title={movie.name} image={movie.image_cover} />
         ))}
       </div>

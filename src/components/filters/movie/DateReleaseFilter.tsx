@@ -21,6 +21,7 @@ const DateReleaseFilter = () => {
           },
           mainCatName: "Rok produkcji",
           displayName: `${dateRangeStart}`,
+          queryName: "py.production_year",
         })
       );
     } else {
@@ -29,6 +30,7 @@ const DateReleaseFilter = () => {
           data: { rok_produkcji: `${dateRangeStart}-${dateRangeEnd}` },
           mainCatName: "Rok produkcji",
           displayName: `${dateRangeStart}-${dateRangeEnd}`,
+          queryName: "py.production_year",
         })
       );
     }

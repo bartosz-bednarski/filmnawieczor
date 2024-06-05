@@ -7,9 +7,13 @@
       display: flex;
       flex-direction: row;
       padding: 50px;
+      a {
+        text-decoration: none;
+      }
       &__single-news-box {
         display: flex;
         flex-direction: column;
+
         &__image {
           width: 325px;
           height: 183px;
