@@ -1,8 +1,7 @@
-import { MovieType, MOVIES, SingleMovieType } from "../../utils/data/movies";
+import { SingleMovieType } from "../../utils/data/movies";
 import CategoryText from "./CategoryText";
 import classes from "./movie.module.scss";
 import star from "../../assets/star.png";
-import { getMovies } from "../../api/movies";
 const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
   const movieCoverImage = require(`../../assets/movies/${movie.image_cover}`);
   // const privateRyan = require("../../assets/movies/saving-private-ryan.png");

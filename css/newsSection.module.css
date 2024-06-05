@@ -8,6 +8,9 @@
   flex-direction: row;
   padding: 50px;
 }
+.home-container__news-section-container__news-box a {
+  text-decoration: none;
+}
 .home-container__news-section-container__news-box__single-news-box {
   display: flex;
   flex-direction: column;

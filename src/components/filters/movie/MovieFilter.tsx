@@ -64,8 +64,6 @@ const MovieFilter: React.FC = () => {
     const mainCategoryIndex = Movies.findIndex(
       (cat) => cat.catDisplayName === filter.mainCatName
     );
-    console.log(filter.mainCatName);
-    console.log(Movies);
     Movies[mainCategoryIndex].secondaryCats.push({
       id: `S${(Math.random() * 3).toFixed(0)}}`,
       catName: filter.displayName,
@@ -79,7 +77,7 @@ const MovieFilter: React.FC = () => {
           <div
             className={classes["filters-container__primary-filters-container"]}
           >
-            <h2>Kategorie filtrów</h2>
+            <h1>Baza filmów</h1>
             <div
               className={
                 classes["filters-container__primary-filters-container__box"]

@@ -1,9 +1,9 @@
 import classes from "./mainHeader.module.scss";
-const MainHeader: React.FC<{ title: string }> = ({ title }) => {
+const H2Banner: React.FC<{ title: string }> = ({ title }) => {
   return (
     <div className={classes["header-container"]}>
-      <h1>{title}</h1>
+      <h2>{title}</h2>
     </div>
   );
 };
-export default MainHeader;
+export default H2Banner;
