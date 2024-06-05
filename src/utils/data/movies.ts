@@ -20,6 +20,20 @@ export interface MovieDescription {
   dlugosc_filmu: { title: string; value: string };
   ocena: number;
 }
+export interface SingleMovieType {
+  action_place: string;
+  action_time: string;
+  category: MoviesCategories;
+  description: string;
+  id: number;
+  image_cover: string;
+  movie_length: number;
+  name: string;
+  production_year: number;
+  rating: string;
+}
+export type MoviesFromLoader = SingleMovieType[];
+
 export interface MovieType {
   id: number;
   name: string;

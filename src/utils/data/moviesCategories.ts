@@ -3,6 +3,7 @@ export const CATEGORIES = [
     id: "M0",
     catDisplayName: "Gatunek",
     catName: "gatunek",
+    queryName: "mc.movie_category",
     secondaryCats: [
       { id: "S0", catName: "Akcja" },
       { id: "S1", catName: "Dokumentalny" },
@@ -22,6 +23,7 @@ export const CATEGORIES = [
     id: "M1",
     catDisplayName: "Miejsce akcji",
     catName: "miejsce_akcji",
+    queryName: "ap.action_place",
     secondaryCats: [
       { id: "S0", catName: "Francja" },
       { id: "S1", catName: "USA" },
@@ -41,6 +43,7 @@ export const CATEGORIES = [
     id: "M2",
     catDisplayName: "Czas akcji",
     catName: "czas_akcji",
+    queryName: "at.action_time",
     secondaryCats: [
       { id: "S0", catName: "0-500r" },
       { id: "S1", catName: "500-1000r" },
@@ -59,6 +62,7 @@ export const CATEGORIES = [
     id: "M3",
     catDisplayName: "Rok produkcji",
     catName: "rok_produkcji",
+    queryName: "py.production_year",
     secondaryCats: [
       { id: "S0", catName: "1950-1955" },
       { id: "S1", catName: "1955-1960" },
