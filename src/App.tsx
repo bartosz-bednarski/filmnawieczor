@@ -7,6 +7,7 @@ import NewsPage from "./pages/News";
 import SeriesPage from "./pages/Series";
 import NewsArticlePage from "./pages/NewsArticle";
 import { NEWS_ARTICLES } from "./utils/data/newsArticles";
+import { getMovies } from "./api/movies";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "filmy",
         element: <MoviesPage />,
+        loader: async () => {
+          const movies = await getMovies();
+          return movies;
+        },
       },
       {
         path: "seriale",

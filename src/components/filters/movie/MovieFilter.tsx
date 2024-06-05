@@ -54,6 +54,7 @@ const MovieFilter: React.FC = () => {
         data: { [Movies[mainCategoryIndex].catName]: secondaryCat.catName },
         mainCatName: Movies[mainCategoryIndex].catDisplayName,
         displayName: secondaryCat.catName,
+        queryName: Movies[mainCategoryIndex].queryName,
       })
     );
   };
