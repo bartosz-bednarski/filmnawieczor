@@ -8,6 +8,7 @@ import SeriesPage from "./pages/Series";
 import NewsArticlePage from "./pages/NewsArticle";
 import { NEWS_ARTICLES } from "./utils/data/newsArticles";
 import { getMovies } from "./api/movies";
+import { getLast10News, getNewsDetails } from "./api/news";
 
 const router = createBrowserRouter([
   {
@@ -21,18 +22,17 @@ const router = createBrowserRouter([
       {
         path: "aktualnosci",
         element: <NewsPage />,
+        loader: async () => {
+          const news = await getLast10News();
+          return news;
+        },
       },
       {
         path: "aktualnosci/artykul/:articleId",
         element: <NewsArticlePage />,
         loader: async ({ params }) => {
-          const article = NEWS_ARTICLES.find(
-            (article) => article.url === params.articleId
-          );
-          return {
-            title: article.title,
-            articleContent: article.articleContent,
-          };
+          const newsDetails = await getNewsDetails(params.articleId);
+          return newsDetails;
         },
       },
       {

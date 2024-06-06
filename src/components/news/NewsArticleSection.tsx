@@ -1,13 +1,15 @@
+import { News_article_data } from "news";
 import { ArticleSection } from "../../utils/data/newsArticles";
+import parse from "html-react-parser";
 import classes from "./newsArticleSection.module.scss";
-const NewsArticleSection: React.FC<{ section: ArticleSection }> = ({
+const NewsArticleSection: React.FC<{ section: News_article_data }> = ({
   section,
 }) => {
-  const image = require(`../../assets/movies/${section.image}`);
+  const image = require(`../../assets/movies/${section.article_image}`);
   return (
     <div className={classes["article-list-item-box"]}>
       <h2 className={classes["article-list-item-box__header"]}>
-        {section.title}
+        {section.article_title}
       </h2>
       <div className={classes["article-list-item-box__content-box"]}>
         <img
@@ -18,7 +20,8 @@ const NewsArticleSection: React.FC<{ section: ArticleSection }> = ({
           className="article-list-item-box__content-box__image"
         />
         <div className={classes["article-list-item-box__content-box__text"]}>
-          {section.content.map((paragraph) => (
+          {parse(section.article_content)}
+          {/* {section.article_content.map((paragraph) => (
             <p
               className={
                 classes["article-list-item-box__content-box__text__paragraph"]
@@ -26,7 +29,7 @@ const NewsArticleSection: React.FC<{ section: ArticleSection }> = ({
             >
               {paragraph.paragraph}
             </p>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
