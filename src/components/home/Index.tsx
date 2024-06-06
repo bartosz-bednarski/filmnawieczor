@@ -5,6 +5,7 @@ import TvIcon from "../ui/icons/TvIcon";
 import NewsSection from "./newsSection/NewsSection";
 import MoviesSection from "./moviesSection/MoviesSection";
 import SeriesSection from "./seriesSection/SeriesSection";
+import parse from "html-react-parser";
 const Home = () => {
   const slides = [
     { image: "slider-movies-and-series.png" },
@@ -36,7 +37,7 @@ const Home = () => {
     //Clearing the interval
     return () => clearInterval(interval);
   }, [sliderImage]);
-
+  const check = `<h1>Checking</h1>`;
   return (
     <div className={classes["home-container"]}>
       <div className={classes["home-container__slider-container"]}>
@@ -59,6 +60,7 @@ const Home = () => {
       <NewsSection />
       <MoviesSection />
       <SeriesSection />
+      {parse(check)}
     </div>
   );
 };

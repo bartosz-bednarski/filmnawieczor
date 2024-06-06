@@ -1,8 +1,9 @@
 import classes from "./newsBox.module.scss";
+import parse from "html-react-parser";
 const NewsBox: React.FC<{
   coverTitle: string;
   coverImage: string;
-  coverContent: { paragraph: string }[];
+  coverContent: string;
   onClick: () => void;
 }> = ({ coverTitle, coverImage, coverContent, onClick }) => {
   const newsCoverImage = require(`../../assets/news/${coverImage}`);
@@ -19,9 +20,7 @@ const NewsBox: React.FC<{
           alt="news cover"
         />
         <div className={classes["newsBox-container__box__text"]}>
-          {coverContent.map((line) => (
-            <p>{line.paragraph}</p>
-          ))}
+          {parse(coverContent)}
         </div>
       </div>
     </div>
