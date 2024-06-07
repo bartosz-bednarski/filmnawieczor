@@ -1,33 +1,27 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../../redux/hooks";
-import FilterBtn from "../../ui/FilterBtn";
+import FilterBtn from "../../ui/filters/FilterBtn";
 import classes from "../dateFilter.module.scss";
-import { setSecondaryFilterActionTimeRange } from "../../../redux/moviesFilter-slice";
-const ActionTimeFilter = () => {
+import { setActivefilter } from "../../../redux/moviesFilters-slice";
+const ActionTimeFilter: React.FC = () => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState("");
   const [dateRangeEnd, setDateRangeEnd] = useState("");
   const addDateRangeFilter = () => {
     if (Number(dateRangeEnd) - Number(dateRangeStart) === 0) {
-      dispatch(
-        setSecondaryFilterActionTimeRange({
-          data: {
-            czas_akcji: `${dateRangeStart}`,
-          },
-          mainCatName: "Czas akcji",
-          displayName: `${dateRangeStart}`,
-          queryName: "at.action_time",
-        })
-      );
+      const payloadToSend = {
+        catName: "czas_akcji",
+        queryName: "at.action_time",
+        queryValue: `${dateRangeStart}`,
+      };
+      dispatch(setActivefilter(payloadToSend));
     } else {
-      dispatch(
-        setSecondaryFilterActionTimeRange({
-          data: { czas_akcji: `${dateRangeStart}-${dateRangeEnd}` },
-          mainCatName: "Czas akcji",
-          displayName: `${dateRangeStart}-${dateRangeEnd}`,
-          queryName: "at.action_time",
-        })
-      );
+      const payloadToSend = {
+        catName: "czas_akcji",
+        queryName: "at.action_time",
+        queryValue: `${dateRangeStart}-${dateRangeEnd}`,
+      };
+      dispatch(setActivefilter(payloadToSend));
     }
   };
   const submitHandler = () => {
