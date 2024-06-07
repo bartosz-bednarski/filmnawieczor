@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../../redux/hooks";
-import FilterBtn from "../../ui/FilterBtn";
+import FilterBtn from "../../ui/filters/FilterBtn";
 import classes from "../dateFilter.module.scss";
 import { setSecondaryFilterReleaseDateRange } from "../../../redux/seriesFilter-slice";
 const DateReleaseFilter = () => {

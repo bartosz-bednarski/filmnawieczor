@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import moviesFilterSlice from "./moviesFilter-slice";
+import moviesFiltersSlice from "./moviesFilters-slice";
 import seriesFilterSlice from "./seriesFilter-slice";
 const store = configureStore({
   reducer: {
-    moviesFilter: moviesFilterSlice,
     seriesFilter: seriesFilterSlice,
+    moviesFilters: moviesFiltersSlice,
   },
 });
 export default store;

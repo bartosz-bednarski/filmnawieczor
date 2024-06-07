@@ -1,38 +1,27 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../../redux/hooks";
-import FilterBtn from "../../ui/FilterBtn";
+import FilterBtn from "../../ui/filters/FilterBtn";
 import classes from "../dateFilter.module.scss";
-import {
-  setSecondaryFilterActionTimeRange,
-  setSecondaryFilterReleaseDateRange,
-} from "../../../redux/moviesFilter-slice";
-const DateReleaseFilter = () => {
+import { setActivefilter } from "../../../redux/moviesFilters-slice";
+const DateReleaseFilter: React.FC = () => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState("");
   const [dateRangeEnd, setDateRangeEnd] = useState("");
   const addDateRangeFilter = () => {
     if (Number(dateRangeEnd) - Number(dateRangeStart) === 0) {
-      dispatch(
-        setSecondaryFilterReleaseDateRange({
-          data: {
-            rok_produkcji: `${Number(dateRangeStart) - 1}-${
-              Number(dateRangeEnd) + 1
-            }`,
-          },
-          mainCatName: "Rok produkcji",
-          displayName: `${dateRangeStart}`,
-          queryName: "py.production_year",
-        })
-      );
+      const payloadToSend = {
+        catName: "rok_produkcji",
+        queryName: "py.production_year",
+        queryValue: `${dateRangeStart}`,
+      };
+      dispatch(setActivefilter(payloadToSend));
     } else {
-      dispatch(
-        setSecondaryFilterReleaseDateRange({
-          data: { rok_produkcji: `${dateRangeStart}-${dateRangeEnd}` },
-          mainCatName: "Rok produkcji",
-          displayName: `${dateRangeStart}-${dateRangeEnd}`,
-          queryName: "py.production_year",
-        })
-      );
+      const payloadToSend = {
+        catName: "rok_produkcji",
+        queryName: "py.production_year",
+        queryValue: `${dateRangeStart}-${dateRangeEnd}`,
+      };
+      dispatch(setActivefilter(payloadToSend));
     }
   };
   const submitHandler = () => {

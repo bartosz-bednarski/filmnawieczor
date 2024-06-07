@@ -2,43 +2,36 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getFilteredMovies } from "../../api/movies";
 import { useAppSelector } from "../../redux/hooks";
-import MovieFilter from "../filters/movie/MovieFilter";
-// import Filters from "../globals/Filters";
+import Filters from "../filters/movie/Index";
 import Movie from "./Movie";
 import classes from "./movies.module.scss";
 const Movies = () => {
   const loaderData: any = useLoaderData();
 
   const [moviesToDisplay, setMoviesToDisplay] = useState(loaderData);
-  const activeSecondaryFiltersStore = useAppSelector(
-    (state) => state.moviesFilter.secondaryFilters
+  const activeFiltersStore = useAppSelector(
+    (state) => state.moviesFilters.activeFilters
   );
 
-  const activeFiltersArray = activeSecondaryFiltersStore.map(
-    (item) => item.data
-  );
   const setFilteredMoviesHandler = async () => {
-    const params = activeSecondaryFiltersStore.map((item) => {
-      return { queryName: item.queryName, queryValue: item.displayName };
+    const params = activeFiltersStore.map((item) => {
+      return { queryName: item.queryName, queryValue: item.queryValue };
     });
     const filteredMovies = await getFilteredMovies(params);
-    console.log("filteredMovies", filteredMovies);
     setMoviesToDisplay(filteredMovies);
   };
 
   useEffect(() => {
-    if (activeSecondaryFiltersStore.length > 0) {
+    if (activeFiltersStore.length > 0) {
       setFilteredMoviesHandler();
     } else {
       setMoviesToDisplay(loaderData);
     }
-    console.log("activeSecondaryFilters", activeSecondaryFiltersStore);
-  }, [activeSecondaryFiltersStore]);
+  }, [activeFiltersStore]);
 
-  console.log("active", activeFiltersArray);
   return (
     <div className={classes.container}>
-      <MovieFilter />
+      <Filters />
       <div className={classes["main-container"]}>
         <div className={classes["main-container__advert-box"]}> </div>
         <div className={classes["main-container__movies-container"]}>

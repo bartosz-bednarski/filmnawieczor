@@ -1,14 +1,14 @@
 import classes from "../filters.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import FilterBtn from "../../ui/FilterBtn";
+import FilterBtn from "../../ui/filters/FilterBtn";
 import { CATEGORIES } from "../../../utils/data/seriesCategories";
 import { useState } from "react";
 import {
   removeSecondaryFilter,
   setSecondaryFilter,
 } from "../../../redux/seriesFilter-slice";
-import ActiveFilterBtn from "../../ui/ActiveFilterBtn";
-import ArrowUpBtn from "../../ui/ArrowUpBtn";
+import ActiveFilterBtn from "../../ui/filters/ActiveFilterBtn";
+import ArrowUpBtn from "../../ui/filters/ArrowUpBtn";
 import ActionTimeFilter from "./ActionTimeFilter";
 import DateReleaseFilter from "./DateReleaseFilter";
 const SeriesFilter: React.FC = () => {

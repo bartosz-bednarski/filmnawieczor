@@ -1,4 +1,4 @@
-import classes from "./buttons.module.scss";
+import classes from "../buttons.module.scss";
 const ActiveFilterBtn: React.FC<{
   value: string | number;
   onClick: any;
