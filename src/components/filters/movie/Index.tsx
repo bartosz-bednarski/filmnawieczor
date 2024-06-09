@@ -4,7 +4,7 @@ import { useState } from "react";
 import SecondaryFilters from "./SecondaryFilters";
 import ActiveFilters from "./ActiveFilters";
 import { useAppSelector } from "../../../redux/hooks";
-const Filters = () => {
+const Filters: React.FC = () => {
   const activeFiltersStore = useAppSelector(
     (state) => state.moviesFilters.activeFilters
   );

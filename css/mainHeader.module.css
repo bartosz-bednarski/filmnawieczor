@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
   background-color: #ffe500;
+  text-align: center;
 }
 .header-container header {
   color: black;
