@@ -6,7 +6,10 @@
     &__news-box {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       padding: 50px;
+      justify-content: center;
+      gap: 1rem;
       a {
         text-decoration: none;
       }

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./Navigation.module.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../assets/logo.png";
 import hamburgerIcon from "../../assets/hamburger-icon.png";
 import arrowUp from "../../assets/chevron-up.png";
 const Navigation = () => {
+  const location = useLocation();
   const [showMobileList, setShowMobileList] = useState(false);
+  useEffect(() => {
+    setShowMobileList(false);
+  }, [location]);
   return (
     <div className={classes["navigation"]}>
       <img src={logo} alt="logo" className={classes["navigation__logo-img"]} />

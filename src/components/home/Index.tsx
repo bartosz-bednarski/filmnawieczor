@@ -8,8 +8,8 @@ import SeriesSection from "./seriesSection/SeriesSection";
 import parse from "html-react-parser";
 const Home = () => {
   const slides = [
-    { image: "slider-movies-and-series.png" },
-    { image: "slider-news.png" },
+    { image: "slider-movies-and-series" },
+    { image: "slider-news" },
   ];
   const [sliderImage, setSliderImage] = useState({
     image: slides[0].image,

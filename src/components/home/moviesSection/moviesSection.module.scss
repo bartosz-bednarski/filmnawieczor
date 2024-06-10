@@ -6,8 +6,10 @@
     &__movies-box {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       padding: 50px;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 1rem;
       &__single-movie-box {
         display: flex;
         flex-direction: column;
