@@ -6,7 +6,10 @@
 .home-container__news-section-container__news-box {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding: 50px;
+  justify-content: center;
+  gap: 1rem;
 }
 .home-container__news-section-container__news-box a {
   text-decoration: none;
