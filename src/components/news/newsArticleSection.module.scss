@@ -33,3 +33,13 @@
     }
   }
 }
+@media only screen and (max-width: 680px) {
+  .article-list-item-box {
+    &__content-box {
+      flex-direction: column;
+      &__image {
+        width: 320px;
+      }
+    }
+  }
+}
