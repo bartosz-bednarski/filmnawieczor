@@ -32,4 +32,13 @@
   margin-top: 0;
   margin-bottom: 10px;
   color: white;
+}
+
+@media only screen and (max-width: 680px) {
+  .article-list-item-box__content-box {
+    flex-direction: column;
+  }
+  .article-list-item-box__content-box__image {
+    width: 320px;
+  }
 }/*# sourceMappingURL=newsArticleSection.module.css.map */

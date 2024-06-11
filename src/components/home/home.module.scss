@@ -1,12 +1,26 @@
+@keyframes slidein {
+  from {
+    transition: all;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
 .home-container {
   display: flex;
   flex-direction: column;
   gap: 50px;
-
+  overflow-x: hidden;
   &__slider-container {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    &__slider-blank {
+      height: 80vh;
+      width: 100%;
+    }
     &__slider {
       display: flex;
       justify-content: center;
@@ -14,6 +28,8 @@
       height: 80vh;
       width: 100%;
       background: linear-gradient(-61deg, #ffe500, black);
+      animation: slidein 0.8s none;
+
       &__image {
         width: auto;
         height: auto;
@@ -42,6 +58,10 @@
 @media only screen and (max-width: 1000px) {
   .home-container {
     &__slider-container {
+      &__slider-blank {
+        height: 87vh;
+        width: 100%;
+      }
       &__slider {
         height: 87vh;
         &__image {
@@ -79,6 +99,9 @@
     max-width: 100%;
   }
   .home-container__slider-container__slider {
+    height: 90vh;
+  }
+  .home-container__slider-container__slider-blank {
     height: 90vh;
   }
 }

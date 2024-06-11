@@ -63,3 +63,12 @@
     }
   }
 }
+@media only screen and (max-width: 850px) {
+  .date-filter-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    &__box {
+      width: 320px;
+    }
+  }
+}

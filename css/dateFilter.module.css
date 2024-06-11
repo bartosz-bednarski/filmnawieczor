@@ -60,4 +60,14 @@
 .date-filter-container__box__input-box__text {
   font-size: 0.8em;
   text-align: center;
+}
+
+@media only screen and (max-width: 850px) {
+  .date-filter-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .date-filter-container__box {
+    width: 320px;
+  }
 }/*# sourceMappingURL=dateFilter.module.css.map */

@@ -22,14 +22,14 @@
     border-top: 1px solid black;
   }
 }
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1660px) {
   .main-container {
     &__advert-box {
       max-width: 200px;
     }
   }
 }
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1150px) {
   .main-container {
     flex-direction: column;
     align-items: center;

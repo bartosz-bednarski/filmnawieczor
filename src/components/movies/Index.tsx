@@ -5,6 +5,7 @@ import { useAppSelector } from "../../redux/hooks";
 import Filters from "../filters/movie/Index";
 import Movie from "./Movie";
 import classes from "./movies.module.scss";
+import classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
 const Movies = () => {
   const loaderData: any = useLoaderData();
 
@@ -32,15 +33,15 @@ const Movies = () => {
   return (
     <div className={classes.container}>
       <Filters />
-      <div className={classes["main-container"]}>
-        <div className={classes["main-container__advert-box"]}> </div>
-        <div className={classes["main-container__movies-container"]}>
+      <div className={classesGlobal["main-container"]}>
+        <div className={classesGlobal["main-container__advert-box"]}> </div>
+        <div className={classes["movies-container"]}>
           {moviesToDisplay.dataExists &&
             moviesToDisplay.moviesData.map((data) => {
               return <Movie movie={data} />;
             })}
         </div>
-        <div className={classes["main-container__advert-box"]}> </div>
+        <div className={classesGlobal["main-container__advert-box"]}> </div>
       </div>
     </div>
   );
