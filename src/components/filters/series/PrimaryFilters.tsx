@@ -1,19 +1,19 @@
 import classes from "../filters.module.scss";
 import FilterBtn from "../../ui/filters/FilterBtn";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { setSecondaryCatsToDisplayMovie } from "../../../redux/moviesFilters-slice";
+import { setSecondaryCatsToDisplaySerie } from "../../../redux/seriesFilter-slice";
 const PrimaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
   const dispatch = useAppDispatch();
   const primaryCategoriesStore = useAppSelector(
-    (state) => state.moviesFilters.categories
+    (state) => state.seriesFilters.categories
   );
   const onClickHandler = (catName) => {
     onHide();
-    dispatch(setSecondaryCatsToDisplayMovie(catName));
+    dispatch(setSecondaryCatsToDisplaySerie(catName));
   };
   return (
     <div className={classes["filters-container__primary-filters-container"]}>
-      <h1>Baza filmów</h1>
+      <h1>Baza seriali</h1>
       <div
         className={classes["filters-container__primary-filters-container__box"]}
       >

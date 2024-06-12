@@ -1,76 +1,57 @@
+import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import { getFilteredMovies } from "../../api/movies";
 import { useAppSelector } from "../../redux/hooks";
-import { SERIES } from "../../utils/data/series";
-import SeriesFilter from "../filters/series/SeriesFilter";
-// import Filters from "../globals/Filters";
+import Filters from "../filters/series/Index";
+
+import classes from "./movies.module.scss";
+import classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
 import Serie from "./Serie";
-import classes from "./series.module.scss";
+import {
+  getLast10SeriesResponseType,
+  getLast10SeriesSeriesDataObjectType,
+  getLast10SeriesType,
+} from "api/series";
+import { getFilteredSeries } from "../../api/series";
 const Series = () => {
-  const activeSecondaryFiltersStore = useAppSelector(
-    (state) => state.seriesFilter.secondaryFilters
+  const loaderData: any = useLoaderData();
+
+  const [seriesToDisplay, setSeriesToDisplay] =
+    useState<getLast10SeriesResponseType>(loaderData);
+  const activeFiltersStore = useAppSelector(
+    (state) => state.moviesFilters.activeFilters
   );
-  const activeFiltersArray = activeSecondaryFiltersStore.map(
-    (item) => item.data
-  );
-  const parseRange = (range) => {
-    const [start, end] = range.split("-").map(Number);
-    return { start, end: end || start };
-  };
 
-  const isYearInRange = (year, range) => {
-    return year >= range.start && year <= range.end;
-  };
-
-  const isRangeOverlapWithYears = (years, range) => {
-    return years.some((year) => isYearInRange(Number(year), range));
-  };
-
-  const getFilterValues = (filters) => {
-    const filterValues = {};
-    activeFiltersArray.forEach((filter) => {
-      const key = Object.keys(filter)[0];
-      const value = filter[key];
-      if (key === "czas_akcji") {
-        filterValues[key] = parseRange(value);
-      } else if (key === "rok_produkcji") {
-        filterValues[key] = parseRange(value);
-      } else {
-        filterValues[key] = value.split(", ").map((val) => val.trim());
-      }
+  const setFilteredSeriesHandler = async () => {
+    const params = activeFiltersStore.map((item) => {
+      return { queryName: item.queryName, queryValue: item.queryValue };
     });
-    return filterValues;
+    const filteredSeries = await getFilteredSeries(params);
+    // setSeriesToDisplay(filteredSeries);
   };
 
-  const applyFilters = (series, filters) => {
-    const filterValues = getFilterValues(activeFiltersArray);
+  useEffect(() => {
+    if (activeFiltersStore.length > 0) {
+      setFilteredSeriesHandler();
+    } else {
+      setSeriesToDisplay(loaderData);
+    }
+  }, [activeFiltersStore]);
 
-    return series.filter((serie) => {
-      return Object.keys(filterValues).every((key) => {
-        if (key === "czas_akcji") {
-          return isRangeOverlapWithYears(serie[key], filterValues[key]);
-        } else if (key === "rok_produkcji") {
-          return isRangeOverlapWithYears(serie[key], filterValues[key]);
-        } else if (Array.isArray(serie[key])) {
-          return serie[key].some((value) => filterValues[key].includes(value));
-        } else {
-          return filterValues[key].includes(serie[key]);
-        }
-      });
-    });
-  };
-
-  const filteredSeries = applyFilters(SERIES, activeFiltersArray);
-  console.log("active", activeFiltersArray);
   return (
     <div className={classes.container}>
-      <SeriesFilter />
-      <div className={classes["main-container"]}>
-        <div className={classes["main-container__advert-box"]}> </div>
-        <div className={classes["main-container__movies-container"]}>
-          {filteredSeries.map((data) => {
-            return <Serie serie={data} />;
-          })}
+      <Filters />
+      <div className={classesGlobal["main-container"]}>
+        <div className={classesGlobal["main-container__advert-box"]}> </div>
+        <div className={classes["series-container"]}>
+          {seriesToDisplay.dataExists &&
+            seriesToDisplay.seriesData.map(
+              (serie: getLast10SeriesSeriesDataObjectType) => {
+                return <Serie serie={serie} />;
+              }
+            )}
         </div>
-        <div className={classes["main-container__advert-box"]}> </div>
+        <div className={classesGlobal["main-container__advert-box"]}> </div>
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import classes from "./movie.module.scss";
 import star from "../../assets/star.png";
 const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
   const movieCoverImage = require(`../../assets/movies/${movie.image_cover}`);
-  // const privateRyan = require("../../assets/movies/saving-private-ryan.png");
 
   return (
     <>

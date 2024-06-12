@@ -9,6 +9,7 @@ import NewsArticlePage from "./pages/NewsArticle";
 import { NEWS_ARTICLES } from "./utils/data/newsArticles";
 import { getMovies } from "./api/movies";
 import { getLast10News, getNewsDetails } from "./api/news";
+import { getLast10Series } from "./api/series";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "seriale",
         element: <SeriesPage />,
+        loader: async () => {
+          const series = await getLast10Series();
+          return series;
+        },
       },
     ],
   },

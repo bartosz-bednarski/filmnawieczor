@@ -3,7 +3,7 @@ import moviesFiltersSlice from "./moviesFilters-slice";
 import seriesFilterSlice from "./seriesFilter-slice";
 const store = configureStore({
   reducer: {
-    seriesFilter: seriesFilterSlice,
+    seriesFilters: seriesFilterSlice,
     moviesFilters: moviesFiltersSlice,
   },
 });
