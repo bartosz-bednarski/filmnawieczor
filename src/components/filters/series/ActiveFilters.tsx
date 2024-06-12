@@ -1,11 +1,11 @@
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { removeActiveFilterMovie } from "../../../redux/moviesFilters-slice";
+import { removeActiveFilterSerie } from "../../../redux//seriesFilter-slice";
 import ActiveFilterBtn from "../../ui/filters/ActiveFilterBtn";
 import classes from "../filters.module.scss";
 const ActiveFilters: React.FC = () => {
   const dispatch = useAppDispatch();
   const activeFiltersStore = useAppSelector(
-    (state) => state.moviesFilters.activeFilters
+    (state) => state.seriesFilters.activeFilters
   );
   return (
     <div className={classes["filters-container__active-filters-container"]}>
@@ -20,7 +20,7 @@ const ActiveFilters: React.FC = () => {
               key={filter.queryValue}
               onClick={() => {
                 dispatch(
-                  removeActiveFilterMovie({
+                  removeActiveFilterSerie({
                     queryName: filter.queryName,
                     queryValue: filter.queryValue,
                   })

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAppDispatch } from "../../../redux/hooks";
 import FilterBtn from "../../ui/filters/FilterBtn";
 import classes from "../dateFilter.module.scss";
-import { setActivefilter } from "../../../redux/moviesFilters-slice";
+import { setActivefilterMovie } from "../../../redux/moviesFilters-slice";
 const DateReleaseFilter: React.FC = () => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState("");
@@ -14,14 +14,14 @@ const DateReleaseFilter: React.FC = () => {
         queryName: "py.production_year",
         queryValue: `${dateRangeStart}`,
       };
-      dispatch(setActivefilter(payloadToSend));
+      dispatch(setActivefilterMovie(payloadToSend));
     } else {
       const payloadToSend = {
         catName: "rok_produkcji",
         queryName: "py.production_year",
         queryValue: `${dateRangeStart}-${dateRangeEnd}`,
       };
-      dispatch(setActivefilter(payloadToSend));
+      dispatch(setActivefilterMovie(payloadToSend));
     }
   };
   const submitHandler = () => {

@@ -1,4 +1,4 @@
-import classes from "./serie.module.scss";
+import classes from "./movie.module.scss";
 
 const CategoryText: React.FC<{ title: string; text: string }> = ({
   title,

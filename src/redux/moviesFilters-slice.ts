@@ -127,7 +127,8 @@ const moviesFiltersSlice = createSlice({
 });
 
 export default moviesFiltersSlice.reducer;
-export const setSecondaryCatsToDisplay =
+export const setSecondaryCatsToDisplayMovie =
   moviesFiltersSlice.actions.setSecondaryCatsToDisplay;
-export const setActivefilter = moviesFiltersSlice.actions.setActivefilter;
-export const removeActiveFilter = moviesFiltersSlice.actions.removeActiveFilter;
+export const setActivefilterMovie = moviesFiltersSlice.actions.setActivefilter;
+export const removeActiveFilterMovie =
+  moviesFiltersSlice.actions.removeActiveFilter;

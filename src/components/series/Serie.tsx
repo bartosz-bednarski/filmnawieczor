@@ -1,51 +1,96 @@
-import { serie } from "../../utils/data/series";
+import { SingleMovieType } from "../../utils/data/movies";
 import CategoryText from "./CategoryText";
-import classes from "./serie.module.scss";
+import classes from "./movie.module.scss";
 import star from "../../assets/star.png";
-const Serie: React.FC<{ serie: serie }> = ({ serie }) => {
-  const serieCoverImage = require(`../../assets/movies/${serie.image_cover}`);
-  // const privateRyan = require("../../assets/movies/saving-private-ryan.png");
+import { getLast10SeriesSeriesDataObjectType } from "api/series";
+const Serie: React.FC<{ serie: getLast10SeriesSeriesDataObjectType }> = ({
+  serie,
+}) => {
+  const movieCoverImage = require(`../../assets/series/${serie.image_cover}`);
+
   return (
-    <div className={classes["container"]}>
-      <img
-        src={serieCoverImage}
-        alt="movie image"
-        className={classes["container__main-img"]}
-      />
-      <div className={classes["container__content-box"]}>
-        <h2>{serie.name}</h2>
-        <CategoryText
-          title={serie.description.opis.title}
-          text={serie.description.opis.value}
+    <>
+      <div className={classes["container"]}>
+        <img
+          src={movieCoverImage}
+          alt="movie image"
+          className={classes["container__main-img"]}
         />
-        <CategoryText
-          title={serie.description.miejsce_akcji.title}
-          text={serie.description.miejsce_akcji.value}
-        />
-        <CategoryText
-          title={serie.description.czas_akcji.title}
-          text={serie.description.czas_akcji.value}
-        />
-        <CategoryText
-          title={serie.description.gatunek.title}
-          text={serie.description.gatunek.value}
-        />
-        <CategoryText
-          title={serie.description.rok_produkcji.title}
-          text={serie.description.rok_produkcji.value}
-        />
-        <CategoryText
-          title={serie.description.dlugosc_filmu.title}
-          text={serie.description.dlugosc_filmu.value}
-        />
+        <div className={classes["container__content-box"]}>
+          <div className={classes["container__content-box__header-box"]}>
+            <h3>{serie.name}</h3>
+            <div
+              className={
+                classes["container__content-box__header-box__rating-box"]
+              }
+            >
+              <span
+                className={
+                  classes[
+                    "container__content-box__header-box__rating-box__rate"
+                  ]
+                }
+              >
+                <img src={star} width={40} height={40} /> {serie.rating}
+              </span>
+            </div>
+          </div>
+
+          <CategoryText title="Opis:" text={serie.description} />
+          <div className={classes["container__content-box__content-details"]}>
+            <CategoryText title="Miejsce akcji:" text={serie.action_place} />
+            <CategoryText
+              title="Czas akcji:"
+              text={String(serie.action_time)}
+            />
+            <CategoryText title="Gatunek:" text={serie.category} />
+            <CategoryText
+              title="Rok produkcji:"
+              text={String(serie.production_year)}
+            />
+            <CategoryText title="Sezony:" text={String(serie.seasons_count)} />
+          </div>
+        </div>
       </div>
-      <div className={classes["container__rating-box"]}>
-        <span className={classes["container__rating-box__rate"]}>
-          <img src={star} width={40} height={40} />{" "}
-          {serie.description.ocena.toFixed(1)}
-        </span>
+      <div className={classes["container-mobile"]}>
+        <div className={classes["container-mobile__top-box"]}>
+          <img
+            src={movieCoverImage}
+            alt="movie image"
+            className={classes["container-mobile__top-box__main-img"]}
+          />
+          <div className={classes["container-mobile__top-box__header-box"]}>
+            <h3>{serie.name}</h3>
+            <div
+              className={
+                classes["container-mobile__top-box__header-box__rating-box"]
+              }
+            >
+              <span
+                className={
+                  classes[
+                    "container-mobile__top-box__header-box__rating-box__rate"
+                  ]
+                }
+              >
+                <img src={star} width={40} height={40} /> {serie.rating}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className={classes["container-mobile__bottom-box"]}>
+          <CategoryText title="Opis:" text={serie.description} />
+          <CategoryText title="Miejsce akcji:" text={serie.action_place} />
+          <CategoryText title="Czas akcji:" text={String(serie.action_time)} />
+          <CategoryText title="Gatunek:" text={serie.category} />
+          <CategoryText
+            title="Rok produkcji:"
+            text={String(serie.production_year)}
+          />
+          <CategoryText title="Sezony:" text={String(serie.seasons_count)} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

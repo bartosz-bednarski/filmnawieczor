@@ -5,14 +5,14 @@ import ActionTimeFilter from "./ActionTimeFilter";
 import DateReleaseFilter from "./DateReleaseFilter";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { useEffect, useState } from "react";
-import { setActivefilterMovie } from "../../../redux/moviesFilters-slice";
+import { setActivefilterSerie } from "../../../redux/seriesFilter-slice";
 const SecondaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
   const dispatch = useAppDispatch();
   const secondaryCatsToDisplayStore = useAppSelector(
-    (state) => state.moviesFilters.secondaryCatsToDisplay
+    (state) => state.seriesFilters.secondaryCatsToDisplay
   );
   const categoriesStore = useAppSelector(
-    (state) => state.moviesFilters.categories
+    (state) => state.seriesFilters.categories
   );
   const [secondaryCategoriesToDisplay, setSecondaryCategoriestoDisplay] =
     useState(null);
@@ -23,7 +23,7 @@ const SecondaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
       queryName: secondaryCategoriesToDisplay.queryName,
       queryValue: catName,
     };
-    dispatch(setActivefilterMovie(payloadToSend));
+    dispatch(setActivefilterSerie(payloadToSend));
   };
   useEffect(() => {
     if (secondaryCatsToDisplayStore === "gatunek") {

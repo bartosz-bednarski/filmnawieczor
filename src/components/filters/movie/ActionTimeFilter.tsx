@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAppDispatch } from "../../../redux/hooks";
 import FilterBtn from "../../ui/filters/FilterBtn";
 import classes from "../dateFilter.module.scss";
-import { setActivefilter } from "../../../redux/moviesFilters-slice";
+import { setActivefilterMovie } from "../../../redux/moviesFilters-slice";
 const ActionTimeFilter: React.FC = () => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState("");
@@ -14,14 +14,14 @@ const ActionTimeFilter: React.FC = () => {
         queryName: "at.action_time",
         queryValue: `${dateRangeStart}`,
       };
-      dispatch(setActivefilter(payloadToSend));
+      dispatch(setActivefilterMovie(payloadToSend));
     } else {
       const payloadToSend = {
         catName: "czas_akcji",
         queryName: "at.action_time",
         queryValue: `${dateRangeStart}-${dateRangeEnd}`,
       };
-      dispatch(setActivefilter(payloadToSend));
+      dispatch(setActivefilterMovie(payloadToSend));
     }
   };
   const submitHandler = () => {
