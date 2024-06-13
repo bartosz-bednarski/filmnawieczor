@@ -41,12 +41,14 @@
   display: flex;
   flex-direction: column;
   color: #ffe500;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
 }
 .date-filter-container__box__input-box__input {
   background-color: #ffe500;
   border: none;
-  width: 40px;
+  width: 50px;
   padding: 10px;
   border-radius: 10px;
   text-align: center;
@@ -60,6 +62,10 @@
 .date-filter-container__box__input-box__text {
   font-size: 0.8em;
   text-align: center;
+}
+
+.error {
+  background-color: #d20000;
 }
 
 @media only screen and (max-width: 850px) {

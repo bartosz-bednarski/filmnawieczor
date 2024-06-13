@@ -1,6 +1,6 @@
 import classes from "./seriesSection.module.scss";
 const SingleSerie = ({ title, image }) => {
-  const newsCoverImage = require(`../../../assets/movies/${image}`);
+  const newsCoverImage = require(`../../../assets/series/${image}`);
   return (
     <div
       className={

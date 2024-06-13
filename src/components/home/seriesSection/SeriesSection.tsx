@@ -3,15 +3,15 @@ import H2Banner from "../../ui/H2Banner";
 import classes from "./seriesSection.module.scss";
 import SingleSerie from "./SingleSerie";
 import { useState, useEffect } from "react";
-import { getLatestMovies } from "../../../api/homePage";
+import { getLatestSeries } from "../../../api/homePage";
 const SeriesSection = () => {
-  const [latestMovies, setLatestMovies] = useState([]);
-  const getLatestMoviesHandler = async () => {
-    const latestMoviesFetched = await getLatestMovies();
-    setLatestMovies(latestMoviesFetched);
+  const [latestSeries, setLatestSeries] = useState([]);
+  const getLatestSeriesHandler = async () => {
+    const latestSeriesFetched = await getLatestSeries();
+    setLatestSeries(latestSeriesFetched);
   };
   useEffect(() => {
-    getLatestMoviesHandler();
+    getLatestSeriesHandler();
   }, []);
   // const seriesToDisplay = SERIES.slice(
   //   SERIES.length - 8,
@@ -25,7 +25,7 @@ const SeriesSection = () => {
           classes["home-container__series-section-container__series-box"]
         }
       >
-        {latestMovies.map((movie) => (
+        {latestSeries.map((movie) => (
           <SingleSerie
             title={movie.name}
             image={movie.image_cover}
