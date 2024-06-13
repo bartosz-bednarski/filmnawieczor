@@ -19,7 +19,7 @@ const Series = () => {
   const [seriesToDisplay, setSeriesToDisplay] =
     useState<getLast10SeriesResponseType>(loaderData);
   const activeFiltersStore = useAppSelector(
-    (state) => state.moviesFilters.activeFilters
+    (state) => state.seriesFilters.activeFilters
   );
 
   const setFilteredSeriesHandler = async () => {
@@ -27,7 +27,8 @@ const Series = () => {
       return { queryName: item.queryName, queryValue: item.queryValue };
     });
     const filteredSeries = await getFilteredSeries(params);
-    // setSeriesToDisplay(filteredSeries);
+    console.log("filteredSeries", filteredSeries);
+    setSeriesToDisplay(filteredSeries);
   };
 
   useEffect(() => {

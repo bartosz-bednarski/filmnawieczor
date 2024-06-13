@@ -41,7 +41,7 @@ export const getLast10Series: getLast10SeriesType = async () => {
 export const getFilteredSeries = async (params) => {
   const response = await fetch(
     //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/movies/filter`,
+    `http://localhost:9001/api/series/filter`,
     {
       method: "POST",
       cache: "no-cache",
@@ -58,23 +58,27 @@ export const getFilteredSeries = async (params) => {
   let filteredResponse = [];
   if (data.length > 0) {
     filteredResponse = data.map((item) => {
-      const movieLengthToHoursAndMinutes = new Date(item.movie_length * 1000)
-        .toISOString()
-        .slice(11, 19);
       return {
+        id: item.id,
+        name: item.name,
+        seasons_count: item.seasons_count,
+        description: item.description,
+        image_cover: item.image_cover,
         action_place: item.action_place,
         action_time:
           item.action_time_end === item.action_time_start
-            ? item.action_time_end
+            ? `${item.action_time_end}`
             : `${item.action_time_start}-${item.action_time_end}`,
         category: item.category,
-        description: item.description,
-        id: item.id,
-        image_cover: item.image_cover,
-        movie_length: movieLengthToHoursAndMinutes,
-        name: item.name,
-        production_year: item.production_year,
-        rating: item.rating,
+        rating: item.series_rating,
+        production_year:
+          item.production_year_end === item.production_year_start
+            ? `${item.production_year_end}`
+            : `${item.production_year_start}-${item.action_time_end}`,
+        // production_year:
+        //   item.production_year_end === item.production_year_start
+        //     ? `${item.production_year_end}`
+        //     : `${item.production_year_start}-${item.action_time_end}`,
       };
     });
     return { dataExists: true, seriesData: filteredResponse };

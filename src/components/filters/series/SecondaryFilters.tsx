@@ -6,6 +6,7 @@ import DateReleaseFilter from "./DateReleaseFilter";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { useEffect, useState } from "react";
 import { setActivefilterSerie } from "../../../redux/seriesFilter-slice";
+import SeasonsFilter from "./SeasonsFilter";
 const SecondaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
   const dispatch = useAppDispatch();
   const secondaryCatsToDisplayStore = useAppSelector(
@@ -51,6 +52,7 @@ const SecondaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
         {secondaryCatsToDisplayStore === "rok_produkcji" && (
           <DateReleaseFilter />
         )}
+        {secondaryCatsToDisplayStore === "seasons_count" && <SeasonsFilter />}
         {secondaryCategoriesToDisplay !== null &&
           secondaryCategoriesToDisplay.secondaryCats.map((secCat) => {
             if (secCat.active) {

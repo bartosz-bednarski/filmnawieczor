@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../../redux/hooks";
 import FilterBtn from "../../ui/filters/FilterBtn";
 import classes from "../dateFilter.module.scss";
@@ -7,28 +7,74 @@ const ActionTimeFilter: React.FC = () => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState("");
   const [dateRangeEnd, setDateRangeEnd] = useState("");
+  const [error, setError] = useState({
+    dateRangeStart: false,
+    dateRangeEnd: false,
+  });
   const addDateRangeFilter = () => {
     if (Number(dateRangeEnd) - Number(dateRangeStart) === 0) {
       const payloadToSend = {
         catName: "czas_akcji",
-        queryName: "at.action_time",
+        queryName: "sat.action_time",
         queryValue: `${dateRangeStart}`,
       };
       dispatch(setActivefilterSerie(payloadToSend));
     } else {
       const payloadToSend = {
         catName: "czas_akcji",
-        queryName: "at.action_time",
+        queryName: "sat.action_time",
         queryValue: `${dateRangeStart}-${dateRangeEnd}`,
       };
       dispatch(setActivefilterSerie(payloadToSend));
     }
   };
   const submitHandler = () => {
-    addDateRangeFilter();
-    setDateRangeStart("");
-    setDateRangeEnd("");
+    if (dateRangeStart === "") {
+      setError((state) => ({
+        dateRangeStart: true,
+        dateRangeEnd: state.dateRangeEnd,
+      }));
+    }
+    if (dateRangeEnd === "") {
+      setError((state) => ({
+        dateRangeStart: state.dateRangeStart,
+        dateRangeEnd: true,
+      }));
+    }
+    if (dateRangeStart > dateRangeEnd) {
+      setError((state) => ({
+        dateRangeStart: true,
+        dateRangeEnd: true,
+      }));
+    }
+    if (
+      dateRangeStart !== "" &&
+      dateRangeEnd !== "" &&
+      dateRangeStart <= dateRangeEnd
+    ) {
+      addDateRangeFilter();
+      setDateRangeStart("");
+      setDateRangeEnd("");
+      setError({ dateRangeEnd: false, dateRangeStart: false });
+    }
   };
+  useEffect(() => {
+    if (error.dateRangeStart && dateRangeStart !== "") {
+      setError((state) => ({
+        dateRangeStart: false,
+        dateRangeEnd: state.dateRangeEnd,
+      }));
+    }
+    if (error.dateRangeEnd && dateRangeEnd !== "") {
+      setError((state) => ({
+        dateRangeStart: state.dateRangeStart,
+        dateRangeEnd: false,
+      }));
+    }
+    if (error.dateRangeEnd && dateRangeEnd > dateRangeStart) {
+      setError((state) => ({ dateRangeStart: false, dateRangeEnd: false }));
+    }
+  }, [dateRangeStart, dateRangeEnd]);
   return (
     <div className={classes["date-filter-container"]}>
       <div className={classes["date-filter-container__box"]}>
@@ -38,7 +84,9 @@ const ActionTimeFilter: React.FC = () => {
             value={dateRangeStart}
             onChange={(e) => setDateRangeStart(e.target.value)}
             placeholder="-1000"
-            className={classes["date-filter-container__box__input-box__input"]}
+            className={`${
+              classes["date-filter-container__box__input-box__input"]
+            } ${error.dateRangeStart ? classes["error"] : ""}`}
           ></input>
           <span
             className={classes["date-filter-container__box__input-box__text"]}
@@ -53,7 +101,9 @@ const ActionTimeFilter: React.FC = () => {
             value={dateRangeEnd}
             onChange={(e) => setDateRangeEnd(e.target.value)}
             placeholder="2025"
-            className={classes["date-filter-container__box__input-box__input"]}
+            className={`${
+              classes["date-filter-container__box__input-box__input"]
+            } ${error.dateRangeEnd ? classes["error"] : ""}`}
           ></input>
           <span
             className={classes["date-filter-container__box__input-box__text"]}
