@@ -62,7 +62,7 @@ const SeasonsFilter: React.FC = () => {
     if (
       seasonsCountEnd !== "" &&
       seasonsCountStart !== "" &&
-      seasonsCountEnd > seasonsCountStart &&
+      seasonsCountEnd >= seasonsCountStart &&
       Number(seasonsCountEnd) > 0 &&
       Number(seasonsCountStart) > 0
     ) {

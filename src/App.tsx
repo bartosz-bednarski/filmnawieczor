@@ -6,8 +6,7 @@ import MoviesPage from "./pages/Movies";
 import NewsPage from "./pages/News";
 import SeriesPage from "./pages/Series";
 import NewsArticlePage from "./pages/NewsArticle";
-import { NEWS_ARTICLES } from "./utils/data/newsArticles";
-import { getMovies } from "./api/movies";
+import { getLast10Movies } from "./api/movies";
 import { getLast10News, getNewsDetails } from "./api/news";
 import { getLast10Series } from "./api/series";
 
@@ -40,7 +39,7 @@ const router = createBrowserRouter([
         path: "filmy",
         element: <MoviesPage />,
         loader: async () => {
-          const movies = await getMovies();
+          const movies = await getLast10Movies();
           return movies;
         },
       },

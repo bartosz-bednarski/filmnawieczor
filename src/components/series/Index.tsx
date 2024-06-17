@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { getFilteredMovies } from "../../api/movies";
 import { useAppSelector } from "../../redux/hooks";
 import Filters from "../filters/series/Index";
 
