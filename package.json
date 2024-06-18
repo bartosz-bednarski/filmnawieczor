@@ -1,6 +1,7 @@
 {
   "name": "filmnawieczor",
   "version": "0.1.0",
+  "homepage": "https://filmnawieczor.pl",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.4",
