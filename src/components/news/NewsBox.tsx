@@ -16,8 +16,11 @@ const NewsBox: React.FC<{
         <img
           src={newsCoverImage}
           width={325}
+          height="auto"
           className={classes["newsBox-container__box__image"]}
-          alt="news cover"
+          alt={`${coverTitle} cover`}
+          title={coverTitle}
+          loading="eager"
         />
         <div className={classes["newsBox-container__box__text"]}>
           {parse(coverContent)}

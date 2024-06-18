@@ -11,12 +11,16 @@ const SingleMovie = ({ title, image }) => {
     >
       <img
         src={newsCoverImage}
-        alt="article cover"
+        alt="movie cover"
+        width={175}
+        height={255}
         className={
           classes[
             "home-container__movies-section-container__movies-box__single-movie-box__image"
           ]
         }
+        title={title}
+        loading="lazy"
       />
       <span
         className={

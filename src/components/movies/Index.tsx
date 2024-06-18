@@ -80,21 +80,31 @@ const Movies = () => {
         window.onscroll = () => {
           if (fetched === false) {
             if (
-              window.innerHeight + Math.round(window.scrollY) >=
-              (!fetched
-                ? document
-                    .getElementById(
-                      String(
-                        moviesToDisplay.moviesData[
-                          moviesToDisplay.moviesData.length - 2
-                        ].id
-                      )
-                    )
-                    .getBoundingClientRect().top
-                : 0)
+              document.getElementById(
+                String(
+                  moviesToDisplay.moviesData[
+                    moviesToDisplay.moviesData.length - 2
+                  ].id
+                )
+              ) !== null
             ) {
-              setFetched(true);
-              setNext5MoviesHandler();
+              if (
+                window.innerHeight + Math.round(window.scrollY) >=
+                (!fetched
+                  ? document
+                      .getElementById(
+                        String(
+                          moviesToDisplay.moviesData[
+                            moviesToDisplay.moviesData.length - 2
+                          ].id
+                        )
+                      )
+                      .getBoundingClientRect().top
+                  : 0)
+              ) {
+                setFetched(true);
+                setNext5MoviesHandler();
+              }
             }
           }
         };
@@ -139,16 +149,11 @@ const Movies = () => {
     <div className={classes.container}>
       <Filters />
       <div className={classesGlobal["main-container"]}>
-        <div
-          className={classesGlobal["main-container__advert-box"]}
-          onClick={() => console.log("fethced", fetched)}
-        >
-          {" "}
-        </div>
+        <div className={classesGlobal["main-container__advert-box"]}> </div>
         <div className={classes["movies-container"]}>
           {moviesToDisplay.dataExists &&
             moviesToDisplay.moviesData.map((data) => {
-              return <Movie movie={data} />;
+              return <Movie movie={data} key={data.id} />;
             })}
         </div>
         <div className={classesGlobal["main-container__advert-box"]}> </div>

@@ -11,12 +11,16 @@ const SingleSerie = ({ title, image }) => {
     >
       <img
         src={newsCoverImage}
-        alt="article cover"
+        alt="serie cover"
+        width={175}
+        height={255}
         className={
           classes[
             "home-container__series-section-container__series-box__single-serie-box__image"
           ]
         }
+        title={title}
+        loading="lazy"
       />
       <span
         className={

@@ -13,8 +13,12 @@ const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
         <div className={classes["container"]} id={`${movie.id}`}>
           <img
             src={movieCoverImage}
-            alt="movie image"
+            alt={`${movie.name} cover`}
             className={classes["container__main-img"]}
+            width={175}
+            height="auto"
+            title={movie.name}
+            loading="eager"
           />
           <div className={classes["container__content-box"]}>
             <div className={classes["container__content-box__header-box"]}>
@@ -31,7 +35,15 @@ const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
                     ]
                   }
                 >
-                  <img src={star} width={40} height={40} /> {movie.rating}
+                  <img
+                    src={star}
+                    width={40}
+                    height={40}
+                    alt="star"
+                    title="star"
+                    loading="eager"
+                  />{" "}
+                  {movie.rating}
                 </span>
               </div>
             </div>
@@ -61,8 +73,12 @@ const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
           <div className={classes["container-mobile__top-box"]}>
             <img
               src={movieCoverImage}
-              alt="movie image"
+              alt={`${movie.name} cover`}
               className={classes["container-mobile__top-box__main-img"]}
+              width="auto"
+              height={175}
+              title={movie.name}
+              loading="eager"
             />
             <div className={classes["container-mobile__top-box__header-box"]}>
               <h3>{movie.name}</h3>
@@ -78,7 +94,15 @@ const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
                     ]
                   }
                 >
-                  <img src={star} width={40} height={40} /> {movie.rating}
+                  <img
+                    src={star}
+                    width={40}
+                    height={40}
+                    alt="star"
+                    title="star"
+                    loading="eager"
+                  />{" "}
+                  {movie.rating}
                 </span>
               </div>
             </div>

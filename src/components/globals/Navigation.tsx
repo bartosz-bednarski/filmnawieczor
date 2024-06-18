@@ -13,7 +13,15 @@ const Navigation = () => {
   }, [location]);
   return (
     <div className={classes["navigation"]}>
-      <img src={logo} alt="logo" className={classes["navigation__logo-img"]} />
+      <img
+        src={logo}
+        alt="logo"
+        className={classes["navigation__logo-img"]}
+        width={334}
+        height={72}
+        title="Film na wieczór"
+        loading="eager"
+      />
       <ul className={classes["navigation__list"]}>
         <li>
           <NavLink
@@ -140,6 +148,9 @@ const Navigation = () => {
                 width={100}
                 height={50}
                 onClick={() => setShowMobileList(false)}
+                alt="arrowUp button"
+                title="schowaj menu"
+                loading="eager"
               />
               <span>Schowaj menu</span>
             </span>
@@ -152,8 +163,19 @@ const Navigation = () => {
         width={50}
         height={50}
         onClick={() => setShowMobileList(true)}
+        alt="hamburger button"
+        title="film na wieczor menu"
+        loading="eager"
       />
-      <img src={logo} alt="logo" className={classes["navigation__img-2"]} />
+      <img
+        src={logo}
+        alt="logo"
+        className={classes["navigation__img-2"]}
+        width={334}
+        height={72}
+        title="film na wieczor"
+        loading="eager"
+      />
     </div>
   );
 };
