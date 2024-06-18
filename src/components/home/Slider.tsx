@@ -42,18 +42,33 @@ const Slider = ({ image }) => {
               classes["home-container__slider-container__slider__image"]
             }
             src={sliderImage}
+            alt="slider cover"
+            width={1920}
+            height={983}
+            title="Skorzystaj z naszej bazy filmów."
+            loading="eager"
           />
           <img
             className={
               classes["home-container__slider-container__slider__image-1000pxW"]
             }
             src={sliderImage1000pxW}
+            alt="slider cover"
+            width={1920}
+            height={983}
+            title="Skorzystaj z naszej bazy filmów."
+            loading="eager"
           />
           <img
             className={
               classes["home-container__slider-container__slider__image-680pxW"]
             }
             src={sliderImage680pxW}
+            alt="slider cover"
+            width={1920}
+            height={983}
+            title="Skorzystaj z naszej bazy filmów."
+            loading="eager"
           />
         </>
       )}

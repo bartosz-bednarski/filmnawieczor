@@ -1,4 +1,3 @@
-import { SingleMovieType } from "../../utils/data/movies";
 import CategoryText from "./CategoryText";
 import classes from "./movie.module.scss";
 import star from "../../assets/star.png";
@@ -10,11 +9,15 @@ const Serie: React.FC<{ serie: getLast10SeriesSeriesDataObjectType }> = ({
 
   return (
     <>
-      <div className={classes["container"]}>
+      <div className={classes["container"]} id={`${serie.id}`}>
         <img
           src={movieCoverImage}
-          alt="movie image"
+          alt={`${serie.name} serie cover`}
           className={classes["container__main-img"]}
+          width={175}
+          height="auto"
+          title={serie.name}
+          loading="eager"
         />
         <div className={classes["container__content-box"]}>
           <div className={classes["container__content-box__header-box"]}>
@@ -31,7 +34,15 @@ const Serie: React.FC<{ serie: getLast10SeriesSeriesDataObjectType }> = ({
                   ]
                 }
               >
-                <img src={star} width={40} height={40} /> {serie.rating}
+                <img
+                  src={star}
+                  width={40}
+                  height={40}
+                  alt="star"
+                  title="star"
+                  loading="eager"
+                />{" "}
+                {serie.rating}
               </span>
             </div>
           </div>
@@ -56,8 +67,12 @@ const Serie: React.FC<{ serie: getLast10SeriesSeriesDataObjectType }> = ({
         <div className={classes["container-mobile__top-box"]}>
           <img
             src={movieCoverImage}
-            alt="movie image"
+            alt={`${serie.name} serie cover`}
             className={classes["container-mobile__top-box__main-img"]}
+            width={120}
+            height={175}
+            title={serie.name}
+            loading="eager"
           />
           <div className={classes["container-mobile__top-box__header-box"]}>
             <h3>{serie.name}</h3>
@@ -73,7 +88,15 @@ const Serie: React.FC<{ serie: getLast10SeriesSeriesDataObjectType }> = ({
                   ]
                 }
               >
-                <img src={star} width={40} height={40} /> {serie.rating}
+                <img
+                  src={star}
+                  width={40}
+                  height={40}
+                  alt="star"
+                  title="star"
+                  loading="eager"
+                />{" "}
+                {serie.rating}
               </span>
             </div>
           </div>

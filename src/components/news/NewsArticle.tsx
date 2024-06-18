@@ -1,7 +1,5 @@
-import { ArticleContent } from "../../utils/data/newsArticles";
 import MainHeader from "../ui/MainHeader";
 import NewsArticleSection from "./NewsArticleSection";
-import NewsBox from "./NewsBox";
 import classes from "../ui/mainContainerWithAdverts.module.scss";
 import { useLoaderData } from "react-router-dom";
 import { News_details } from "news";
@@ -16,7 +14,7 @@ const NewsArticle: React.FC = () => {
         <div className={classes["main-container__advert-box"]}> </div>
         <div className={classes["main-container__content-container"]}>
           {newsDetails.news_details_data.map((section) => (
-            <NewsArticleSection section={section} />
+            <NewsArticleSection section={section} key={section.title} />
           ))}
         </div>
         <div className={classes["main-container__advert-box"]}> </div>

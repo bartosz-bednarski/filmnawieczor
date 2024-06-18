@@ -11,7 +11,14 @@ const SingleNews = ({ title, image, url }) => {
           ]
         }
       >
-        <img src={newsCoverImage} alt="article cover" />
+        <img
+          src={newsCoverImage}
+          alt="article cover"
+          width={416}
+          height={234}
+          title={title}
+          loading="eager"
+        />
         <span
           className={
             classes[
