@@ -5,8 +5,8 @@ import {
 
 export const getLast10Series: getLast10SeriesType = async () => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/series/last10`,
+    `https://filmnawieczor.online/api/series/last10`,
+    // `http://localhost:9001/api/series/last10`,
     { mode: "cors" }
   );
   const data = await response.json();
@@ -40,8 +40,8 @@ export const getLast10Series: getLast10SeriesType = async () => {
 
 export const getLast10FilteredSeries = async (params) => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/series/last10filtered`,
+    `https://filmnawieczor.online/api/series/last10filtered`,
+    // `http://localhost:9001/api/series/last10filtered`,
     {
       method: "POST",
       cache: "no-cache",
@@ -85,8 +85,8 @@ export const getLast10FilteredSeries = async (params) => {
 
 export const getNext5Series = async (id) => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/series/next5`,
+    `https://filmnawieczor.online/api/series/next5`,
+    // `http://localhost:9001/api/series/next5`,
     {
       method: "POST",
       cache: "no-cache",
@@ -130,8 +130,8 @@ export const getNext5Series = async (id) => {
 
 export const getNext5FilteredSeries = async (params) => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/series/next5Filtered`,
+    `https://filmnawieczor.online/api/series/next5Filtered`,
+    // `http://localhost:9001/api/series/next5Filtered`,
     {
       method: "POST",
       cache: "no-cache",
