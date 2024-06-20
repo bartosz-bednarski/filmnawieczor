@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import Movies from "../components/movies/Index";
 
-const MoviesPage: React.FC = () => {
+const MoviesPage = () => {
   return (
     <>
       <Helmet>
