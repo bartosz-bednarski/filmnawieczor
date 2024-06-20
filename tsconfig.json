@@ -17,6 +17,7 @@
     "paths": {
       "*": ["./src/types/*"]
     },
+    "typeRoots": ["./node_modules/@types", "./types"],
     "declaration": true
   },
   "include": ["./src", "declaration.d.ts"],
