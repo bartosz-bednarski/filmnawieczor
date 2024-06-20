@@ -1,7 +1,7 @@
 export const getLatestMovies = async () => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/homePage/latestMovies`,
+    `https://filmnawieczor.online/api/homePage/latestMovies`,
+    // `http://localhost:9001/api/homePage/latestMovies`,
     { mode: "cors" }
   );
   const data = await response.json();
@@ -9,8 +9,8 @@ export const getLatestMovies = async () => {
 };
 export const getLatestSeries = async () => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/homePage/latestSeries`,
+    `https://filmnawieczor.online/api/homePage/latestSeries`,
+    // `http://localhost:9001/api/homePage/latestSeries`,
     { mode: "cors" }
   );
   const data = await response.json();
@@ -18,8 +18,8 @@ export const getLatestSeries = async () => {
 };
 export const getLatestNews = async () => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/homePage/latestNews`,
+    `https://filmnawieczor.online/api/homePage/latestNews`,
+    // `http://localhost:9001/api/homePage/latestNews`,
     { mode: "cors" }
   );
   const data = await response.json();

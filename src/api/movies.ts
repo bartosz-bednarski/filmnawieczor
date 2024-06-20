@@ -1,8 +1,8 @@
 import { getLast10MoviesType } from "../types/api/movies";
 export const getLast10Movies: getLast10MoviesType = async () => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/movies/last10`,
+    `https://filmnawieczor.online/api/movies/last10`,
+    // `http://localhost:9001/api/movies/last10`,
     { mode: "cors" }
   );
   const data = await response.json();
@@ -36,8 +36,8 @@ export const getLast10Movies: getLast10MoviesType = async () => {
 
 export const getNext5Movies = async (id) => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/movies/next5`,
+    `https://filmnawieczor.online/api/movies/next5`,
+    // `http://localhost:9001/api/movies/next5`,
     {
       method: "POST",
       cache: "no-cache",
@@ -81,8 +81,8 @@ export const getNext5Movies = async (id) => {
 
 export const getLast10FilteredMovies = async (params) => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/movies/last10filtered`,
+    `https://filmnawieczor.online/api/movies/last10filtered`,
+    // `http://localhost:9001/api/movies/last10filtered`,
     {
       method: "POST",
       cache: "no-cache",
@@ -125,8 +125,8 @@ export const getLast10FilteredMovies = async (params) => {
 };
 export const getNext5FilteredMovies = async (params) => {
   const response = await fetch(
-    //   `https://geo-meta-rest-api.vercel.app/api/continents/${id}`,
-    `http://localhost:9001/api/movies/next5Filtered`,
+    `https://filmnawieczor.online/api/movies/next5Filtered`,
+    // `http://localhost:9001/api/movies/next5Filtered`,
     {
       method: "POST",
       cache: "no-cache",
