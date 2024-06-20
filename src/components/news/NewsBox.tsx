@@ -1,12 +1,14 @@
-import classes from "./newsBox.module.scss";
+import React from "react";
+import * as classes from "./newsBox.module.scss";
 import parse from "html-react-parser";
 const NewsBox: React.FC<{
   coverTitle: string;
   coverImage: string;
   coverContent: string;
+  key: number;
   onClick: () => void;
-}> = ({ coverTitle, coverImage, coverContent, onClick }) => {
-  const newsCoverImage = require(`../../assets/news/${coverImage}`);
+}> = ({ coverTitle, coverImage, key, coverContent, onClick }) => {
+  const newsCoverImage = require(`../../assets/news/${coverImage}`).default;
   return (
     <div className={classes["newsBox-container"]} onClick={onClick}>
       <div className={classes["newsBox-container__title"]}>

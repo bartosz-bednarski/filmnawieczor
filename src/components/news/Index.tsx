@@ -1,8 +1,9 @@
+import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import classes from "../ui/mainContainerWithAdverts.module.scss";
+import * as classes from "../ui/mainContainerWithAdverts.module.scss";
 import MainHeader from "../ui/MainHeader";
 import NewsBox from "./NewsBox";
-const News = () => {
+const News: React.FC = () => {
   const navigate = useNavigate();
   const last10News: any = useLoaderData();
   console.log("last 10 news", last10News);

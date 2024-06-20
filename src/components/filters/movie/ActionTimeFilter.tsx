@@ -1,7 +1,8 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { useAppDispatch } from "../../../redux/hooks";
 import FilterBtn from "../../ui/filters/FilterBtn";
-import classes from "../dateFilter.module.scss";
+import * as classes from "../dateFilter.module.scss";
 import { setActivefilterMovie } from "../../../redux/moviesFilters-slice";
 const ActionTimeFilter: React.FC = () => {
   const dispatch = useAppDispatch();

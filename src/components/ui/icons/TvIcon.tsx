@@ -1,5 +1,9 @@
-import classes from "./icons.module.scss";
-const TvIcon = ({ status, onClick }) => {
+import React from "react";
+import * as classes from "./icons.module.scss";
+const TvIcon: React.FC<{ status: string; onClick: () => void }> = ({
+  status,
+  onClick,
+}) => {
   return (
     <div className={classes["tvicon-box"]} onClick={() => onClick()}>
       <div

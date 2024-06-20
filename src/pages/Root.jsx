@@ -1,3 +1,4 @@
+import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navigation from "../components/globals/Navigation";
 import { useLayoutEffect } from "react";

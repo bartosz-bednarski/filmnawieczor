@@ -1,4 +1,5 @@
-import classes from "./mainHeader.module.scss";
+import React from "react";
+import * as classes from "./mainHeader.module.scss";
 const H2Banner: React.FC<{ title: string }> = ({ title }) => {
   return (
     <div className={classes["header-container"]}>

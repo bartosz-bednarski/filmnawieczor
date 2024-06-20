@@ -1,7 +1,8 @@
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import Series from "../components/series/Index";
 
-const SeriesPage = () => {
+const SeriesPage: React.FC = () => {
   return (
     <>
       <Helmet>

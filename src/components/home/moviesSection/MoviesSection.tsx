@@ -1,9 +1,10 @@
+import React from "react";
 import H2Banner from "../../ui/H2Banner";
-import classes from "./moviesSection.module.scss";
+import * as classes from "./moviesSection.module.scss";
 import SingleMovie from "./SingleMovie";
 import { useState, useEffect } from "react";
 import { getLatestMovies } from "../../../api/homePage";
-const MoviesSection = () => {
+const MoviesSection: React.FC = () => {
   const [latestMovies, setLatestMovies] = useState([]);
   const getLatestMoviesHandler = async () => {
     const latestMoviesFetched = await getLatestMovies();

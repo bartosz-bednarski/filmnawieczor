@@ -1,6 +1,7 @@
+import React from "react";
 import Home from "../components/home/Index";
 import { Helmet } from "react-helmet-async";
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <>
       <Helmet>

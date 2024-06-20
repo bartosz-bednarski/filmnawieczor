@@ -1,6 +1,7 @@
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import News from "../components/news/Index";
-const NewsPage = () => {
+const NewsPage: React.FC = () => {
   return (
     <>
       <Helmet>

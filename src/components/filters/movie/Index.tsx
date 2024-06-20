@@ -1,4 +1,5 @@
-import classes from "../filters.module.scss";
+import React from "react";
+import * as classes from "../filters.module.scss";
 import PrimaryFilters from "./PrimaryFilters";
 import { useState } from "react";
 import SecondaryFilters from "./SecondaryFilters";

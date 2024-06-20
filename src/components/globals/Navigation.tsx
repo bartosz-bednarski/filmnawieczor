@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
-import classes from "./Navigation.module.scss";
+import React from "react";
+import { useEffect } from "react";
+import * as classes from "./navigation.module.scss";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../assets/logo.png";
 import hamburgerIcon from "../../assets/hamburger-icon.png";
 import arrowUp from "../../assets/chevron-up.png";
-const Navigation = () => {
+const Navigation: React.FC = () => {
+  console.log(classes);
   const location = useLocation();
   const [showMobileList, setShowMobileList] = useState(false);
   useEffect(() => {
     setShowMobileList(false);
   }, [location]);
   return (
+    // <div></div>
     <div className={classes["navigation"]}>
       <img
         src={logo}
@@ -30,7 +33,6 @@ const Navigation = () => {
               [
                 isPending ? classes["pending"] : "navLink",
                 isActive ? classes["active"] : "navLink",
-                isTransitioning ? classes["transitioning"] : "navLink",
               ].join(" ")
             }
           >
@@ -44,7 +46,6 @@ const Navigation = () => {
               [
                 isPending ? classes["pending"] : "navLink",
                 isActive ? classes["active"] : "navLink",
-                isTransitioning ? classes["transitioning"] : "navLink",
               ].join(" ")
             }
           >
@@ -58,7 +59,6 @@ const Navigation = () => {
               [
                 isPending ? classes["pending"] : "navLink",
                 isActive ? classes["active"] : "navLink",
-                isTransitioning ? classes["transitioning"] : "navLink",
               ].join(" ")
             }
           >
@@ -72,7 +72,6 @@ const Navigation = () => {
               [
                 isPending ? classes["pending"] : "navLink",
                 isActive ? classes["active"] : "navLink",
-                isTransitioning ? classes["transitioning"] : "navLink",
               ].join(" ")
             }
           >
@@ -89,7 +88,6 @@ const Navigation = () => {
                 [
                   isPending ? classes["pending"] : "navLink",
                   isActive ? classes["active"] : "navLink",
-                  isTransitioning ? classes["transitioning"] : "navLink",
                 ].join(" ")
               }
             >
@@ -103,7 +101,6 @@ const Navigation = () => {
                 [
                   isPending ? classes["pending"] : "navLink",
                   isActive ? classes["active"] : "navLink",
-                  isTransitioning ? classes["transitioning"] : "navLink",
                 ].join(" ")
               }
             >
@@ -117,7 +114,6 @@ const Navigation = () => {
                 [
                   isPending ? classes["pending"] : "navLink",
                   isActive ? classes["active"] : "navLink",
-                  isTransitioning ? classes["transitioning"] : "navLink",
                 ].join(" ")
               }
             >
@@ -131,7 +127,6 @@ const Navigation = () => {
                 [
                   isPending ? classes["pending"] : "navLink",
                   isActive ? classes["active"] : "navLink",
-                  isTransitioning ? classes["transitioning"] : "navLink",
                 ].join(" ")
               }
             >

@@ -1,10 +1,10 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import Filters from "../filters/series/Index";
-
-import classes from "./movies.module.scss";
-import classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
+import * as classes from "./movies.module.scss";
+import * as classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
 import Serie from "./Serie";
 import {
   getLast10SeriesResponseType,
@@ -15,7 +15,7 @@ import {
   getNext5FilteredSeries,
   getNext5Series,
 } from "../../api/series";
-const Series = () => {
+const Series: React.FC = () => {
   const loaderData: any = useLoaderData();
 
   const [seriesToDisplay, setSeriesToDisplay] =

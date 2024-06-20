@@ -1,10 +1,10 @@
-import { NEWS_ARTICLES } from "../../../utils/data/newsArticles";
+import React from "react";
 import MainHeader from "../../ui/MainHeader";
-import classes from "./newsSection.module.scss";
+import * as classes from "./newsSection.module.scss";
 import SingleNews from "./SingleNews";
 import { useState, useEffect } from "react";
 import { getLatestNews } from "../../../api/homePage";
-const NewsSection = () => {
+const NewsSection: React.FC = () => {
   const [latestNews, setLatestNews] = useState([]);
   const getLatestNewsHandler = async () => {
     const latestNewsFetched = await getLatestNews();

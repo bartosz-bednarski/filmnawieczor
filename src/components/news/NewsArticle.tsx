@@ -1,6 +1,7 @@
+import React from "react";
 import MainHeader from "../ui/MainHeader";
 import NewsArticleSection from "./NewsArticleSection";
-import classes from "../ui/mainContainerWithAdverts.module.scss";
+import * as classes from "../ui/mainContainerWithAdverts.module.scss";
 import { useLoaderData } from "react-router-dom";
 import { News_details } from "news";
 const NewsArticle: React.FC = () => {

@@ -1,7 +1,12 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
-import classes from "./newsSection.module.scss";
-const SingleNews = ({ title, image, url }) => {
-  const newsCoverImage = require(`../../../assets/news/${image}`);
+import * as classes from "./newsSection.module.scss";
+const SingleNews: React.FC<{ title: string; image: string; url: string }> = ({
+  title,
+  image,
+  url,
+}) => {
+  const newsCoverImage = require(`../../../assets/news/${image}`).default;
   return (
     <NavLink to={url}>
       <div

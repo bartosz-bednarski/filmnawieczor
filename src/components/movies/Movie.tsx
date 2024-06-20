@@ -1,11 +1,13 @@
+import React from "react";
 import { SingleMovieType } from "../../utils/data/movies";
 import CategoryText from "./CategoryText";
-import classes from "./movie.module.scss";
+import * as classes from "./movie.module.scss";
 import star from "../../assets/star.png";
 import useWindowDimensions from "../globals/scripts/windowDimensions";
 const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
   const { width } = useWindowDimensions();
-  const movieCoverImage = require(`../../assets/movies/${movie.image_cover}`);
+  const movieCoverImage =
+    require(`../../assets/movies/${movie.image_cover}`).default;
 
   return (
     <>
