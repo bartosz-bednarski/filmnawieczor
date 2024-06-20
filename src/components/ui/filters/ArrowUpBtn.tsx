@@ -1,4 +1,5 @@
-import classes from "../buttons.module.scss";
+import React from "react";
+import * as classes from "../buttons.module.scss";
 import arrowup from "../../../assets/chevron-up.png";
 const ArrowUpBtn: React.FC<{
   onClick: any;

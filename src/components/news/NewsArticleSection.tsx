@@ -1,10 +1,11 @@
+import React from "react";
 import { News_article_data } from "news";
 import parse from "html-react-parser";
-import classes from "./newsArticleSection.module.scss";
+import * as classes from "./newsArticleSection.module.scss";
 const NewsArticleSection: React.FC<{ section: News_article_data }> = ({
   section,
 }) => {
-  const image = require(`../../assets/movies/${section.article_image}`);
+  const image = require(`../../assets/movies/${section.article_image}`).default;
   return (
     <div className={classes["article-list-item-box"]}>
       <h2 className={classes["article-list-item-box__header"]}>

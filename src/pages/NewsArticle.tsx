@@ -1,10 +1,10 @@
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 import NewsArticle from "../components/news/NewsArticle";
-const NewsArticlePage = () => {
+const NewsArticlePage: React.FC = () => {
   const data: any = useLoaderData();
   let { articleId } = useParams();
-  console.log(data);
   return (
     <>
       <Helmet>

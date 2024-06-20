@@ -1,8 +1,10 @@
-import classes from "../buttons.module.scss";
+import React from "react";
+import * as classes from "../buttons.module.scss";
 const ActiveFilterBtn: React.FC<{
   value: string | number;
   onClick: any;
-}> = ({ value, onClick }) => {
+  key: number | string;
+}> = ({ value, onClick, key }) => {
   return (
     <div className={classes["active-filter-box"]} onClick={() => onClick()}>
       {value}

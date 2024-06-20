@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import {
@@ -8,10 +9,10 @@ import {
 import { useAppSelector } from "../../redux/hooks";
 import Filters from "../filters/movie/Index";
 import Movie from "./Movie";
-import classes from "./movies.module.scss";
-import classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
+import * as classes from "./movies.module.scss";
+import * as classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
 import { getLast10MoviesResponseType } from "api/movies";
-const Movies = () => {
+const Movies: React.FC = () => {
   const loaderData: any = useLoaderData();
 
   const [moviesToDisplay, setMoviesToDisplay] =

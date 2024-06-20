@@ -1,7 +1,7 @@
-import { get } from "http";
+import React from "react";
 import { useEffect, useState } from "react";
-import classes from "./home.module.scss";
-const Slider = ({ image }) => {
+import * as classes from "./home.module.scss";
+const Slider: React.FC<{ image: string }> = ({ image }) => {
   const [updated, setUpdated] = useState(false);
   useEffect(() => {
     setUpdated(true);
@@ -18,11 +18,12 @@ const Slider = ({ image }) => {
     //   }, 20);
     // }
   }, [image]);
-  const sliderImage = require(`../../assets/home/${image}.png`);
-  const sliderImage1000pxW = require(`../../assets/home/${image}-1000w.png`);
-  const sliderImage680pxW = require(`../../assets/home/${image}-680w.png`);
+  const sliderImage = require(`../../assets/home/${image}.png`).default;
+  const sliderImage1000pxW =
+    require(`../../assets/home/${image}-1000w.png`).default;
+  const sliderImage680pxW =
+    require(`../../assets/home/${image}-680w.png`).default;
 
-  console.log(image);
   return (
     <div
       className={

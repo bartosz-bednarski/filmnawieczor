@@ -1,11 +1,13 @@
+import React from "react";
 import CategoryText from "./CategoryText";
-import classes from "./movie.module.scss";
+import * as classes from "./movie.module.scss";
 import star from "../../assets/star.png";
 import { getLast10SeriesSeriesDataObjectType } from "api/series";
 const Serie: React.FC<{ serie: getLast10SeriesSeriesDataObjectType }> = ({
   serie,
 }) => {
-  const movieCoverImage = require(`../../assets/series/${serie.image_cover}`);
+  const movieCoverImage =
+    require(`../../assets/series/${serie.image_cover}`).default;
 
   return (
     <>

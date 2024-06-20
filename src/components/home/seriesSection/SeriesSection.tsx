@@ -1,10 +1,10 @@
-import { SERIES } from "../../../utils/data/series";
+import React from "react";
 import H2Banner from "../../ui/H2Banner";
-import classes from "./seriesSection.module.scss";
+import * as classes from "./seriesSection.module.scss";
 import SingleSerie from "./SingleSerie";
 import { useState, useEffect } from "react";
 import { getLatestSeries } from "../../../api/homePage";
-const SeriesSection = () => {
+const SeriesSection: React.FC = () => {
   const [latestSeries, setLatestSeries] = useState([]);
   const getLatestSeriesHandler = async () => {
     const latestSeriesFetched = await getLatestSeries();

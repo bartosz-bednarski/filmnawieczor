@@ -1,11 +1,12 @@
-import classes from "./home.module.scss";
+import React from "react";
+import * as classes from "./home.module.scss";
 import Slider from "./Slider";
 import { useState, useEffect } from "react";
 import TvIcon from "../ui/icons/TvIcon";
 import NewsSection from "./newsSection/NewsSection";
 import MoviesSection from "./moviesSection/MoviesSection";
 import SeriesSection from "./seriesSection/SeriesSection";
-const Home = () => {
+const Home: React.FC = () => {
   const slides = [
     { image: "slider-movies-and-series" },
     { image: "slider-news" },
@@ -17,6 +18,7 @@ const Home = () => {
   const changeSlideOnClick = (index) => {
     setSliderImage({ image: slides[index].image, index: index });
   };
+  console.log("classes", classes);
   useEffect(() => {
     const sliderHandler = () => {
       if (sliderImage.index < slides.length - 1) {
@@ -37,6 +39,7 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [sliderImage]);
   return (
+    // <div className={classes["home-container"]}></div>
     <div className={classes["home-container"]}>
       <div className={classes["home-container__slider-container"]}>
         <Slider image={sliderImage.image} />

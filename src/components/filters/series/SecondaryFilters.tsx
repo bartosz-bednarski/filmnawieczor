@@ -1,4 +1,5 @@
-import classes from "../filters.module.scss";
+import React from "react";
+import * as classes from "../filters.module.scss";
 import FilterBtn from "../../ui/filters/FilterBtn";
 import ArrowUpBtn from "../../ui/filters/ArrowUpBtn";
 import ActionTimeFilter from "./ActionTimeFilter";

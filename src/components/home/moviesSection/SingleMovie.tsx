@@ -1,6 +1,10 @@
-import classes from "./moviesSection.module.scss";
-const SingleMovie = ({ title, image }) => {
-  const newsCoverImage = require(`../../../assets/movies/${image}`);
+import React from "react";
+import * as classes from "./moviesSection.module.scss";
+const SingleMovie: React.FC<{ title: string; image: string }> = ({
+  title,
+  image,
+}) => {
+  const newsCoverImage = require(`../../../assets/movies/${image}`).default;
   return (
     <div
       className={
