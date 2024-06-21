@@ -18,11 +18,11 @@ const Slider: React.FC<{ image: string }> = ({ image }) => {
     //   }, 20);
     // }
   }, [image]);
-  const sliderImage = require(`../../assets/home/${image}.png`).default;
+  const sliderImage = require(`../../assets/home/${image}.webp`).default;
   const sliderImage1000pxW =
-    require(`../../assets/home/${image}-1000w.png`).default;
+    require(`../../assets/home/${image}-1000w.webp`).default;
   const sliderImage680pxW =
-    require(`../../assets/home/${image}-680w.png`).default;
+    require(`../../assets/home/${image}-680w.webp`).default;
 
   return (
     <div
