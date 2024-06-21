@@ -112,6 +112,7 @@
 }
 @media only screen and (max-width: 500px) {
   .navigation__logo-img {
-    width: 200px;
+    width: 150px;
+    height: 28.6px;
   }
 }/*# sourceMappingURL=Navigation.module.css.map */

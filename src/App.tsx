@@ -10,6 +10,7 @@ import NewsArticlePage from "./pages/NewsArticle";
 import { getLast10Movies } from "./api/movies";
 import { getLast10News, getNewsDetails } from "./api/news";
 import { getLast10Series } from "./api/series";
+import PrivacyPolicyPage from "./pages/PrivacyPolicy";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
           const series = await getLast10Series();
           return series;
         },
+      },
+      {
+        path: "politykaprywatnosci",
+        element: <PrivacyPolicyPage />,
       },
     ],
   },

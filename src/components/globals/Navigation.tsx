@@ -3,11 +3,10 @@ import { useEffect } from "react";
 import * as classes from "./navigation.module.scss";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.webp";
 import hamburgerIcon from "../../assets/hamburger-icon.png";
 import arrowUp from "../../assets/chevron-up.png";
 const Navigation: React.FC = () => {
-  console.log(classes);
   const location = useLocation();
   const [showMobileList, setShowMobileList] = useState(false);
   useEffect(() => {
@@ -20,8 +19,8 @@ const Navigation: React.FC = () => {
         src={logo}
         alt="logo"
         className={classes["navigation__logo-img"]}
-        width={334}
-        height={72}
+        width={194}
+        height={37}
         title="Film na wieczór"
         loading="eager"
       />
@@ -155,8 +154,8 @@ const Navigation: React.FC = () => {
       <img
         src={hamburgerIcon}
         className={classes["navigation__mobile-hamburger-icon"]}
-        width={50}
-        height={50}
+        width={40}
+        height={40}
         onClick={() => setShowMobileList(true)}
         alt="hamburger button"
         title="film na wieczor menu"
@@ -166,8 +165,8 @@ const Navigation: React.FC = () => {
         src={logo}
         alt="logo"
         className={classes["navigation__img-2"]}
-        width={334}
-        height={72}
+        width={194}
+        height={37}
         title="film na wieczor"
         loading="eager"
       />
