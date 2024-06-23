@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import * as classes from "./home.module.scss";
+
 const Slider: React.FC<{ image: string }> = ({ image }) => {
   const [updated, setUpdated] = useState(false);
   useEffect(() => {
@@ -8,15 +9,6 @@ const Slider: React.FC<{ image: string }> = ({ image }) => {
     setTimeout(() => {
       setUpdated(false);
     }, 50);
-    // if (imgClasses === "home-container__slider-container__slider") {
-    //   setTimeout(() => {
-    //     setImgClasses("home-container__slider-container__slider-2");
-    //   }, 20);
-    // } else {
-    //   setTimeout(() => {
-    //     setImgClasses("home-container__slider-container__slider");
-    //   }, 20);
-    // }
   }, [image]);
   const sliderImage = require(`../../assets/home/${image}.webp`).default;
   const sliderImage1000pxW =

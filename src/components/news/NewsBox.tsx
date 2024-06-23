@@ -5,9 +5,8 @@ const NewsBox: React.FC<{
   coverTitle: string;
   coverImage: string;
   coverContent: string;
-  key: number;
   onClick: () => void;
-}> = ({ coverTitle, coverImage, key, coverContent, onClick }) => {
+}> = ({ coverTitle, coverImage, coverContent, onClick }) => {
   const newsCoverImage = require(`../../assets/news/${coverImage}`).default;
   return (
     <div className={classes["newsBox-container"]} onClick={onClick}>

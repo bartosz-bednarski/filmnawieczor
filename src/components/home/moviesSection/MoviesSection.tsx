@@ -22,7 +22,11 @@ const MoviesSection: React.FC = () => {
         }
       >
         {latestMovies.map((movie) => (
-          <SingleMovie title={movie.name} image={movie.image_cover} />
+          <SingleMovie
+            title={movie.name}
+            image={movie.image_cover}
+            key={movie.id}
+          />
         ))}
       </div>
     </div>

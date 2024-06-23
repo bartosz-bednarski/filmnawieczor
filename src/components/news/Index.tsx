@@ -6,7 +6,6 @@ import NewsBox from "./NewsBox";
 const News: React.FC = () => {
   const navigate = useNavigate();
   const last10News: any = useLoaderData();
-  console.log("last 10 news", last10News);
   return (
     <div className={classes.container}>
       <MainHeader title="Aktualności" />
