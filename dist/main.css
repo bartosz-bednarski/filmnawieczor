@@ -390,7 +390,8 @@
 }
 @media only screen and (max-width: 500px) {
   .navigation-module__navigation__logo-img--LX4zS {
-    width: 200px;
+    width: 150px;
+    height: 28.6px;
   }
 }
 /*!****************************************************************************************************************************************************************!*\
@@ -407,12 +408,36 @@
   flex-direction: column;
   box-sizing: border-box;
   width: 1020px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 30px;
 }
 .footer-module__footer__content-container__nav-menu-box--bizZf {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   font-size: 1em;
+}
+.footer-module__footer__content-container__nav-menu-box--bizZf ul {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-module__footer__content-container__nav-menu-box--bizZf ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+.footer-module__footer__content-container__nav-menu-box--bizZf ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+.footer-module__footer__content-container__copyright--Sa5Kt {
+  font-size: 1em;
+  color: black;
+  font-weight: 500;
 }
 /*!*****************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/filters/filters.module.scss ***!
@@ -794,7 +819,7 @@
   box-sizing: content-box;
   flex-direction: row;
   background-color: black;
-  min-height: 60vh;
+  min-height: 74vh;
 }
 .mainContainerWithAdverts-module__main-container__content-container--wKVaK {
   display: flex;
@@ -1111,6 +1136,27 @@
   .newsArticleSection-module__article-list-item-box__content-box__image--Bvfd0 {
     width: 320px;
   }
+}
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/privacyPolicy/privacyPolicy.module.scss ***!
+  \*****************************************************************************************************************************************************************************/
+.privacyPolicy-module__privacyPolicy--nQsRA {
+  display: flex;
+  min-height: 90vh;
+  justify-content: center;
+  padding: 2em 0;
+}
+.privacyPolicy-module__privacyPolicy__content-box--j9mSG {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.privacyPolicy-module__privacyPolicy__content-box--j9mSG h2,
+.privacyPolicy-module__privacyPolicy__content-box--j9mSG p {
+  color: white;
+}
+.privacyPolicy-module__privacyPolicy__content-box--j9mSG p {
+  margin: 0;
 }
 /*!*************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!

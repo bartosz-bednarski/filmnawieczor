@@ -12,6 +12,7 @@ import Movie from "./Movie";
 import * as classes from "./movies.module.scss";
 import * as classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
 import { getLast10MoviesResponseType } from "api/movies";
+
 const Movies: React.FC = () => {
   const loaderData: any = useLoaderData();
 

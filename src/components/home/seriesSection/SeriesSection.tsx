@@ -13,10 +13,6 @@ const SeriesSection: React.FC = () => {
   useEffect(() => {
     getLatestSeriesHandler();
   }, []);
-  // const seriesToDisplay = SERIES.slice(
-  //   SERIES.length - 8,
-  //   SERIES.length
-  // ).reverse();
   return (
     <div className={classes["home-container__series-section-container"]}>
       <H2Banner title="Nowe seriale w bazie danych" />
