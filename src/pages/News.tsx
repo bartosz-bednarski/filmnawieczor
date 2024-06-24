@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import News from "../components/news/Index";
 const NewsPage = () => {
+  const loader: any = useLoaderData();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loader[0] === undefined) {
+      navigate("/error", { state: { message: loader.message } });
+    }
+  }, []);
   return (
     <>
       <Helmet>

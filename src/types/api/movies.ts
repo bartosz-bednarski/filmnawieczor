@@ -1,6 +1,8 @@
 export type getLast10MoviesResponseType = {
-  dataExists: boolean;
-  moviesData: getLast10MoviesMoviesDataObjectType[] | [];
+  dataExists?: boolean;
+  moviesData?: getLast10MoviesMoviesDataObjectType[] | [];
+  status?: "error";
+  message?: string;
 };
 
 export type getLast10MoviesType = () => Promise<getLast10MoviesResponseType>;
