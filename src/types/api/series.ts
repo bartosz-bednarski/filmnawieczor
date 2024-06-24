@@ -1,6 +1,8 @@
 export type getLast10SeriesResponseType = {
-  dataExists: boolean;
-  seriesData: getLast10SeriesSeriesDataObjectType[] | [];
+  dataExists?: boolean;
+  seriesData?: getLast10SeriesSeriesDataObjectType[] | [];
+  status?: "error";
+  message?: string;
 };
 
 export type getLast10SeriesType = () => Promise<getLast10SeriesResponseType>;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import Filters from "../filters/series/Index";
 import * as classes from "./movies.module.scss";
@@ -16,6 +16,7 @@ import {
   getNext5Series,
 } from "../../api/series";
 const Series: React.FC = () => {
+  const navigate = useNavigate();
   const loaderData: any = useLoaderData();
 
   const [seriesToDisplay, setSeriesToDisplay] =
@@ -32,7 +33,9 @@ const Series: React.FC = () => {
       return { queryName: item.queryName, queryValue: item.queryValue };
     });
     const filteredSeries = await getLast10FilteredSeries(params);
-    console.log("filteredSeries", filteredSeries);
+    if (filteredSeries.status === "error") {
+      navigate("/error", { state: { message: filteredSeries.message } });
+    }
     setSeriesToDisplay(filteredSeries);
   };
 

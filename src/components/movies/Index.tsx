@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import {
   getLast10FilteredMovies,
   getNext5FilteredMovies,
@@ -14,6 +14,7 @@ import * as classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
 import { getLast10MoviesResponseType } from "api/movies";
 
 const Movies: React.FC = () => {
+  const navigate = useNavigate();
   const loaderData: any = useLoaderData();
 
   const [moviesToDisplay, setMoviesToDisplay] =
@@ -30,6 +31,9 @@ const Movies: React.FC = () => {
       return { queryName: item.queryName, queryValue: item.queryValue };
     });
     const filteredMovies = await getLast10FilteredMovies(params);
+    if (filteredMovies.status === "error") {
+      navigate("/error", { state: { message: filteredMovies.message } });
+    }
     setMoviesToDisplay(filteredMovies);
   };
 

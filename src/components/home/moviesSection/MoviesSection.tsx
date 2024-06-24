@@ -4,11 +4,18 @@ import * as classes from "./moviesSection.module.scss";
 import SingleMovie from "./SingleMovie";
 import { useState, useEffect } from "react";
 import { getLatestMovies } from "../../../api/homePage";
+import { useNavigate } from "react-router-dom";
+
 const MoviesSection: React.FC = () => {
+  const navigate = useNavigate();
   const [latestMovies, setLatestMovies] = useState([]);
   const getLatestMoviesHandler = async () => {
     const latestMoviesFetched = await getLatestMovies();
-    setLatestMovies(latestMoviesFetched);
+    if (latestMoviesFetched.status === "error") {
+      navigate("/error", { state: { message: latestMoviesFetched.message } });
+    } else {
+      setLatestMovies(latestMoviesFetched);
+    }
   };
   useEffect(() => {
     getLatestMoviesHandler();

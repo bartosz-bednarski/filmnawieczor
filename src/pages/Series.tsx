@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Series from "../components/series/Index";
 
 const SeriesPage = () => {
+  const loader: any = useLoaderData();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loader.status === "error") {
+      navigate("/error", { state: { message: loader.message } });
+    }
+  }, []);
   return (
     <>
       <Helmet>

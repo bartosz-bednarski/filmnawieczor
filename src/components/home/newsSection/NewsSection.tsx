@@ -4,11 +4,17 @@ import * as classes from "./newsSection.module.scss";
 import SingleNews from "./SingleNews";
 import { useState, useEffect } from "react";
 import { getLatestNews } from "../../../api/homePage";
+import { useNavigate } from "react-router-dom";
 const NewsSection: React.FC = () => {
+  const navigate = useNavigate();
   const [latestNews, setLatestNews] = useState([]);
   const getLatestNewsHandler = async () => {
     const latestNewsFetched = await getLatestNews();
-    setLatestNews(latestNewsFetched);
+    if (latestNewsFetched.status === "error") {
+      navigate("/error", { state: { message: latestNewsFetched.message } });
+    } else {
+      setLatestNews(latestNewsFetched);
+    }
   };
   useEffect(() => {
     getLatestNewsHandler();

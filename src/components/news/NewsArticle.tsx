@@ -13,9 +13,13 @@ const NewsArticle: React.FC = () => {
       <div className={classes["main-container"]}>
         <div className={classes["main-container__advert-box"]}> </div>
         <div className={classes["main-container__content-container"]}>
-          {newsDetails.news_details_data.map((section) => (
-            <NewsArticleSection section={section} key={section.article_title} />
-          ))}
+          {newsDetails.news_details_data !== undefined &&
+            newsDetails.news_details_data.map((section) => (
+              <NewsArticleSection
+                section={section}
+                key={section.article_title}
+              />
+            ))}
         </div>
         <div className={classes["main-container__advert-box"]}> </div>
       </div>

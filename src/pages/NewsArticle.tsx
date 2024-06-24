@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import NewsArticle from "../components/news/NewsArticle";
 const NewsArticlePage = () => {
   const data: any = useLoaderData();
   let { articleId } = useParams();
+  const navigate = useNavigate();
+  console.log(data);
+  useEffect(() => {
+    if (data.status === "error") {
+      navigate("/error", { state: { message: data.message } });
+    }
+  }, []);
   return (
     <>
       <Helmet>

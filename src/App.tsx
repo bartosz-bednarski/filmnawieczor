@@ -11,11 +11,14 @@ import { getLast10Movies } from "./api/movies";
 import { getLast10News, getNewsDetails } from "./api/news";
 import { getLast10Series } from "./api/series";
 import PrivacyPolicyPage from "./pages/PrivacyPolicy";
+import ErrorPage from "./pages/Error";
+import ErrorRoutePage from "./pages/ErrorRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorRoutePage />,
     children: [
       {
         index: true,
@@ -58,6 +61,10 @@ const router = createBrowserRouter([
         element: <PrivacyPolicyPage />,
       },
     ],
+  },
+  {
+    path: "error",
+    element: <ErrorPage />,
   },
 ]);
 

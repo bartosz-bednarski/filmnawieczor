@@ -533,6 +533,24 @@
   color: black;
 }
 
+.buttons-module__button-yellow--FWmB_ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  background-color: #ffe500;
+  color: black;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  width: fit-content;
+}
+.buttons-module__button-yellow--FWmB_:hover {
+  cursor: pointer;
+  background-color: green;
+  color: black;
+}
+
 .buttons-module__active-filter-box--BpbmK {
   display: flex;
   justify-content: center;
@@ -1157,6 +1175,75 @@
 }
 .privacyPolicy-module__privacyPolicy__content-box--j9mSG p {
   margin: 0;
+}
+/*!***************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/globals/error.module.scss ***!
+  \***************************************************************************************************************************************************************/
+.error-module__error--S1M1O {
+  box-sizing: border-box;
+  padding: 40px 0;
+  display: flex;
+  background: #1f1d1d;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: row;
+}
+.error-module__error__left--UaEja {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-image: linear-gradient(#ffe500 33%, rgba(255, 255, 255, 0) 0%);
+  background-position: right;
+  background-size: 4px 35px;
+  background-repeat: repeat-y;
+  padding: 50px;
+  justify-content: center;
+}
+.error-module__error__left__content--dQWhz {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: white;
+  max-width: 70%;
+}
+.error-module__error__left__content--dQWhz h1,
+.error-module__error__left__content--dQWhz h3 {
+  margin: 0;
+}
+.error-module__error__left__content__image--ztP5X {
+  width: 248px;
+  height: 248px;
+}
+.error-module__error__right--Z8MPN {
+  width: 50%;
+  display: flex;
+}
+.error-module__error__right__image--g5fZO {
+  width: auto;
+  height: auto;
+  resize: horizontal;
+}
+
+@media only screen and (max-width: 1100px) {
+  .error-module__error__left--UaEja {
+    background-image: none;
+    width: 100%;
+    align-items: center;
+  }
+  .error-module__error__right--Z8MPN {
+    display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .error-module__error__left--UaEja {
+    padding: 10px;
+  }
+  .error-module__error__left__content__image--ztP5X {
+    width: 150px;
+    height: 150px;
+  }
 }
 /*!*************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
