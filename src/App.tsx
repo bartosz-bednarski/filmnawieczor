@@ -13,6 +13,8 @@ import { getLast10Series } from "./api/series";
 import PrivacyPolicyPage from "./pages/PrivacyPolicy";
 import ErrorPage from "./pages/Error";
 import ErrorRoutePage from "./pages/ErrorRoute";
+import MovieDetailsPage from "./pages/MovieDetails";
+import { MovieDetailsLoaderTypes } from "movies";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,27 @@ const router = createBrowserRouter([
         loader: async () => {
           const movies = await getLast10Movies();
           return movies;
+        },
+      },
+      {
+        path: "filmy/:movieId",
+        element: <MovieDetailsPage />,
+        loader: async ({ params }): Promise<MovieDetailsLoaderTypes> => {
+          return {
+            id: 12,
+            name: "Patton",
+            description:
+              "Historia generała Georga Pattona - jednego z najlepszych generałów armii USA. Akcja rozgrywa się na frontach II wojny światowej (Afryka, Francja, Włochy, Wielka Brytania).",
+            image_cover: "patton.webp",
+            action_place: "Afryka, Anglia, Francja, Niemcy, Włochy",
+            action_time_start: 1942,
+            action_time_end: 1945,
+            category: "Wojenny",
+            movie_length: 10320,
+            rating: "9.0",
+            production_year: 1970,
+            url: "https://www.youtube.com/embed/AFcdbrCyih8?si=LD8wSatfpATMlumi",
+          } as MovieDetailsLoaderTypes;
         },
       },
       {

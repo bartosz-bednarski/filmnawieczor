@@ -26,6 +26,7 @@ const SecondaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
       queryValue: catName,
     };
     dispatch(setActivefilterSerie(payloadToSend));
+    onHide();
   };
   useEffect(() => {
     if (secondaryCatsToDisplayStore === "gatunek") {

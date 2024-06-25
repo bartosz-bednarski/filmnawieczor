@@ -4,7 +4,9 @@ import CategoryText from "./CategoryText";
 import * as classes from "./movie.module.scss";
 import star from "../../assets/star.png";
 import useWindowDimensions from "../globals/scripts/windowDimensions";
+import { useNavigate } from "react-router-dom";
 const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
+  const navigate = useNavigate();
   const { width } = useWindowDimensions();
   const movieCoverImage =
     require(`../../assets/movies/${movie.image_cover}`).default;
@@ -12,7 +14,11 @@ const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
   return (
     <>
       {width > 850 && (
-        <div className={classes["container"]} id={`${movie.id}`}>
+        <div
+          className={classes["container"]}
+          id={`${movie.id}`}
+          onClick={() => navigate(`/filmy/${movie.id}`)}
+        >
           <img
             src={movieCoverImage}
             alt={`${movie.name} cover`}

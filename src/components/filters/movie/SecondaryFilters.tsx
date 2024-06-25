@@ -59,7 +59,10 @@ const SecondaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
                 <FilterBtn
                   value={secCat.catName}
                   key={secCat.id}
-                  onClick={() => onClickHandler(secCat.catName)}
+                  onClick={() => {
+                    onClickHandler(secCat.catName);
+                    onHide();
+                  }}
                 />
               );
             }

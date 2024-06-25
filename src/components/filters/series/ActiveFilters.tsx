@@ -10,7 +10,7 @@ const ActiveFilters: React.FC = () => {
   );
   return (
     <div className={classes["filters-container__active-filters-container"]}>
-      <h2>Aktywne filtry</h2>
+      <h3>Aktywne filtry</h3>
       <div
         className={classes["filters-container__active-filters-container__box"]}
       >
