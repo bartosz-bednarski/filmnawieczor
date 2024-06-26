@@ -1,7 +1,6 @@
 export interface MovieDetailsLoaderTypes {
   action_place: string;
-  action_time_start: number;
-  action_time_end: number;
+  action_time: number;
   category: string;
   description: string;
   id: number;
@@ -11,4 +10,5 @@ export interface MovieDetailsLoaderTypes {
   production_year: number;
   rating: string;
   url: string;
+  meta_description: string;
 }

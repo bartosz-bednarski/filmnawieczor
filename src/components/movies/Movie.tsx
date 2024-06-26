@@ -17,7 +17,13 @@ const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
         <div
           className={classes["container"]}
           id={`${movie.id}`}
-          onClick={() => navigate(`/filmy/${movie.id}`)}
+          onClick={() =>
+            navigate(
+              `/filmy/${movie.name.replace(/\s/g, "").toLowerCase()}-${
+                movie.id
+              }`
+            )
+          }
         >
           <img
             src={movieCoverImage}
