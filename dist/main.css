@@ -502,7 +502,7 @@
   opacity: 0;
   animation: filters-module__secondary-filters-in--IFIcr 0.5s 0.1s forwards;
 }
-.filters-module__filters-container__active-filters-container--QyV90 h2 {
+.filters-module__filters-container__active-filters-container--QyV90 h3 {
   color: #ffe500;
   text-align: center;
 }
@@ -682,6 +682,9 @@
   padding-right: 1rem;
   color: white;
 }
+.movie-module__container--Vmdlw:hover {
+  cursor: pointer;
+}
 .movie-module__container__main-img--hkFHf {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -748,6 +751,9 @@
     background: rgb(0, 0, 0);
     background: linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(255, 229, 0) 100%);
     color: white;
+  }
+  .movie-module__container-mobile--Q32CD:hover {
+    cursor: pointer;
   }
   .movie-module__container-mobile__top-box--EQVIZ {
     display: flex;
@@ -1244,6 +1250,171 @@
     width: 150px;
     height: 150px;
   }
+}
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/movies/movieDetails/movieDetails.module.scss ***!
+  \**********************************************************************************************************************************************************************************/
+.movieDetails-module__movieDetails--klEvx {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  gap: 2rem;
+}
+.movieDetails-module__movieDetails__top-container--uHo0p {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.movieDetails-module__movieDetails__top-container__image--AEbC7 {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+.movieDetails-module__movieDetails__top-container__content--H7gnA {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+.movieDetails-module__movieDetails__top-container__content__row-box--CGJii {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.movieDetails-module__movieDetails__description--ylcbu {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 0.5rem;
+  color: black;
+  background-color: #ffe500;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.movieDetails-module__movieDetails__youtube-box--ZANIF {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.movieDetails-module__movieDetails__youtube-box--ZANIF iframe {
+  width: 100%;
+}
+
+.movieDetails-module__mobile--w2fIl {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .movieDetails-module__desktop--dyMsY {
+    display: none;
+  }
+  .movieDetails-module__mobile--w2fIl {
+    display: flex;
+  }
+  .movieDetails-module__movieDetails__top-container--uHo0p {
+    flex-direction: column;
+  }
+  .movieDetails-module__movieDetails__top-container__image--AEbC7 {
+    width: 100%;
+  }
+}
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/ui/mainContainerWithAdverts500ad.module.scss ***!
+  \**********************************************************************************************************************************************************************************/
+.mainContainerWithAdverts500ad-module__container--_VmRo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 80vh;
+}
+
+.mainContainerWithAdverts500ad-module__main-container--Va09w {
+  display: flex;
+  box-sizing: content-box;
+  flex-direction: row;
+  background-color: black;
+  min-height: 74vh;
+}
+.mainContainerWithAdverts500ad-module__main-container__content-container--ubRaZ {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 5px;
+  gap: 20px;
+}
+.mainContainerWithAdverts500ad-module__main-container__advert-box--FyeNS {
+  width: 500px;
+  border-top: 1px solid black;
+}
+
+@media only screen and (max-width: 1660px) {
+  .mainContainerWithAdverts500ad-module__main-container__advert-box--FyeNS {
+    max-width: 200px;
+  }
+}
+@media only screen and (max-width: 1150px) {
+  .mainContainerWithAdverts500ad-module__main-container--Va09w {
+    flex-direction: column;
+    align-items: center;
+  }
+  .mainContainerWithAdverts500ad-module__main-container__content-container--ubRaZ {
+    width: 90%;
+  }
+  .mainContainerWithAdverts500ad-module__main-container__advert-box--FyeNS {
+    width: 80%;
+  }
+}
+/*!***********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/ui/moviesAndSeries/ui.module.scss ***!
+  \***********************************************************************************************************************************************************************/
+.ui-module__titleHeader--XUZPd {
+  background-color: #ffe500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.ui-module__titleHeader__header--MqsIN {
+  font-size: 1.6rem;
+  color: black;
+}
+
+.ui-module__categoryName--vY5KR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  background-color: #ffe500;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.ui-module__categoryDetail--_KQSw {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  background-color: white;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  width: fit-content;
+}
+.ui-module__categoryDetail--_KQSw:hover {
+  cursor: pointer;
+  background-color: #ffe500;
+  color: black;
 }
 /*!*************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
