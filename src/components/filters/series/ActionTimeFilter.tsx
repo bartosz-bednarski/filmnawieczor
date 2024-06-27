@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../../redux/hooks";
 import FilterBtn from "../../ui/filters/FilterBtn";
 import * as classes from "../dateFilter.module.scss";
 import { setActivefilterSerie } from "../../../redux/seriesFilter-slice";
-const ActionTimeFilter: React.FC = () => {
+const ActionTimeFilter: React.FC<{ onHide: () => void }> = ({ onHide }) => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState("");
   const [dateRangeEnd, setDateRangeEnd] = useState("");
@@ -36,13 +36,19 @@ const ActionTimeFilter: React.FC = () => {
         dateRangeEnd: state.dateRangeEnd,
       }));
     }
+    if (Number(dateRangeStart) < 0) {
+      setError((state) => ({
+        dateRangeStart: true,
+        dateRangeEnd: state.dateRangeEnd,
+      }));
+    }
     if (dateRangeEnd === "") {
       setError((state) => ({
         dateRangeStart: state.dateRangeStart,
         dateRangeEnd: true,
       }));
     }
-    if (dateRangeStart > dateRangeEnd) {
+    if (Number(dateRangeStart) > Number(dateRangeEnd)) {
       setError((state) => ({
         dateRangeStart: true,
         dateRangeEnd: true,
@@ -51,12 +57,14 @@ const ActionTimeFilter: React.FC = () => {
     if (
       dateRangeStart !== "" &&
       dateRangeEnd !== "" &&
-      dateRangeStart <= dateRangeEnd
+      Number(dateRangeStart) <= Number(dateRangeEnd) &&
+      Number(dateRangeStart) >= 0
     ) {
       addDateRangeFilter();
       setDateRangeStart("");
       setDateRangeEnd("");
       setError({ dateRangeEnd: false, dateRangeStart: false });
+      onHide();
     }
   };
   useEffect(() => {
@@ -72,7 +80,13 @@ const ActionTimeFilter: React.FC = () => {
         dateRangeEnd: false,
       }));
     }
-    if (error.dateRangeEnd && dateRangeEnd > dateRangeStart) {
+    if (error.dateRangeStart && Number(dateRangeStart) >= 0) {
+      setError((state) => ({
+        dateRangeStart: false,
+        dateRangeEnd: state.dateRangeEnd,
+      }));
+    }
+    if (error.dateRangeEnd && Number(dateRangeEnd) > Number(dateRangeStart)) {
       setError((state) => ({ dateRangeStart: false, dateRangeEnd: false }));
     }
   }, [dateRangeStart, dateRangeEnd]);
@@ -84,7 +98,7 @@ const ActionTimeFilter: React.FC = () => {
             type="number"
             value={dateRangeStart}
             onChange={(e) => setDateRangeStart(e.target.value)}
-            placeholder="-1000"
+            placeholder="0"
             className={`${
               classes["date-filter-container__box__input-box__input"]
             } ${error.dateRangeStart ? classes["error"] : ""}`}

@@ -10,7 +10,7 @@
   box-sizing: content-box;
   flex-direction: row;
   background-color: black;
-  min-height: 75vh;
+  min-height: 74vh;
 }
 .main-container__content-container {
   display: flex;
@@ -20,7 +20,7 @@
   gap: 20px;
 }
 .main-container__advert-box {
-  width: 800px;
+  width: 500px;
   border-top: 1px solid black;
 }
 
@@ -40,4 +40,4 @@
   .main-container__advert-box {
     width: 80%;
   }
-}/*# sourceMappingURL=mainContainerWithAdverts.module.css.map */
+}/*# sourceMappingURL=mainContainerWithAdverts500ad.module.css.map */

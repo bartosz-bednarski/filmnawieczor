@@ -50,11 +50,15 @@ const SecondaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
           classes["filters-container__secondary-filters-container__box"]
         }
       >
-        {secondaryCatsToDisplayStore === "czas_akcji" && <ActionTimeFilter />}
-        {secondaryCatsToDisplayStore === "rok_produkcji" && (
-          <DateReleaseFilter />
+        {secondaryCatsToDisplayStore === "czas_akcji" && (
+          <ActionTimeFilter onHide={onHide} />
         )}
-        {secondaryCatsToDisplayStore === "seasons_count" && <SeasonsFilter />}
+        {secondaryCatsToDisplayStore === "rok_produkcji" && (
+          <DateReleaseFilter onHide={onHide} />
+        )}
+        {secondaryCatsToDisplayStore === "seasons_count" && (
+          <SeasonsFilter onHide={onHide} />
+        )}
         {secondaryCategoriesToDisplay !== null &&
           secondaryCategoriesToDisplay.secondaryCats.map((secCat) => {
             if (secCat.active) {

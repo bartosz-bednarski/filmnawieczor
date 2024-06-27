@@ -4,7 +4,7 @@ import * as classes from "./moviesSection.module.scss";
 import SingleMovie from "./SingleMovie";
 import { useState, useEffect } from "react";
 import { getLatestMovies } from "../../../api/homePage";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const MoviesSection: React.FC = () => {
   const navigate = useNavigate();
@@ -33,6 +33,7 @@ const MoviesSection: React.FC = () => {
             title={movie.name}
             image={movie.image_cover}
             key={movie.id}
+            id={movie.id}
           />
         ))}
       </div>

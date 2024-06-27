@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-
 export const getLatestMovies = async () => {
   try {
     const response = await fetch(

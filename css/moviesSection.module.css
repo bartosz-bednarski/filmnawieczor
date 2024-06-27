@@ -16,6 +16,9 @@
   flex-direction: column;
   width: 175px;
 }
+.home-container__movies-section-container__movies-box__single-movie-box:hover {
+  cursor: pointer;
+}
 .home-container__movies-section-container__movies-box__single-movie-box__image {
   width: 175px;
   height: 255px;
