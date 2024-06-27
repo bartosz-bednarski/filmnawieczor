@@ -1,10 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import * as classes from "./moviesSection.module.scss";
-const SingleMovie: React.FC<{ title: string; image: string }> = ({
-  title,
-  image,
-}) => {
+const SingleMovie: React.FC<{
+  title: string;
+  image: string;
+  id: number;
+}> = ({ title, image, id }) => {
+  const navigate = useNavigate();
   const newsCoverImage = require(`../../../assets/movies/${image}`).default;
+  const link = `/filmy/${title.replace(/\s/g, "").toLowerCase()}-${id}`;
+
   return (
     <div
       className={
@@ -12,6 +17,7 @@ const SingleMovie: React.FC<{ title: string; image: string }> = ({
           "home-container__movies-section-container__movies-box__single-movie-box"
         ]
       }
+      onClick={() => navigate(link)}
     >
       <img
         src={newsCoverImage}

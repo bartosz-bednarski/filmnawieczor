@@ -19,8 +19,8 @@ const SingleNews: React.FC<{ title: string; image: string; url: string }> = ({
         <img
           src={newsCoverImage}
           alt="article cover"
-          width={416}
-          height={234}
+          width={325}
+          height={183}
           title={title}
           loading="eager"
         />

@@ -58,7 +58,7 @@
   opacity: 0;
   animation: secondary-filters-in 0.5s 0.1s forwards;
 }
-.filters-container__active-filters-container h2 {
+.filters-container__active-filters-container h3 {
   color: #ffe500;
   text-align: center;
 }

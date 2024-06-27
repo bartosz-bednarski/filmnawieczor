@@ -17,6 +17,7 @@
 .home-container__news-section-container__news-box__single-news-box {
   display: flex;
   flex-direction: column;
+  width: 325px;
 }
 .home-container__news-section-container__news-box__single-news-box__image {
   width: 325px;
@@ -26,4 +27,5 @@
   font-size: 1rem;
   color: white;
   padding: 5px 10px;
+  text-align: center;
 }/*# sourceMappingURL=newsSection.module.css.map */

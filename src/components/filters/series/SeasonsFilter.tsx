@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../../redux/hooks";
 import FilterBtn from "../../ui/filters/FilterBtn";
 import * as classes from "../dateFilter.module.scss";
 import { setActivefilterSerie } from "../../../redux/seriesFilter-slice";
-const SeasonsFilter: React.FC = () => {
+const SeasonsFilter: React.FC<{ onHide: () => void }> = ({ onHide }) => {
   const dispatch = useAppDispatch();
   const [seasonsCountStart, setSeasonsCountStart] = useState("");
   const [seasonsCountEnd, setSeasonsCountEnd] = useState("");
@@ -71,6 +71,7 @@ const SeasonsFilter: React.FC = () => {
       setSeasonsCountStart("");
       setSeasonsCountEnd("");
       setError({ seasonsCountEnd: false, seasonsCountStart: false });
+      onHide();
     }
   };
   useEffect(() => {

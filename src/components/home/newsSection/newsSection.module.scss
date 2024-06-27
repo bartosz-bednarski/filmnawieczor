@@ -16,7 +16,7 @@
       &__single-news-box {
         display: flex;
         flex-direction: column;
-
+        width: 325px;
         &__image {
           width: 325px;
           height: 183px;
@@ -25,6 +25,7 @@
           font-size: 1rem;
           color: white;
           padding: 5px 10px;
+          text-align: center;
         }
       }
     }

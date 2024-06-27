@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../../redux/hooks";
 import FilterBtn from "../../ui/filters/FilterBtn";
 import * as classes from "../dateFilter.module.scss";
 import { setActivefilterMovie } from "../../../redux/moviesFilters-slice";
-const DateReleaseFilter: React.FC = () => {
+const DateReleaseFilter: React.FC<{ onHide: () => void }> = ({ onHide }) => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState("");
   const [dateRangeEnd, setDateRangeEnd] = useState("");
@@ -72,6 +72,7 @@ const DateReleaseFilter: React.FC = () => {
       setDateRangeStart("");
       setDateRangeEnd("");
       setError({ dateRangeEnd: false, dateRangeStart: false });
+      onHide();
     }
   };
   useEffect(() => {
