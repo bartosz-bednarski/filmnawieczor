@@ -1,20 +1,24 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import * as classes from "./home.module.scss";
-
-const Slider: React.FC<{ image: string }> = ({ image }) => {
+import ButtonSlider from "../ui/ButtonSlider";
+const Slider: React.FC<{
+  content: {
+    image: string;
+    text: { category: string; title: string; text: string };
+    buttons: { url: string; title: string }[];
+  };
+}> = ({ content }) => {
   const [updated, setUpdated] = useState(false);
   useEffect(() => {
     setUpdated(true);
     setTimeout(() => {
       setUpdated(false);
     }, 50);
-  }, [image]);
-  const sliderImage = require(`../../assets/home/${image}.webp`).default;
-  const sliderImage1000pxW =
-    require(`../../assets/home/${image}-1000w.webp`).default;
-  const sliderImage680pxW =
-    require(`../../assets/home/${image}-680w.webp`).default;
+  }, [content]);
+  const sliderImage = require(`../../assets/home/${content.image}.png`).default;
+  const sliderImage560px =
+    require(`../../assets/home/${content.image}-560px.webp`).default;
 
   return (
     <div
@@ -36,33 +40,58 @@ const Slider: React.FC<{ image: string }> = ({ image }) => {
             }
             src={sliderImage}
             alt="slider cover"
-            width={1920}
-            height={983}
+            width={904}
+            height={626}
             title="Skorzystaj z naszej bazy filmów."
             loading="eager"
           />
           <img
             className={
-              classes["home-container__slider-container__slider__image-1000pxW"]
+              classes["home-container__slider-container__slider__image-560px"]
             }
-            src={sliderImage1000pxW}
+            src={sliderImage560px}
             alt="slider cover"
-            width={1920}
-            height={983}
+            width={283}
+            height={326}
             title="Skorzystaj z naszej bazy filmów."
             loading="eager"
           />
-          <img
+          <div
             className={
-              classes["home-container__slider-container__slider__image-680pxW"]
+              classes["home-container__slider-container__slider__text-box"]
             }
-            src={sliderImage680pxW}
-            alt="slider cover"
-            width={1920}
-            height={983}
-            title="Skorzystaj z naszej bazy filmów."
-            loading="eager"
-          />
+          >
+            <span
+              className={
+                classes[
+                  "home-container__slider-container__slider__text-box__category"
+                ]
+              }
+            >
+              {content.text.category}
+            </span>
+            <h1>{content.text.title}</h1>
+            <span
+              className={
+                classes[
+                  "home-container__slider-container__slider__text-box__text"
+                ]
+              }
+            >
+              {content.text.text}
+            </span>
+            <div
+              className={
+                classes[
+                  "home-container__slider-container__slider__text-box__buttons-row"
+                ]
+              }
+            >
+              {content.buttons.map((button) => (
+                <ButtonSlider url={button.url} title={button.title} />
+              ))}
+            </div>
+          </div>
         </>
       )}
     </div>
