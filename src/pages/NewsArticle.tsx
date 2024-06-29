@@ -6,7 +6,6 @@ const NewsArticlePage = () => {
   const data: any = useLoaderData();
   let { articleId } = useParams();
   const navigate = useNavigate();
-  console.log(data);
   useEffect(() => {
     if (data.status === "error") {
       navigate("/error", { state: { message: data.message } });

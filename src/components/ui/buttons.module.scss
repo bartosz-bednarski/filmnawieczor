@@ -31,6 +31,23 @@
     color: black;
   }
 }
+.button-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  background-color: #ffe500;
+  color: black;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  width: fit-content;
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+  }
+}
 .active-filter-box {
   display: flex;
   justify-content: center;
