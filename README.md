@@ -12,7 +12,7 @@
     <br />
     
   </p>
-  <img src="/public/readme/logo.webp" alt="Logo" width="100%" height="100%">
+  <img src="/public/readme/logo.webp" alt="Logo" width="194px" height="37px">
 </div>
 
 <!-- ABOUT THE PROJEC -->
@@ -55,7 +55,7 @@ Website uses its own database with informations about movies and series. We use 
 
 ## Mobile view
 
-<img src="/public/readme/01_mobile.png" alt="Logo" width="30%" height="auto"> <img src="/public/readme/02_mobile.png" alt="Logo" width="30%" height="auto"> <img src="/public/readme/03_mobile.png" alt="Logo" width="30%" height="auto">
+<img src="/public/readme/01_mobile.PNG" alt="Logo" width="30%" height="auto"> <img src="/public/readme/02_mobile.PNG" alt="Logo" width="30%" height="auto"> <img src="/public/readme/03_mobile.PNG" alt="Logo" width="30%" height="auto">
 
 <!-- CONTACT -->
 
