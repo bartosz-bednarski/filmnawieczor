@@ -1,6 +1,6 @@
 import React from "react";
 import * as classes from "../filters.module.scss";
-import FilterBtn from "../../ui/filters/FilterBtn";
+import FilterBtn from "../../ui/buttons/filters/FilterBtn";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { setSecondaryCatsToDisplayMovie } from "../../../redux/moviesFilters-slice";
 const PrimaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {

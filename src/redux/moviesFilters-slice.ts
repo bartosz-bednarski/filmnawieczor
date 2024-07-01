@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ActiveFilter } from "filters";
 
 export type MoviesFiltersInitialState = {
   categories: {
@@ -9,7 +10,7 @@ export type MoviesFiltersInitialState = {
     secondaryCats?: { id: string; catName: string; active: boolean }[];
   }[];
   secondaryCatsToDisplay: string;
-  activeFilters: { queryName: string; queryValue: string }[];
+  activeFilters: ActiveFilter[];
 };
 const moviesFiltersInitialState: MoviesFiltersInitialState = {
   categories: [

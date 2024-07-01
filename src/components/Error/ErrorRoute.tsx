@@ -1,30 +1,15 @@
 import React from "react";
 import * as classes from "./error.module.scss";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import layoutRight from "../../assets/error/error_layout_right.webp";
 import errorImg from "../../assets/error/Error_icon.webp";
-import ButtonYellow from "../ui/ButtonYellow";
-const Error: React.FC = () => {
+import ButtonYellow from "../ui/buttons/ButtonYellow";
+const ErrorRoute: React.FC = () => {
   const navigate = useNavigate();
-  const { state } = useLocation();
-  const { message } = state;
-  let code = 404;
-  let outputMessage = "";
-  if (message === "Failed to fetch") {
-    code = 404;
-    outputMessage =
-      "Wystąpił problem podczas komunikacji z serwerem. Sprawdź swoje połączenie z Internetem, spróbuj odświeżyć stronę. Jeżeli problem nadal występuje skontaktuj się z naszym administratorem.";
-  }
-  if (message === "HTTP error! status: 404") {
-    code = 404;
-    outputMessage =
-      "Błędne zapytanie do serwera. Podana ścieżka żądania nie istnieje. Skontaktuj się z naszym administratorem w celu rozwiązania problemu.";
-  }
-  if (message === "HTTP error! status: 500") {
-    code = 500;
-    outputMessage =
-      "Błędne zapytanie do serwera. Podana ścieżka żądania nie istnieje. Skontaktuj się z naszym administratorem w celu rozwiązania problemu.";
-  }
+  let code = 400;
+  let outputMessage =
+    "Błędny adres url zapytania. Wygląda na to, że strona, której szukasz nie istnieje. Sprawdź jeszcze raz adres URL.";
+
   return (
     <div className={classes.error}>
       <div className={classes["error__left"]}>
@@ -58,4 +43,4 @@ const Error: React.FC = () => {
     </div>
   );
 };
-export default Error;
+export default ErrorRoute;

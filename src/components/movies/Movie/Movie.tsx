@@ -1,15 +1,15 @@
 import React from "react";
-import { SingleMovieType } from "../../utils/data/movies";
 import CategoryText from "./CategoryText";
 import * as classes from "./movie.module.scss";
-import star from "../../assets/star.png";
-import useWindowDimensions from "../globals/scripts/windowDimensions";
+import star from "../../../assets/star.png";
+import useWindowDimensions from "../../globals/scripts/windowDimensions";
 import { useNavigate } from "react-router-dom";
-const Movie: React.FC<{ movie: SingleMovieType }> = ({ movie }) => {
+import { MovieCover } from "api/movies";
+const Movie: React.FC<{ movie: MovieCover }> = ({ movie }) => {
   const navigate = useNavigate();
   const { width } = useWindowDimensions();
   const movieCoverImage =
-    require(`../../assets/movies/${movie.image_cover}`).default;
+    require(`../../../assets/movies/${movie.image_cover}`).default;
 
   return (
     <>

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import * as classes from "../ui/mainContainerWithAdverts.module.scss";
 import MainHeader from "../ui/MainHeader";
-import NewsBox from "./NewsBox";
+import NewsBox from "./NewsBox/NewsBox";
 const News: React.FC = () => {
   const navigate = useNavigate();
   const last10News: any = useLoaderData();

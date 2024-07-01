@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useAppDispatch } from "../../../redux/hooks";
-import FilterBtn from "../../ui/filters/FilterBtn";
+import FilterBtn from "../../ui/buttons/filters/FilterBtn";
 import * as classes from "../dateFilter.module.scss";
 import { setActivefilterMovie } from "../../../redux/moviesFilters-slice";
 const DateReleaseFilter: React.FC<{ onHide: () => void }> = ({ onHide }) => {

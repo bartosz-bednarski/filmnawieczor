@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import * as classes from "./home.module.scss";
-import ButtonSlider from "../ui/ButtonSlider";
+import * as classes from "./slider.module.scss";
+import ButtonSlider from "../../ui/buttons/ButtonSlider";
 const Slider: React.FC<{
   content: {
     image: string;
@@ -16,9 +16,10 @@ const Slider: React.FC<{
       setUpdated(false);
     }, 50);
   }, [content]);
-  const sliderImage = require(`../../assets/home/${content.image}.png`).default;
+  const sliderImage =
+    require(`../../../assets/home/${content.image}.png`).default;
   const sliderImage560px =
-    require(`../../assets/home/${content.image}-560px.webp`).default;
+    require(`../../../assets/home/${content.image}-560px.webp`).default;
 
   return (
     <div

@@ -8,17 +8,19 @@ import {
 } from "../../api/movies";
 import { useAppSelector } from "../../redux/hooks";
 import Filters from "../filters/movie/Index";
-import Movie from "./Movie";
+import Movie from "./Movie/Movie";
 import * as classes from "./movies.module.scss";
 import * as classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
-import { getLast10MoviesResponseType } from "api/movies";
+import { GetLast10MoviesResponse, MovieCover } from "api/movies";
 
 const Movies: React.FC = () => {
   const navigate = useNavigate();
-  const loaderData: any = useLoaderData();
+  const loaderData = useLoaderData() as GetLast10MoviesResponse;
 
-  const [moviesToDisplay, setMoviesToDisplay] =
-    useState<getLast10MoviesResponseType>(loaderData);
+  const [moviesToDisplay, setMoviesToDisplay] = useState<{
+    dataExists: boolean;
+    moviesData: [] | MovieCover[];
+  }>(loaderData);
   const activeFiltersStore = useAppSelector(
     (state) => state.moviesFilters.activeFilters
   );
@@ -31,10 +33,12 @@ const Movies: React.FC = () => {
       return { queryName: item.queryName, queryValue: item.queryValue };
     });
     const filteredMovies = await getLast10FilteredMovies(params);
-    if (filteredMovies.status === "error") {
+    if ("status" in filteredMovies) {
       navigate("/error", { state: { message: filteredMovies.message } });
     }
-    setMoviesToDisplay(filteredMovies);
+    if ("moviesData" in filteredMovies) {
+      setMoviesToDisplay(filteredMovies);
+    }
   };
 
   const setNext5MoviesHandler = async () => {
@@ -42,7 +46,7 @@ const Movies: React.FC = () => {
     const id = moviesToDisplay.moviesData[idIndex].id;
     if (activeFiltersStore.length === 0) {
       const next5Movies = await getNext5Movies(id);
-      if (next5Movies.dataExists) {
+      if ("dataExists" in next5Movies) {
         const moviesToSet = [
           ...moviesToDisplay.moviesData,
           ...next5Movies.moviesData,
@@ -60,12 +64,11 @@ const Movies: React.FC = () => {
         params: params,
         id: id,
       });
-      if (next5FilteredMovies.dataExists) {
+      if ("dataExists" in next5FilteredMovies) {
         const moviesToSet = [
           ...moviesToDisplay.moviesData,
           ...next5FilteredMovies.moviesData,
         ];
-        console.log(moviesToSet);
         setMoviesToDisplay({ dataExists: true, moviesData: moviesToSet });
         setFetched(false);
       } else {
@@ -158,7 +161,7 @@ const Movies: React.FC = () => {
         <div className={classesGlobal["main-container__advert-box"]}> </div>
         <div className={classes["movies-container"]}>
           {moviesToDisplay.dataExists &&
-            moviesToDisplay.moviesData.map((data) => {
+            moviesToDisplay.moviesData.map((data: MovieCover) => {
               return <Movie movie={data} key={data.id} />;
             })}
         </div>

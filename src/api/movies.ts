@@ -1,5 +1,11 @@
-import { getLast10MoviesType } from "../types/api/movies";
-export const getLast10Movies: getLast10MoviesType = async () => {
+import {
+  GetLast10FilteredMoviesCall,
+  GetLast10MoviesCall,
+  GetMovieDetailsCall,
+  GetNext5FilteredMoviesCall,
+  GetNext5MoviesCall,
+} from "../types/api/movies";
+export const getLast10Movies: GetLast10MoviesCall = async () => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/movies/last10`,
@@ -54,7 +60,7 @@ export const getLast10Movies: getLast10MoviesType = async () => {
   }
 };
 
-export const getNext5Movies = async (id) => {
+export const getNext5Movies: GetNext5MoviesCall = async (id) => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/movies/next5`,
@@ -113,7 +119,9 @@ export const getNext5Movies = async (id) => {
   }
 };
 
-export const getLast10FilteredMovies = async (params) => {
+export const getLast10FilteredMovies: GetLast10FilteredMoviesCall = async (
+  params
+) => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/movies/last10filtered`,
@@ -171,7 +179,9 @@ export const getLast10FilteredMovies = async (params) => {
     return { status: "error", message: error.message };
   }
 };
-export const getNext5FilteredMovies = async (params) => {
+export const getNext5FilteredMovies: GetNext5FilteredMoviesCall = async (
+  params
+) => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/movies/next5Filtered`,
@@ -231,10 +241,10 @@ export const getNext5FilteredMovies = async (params) => {
   }
 };
 
-export const getMovieDetails = async (params) => {
+export const getMovieDetails: GetMovieDetailsCall = async (id) => {
   try {
     const response = await fetch(
-      `https://filmnawieczor.online/api/movies/${params}`,
+      `https://filmnawieczor.online/api/movies/${id}`,
       // `http://localhost:9001/api/movies/${params}`,
       {
         method: "GET",

@@ -1,13 +1,14 @@
+import { GetError, GetLast10SeriesResponse } from "api/series";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Series from "../components/series/Index";
-
+type Loader = GetLast10SeriesResponse | GetError;
 const SeriesPage = () => {
-  const loader: any = useLoaderData();
+  const loader = useLoaderData() as Loader;
   const navigate = useNavigate();
   useEffect(() => {
-    if (loader.status === "error") {
+    if ("status" in loader) {
       navigate("/error", { state: { message: loader.message } });
     }
   }, []);

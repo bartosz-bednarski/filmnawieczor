@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { removeActiveFilterSerie } from "../../../redux/seriesFilter-slice";
-import ActiveFilterBtn from "../../ui/filters/ActiveFilterBtn";
+import ActiveFilterBtn from "../../ui/buttons/filters/ActiveFilterBtn";
 import * as classes from "../filters.module.scss";
 const ActiveFilters: React.FC = () => {
   const dispatch = useAppDispatch();

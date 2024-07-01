@@ -60,9 +60,6 @@
     }
 
     &__cat-box {
-      //   display: flex;
-      //   flex-direction: row;
-      //   flex-wrap: wrap;
       width: auto;
       &__cat-bold {
         font-weight: 600;
@@ -74,31 +71,7 @@
     }
   }
 }
-// @media only screen and (max-width: 850px) {
-//   .container {
-//     &__content-box {
-//       &__content-details {
-//         display: none;
-//       }
-//       &__header-box {
-//         flex-direction: column;
-//         justify-content: flex-start;
 
-//         &__rating-box {
-//           justify-content: flex-start;
-//           padding: 0;
-//           &__rate {
-//             font-size: 1.5rem;
-//             img {
-//               width: 30px;
-//               height: 30px;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
 @media only screen and (max-width: 850px) {
   .container {
     display: none;
