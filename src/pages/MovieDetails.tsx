@@ -18,7 +18,7 @@ const MovieDetailsPage = () => {
         <meta name="description" content={`${data.meta_description}`} />
         <link
           rel="canonical"
-          href={`https://filmnawieczor.pl/movies/${movieId}`}
+          href={`https://filmnawieczor.pl/filmy/${movieId}`}
         />
       </Helmet>
       <MovieDetails />
