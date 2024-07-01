@@ -53,10 +53,10 @@ const router = createBrowserRouter([
       {
         path: "filmy/:movieId",
         element: <MovieDetailsPage />,
-        loader: async ({ params }): Promise<MovieDetailsLoaderTypes> => {
+        loader: async ({ params }) => {
           const id = params.movieId.slice(params.movieId.indexOf("-") + 1);
           const movieDetails = await getMovieDetails(id);
-          return movieDetails as MovieDetailsLoaderTypes;
+          return movieDetails;
         },
       },
       {
@@ -84,49 +84,3 @@ function App() {
 }
 
 export default App;
-
-// import React from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import HomePage from "./pages/Home";
-// import RootLayout from "./pages/Root";
-// import MoviesPage from "./pages/Movies";
-// import NewsPage from "./pages/News";
-// import SeriesPage from "./pages/Series";
-// import NewsArticlePage from "./pages/NewsArticle";
-// import { getLast10Movies } from "./api/movies";
-// import { getLast10News, getNewsDetails } from "./api/news";
-// import { getLast10Series } from "./api/series";
-
-// function App() {
-//   return (
-//     <Router>
-//       <RootLayout>
-//         <Routes>
-//           <Route path="/" element={<HomePage />} />
-//           <Route
-//             path="/aktualnosci"
-//             element={<NewsPage />}
-//             loader={() => getLast10News()}
-//           />
-//           <Route
-//             path="aktualnosci/artykul/:articleId"
-//             element={<NewsArticlePage />}
-//             loader={({ params }) => getNewsDetails(params.articleId)}
-//           />
-//           <Route
-//             path="/filmy"
-//             element={<MoviesPage />}
-//             loader={() => getLast10Movies()}
-//           />
-//           <Route
-//             path="seriale"
-//             element={<SeriesPage />}
-//             loader={() => getLast10Series()}
-//           />
-//         </Routes>
-//       </RootLayout>
-//     </Router>
-//   );
-// }
-
-// export default App;

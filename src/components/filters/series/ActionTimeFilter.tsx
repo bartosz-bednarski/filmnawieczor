@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../../redux/hooks";
-import FilterBtn from "../../ui/filters/FilterBtn";
+import FilterBtn from "../../ui/buttons/filters/FilterBtn";
 import * as classes from "../dateFilter.module.scss";
 import { setActivefilterSerie } from "../../../redux/seriesFilter-slice";
 const ActionTimeFilter: React.FC<{ onHide: () => void }> = ({ onHide }) => {

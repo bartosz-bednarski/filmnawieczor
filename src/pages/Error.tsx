@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import Error from "../components/globals/Error";
+import Error from "../components/Error/Error";
 const ErrorPage = () => {
   return (
     <>

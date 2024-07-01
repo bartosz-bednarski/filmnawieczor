@@ -1,9 +1,11 @@
 import {
-  getLast10SeriesType,
-  getLast10SeriesSeriesDataObjectType,
+  GetLast10FilteredSeriesCall,
+  GetLast10SeriesCall,
+  GetNext5FilteredSeriesCall,
+  GetNext5SeriesCall,
 } from "api/series";
 
-export const getLast10Series: getLast10SeriesType = async () => {
+export const getLast10Series: GetLast10SeriesCall = async () => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/series/last10`,
@@ -27,7 +29,7 @@ export const getLast10Series: getLast10SeriesType = async () => {
       }
     }
     const data = await response.json();
-    let modifiedResponse: getLast10SeriesSeriesDataObjectType[] = [];
+    let modifiedResponse = [];
     if (data.length > 0) {
       modifiedResponse = data.map((item) => {
         return {
@@ -58,7 +60,9 @@ export const getLast10Series: getLast10SeriesType = async () => {
   }
 };
 
-export const getLast10FilteredSeries = async (params) => {
+export const getLast10FilteredSeries: GetLast10FilteredSeriesCall = async (
+  params
+) => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/series/last10filtered`,
@@ -117,7 +121,7 @@ export const getLast10FilteredSeries = async (params) => {
   }
 };
 
-export const getNext5Series = async (id) => {
+export const getNext5Series: GetNext5SeriesCall = async (id) => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/series/next5`,
@@ -176,7 +180,9 @@ export const getNext5Series = async (id) => {
   }
 };
 
-export const getNext5FilteredSeries = async (params) => {
+export const getNext5FilteredSeries: GetNext5FilteredSeriesCall = async (
+  params
+) => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/series/next5Filtered`,

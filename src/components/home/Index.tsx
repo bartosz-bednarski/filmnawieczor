@@ -1,10 +1,10 @@
 import React from "react";
 import * as classes from "./home.module.scss";
-import Slider from "./Slider";
+import Slider from "./Slider/Slider";
 import { useState, useEffect } from "react";
-import NewsSection from "./newsSection/NewsSection";
-import MoviesSection from "./moviesSection/MoviesSection";
-import SeriesSection from "./seriesSection/SeriesSection";
+import NewsSection from "./NewsSection/NewsSection";
+import MoviesSection from "./MoviesSection/MoviesSection";
+import SeriesSection from "./SeriesSection/SeriesSection";
 import playBack from "../../assets/play-back.png";
 import playForward from "../../assets/play-forward.png";
 const Home: React.FC = () => {

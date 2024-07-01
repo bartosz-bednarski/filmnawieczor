@@ -2,11 +2,11 @@ import React from "react";
 import * as classes from "./movieDetails.module.scss";
 import * as layoutClasses from "../../ui/mainContainerWithAdverts500ad.module.scss";
 import TitleHeader from "../../ui/moviesAndSeries/TitleHeader";
-import CategoryRowBox from "./CategoryRowBox";
 import { useLoaderData } from "react-router-dom";
-import { MovieDetailsLoaderTypes } from "movies";
+import { MovieDetails as MovieDetailsType } from "api/movies";
+import CategoryRowBox from "./CategoryRowBox";
 const MovieDetails: React.FC = () => {
-  const loaderData = useLoaderData() as MovieDetailsLoaderTypes;
+  const loaderData = useLoaderData() as MovieDetailsType;
   const coverImage =
     require(`../../../assets/movies/details/${loaderData.image_cover}`).default;
   return (

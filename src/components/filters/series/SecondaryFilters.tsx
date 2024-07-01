@@ -1,7 +1,7 @@
 import React from "react";
 import * as classes from "../filters.module.scss";
-import FilterBtn from "../../ui/filters/FilterBtn";
-import ArrowUpBtn from "../../ui/filters/ArrowUpBtn";
+import FilterBtn from "../../ui/buttons/filters/FilterBtn";
+import ArrowUpBtn from "../../ui/buttons/filters/ArrowUpBtn";
 import ActionTimeFilter from "./ActionTimeFilter";
 import DateReleaseFilter from "./DateReleaseFilter";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";

@@ -1,13 +1,11 @@
 import React from "react";
 import CategoryText from "./CategoryText";
-import * as classes from "./movie.module.scss";
-import star from "../../assets/star.png";
-import { getLast10SeriesSeriesDataObjectType } from "api/series";
-const Serie: React.FC<{ serie: getLast10SeriesSeriesDataObjectType }> = ({
-  serie,
-}) => {
+import * as classes from "./serie.module.scss";
+import star from "../../../assets/star.png";
+import { SeriesCover } from "api/series";
+const Serie: React.FC<{ serie: SeriesCover }> = ({ serie }) => {
   const movieCoverImage =
-    require(`../../assets/series/${serie.image_cover}`).default;
+    require(`../../../assets/series/${serie.image_cover}`).default;
 
   return (
     <>
