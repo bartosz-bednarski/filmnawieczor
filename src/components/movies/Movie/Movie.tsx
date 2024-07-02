@@ -1,10 +1,10 @@
 import React from "react";
-import CategoryText from "./CategoryText";
 import * as classes from "./movie.module.scss";
 import star from "../../../assets/star.png";
 import useWindowDimensions from "../../globals/scripts/windowDimensions";
 import { useNavigate } from "react-router-dom";
 import { MovieCover } from "api/movies";
+import CategoryText from "./CategoryText";
 const Movie: React.FC<{ movie: MovieCover }> = ({ movie }) => {
   const navigate = useNavigate();
   const { width } = useWindowDimensions();

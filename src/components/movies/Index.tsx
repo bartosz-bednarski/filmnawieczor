@@ -8,7 +8,7 @@ import {
 } from "../../api/movies";
 import { useAppSelector } from "../../redux/hooks";
 import Filters from "../filters/movie/Index";
-import Movie from "./Movie/Movie";
+import Movie from "./movie/Movie";
 import * as classes from "./movies.module.scss";
 import * as classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
 import { GetLast10MoviesResponse, MovieCover } from "api/movies";

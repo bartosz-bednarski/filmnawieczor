@@ -2,7 +2,7 @@ import { GetError, MovieDetails as MovieDetailsType } from "api/movies";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
-import MovieDetails from "../components/movies/MovieDetails/MovieDetails";
+import MovieDetails from "../components/movies/movieDetails/MovieDetails";
 type Loader = MovieDetailsType | GetError;
 const MovieDetailsPage = () => {
   const data = useLoaderData() as Loader;
