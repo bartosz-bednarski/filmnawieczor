@@ -3,9 +3,9 @@ import MainHeader from "../../ui/MainHeader";
 import NewsArticleSection from "./NewsArticleSection";
 import * as classes from "../../ui/mainContainerWithAdverts.module.scss";
 import { useLoaderData } from "react-router-dom";
-import { News_details } from "news";
+import { NewsDetails } from "api/news";
 const NewsArticle: React.FC = () => {
-  const newsDetails: News_details | any = useLoaderData();
+  const newsDetails = useLoaderData() as NewsDetails;
 
   return (
     <div className={classes.container}>
@@ -13,13 +13,9 @@ const NewsArticle: React.FC = () => {
       <div className={classes["main-container"]}>
         <div className={classes["main-container__advert-box"]}> </div>
         <div className={classes["main-container__content-container"]}>
-          {newsDetails.news_details_data !== undefined &&
-            newsDetails.news_details_data.map((section) => (
-              <NewsArticleSection
-                section={section}
-                key={section.article_title}
-              />
-            ))}
+          {newsDetails.news_details_data.map((section) => (
+            <NewsArticleSection section={section} key={section.article_title} />
+          ))}
         </div>
         <div className={classes["main-container__advert-box"]}> </div>
       </div>

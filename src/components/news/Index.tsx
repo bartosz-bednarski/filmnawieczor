@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
+import { Last10News } from "api/news";
+import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import * as classes from "../ui/mainContainerWithAdverts.module.scss";
 import MainHeader from "../ui/MainHeader";
 import NewsBox from "./NewsBox/NewsBox";
 const News: React.FC = () => {
   const navigate = useNavigate();
-  const last10News: any = useLoaderData();
-  // useEffect(() => {
-  //   if (last10News[0] === undefined) {
-  //     navigate("/error", { state: { message: "Failed to fetch" } });
-  //   }
-  // }, []);
+  const last10News = useLoaderData() as Last10News[];
   return (
     <div className={classes.container}>
       <MainHeader title="Aktualności" />

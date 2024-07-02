@@ -7,6 +7,7 @@ import DateReleaseFilter from "./DateReleaseFilter";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { useEffect, useState } from "react";
 import { setActivefilterMovie } from "../../../redux/moviesFilters-slice";
+import { Category } from "redux/moviesFilters";
 const SecondaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
   const dispatch = useAppDispatch();
   const secondaryCatsToDisplayStore = useAppSelector(
@@ -16,9 +17,9 @@ const SecondaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
     (state) => state.moviesFilters.categories
   );
   const [secondaryCategoriesToDisplay, setSecondaryCategoriestoDisplay] =
-    useState(null);
+    useState<Category | null>(null);
 
-  const onClickHandler = (catName) => {
+  const onClickHandler = (catName: string) => {
     const payloadToSend = {
       catName: secondaryCategoriesToDisplay.catName,
       queryName: secondaryCategoriesToDisplay.queryName,

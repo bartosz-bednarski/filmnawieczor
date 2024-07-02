@@ -1,18 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ActiveFilter } from "filters";
+import {
+  ActivefilterAction,
+  RemoveActiveFilterAction,
+  SecondaryCatsToDisplayAction,
+  SeriesFiltersInitialState,
+} from "redux/seriesFilters";
 
-export type MoviesFiltersInitialState = {
-  categories: {
-    id: string;
-    catDisplayName: string;
-    catName: string;
-    queryName: string;
-    secondaryCats?: { id: string; catName: string; active: boolean }[];
-  }[];
-  secondaryCatsToDisplay: string;
-  activeFilters: ActiveFilter[];
-};
-const seriesFiltersInitialState: MoviesFiltersInitialState = {
+const seriesFiltersInitialState: SeriesFiltersInitialState = {
   categories: [
     {
       id: "M0",
@@ -81,10 +75,13 @@ const seriesFiltersSlice = createSlice({
   name: "SeriesFilter",
   initialState: seriesFiltersInitialState,
   reducers: {
-    setSecondaryCatsToDisplay: (state, action) => {
+    setSecondaryCatsToDisplay: (
+      state,
+      action: SecondaryCatsToDisplayAction
+    ) => {
       state.secondaryCatsToDisplay = action.payload;
     },
-    setActivefilter: (state, action) => {
+    setActivefilter: (state, action: ActivefilterAction) => {
       state.activeFilters = [
         ...state.activeFilters,
         {
@@ -109,7 +106,7 @@ const seriesFiltersSlice = createSlice({
         ].active = false;
       }
     },
-    removeActiveFilter: (state, action) => {
+    removeActiveFilter: (state, action: RemoveActiveFilterAction) => {
       if (
         action.payload.queryName === "mc.movie_category" ||
         action.payload.queryName === "ap.action_place"

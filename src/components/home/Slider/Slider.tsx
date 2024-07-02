@@ -89,7 +89,11 @@ const Slider: React.FC<{
               }
             >
               {content.buttons.map((button) => (
-                <ButtonSlider url={button.url} title={button.title} />
+                <ButtonSlider
+                  url={button.url}
+                  title={button.title}
+                  key={button.title}
+                />
               ))}
             </div>
           </div>

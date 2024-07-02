@@ -42,7 +42,7 @@ const Home: React.FC = () => {
     buttons: slides[0].buttons,
     index: 0,
   });
-  const changeSlideOnClick = (index) => {
+  const changeSlideOnClick = (index: number) => {
     setSliderContent({
       image: slides[index].image,
       text: slides[index].text,

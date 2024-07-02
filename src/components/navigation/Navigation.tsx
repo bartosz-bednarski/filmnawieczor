@@ -13,7 +13,6 @@ const Navigation: React.FC = () => {
     setShowMobileList(false);
   }, [location]);
   return (
-    // <div></div>
     <div className={classes["navigation"]}>
       <img
         src={logo}

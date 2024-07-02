@@ -1,8 +1,8 @@
 import React from "react";
-import { News_article_data } from "news";
 import parse from "html-react-parser";
 import * as classes from "./newsArticleSection.module.scss";
-const NewsArticleSection: React.FC<{ section: News_article_data }> = ({
+import { ArticleDetails } from "api/news";
+const NewsArticleSection: React.FC<{ section: ArticleDetails }> = ({
   section,
 }) => {
   const image =
