@@ -3,14 +3,15 @@ import MainHeader from "../../ui/MainHeader";
 import * as classes from "./newsSection.module.scss";
 import SingleNews from "./SingleNews";
 import { useState, useEffect } from "react";
-import { getLatestNews } from "../../../api/homePage";
+import { getLatestNews } from "../../../api/home";
 import { useNavigate } from "react-router-dom";
+import { LatestNews } from "api/home";
 const NewsSection: React.FC = () => {
   const navigate = useNavigate();
-  const [latestNews, setLatestNews] = useState([]);
+  const [latestNews, setLatestNews] = useState<[] | LatestNews[]>([]);
   const getLatestNewsHandler = async () => {
     const latestNewsFetched = await getLatestNews();
-    if (latestNewsFetched.status === "error") {
+    if ("status" in latestNewsFetched) {
       navigate("/error", { state: { message: latestNewsFetched.message } });
     } else {
       setLatestNews(latestNewsFetched);
@@ -25,7 +26,7 @@ const NewsSection: React.FC = () => {
       <div
         className={classes["home-container__news-section-container__news-box"]}
       >
-        {latestNews.map((news) => (
+        {latestNews.map((news: LatestNews) => (
           <SingleNews
             title={news.title}
             image={news.image_cover}

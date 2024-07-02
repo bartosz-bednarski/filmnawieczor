@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Navigation from "../components/globals/Navigation";
+import Navigation from "../components/navigation/Navigation";
 import { useLayoutEffect } from "react";
-import Footer from "../components/globals/Index";
+import Footer from "../components/footer/Index";
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {

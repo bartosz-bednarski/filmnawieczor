@@ -1,4 +1,9 @@
-export const getLatestMovies = async () => {
+import {
+  GetLatestMoviesCall,
+  GetLatestNewsCall,
+  GetLatestSeriesCall,
+} from "../types/api/home";
+export const getLatestMovies: GetLatestMoviesCall = async () => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/homePage/latestMovies`,
@@ -29,7 +34,7 @@ export const getLatestMovies = async () => {
     return { status: "error", message: error.message };
   }
 };
-export const getLatestSeries = async () => {
+export const getLatestSeries: GetLatestSeriesCall = async () => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/homePage/latestSeries`,
@@ -60,7 +65,7 @@ export const getLatestSeries = async () => {
     return { status: "error", message: error.message };
   }
 };
-export const getLatestNews = async () => {
+export const getLatestNews: GetLatestNewsCall = async () => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/homePage/latestNews`,

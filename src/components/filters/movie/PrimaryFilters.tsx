@@ -8,7 +8,7 @@ const PrimaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
   const primaryCategoriesStore = useAppSelector(
     (state) => state.moviesFilters.categories
   );
-  const onClickHandler = (catName) => {
+  const onClickHandler = (catName: string) => {
     onHide();
     dispatch(setSecondaryCatsToDisplayMovie(catName));
   };

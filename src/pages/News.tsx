@@ -1,12 +1,14 @@
+import { GetError } from "api/home";
+import { Last10News } from "api/news";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import News from "../components/news/Index";
 const NewsPage = () => {
-  const loader: any = useLoaderData();
+  const loader = useLoaderData() as Last10News[] | GetError;
   const navigate = useNavigate();
   useEffect(() => {
-    if (loader[0] === undefined) {
+    if ("status" in loader) {
       navigate("/error", { state: { message: loader.message } });
     }
   }, []);

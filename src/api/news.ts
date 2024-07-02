@@ -1,4 +1,6 @@
-export const getLast10News = async () => {
+import { GetLast10NewsCall, GetNewsDetailsCall } from "api/news";
+
+export const getLast10News: GetLast10NewsCall = async () => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/news/last10News`,
@@ -27,7 +29,7 @@ export const getLast10News = async () => {
     return { status: "error", message: error.message };
   }
 };
-export const getNewsDetails = async (params) => {
+export const getNewsDetails: GetNewsDetailsCall = async (params) => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/news/${params}`,
