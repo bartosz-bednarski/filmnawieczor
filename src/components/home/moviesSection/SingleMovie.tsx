@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as classes from "./moviesSection.module.scss";
 const SingleMovie: React.FC<{
   title: string;
@@ -17,6 +17,7 @@ const SingleMovie: React.FC<{
           "home-container__movies-section-container__movies-box__single-movie-box"
         ]
       }
+      role="link"
       onClick={() => navigate(link)}
     >
       <img

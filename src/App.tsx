@@ -14,7 +14,6 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicy";
 import ErrorPage from "./pages/Error";
 import ErrorRoutePage from "./pages/ErrorRoute";
 import MovieDetailsPage from "./pages/MovieDetails";
-import { MovieDetailsLoaderTypes } from "movies";
 
 const router = createBrowserRouter([
   {

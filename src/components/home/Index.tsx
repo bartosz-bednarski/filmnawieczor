@@ -89,8 +89,8 @@ const Home: React.FC = () => {
             width={26}
             height={26}
             role="button"
-            alt="Play forward"
-            title="Play forward"
+            alt="Play backward"
+            title="Play backward"
             onClick={() => changeSlideOnClick(0)}
           />
           <img
@@ -98,8 +98,8 @@ const Home: React.FC = () => {
             width={26}
             height={26}
             role="button"
-            alt="Play backward"
-            title="Play backward"
+            alt="Play forward"
+            title="Play forward"
             onClick={() => changeSlideOnClick(1)}
           />
         </div>

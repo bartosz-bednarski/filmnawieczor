@@ -24,6 +24,10 @@ const Error: React.FC = () => {
     code = 500;
     outputMessage =
       "Błędne zapytanie do serwera. Podana ścieżka żądania nie istnieje. Skontaktuj się z naszym administratorem w celu rozwiązania problemu.";
+  } else {
+    code = 404;
+    outputMessage =
+      "Wystąpił niespodziewany błąd. Skontaktuj się z naszym administratorem w celu rozwiązania problemu.";
   }
   return (
     <div className={classes.error}>
