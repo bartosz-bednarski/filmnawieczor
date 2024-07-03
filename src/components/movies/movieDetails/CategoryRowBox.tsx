@@ -10,7 +10,9 @@ const CategoryRowBox: React.FC<{ category: string; details: string }> = ({
     <div className={classes["movieDetails__top-container__content__row-box"]}>
       <CategoryName title={category} />
       {details.includes(",") ? (
-        details.split(",").map((detail) => <CategoryDetail title={detail} />)
+        details
+          .split(",")
+          .map((detail) => <CategoryDetail title={detail} key={detail} />)
       ) : (
         <CategoryDetail title={details} />
       )}

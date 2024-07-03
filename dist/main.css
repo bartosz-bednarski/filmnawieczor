@@ -229,14 +229,14 @@
   color: black;
 }
 /*!******************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/home/NewsSection/newsSection.module.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/home/newsSection/newsSection.module.scss ***!
   \******************************************************************************************************************************************************************************/
-.newsSection-module__home-container__news-section-container--f5hSX {
+.newsSection-module__home-container__news-section-container--VnpVQ {
   display: flex;
   flex-direction: column;
   border-bottom: 3px solid #ffe500;
 }
-.newsSection-module__home-container__news-section-container__news-box--muf1F {
+.newsSection-module__home-container__news-section-container__news-box--cgorK {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -244,33 +244,33 @@
   justify-content: center;
   gap: 1rem;
 }
-.newsSection-module__home-container__news-section-container__news-box--muf1F a {
+.newsSection-module__home-container__news-section-container__news-box--cgorK a {
   text-decoration: none;
 }
-.newsSection-module__home-container__news-section-container__news-box__single-news-box--WKJ31 {
+.newsSection-module__home-container__news-section-container__news-box__single-news-box--ARFP1 {
   display: flex;
   flex-direction: column;
   width: 325px;
 }
-.newsSection-module__home-container__news-section-container__news-box__single-news-box__image--jlDmh {
+.newsSection-module__home-container__news-section-container__news-box__single-news-box__image--C68tt {
   width: 325px;
   height: 183px;
 }
-.newsSection-module__home-container__news-section-container__news-box__single-news-box__title--CFosb {
+.newsSection-module__home-container__news-section-container__news-box__single-news-box__title--tkGht {
   font-size: 1rem;
   color: white;
   padding: 5px 10px;
   text-align: center;
 }
 /*!**********************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/home/MoviesSection/moviesSection.module.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/home/moviesSection/moviesSection.module.scss ***!
   \**********************************************************************************************************************************************************************************/
-.moviesSection-module__home-container__movies-section-container--eDZSz {
+.moviesSection-module__home-container__movies-section-container--LOJr_ {
   display: flex;
   flex-direction: column;
   border-bottom: 3px solid #ffe500;
 }
-.moviesSection-module__home-container__movies-section-container__movies-box--AsOkb {
+.moviesSection-module__home-container__movies-section-container__movies-box--x_4tX {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -278,33 +278,33 @@
   justify-content: center;
   gap: 1rem;
 }
-.moviesSection-module__home-container__movies-section-container__movies-box__single-movie-box--D0OE2 {
+.moviesSection-module__home-container__movies-section-container__movies-box__single-movie-box--SIzGa {
   display: flex;
   flex-direction: column;
   width: 175px;
 }
-.moviesSection-module__home-container__movies-section-container__movies-box__single-movie-box--D0OE2:hover {
+.moviesSection-module__home-container__movies-section-container__movies-box__single-movie-box--SIzGa:hover {
   cursor: pointer;
 }
-.moviesSection-module__home-container__movies-section-container__movies-box__single-movie-box__image--VLguQ {
+.moviesSection-module__home-container__movies-section-container__movies-box__single-movie-box__image--KnbdI {
   width: 175px;
   height: 255px;
 }
-.moviesSection-module__home-container__movies-section-container__movies-box__single-movie-box__title--os2sv {
+.moviesSection-module__home-container__movies-section-container__movies-box__single-movie-box__title--Zplc6 {
   font-size: 1rem;
   color: white;
   padding: 5px 10px;
   text-align: center;
 }
 /*!**********************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/home/SeriesSection/seriesSection.module.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/components/home/seriesSection/seriesSection.module.scss ***!
   \**********************************************************************************************************************************************************************************/
-.seriesSection-module__home-container__series-section-container--jtcRs {
+.seriesSection-module__home-container__series-section-container--SzBVJ {
   display: flex;
   flex-direction: column;
   border-bottom: 3px solid #ffe500;
 }
-.seriesSection-module__home-container__series-section-container__series-box--BlFQ_ {
+.seriesSection-module__home-container__series-section-container__series-box--WEfw2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -312,16 +312,16 @@
   justify-content: center;
   gap: 1rem;
 }
-.seriesSection-module__home-container__series-section-container__series-box__single-serie-box--OPVml {
+.seriesSection-module__home-container__series-section-container__series-box__single-serie-box--wzNtG {
   display: flex;
   flex-direction: column;
   width: 175px;
 }
-.seriesSection-module__home-container__series-section-container__series-box__single-serie-box__image--_rwOt {
+.seriesSection-module__home-container__series-section-container__series-box__single-serie-box__image--lzlS0 {
   width: 175px;
   height: 255px;
 }
-.seriesSection-module__home-container__series-section-container__series-box__single-serie-box__title--o8LE5 {
+.seriesSection-module__home-container__series-section-container__series-box__single-serie-box__title--Z3OAh {
   font-size: 1rem;
   color: white;
   padding: 5px 10px;
