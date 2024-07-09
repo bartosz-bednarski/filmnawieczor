@@ -20,7 +20,7 @@ const NewsPage = () => {
           name="description"
           content="W naszej sekcji aktualności znajdziesz artykuły związane z tematyką kinową."
         />
-        <link rel="canonical" href="/aktualnosci" />
+        <link rel="canonical" href="https://filmnawieczor.pl/aktualnosci" />
       </Helmet>
       <News />
     </>

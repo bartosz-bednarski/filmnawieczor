@@ -1,11 +1,11 @@
 import React from "react";
-import MainHeader from "../../ui/MainHeader";
 import * as classes from "./newsSection.module.scss";
 import SingleNews from "./SingleNews";
 import { useState, useEffect } from "react";
 import { getLatestNews } from "../../../api/home";
 import { useNavigate } from "react-router-dom";
 import { LatestNews } from "api/home";
+import H2Banner from "../../ui/H2Banner";
 const NewsSection: React.FC = () => {
   const navigate = useNavigate();
   const [latestNews, setLatestNews] = useState<[] | LatestNews[]>([]);
@@ -22,7 +22,7 @@ const NewsSection: React.FC = () => {
   }, []);
   return (
     <div className={classes["home-container__news-section-container"]}>
-      <MainHeader title="Aktualności" />
+      <H2Banner title="Aktualności" />
       <div
         className={classes["home-container__news-section-container__news-box"]}
       >

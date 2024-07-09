@@ -11,7 +11,7 @@ const ErrorRoutePage = () => {
           name="description"
           content="Wystąpił problem podczas komunikacji z serwerem."
         />
-        <link rel="canonical" href="/error" />
+        <link rel="canonical" href="https://filmnawieczor.pl/error" />
       </Helmet>
       <ErrorRoute />
     </>
