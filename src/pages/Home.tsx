@@ -10,7 +10,7 @@ const HomePage = () => {
           name="description"
           content="Film na wieczór to serwis, który posiada własną bazę danych filmów i seriali umożliwiającą korzystanie z nietypowych filtrów miejsca i czasu akcji."
         />
-        <link rel="canonical" href="/" />
+        <link rel="canonical" href="https://filmnawieczor.pl" />
       </Helmet>
       <Home />
     </>

@@ -2,6 +2,7 @@ import { GetError, MovieDetails as MovieDetailsType } from "api/movies";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { encodePolishChars } from "../components/globals/scripts/encodePolishChars";
 import MovieDetails from "../components/movies/movieDetails/MovieDetails";
 type Loader = MovieDetailsType | GetError;
 const MovieDetailsPage = () => {
@@ -27,7 +28,7 @@ const MovieDetailsPage = () => {
         />
         <link
           rel="canonical"
-          href={`https://filmnawieczor.pl/filmy/${movieId}`}
+          href={`https://filmnawieczor.pl/filmy/${encodePolishChars(movieId)}`}
         />
       </Helmet>
       <MovieDetails />
