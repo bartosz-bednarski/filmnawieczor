@@ -12,6 +12,9 @@
   padding-right: 1rem;
   color: white;
 }
+.container:hover {
+  cursor: pointer;
+}
 .container__main-img {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -79,6 +82,9 @@
     background: linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(255, 229, 0) 100%);
     color: white;
   }
+  .container-mobile:hover {
+    cursor: pointer;
+  }
   .container-mobile__top-box {
     display: flex;
     flex-direction: row;
@@ -124,9 +130,6 @@
     color: #d20000;
   }
   .container__content-box__cat-box__text {
-    font-weight: 400;
-  }
-}/*# sourceMappingURL=movie.module.css.map */-box__cat-box__text {
     font-weight: 400;
   }
 }/*# sourceMappingURL=movie.module.css.map */
