@@ -22,17 +22,18 @@ const SeriesSection: React.FC = () => {
   }, []);
   return (
     <div className={classes["home-container__series-section-container"]}>
-      <H2Banner title="Nowe seriale w bazie danych" />
+      <H2Banner header="Nowe seriale" secondaryHeader="w bazie danych" />
       <div
         className={
           classes["home-container__series-section-container__series-box"]
         }
       >
-        {latestSeries.map((movie: LatestSerie) => (
+        {latestSeries.map((serie: LatestSerie) => (
           <SingleSerie
-            title={movie.name}
-            image={movie.image_cover}
-            key={movie.id}
+            title={serie.name}
+            image={serie.image_cover}
+            description={serie.description}
+            key={serie.id}
           />
         ))}
       </div>

@@ -6,11 +6,13 @@ export type LatestMovie = {
   id: number;
   name: string;
   image_cover: string;
+  description: string;
 };
 export type LatestSerie = {
   id: number;
   name: string;
   image_cover: string;
+  description: string;
 };
 export type LatestNews = {
   id: number;

@@ -1,33 +1,31 @@
 .home-container {
+  overflow-y: hidden;
   &__movies-section-container {
+    min-height: 80vh;
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    border-bottom: 3px solid #ffe500;
+    gap: 2rem;
+    // border-bottom: 3px solid #ffe500;
+
     &__movies-box {
+      position: relative;
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
-      padding: 50px;
-      justify-content: center;
-      gap: 1rem;
-      &__single-movie-box {
-        display: flex;
-        flex-direction: column;
-        width: 175px;
-        &:hover {
-          cursor: pointer;
-        }
-        &__image {
-          width: 175px;
-          height: 255px;
-        }
-        &__title {
-          font-size: 1rem;
-          color: white;
-          padding: 5px 10px;
-          text-align: center;
-        }
-      }
+      // flex-wrap: wrap;
+      height: auto;
+      // padding: 50px;
+      justify-content: flex-start;
+      // gap: 1rem;
     }
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .home-container__movies-section-container__movies-box {
+    flex-wrap: wrap;
+    padding: 50px;
+    gap: 1rem;
+    background-color: black;
+    justify-content: center;
   }
 }
