@@ -22,7 +22,7 @@ const NewsSection: React.FC = () => {
   }, []);
   return (
     <div className={classes["home-container__news-section-container"]}>
-      <H2Banner title="Aktualności" />
+      <H2Banner header="Aktualności" secondaryHeader="" />
       <div
         className={classes["home-container__news-section-container__news-box"]}
       >

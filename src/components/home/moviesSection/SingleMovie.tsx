@@ -1,47 +1,46 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import * as classes from "./moviesSection.module.scss";
+import { useNavigate } from "react-router-dom";
+import * as classes from "./singleMovie.module.scss";
 const SingleMovie: React.FC<{
   title: string;
   image: string;
   id: number;
-}> = ({ title, image, id }) => {
+  description: string;
+}> = ({ title, image, id, description }) => {
   const navigate = useNavigate();
-  const newsCoverImage = require(`../../../assets/movies/${image}`).default;
   const link = `/filmy/${title.replace(/\s/g, "").toLowerCase()}-${id}`;
-
+  const movieCoverImage1100 =
+    require(`../../../assets/movies/details/${image.replace(
+      ".webp",
+      "-details.webp"
+    )}`).default;
+  const newsCoverImage = require(`../../../assets/movies/${image}`).default;
   return (
     <div
-      className={
-        classes[
-          "home-container__movies-section-container__movies-box__single-movie-box"
-        ]
-      }
+      className={classes["single-movie-box"]}
       role="link"
       onClick={() => navigate(link)}
     >
       <img
+        className={classes["single-movie-box__image"]}
         src={newsCoverImage}
         alt="movie cover"
         width={175}
-        height={255}
-        className={
-          classes[
-            "home-container__movies-section-container__movies-box__single-movie-box__image"
-          ]
-        }
-        title={title}
-        loading="lazy"
+        height={300}
       />
-      <span
-        className={
-          classes[
-            "home-container__movies-section-container__movies-box__single-movie-box__title"
-          ]
-        }
-      >
-        {title}
-      </span>
+      <img
+        className={classes["single-movie-box__image-1100"]}
+        src={movieCoverImage1100}
+        alt="movie cover"
+        width={200}
+        height={300}
+      />
+      <div className={classes["single-movie-box__text-box"]}>
+        <h2>{title}</h2>
+        <span className={classes["single-movie-box__text-box__description"]}>
+          {description}
+        </span>
+      </div>
     </div>
   );
 };

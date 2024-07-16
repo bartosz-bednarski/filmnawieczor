@@ -1,40 +1,40 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import * as classes from "./newsSection.module.scss";
+import { NavLink, useNavigate } from "react-router-dom";
+import * as classes from "./singleNews.module.scss";
 const SingleNews: React.FC<{ title: string; image: string; url: string }> = ({
   title,
   image,
   url,
 }) => {
+  const navigate = useNavigate();
   const newsCoverImage = require(`../../../assets/news/${image}`).default;
   return (
-    <NavLink to={url}>
-      <div
-        className={
-          classes[
-            "home-container__news-section-container__news-box__single-news-box"
-          ]
-        }
-      >
-        <img
-          src={newsCoverImage}
-          alt="article cover"
-          width={325}
-          height={183}
-          title={title}
-          loading="eager"
-        />
-        <span
-          className={
-            classes[
-              "home-container__news-section-container__news-box__single-news-box__title"
-            ]
-          }
-        >
-          {title}
+    <div
+      className={classes["single-news-box"]}
+      role="link"
+      onClick={() => navigate(url)}
+    >
+      {/* <img
+        className={classes["single-news-box__image"]}
+        src={newsCoverImage}
+        alt="news cover"
+        width={175}
+        height={300}
+      /> */}
+      <img
+        className={classes["single-news-box__image-1100"]}
+        src={newsCoverImage}
+        alt="news cover"
+        width={200}
+        height={300}
+      />
+      <div className={classes["single-news-box__text-box"]}>
+        <h2>{title}</h2>
+        <span className={classes["single-news-box__text-box__description"]}>
+          {/* {description} */}
         </span>
       </div>
-    </NavLink>
+    </div>
   );
 };
 export default SingleNews;

@@ -17,6 +17,7 @@ const Movie: React.FC<{ movie: MovieCover }> = ({ movie }) => {
         <div
           className={classes["container"]}
           id={`${movie.id}`}
+          role="link"
           onClick={() =>
             navigate(
               `/filmy/${movie.name.replace(/\s/g, "").toLowerCase()}-${

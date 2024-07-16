@@ -1,0 +1,11 @@
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+}
+.header-container__header {
+  color: #ffe500;
+}/*# sourceMappingURL=h2Banner.module.css.map */
