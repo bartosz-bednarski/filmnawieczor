@@ -14,7 +14,7 @@ const SingleMovie: React.FC<{
       ".webp",
       "-details.webp"
     )}`).default;
-  const newsCoverImage = require(`../../../assets/movies/${image}`).default;
+  const movieCoverImage = require(`../../../assets/movies/${image}`).default;
   return (
     <div
       className={classes["single-movie-box"]}
@@ -23,7 +23,7 @@ const SingleMovie: React.FC<{
     >
       <img
         className={classes["single-movie-box__image"]}
-        src={newsCoverImage}
+        src={movieCoverImage}
         alt="movie cover"
         width={175}
         height={300}
