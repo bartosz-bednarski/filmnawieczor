@@ -10,22 +10,22 @@ const NewsBox: React.FC<{
   const newsCoverImage = require(`../../../assets/news/${coverImage}`).default;
   return (
     <div className={classes["newsBox-container"]} onClick={onClick}>
-      <div className={classes["newsBox-container__title"]}>
-        <h3>{coverTitle}</h3>
+      <div className={classes["newsBox-container__header"]}>
+        <h4>{coverTitle}</h4>
       </div>
-      <div className={classes["newsBox-container__box"]}>
-        <img
-          src={newsCoverImage}
-          width={325}
-          height="auto"
-          className={classes["newsBox-container__box__image"]}
-          alt={`${coverTitle} cover`}
-          title={coverTitle}
-          loading="eager"
-        />
-        <div className={classes["newsBox-container__box__text"]}>
-          {parse(coverContent)}
-        </div>
+
+      <img
+        src={newsCoverImage}
+        width={325}
+        height="auto"
+        className={classes["newsBox-container__image"]}
+        alt={`${coverTitle} cover`}
+        title={coverTitle}
+        loading="eager"
+      />
+
+      <div className={classes["newsBox-container__content"]}>
+        {parse(coverContent)}
       </div>
     </div>
   );

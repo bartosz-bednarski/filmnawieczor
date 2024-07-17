@@ -37,6 +37,26 @@ const SeriesSection: React.FC = () => {
           />
         ))}
       </div>
+      <span
+        className={
+          classes["home-container__series-section-container__text-box"]
+        }
+      >
+        <h4>To nie ten dzień na film? Wolisz obejrzeć coś krótszego?</h4>
+        <h3> Wybierz serial!</h3>
+        Mamy nadzieję, że nasze filtry dobrze się sprawdzają i będzie to jeden z
+        tych przypadków, gdzie siadasz obejrzeć na szybko jeden odcinek, a
+        kończysz o 2 rano bo pasowałoby jednak trochę pospać. Zestaw filtrów
+        jest taki sam jak w bazie filmów z dodatkiem wyboru ilości sezonów, żeby
+        mieć chociaż jakiś minimalny wpływ na zarządzanie swoim czasem.
+        <h4>
+          Obecnie skupiamy się na aktualizowaniu bazy filmów i na pracach
+          technicznych. Jak tylko to ogarniemy zabieramy się za seriale. W
+          przyszłości dostępne będą szczegółowe opisy seriali, zwiastuny itp.
+          Aktualnie informacje jak i ilość seriali są mocno okrojone. Wpadajcie
+          co jakiś czas żeby zobaczyć jak idą postępy.
+        </h4>
+      </span>
     </div>
   );
 };

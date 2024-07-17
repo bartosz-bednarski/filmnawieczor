@@ -17,6 +17,13 @@
       justify-content: flex-start;
       // gap: 1rem;
     }
+    &__text-box {
+      background-color: #ffe500;
+      font-size: 1.3rem;
+      color: black;
+      padding: 1rem 3rem;
+      text-align: center;
+    }
   }
 }
 @media only screen and (max-width: 1100px) {
@@ -30,5 +37,8 @@
     &__news-box {
       justify-content: center;
     }
+  }
+  .home-container__news-section-container__text-box {
+    font-size: 1rem;
   }
 }

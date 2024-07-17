@@ -1,83 +1,73 @@
 .newsBox-container {
+  position: relative;
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
+  height: fit-content;
   width: 100%;
-  // background-color: #ffe500;
-  background-color: #ffe500;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  clip-path: polygon(0% 0, 100% 0, 75% 100%, 0% 100%);
+  border: 1px solid #ffe500;
   &:hover {
     cursor: pointer;
+
+    .newsBox-container__content {
+      display: none;
+    }
+    .newsBox-container__image {
+      transition: height 0.5s;
+      height: 300px;
+    }
+    .newsBox-container__header {
+      h4 {
+        font-size: 2rem;
+      }
+    }
   }
-  border: 1px solid #ffe500;
-  padding: 0 0 1px 1px;
-  &__title {
-    padding-left: 20px;
-    color: #ffe500;
-    background-color: #ffe500;
-    border-top-left-radius: 15px;
-    // border-bottom: 1px solid black;
-    // background: linear-gradient(135deg, #ffe500 0%, #d20000 100%);
-    color: black;
-    border-bottom: 3px solid black;
+
+  &__image {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+    object-position: center;
+    transition: height 0.5s;
   }
-  &__box {
+  &__header {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 11% 1rem 1rem;
     background-color: black;
-    border-bottom-left-radius: 15px;
-    &__image {
-      width: 325px;
-      border-bottom-left-radius: 15px;
-      // box-shadow: 0px 1px 1px black;
-    }
-    &__text {
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 1rem;
-      color: white;
-      font-weight: 600;
-      p {
-        margin: 0;
-      }
+    height: auto;
+    h4 {
+      color: #ffe500;
     }
   }
-}
-@media only screen and (max-width: 800px) {
-  .newsBox-container {
-    border-radius: 0px;
-    &__title {
-      border-radius: 0px;
-    }
-    &__box {
-      flex-direction: column;
-      align-items: flex-start;
-      border-radius: 0px;
-      gap: 0px;
-      &__image {
-        border-radius: 0px;
-      }
-      &__text {
-        border-top: 1px solid #ffe500;
-      }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 84%;
+    padding: 1rem 2rem 1rem 1rem;
+    height: auto;
+    background-color: #ffe500;
+    font-size: 0.9rem;
+    p {
+      margin: 0;
+      padding-right: 3rem;
+      font-size: 0.9rem;
+      font-weight: 500;
     }
   }
 }
 @media only screen and (max-width: 600px) {
   .newsBox-container {
-    border-radius: 0px;
-
-    &__box {
-      flex-direction: column;
-      align-items: flex-start;
-      border-radius: 0px;
-      gap: 0px;
-      &__image {
-        width: 100%;
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%);
+    &__content {
+      width: 100%;
+      p {
+        padding-right: 0;
+        text-align: center;
       }
     }
   }

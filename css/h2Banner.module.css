@@ -1,11 +1,40 @@
 .header-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  text-align: left;
 }
 .header-container__header {
   color: #ffe500;
+  font-size: 4rem;
+  margin: 0;
+  padding-left: 1rem;
+}
+.header-container__secondary-header {
+  padding-left: 1rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-size: 3rem;
+  padding-right: 30rem;
+  height: auto;
+  background-color: #ffe500;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 70% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0%, 70% 100%, 0% 100%);
+}
+
+@media only screen and (max-width: 1100px) {
+  .header-container__header {
+    font-size: 3rem;
+  }
+  .header-container__secondary-header {
+    width: 100%;
+    font-size: 2rem;
+    -webkit-clip-path: none;
+            clip-path: none;
+  }
 }/*# sourceMappingURL=h2Banner.module.css.map */
