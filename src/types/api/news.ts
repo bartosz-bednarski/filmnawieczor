@@ -19,6 +19,7 @@ export type ArticleDetails = {
   article_image: string;
   article_content: string;
   article_id: number;
+  article_url: string;
 };
 export type NewsDetails = {
   news_title: string;
