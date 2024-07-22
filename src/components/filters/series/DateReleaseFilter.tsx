@@ -100,40 +100,56 @@ const DateReleaseFilter: React.FC<{ onHide: () => void }> = ({ onHide }) => {
     <div className={classes["date-filter-container"]}>
       <div className={classes["date-filter-container__box"]}>
         <div className={classes["date-filter-container__box__input-box"]}>
-          <input
-            type="number"
-            min={1900}
-            max={2030}
-            maxLength={4}
-            value={dateRangeStart}
-            onChange={(e) => setDateRangeStart(e.target.value)}
-            placeholder="1900"
-            className={`${
-              classes["date-filter-container__box__input-box__input"]
-            } ${error.dateRangeStart ? classes["error"] : ""}`}
-          ></input>
           <span
-            className={classes["date-filter-container__box__input-box__text"]}
+            className={`${
+              classes["date-filter-container__box__input-box__input-bg"]
+            } ${error.dateRangeStart ? classes["error"] : ""}`}
+          >
+            <input
+              type="number"
+              min={1900}
+              max={2030}
+              maxLength={4}
+              value={dateRangeStart}
+              onChange={(e) => setDateRangeStart(e.target.value)}
+              placeholder="1900"
+              className={
+                classes["date-filter-container__box__input-box__input"]
+              }
+            ></input>
+          </span>
+          <span
+            className={`${
+              classes["date-filter-container__box__input-box__text"]
+            } ${error.dateRangeStart ? classes["error"] : ""}`}
           >
             Od roku
           </span>
         </div>
         <span className={classes["date-filter-container__box__text"]}>-</span>
         <div className={classes["date-filter-container__box__input-box"]}>
-          <input
-            type="number"
-            min={1900}
-            max={2030}
-            maxLength={4}
-            value={dateRangeEnd}
-            onChange={(e) => setDateRangeEnd(e.target.value)}
-            placeholder="2025"
-            className={`${
-              classes["date-filter-container__box__input-box__input"]
-            } ${error.dateRangeEnd ? classes["error"] : ""}`}
-          ></input>
           <span
-            className={classes["date-filter-container__box__input-box__text"]}
+            className={`${
+              classes["date-filter-container__box__input-box__input-bg"]
+            } ${error.dateRangeStart ? classes["error"] : ""}`}
+          >
+            <input
+              type="number"
+              min={1900}
+              max={2030}
+              maxLength={4}
+              value={dateRangeEnd}
+              onChange={(e) => setDateRangeEnd(e.target.value)}
+              placeholder="2025"
+              className={
+                classes["date-filter-container__box__input-box__input"]
+              }
+            ></input>
+          </span>
+          <span
+            className={`${
+              classes["date-filter-container__box__input-box__text"]
+            } ${error.dateRangeStart ? classes["error"] : ""}`}
           >
             Do roku
           </span>
@@ -147,21 +163,31 @@ const DateReleaseFilter: React.FC<{ onHide: () => void }> = ({ onHide }) => {
       </div>
       <div className={classes["date-filter-container__box"]}>
         <div className={classes["date-filter-container__box__input-box"]}>
-          <input
-            type="number"
-            placeholder="2005"
-            min={1900}
-            max={2030}
-            maxLength={4}
-            value={dateRangeEnd && dateRangeStart}
-            onChange={(e) => {
-              setDateRangeStart(e.target.value);
-              setDateRangeEnd(e.target.value);
-            }}
-            className={classes["date-filter-container__box__input-box__input"]}
-          ></input>
           <span
-            className={classes["date-filter-container__box__input-box__text"]}
+            className={`${
+              classes["date-filter-container__box__input-box__input-bg"]
+            } ${error.dateRangeStart ? classes["error"] : ""}`}
+          >
+            <input
+              type="number"
+              placeholder="2005"
+              min={1900}
+              max={2030}
+              maxLength={4}
+              value={dateRangeEnd && dateRangeStart}
+              onChange={(e) => {
+                setDateRangeStart(e.target.value);
+                setDateRangeEnd(e.target.value);
+              }}
+              className={
+                classes["date-filter-container__box__input-box__input"]
+              }
+            ></input>
+          </span>
+          <span
+            className={`${
+              classes["date-filter-container__box__input-box__text"]
+            } ${error.dateRangeStart ? classes["error"] : ""}`}
           >
             Podaj rok
           </span>

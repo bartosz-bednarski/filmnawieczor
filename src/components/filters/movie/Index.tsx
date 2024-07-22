@@ -21,7 +21,10 @@ const Filters: React.FC = () => {
     setShowSecondaryFilters(false);
   };
   return (
-    <div className={classes["filters-container"]}>
+    <div
+      className={classes["filters-container"]}
+      style={{ flexDirection: "column" }}
+    >
       {showPrimaryFilters && (
         <PrimaryFilters onHide={hidePrimaryFiltersHandler} />
       )}

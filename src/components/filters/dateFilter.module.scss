@@ -1,3 +1,12 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
 .date-filter-container {
   display: flex;
   flex-direction: row;
@@ -8,7 +17,7 @@
   &__commit-box {
     display: flex;
     flex-direction: column;
-    color: black;
+    color: #ffe500;
     width: 200px;
     align-items: center;
     gap: 1em;
@@ -18,13 +27,14 @@
     }
   }
   &__box {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     background-color: black;
     border-radius: 10px;
     padding: 20px;
     gap: 2em;
-    width: 200px;
+    width: 20rem;
     justify-content: center;
     align-items: center;
 
@@ -42,21 +52,51 @@
       color: #ffe500;
       justify-content: center;
       align-items: center;
+
       gap: 5px;
+      &__input-bg {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 9px;
+        padding: 1px;
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 125px;
+          height: 125px;
+          background: linear-gradient(90deg, #ffe500 0%, white 100%);
+          animation: rotate 6s linear infinite;
+        }
+      }
       &__input {
-        background-color: #ffe500;
+        position: relative;
+        background-color: black;
         border: none;
-        width: 50px;
-        padding: 10px;
+        width: 4rem;
+        padding: 1rem;
         border-radius: 10px;
         text-align: center;
         font-size: 0.8em;
         font-weight: 600;
+        color: #ffe500;
         &[type="number"]::-webkit-inner-spin-button,
         &input[type="number"]::-webkit-outer-spin-button {
           -webkit-appearance: none;
           margin: 0;
         }
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: #ffe60070;
+        }
+        z-index: 1;
       }
       &__text {
         font-size: 0.8em;
@@ -66,9 +106,13 @@
   }
 }
 .error {
-  background-color: #d20000;
+  &::before {
+    background: linear-gradient(90deg, #560404 0%, red 100%);
+  }
+  color: red;
+  font-weight: 500;
 }
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 970px) {
   .date-filter-container {
     flex-direction: column;
     gap: 0.5rem;
@@ -77,3 +121,11 @@
     }
   }
 }
+@media only screen and (max-width: 1046px) {
+  // .date-filter-container__box__input-box__input {
+  //   width: auto;
+  // }
+}
+// @media only screen and (max-width: 1046px) {
+//   date-filter-container__box__input-box__input-bg" ::before
+// }

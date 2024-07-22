@@ -13,21 +13,27 @@ const PrimaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
     dispatch(setSecondaryCatsToDisplaySerie(catName));
   };
   return (
-    <div className={classes["filters-container__primary-filters-container"]}>
-      <h1>Baza seriali</h1>
-      <div
-        className={classes["filters-container__primary-filters-container__box"]}
-      >
-        {primaryCategoriesStore.map((primaryCategory) => {
-          return (
-            <FilterBtn
-              value={primaryCategory.catDisplayName}
-              key={primaryCategory.id}
-              onClick={() => onClickHandler(primaryCategory.catName)}
-            />
-          );
-        })}
-      </div>
+    <div className={classes["filters-container"]}>
+      <div className={classes["filters-container__side-boxes"]}></div>
+      <div className={classes["filters-container__primary-filters-container"]}>
+        <h1>Baza seriali</h1>
+        <div
+          className={
+            classes["filters-container__primary-filters-container__box"]
+          }
+        >
+          {primaryCategoriesStore.map((primaryCategory) => {
+            return (
+              <FilterBtn
+                value={primaryCategory.catDisplayName}
+                key={primaryCategory.id}
+                onClick={() => onClickHandler(primaryCategory.catName)}
+              />
+            );
+          })}
+        </div>
+      </div>{" "}
+      <div className={classes["filters-container__side-boxes"]}></div>
     </div>
   );
 };
