@@ -10,18 +10,59 @@
 }
 .filters-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+}
+.filters-container__side-boxes {
   background-color: #ffe500;
-  justify-content: center;
+  width: 33%;
+  -webkit-clip-path: polygon(25% 0, 100% 0, 75% 100%, 0% 100%);
+          clip-path: polygon(25% 0, 100% 0, 75% 100%, 0% 100%);
+  height: 9rem;
+  z-index: 2;
+  border: 1px solid #ffe500;
+}
+.filters-container__side-boxes:nth-of-type(3) {
+  margin-left: -10%;
+  width: 43%;
 }
 .filters-container h1 {
   text-align: center;
 }
 .filters-container__primary-filters-container {
+  position: relative;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  background-color: black;
+  margin-left: -10%;
+  color: #ffe500;
+  min-width: 84%;
+  padding: 0 10%;
+  min-height: 9rem;
+}
+.filters-container__primary-filters-container::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 1px;
+  width: 80%;
+  background-color: #ffe500;
+}
+.filters-container__primary-filters-container::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  height: 1px;
+  width: 80%;
   background-color: #ffe500;
 }
 .filters-container__primary-filters-container h2 {
@@ -31,10 +72,13 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.5rem;
   justify-content: center;
+  padding-bottom: 10px;
 }
 .filters-container__secondary-filters-container {
+  box-sizing: border-box;
+  padding: 0 4rem;
   display: flex;
   flex-direction: column;
   opacity: 0;
@@ -68,4 +112,36 @@
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  .filters-container__primary-filters-container {
+    height: 11rem;
+  }
+  .filters-container__primary-filters-container::before {
+    top: -1px;
+  }
+  .filters-container__primary-filters-container::after {
+    bottom: -1px;
+  }
+  .filters-container__side-boxes {
+    height: 11rem;
+  }
+}
+@media only screen and (max-width: 940px) {
+  .filters-container__primary-filters-container {
+    height: 15rem;
+    width: 100%;
+    margin: 0;
+  }
+  .filters-container__side-boxes {
+    display: none;
+  }
+}
+@media only screen and (max-width: 780px) {
+  .filters-container__primary-filters-container__box {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
 }/*# sourceMappingURL=filters.module.css.map */

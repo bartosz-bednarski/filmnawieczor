@@ -1,6 +1,6 @@
 import React from "react";
 import * as classes from "./newsBox.module.scss";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
 const NewsBox: React.FC<{
   coverTitle: string;
   coverImage: string;
@@ -10,10 +10,6 @@ const NewsBox: React.FC<{
   const newsCoverImage = require(`../../../assets/news/${coverImage}`).default;
   return (
     <div className={classes["newsBox-container"]} onClick={onClick}>
-      <div className={classes["newsBox-container__header"]}>
-        <h4>{coverTitle}</h4>
-      </div>
-
       <img
         src={newsCoverImage}
         width={325}
@@ -23,10 +19,13 @@ const NewsBox: React.FC<{
         title={coverTitle}
         loading="eager"
       />
-
-      <div className={classes["newsBox-container__content"]}>
-        {parse(coverContent)}
+      <div className={classes["newsBox-container__header"]}>
+        <h4>{coverTitle}</h4>
       </div>
+
+      {/* <div className={classes["newsBox-container__content"]}>
+        {parse(coverContent)}
+      </div> */}
     </div>
   );
 };

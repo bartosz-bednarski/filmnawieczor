@@ -13,7 +13,32 @@ const PrimaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
     dispatch(setSecondaryCatsToDisplayMovie(catName));
   };
   return (
-    <div className={classes["filters-container__primary-filters-container"]}>
+    <>
+      <div className={classes["filters-container"]}>
+        <div className={classes["filters-container__side-boxes"]}></div>
+        <div
+          className={classes["filters-container__primary-filters-container"]}
+        >
+          <h1>Baza filmów</h1>
+          <div
+            className={
+              classes["filters-container__primary-filters-container__box"]
+            }
+          >
+            {primaryCategoriesStore.map((primaryCategory) => {
+              return (
+                <FilterBtn
+                  value={primaryCategory.catDisplayName}
+                  key={primaryCategory.id}
+                  onClick={() => onClickHandler(primaryCategory.catName)}
+                />
+              );
+            })}
+          </div>
+        </div>
+        <div className={classes["filters-container__side-boxes"]}></div>
+      </div>
+      {/* <div className={classes["filters-container__primary-filters-container"]}>
       <h1>Baza filmów</h1>
       <div
         className={classes["filters-container__primary-filters-container__box"]}
@@ -28,7 +53,8 @@ const PrimaryFilters: React.FC<{ onHide: () => void }> = ({ onHide }) => {
           );
         })}
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
 export default PrimaryFilters;

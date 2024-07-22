@@ -100,38 +100,54 @@ const SeasonsFilter: React.FC<{ onHide: () => void }> = ({ onHide }) => {
     <div className={classes["date-filter-container"]}>
       <div className={classes["date-filter-container__box"]}>
         <div className={classes["date-filter-container__box__input-box"]}>
-          <input
-            type="number"
-            min={1}
-            max={100}
-            value={seasonsCountStart}
-            onChange={(e) => setSeasonsCountStart(e.target.value)}
-            placeholder="1"
-            className={`${
-              classes["date-filter-container__box__input-box__input"]
-            } ${error.seasonsCountStart ? classes["error"] : ""}`}
-          ></input>
           <span
-            className={classes["date-filter-container__box__input-box__text"]}
+            className={`${
+              classes["date-filter-container__box__input-box__input-bg"]
+            } ${error.seasonsCountStart ? classes["error"] : ""}`}
+          >
+            <input
+              type="number"
+              min={1}
+              max={100}
+              value={seasonsCountStart}
+              onChange={(e) => setSeasonsCountStart(e.target.value)}
+              placeholder="1"
+              className={
+                classes["date-filter-container__box__input-box__input"]
+              }
+            ></input>
+          </span>
+          <span
+            className={`${
+              classes["date-filter-container__box__input-box__text"]
+            } ${error.seasonsCountStart ? classes["error"] : ""}`}
           >
             Od sezonu
           </span>
         </div>
         <span className={classes["date-filter-container__box__text"]}>-</span>
         <div className={classes["date-filter-container__box__input-box"]}>
-          <input
-            type="number"
-            min={1}
-            max={100}
-            value={seasonsCountEnd}
-            onChange={(e) => setSeasonsCountEnd(e.target.value)}
-            placeholder="100"
-            className={`${
-              classes["date-filter-container__box__input-box__input"]
-            } ${error.seasonsCountEnd ? classes["error"] : ""}`}
-          ></input>
           <span
-            className={classes["date-filter-container__box__input-box__text"]}
+            className={`${
+              classes["date-filter-container__box__input-box__input-bg"]
+            } ${error.seasonsCountEnd ? classes["error"] : ""}`}
+          >
+            <input
+              type="number"
+              min={1}
+              max={100}
+              value={seasonsCountEnd}
+              onChange={(e) => setSeasonsCountEnd(e.target.value)}
+              placeholder="100"
+              className={
+                classes["date-filter-container__box__input-box__input"]
+              }
+            ></input>
+          </span>
+          <span
+            className={`${
+              classes["date-filter-container__box__input-box__text"]
+            } ${error.seasonsCountEnd ? classes["error"] : ""}`}
           >
             Do sezonu
           </span>
@@ -145,22 +161,32 @@ const SeasonsFilter: React.FC<{ onHide: () => void }> = ({ onHide }) => {
       </div>
       <div className={classes["date-filter-container__box"]}>
         <div className={classes["date-filter-container__box__input-box"]}>
-          <input
-            type="number"
-            placeholder="1"
-            min={1}
-            max={1000}
-            value={seasonsCountEnd && seasonsCountStart}
-            onChange={(e) => {
-              setSeasonsCountStart(e.target.value);
-              setSeasonsCountEnd(e.target.value);
-            }}
-            className={classes["date-filter-container__box__input-box__input"]}
-          ></input>
           <span
-            className={classes["date-filter-container__box__input-box__text"]}
+            className={`${
+              classes["date-filter-container__box__input-box__input-bg"]
+            } ${error.seasonsCountStart ? classes["error"] : ""}`}
           >
-            Podaj ilość sezonów
+            <input
+              type="number"
+              placeholder="1"
+              min={1}
+              max={1000}
+              value={seasonsCountEnd && seasonsCountStart}
+              onChange={(e) => {
+                setSeasonsCountStart(e.target.value);
+                setSeasonsCountEnd(e.target.value);
+              }}
+              className={
+                classes["date-filter-container__box__input-box__input"]
+              }
+            ></input>
+          </span>
+          <span
+            className={`${
+              classes["date-filter-container__box__input-box__text"]
+            } ${error.seasonsCountStart ? classes["error"] : ""}`}
+          >
+            Ilość sezonów
           </span>
         </div>
       </div>

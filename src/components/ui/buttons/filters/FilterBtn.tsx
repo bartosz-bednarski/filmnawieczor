@@ -6,7 +6,7 @@ const FilterBtn: React.FC<{
 }> = ({ value, onClick }) => {
   return (
     <div className={classes["box"]} onClick={() => onClick()}>
-      {value}
+      <div className={classes["box__content"]}>{value}</div>
     </div>
   );
 };

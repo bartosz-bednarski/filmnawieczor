@@ -7,7 +7,7 @@ const ActiveFilterBtn: React.FC<{
 }> = ({ value, onClick, key }) => {
   return (
     <div className={classes["active-filter-box"]} onClick={() => onClick()}>
-      {value}
+      <span className={classes["active-filter-box__content"]}>{value}</span>
     </div>
   );
 };
