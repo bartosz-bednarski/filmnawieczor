@@ -1,18 +1,29 @@
 import React from "react";
-import * as classes from "./movie.module.scss";
-const CategoryText: React.FC<{ title: string; text: string }> = ({
-  title,
-  text,
-}) => {
+import * as classes from "./categoryText.module.scss";
+const CategoryText: React.FC<{
+  title: string;
+  text: any;
+  type: "button" | "static";
+}> = ({ title, text, type }) => {
   return (
-    <span className={classes["container__content-box__cat-box"]}>
-      <span className={classes["container__content-box__cat-box__cat-bold"]}>
-        {title}
-      </span>
-      <span className={classes["container__content-box__cat-box__text"]}>
-        {text}
-      </span>
-    </span>
+    <div className={classes["category-box"]}>
+      <span className={classes["category-box__category"]}>{title}</span>
+      {type === "static" && (
+        <span className={classes["category-box__category-item-bg"]}>
+          <span className={classes["category-box__category-item"]}>{text}</span>
+        </span>
+      )}
+      <div className={classes["category-box__categoy-items-box"]}>
+        {type === "button" &&
+          text.map((item: String[]) => (
+            <span className={classes["category-box__category-item-bg"]}>
+              <span className={classes["category-box__category-item"]}>
+                {item}
+              </span>
+            </span>
+          ))}
+      </div>
+    </div>
   );
 };
 

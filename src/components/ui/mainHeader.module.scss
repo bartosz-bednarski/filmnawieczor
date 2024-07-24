@@ -36,8 +36,14 @@
   }
 }
 @media only screen and (max-width: 900px) {
+  .header-container__side-boxes {
+    display: none;
+  }
+
   .header-container__text-box {
-    padding: 0 9rem;
+    padding: 0;
+    width: 100%;
+    margin-left: 0;
     h1 {
       font-size: 1.5rem;
     }

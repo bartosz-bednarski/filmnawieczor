@@ -35,13 +35,14 @@ export const getLast10Movies: GetLast10MoviesCall = async () => {
         const movieLengthToHoursAndMinutes = new Date(item.movie_length * 1000)
           .toISOString()
           .slice(11, 19);
+
         return {
-          action_place: item.action_place,
+          action_place: item.action_place.split(","),
           action_time:
             item.action_time_end === item.action_time_start
               ? item.action_time_end
               : `${item.action_time_start}-${item.action_time_end}`,
-          category: item.category,
+          category: item.category.split(","),
           description: item.description,
           id: item.id,
           image_cover: item.image_cover,
@@ -95,12 +96,12 @@ export const getNext5Movies: GetNext5MoviesCall = async (id) => {
           .toISOString()
           .slice(11, 19);
         return {
-          action_place: item.action_place,
+          action_place: item.action_place.split(","),
           action_time:
             item.action_time_end === item.action_time_start
               ? item.action_time_end
               : `${item.action_time_start}-${item.action_time_end}`,
-          category: item.category,
+          category: item.category.split(","),
           description: item.description,
           id: item.id,
           image_cover: item.image_cover,
@@ -156,12 +157,12 @@ export const getLast10FilteredMovies: GetLast10FilteredMoviesCall = async (
           .toISOString()
           .slice(11, 19);
         return {
-          action_place: item.action_place,
+          action_place: item.action_place.split(","),
           action_time:
             item.action_time_end === item.action_time_start
               ? item.action_time_end
               : `${item.action_time_start}-${item.action_time_end}`,
-          category: item.category,
+          category: item.category.split(","),
           description: item.description,
           id: item.id,
           image_cover: item.image_cover,
@@ -217,12 +218,12 @@ export const getNext5FilteredMovies: GetNext5FilteredMoviesCall = async (
           .toISOString()
           .slice(11, 19);
         return {
-          action_place: item.action_place,
+          action_place: item.action_place.split(","),
           action_time:
             item.action_time_end === item.action_time_start
               ? item.action_time_end
               : `${item.action_time_start}-${item.action_time_end}`,
-          category: item.category,
+          category: item.category.split(","),
           description: item.description,
           id: item.id,
           image_cover: item.image_cover,
