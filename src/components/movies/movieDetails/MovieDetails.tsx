@@ -1,10 +1,9 @@
 import React from "react";
 import * as classes from "./movieDetails.module.scss";
 import * as layoutClasses from "../../ui/mainContainerWithAdverts500ad.module.scss";
-import TitleHeader from "../../ui/moviesAndSeries/TitleHeader";
 import { useLoaderData } from "react-router-dom";
 import { MovieDetails as MovieDetailsType } from "api/movies";
-import CategoryRowBox from "./CategoryRowBox";
+import RowBoxCategories from "./RowBoxCategories";
 const MovieDetails: React.FC = () => {
   const loaderData = useLoaderData() as MovieDetailsType;
   const coverImage =
@@ -16,9 +15,9 @@ const MovieDetails: React.FC = () => {
         <div className={layoutClasses["main-container__content-container"]}>
           <div className={classes["movieDetails"]}>
             <div className={classes["movieDetails__top-container"]}>
-              <span className={classes["mobile"]}>
-                <TitleHeader title={loaderData.name} />
-              </span>
+              <h1 className={classes["movieDetails__top-container__title"]}>
+                {loaderData.name}
+              </h1>
               <img
                 src={coverImage}
                 className={classes["movieDetails__top-container__image"]}
@@ -28,32 +27,38 @@ const MovieDetails: React.FC = () => {
                 height={400}
                 loading="eager"
               />
-              <div className={classes["movieDetails__top-container__content"]}>
-                <span className={classes["desktop"]}>
-                  <TitleHeader title={loaderData.name} />
-                </span>
-                <CategoryRowBox
-                  category="Miejsce akcji"
-                  details={loaderData.action_place}
-                />
-                <CategoryRowBox
-                  category="Czas akcji"
-                  details={String(loaderData.action_time)}
-                />
-                <CategoryRowBox
-                  category="Gatunek"
-                  details={loaderData.category}
-                />
-                <CategoryRowBox
-                  category="Rok produkcji"
-                  details={String(loaderData.production_year)}
-                />
-                <CategoryRowBox
-                  category="Długość"
-                  details={String(loaderData.movie_length)}
-                />
-                <CategoryRowBox category="Ocena" details={loaderData.rating} />
-              </div>
+            </div>
+            <div className={classes["movieDetails__categories-box"]}>
+              <RowBoxCategories
+                type="button"
+                title="Miejsce akcji"
+                text={loaderData.action_place.split(",")}
+              />
+              <RowBoxCategories
+                type="static"
+                title="Czas akcji"
+                text={String(loaderData.action_time)}
+              />
+              <RowBoxCategories
+                type="button"
+                title="Gatunek"
+                text={loaderData.category.split(",")}
+              />
+              <RowBoxCategories
+                type="static"
+                title="Rok produkcji"
+                text={String(loaderData.production_year)}
+              />
+              <RowBoxCategories
+                type="static"
+                title="Długość"
+                text={String(loaderData.movie_length)}
+              />
+              <RowBoxCategories
+                type="static"
+                title="Ocena"
+                text={loaderData.rating}
+              />
             </div>
             <span className={classes["movieDetails__description"]}>
               {loaderData.description}
