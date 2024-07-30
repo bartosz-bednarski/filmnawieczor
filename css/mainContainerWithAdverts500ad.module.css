@@ -6,6 +6,7 @@
 }
 
 .main-container {
+  position: relative;
   display: flex;
   box-sizing: content-box;
   flex-direction: row;
