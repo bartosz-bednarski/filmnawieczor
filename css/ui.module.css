@@ -1,44 +1,6 @@
-.titleHeader {
-  background-color: #ffe500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-.titleHeader__header {
-  font-size: 1.6rem;
-  color: black;
-}
-
-.categoryName {
+.header-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8em;
   background-color: #ffe500;
-  color: black;
-  padding: 10px 15px;
-  border-radius: 10px;
-  font-weight: 600;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.categoryDetail {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.8em;
-  background-color: white;
-  color: black;
-  padding: 10px 15px;
-  border-radius: 10px;
-  font-weight: 600;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.categoryDetail:hover {
-  cursor: pointer;
-  background-color: #ffe500;
-  color: black;
 }/*# sourceMappingURL=ui.module.css.map */

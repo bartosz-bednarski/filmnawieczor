@@ -8,7 +8,7 @@ import {
 } from "../../api/movies";
 import { useAppSelector } from "../../redux/hooks";
 import Filters from "../filters/movie/Index";
-import Movie from "./movie/Movie";
+import MovieCoverBox from "./movieCoverBox/MovieCoverBox";
 import * as classes from "./movies.module.scss";
 import * as classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
 import { GetLast10MoviesResponse, MovieCover } from "api/movies";
@@ -162,7 +162,7 @@ const Movies: React.FC = () => {
         <div className={classes["movies-container"]}>
           {moviesToDisplay.dataExists &&
             moviesToDisplay.moviesData.map((data: MovieCover) => {
-              return <Movie movie={data} key={data.id} />;
+              return <MovieCoverBox movie={data} key={data.id} />;
             })}
         </div>
         <div className={classesGlobal["main-container__advert-box"]}> </div>
