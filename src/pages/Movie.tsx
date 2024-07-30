@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { encodePolishChars } from "../components/globals/scripts/encodePolishChars";
-import MovieDetails from "../components/movies/movieDetails/MovieDetails";
+import Movie from "../components/movies/movie/Movie";
 type Loader = MovieDetailsType | GetError;
-const MovieDetailsPage = () => {
+const MoviePage = () => {
   const data = useLoaderData() as Loader;
   let { movieId } = useParams();
   const navigate = useNavigate();
@@ -31,8 +31,8 @@ const MovieDetailsPage = () => {
           href={`https://filmnawieczor.pl/filmy/${encodePolishChars(movieId)}`}
         />
       </Helmet>
-      <MovieDetails />
+      <Movie />
     </>
   );
 };
-export default MovieDetailsPage;
+export default MoviePage;

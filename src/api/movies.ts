@@ -50,6 +50,7 @@ export const getLast10Movies: GetLast10MoviesCall = async () => {
           name: item.name,
           production_year: item.production_year,
           rating: item.rating,
+          universe: item.universe,
         };
       });
       return { dataExists: true, moviesData: modifiedResponse };
@@ -109,6 +110,7 @@ export const getNext5Movies: GetNext5MoviesCall = async (id) => {
           name: item.name,
           production_year: item.production_year,
           rating: item.rating,
+          universe: item.universe,
         };
       });
       return { dataExists: true, moviesData: modifiedResponse };
@@ -170,6 +172,7 @@ export const getLast10FilteredMovies: GetLast10FilteredMoviesCall = async (
           name: item.name,
           production_year: item.production_year,
           rating: item.rating,
+          universe: item.universe,
         };
       });
       return { dataExists: true, moviesData: filteredResponse };
@@ -231,6 +234,7 @@ export const getNext5FilteredMovies: GetNext5FilteredMoviesCall = async (
           name: item.name,
           production_year: item.production_year,
           rating: item.rating,
+          universe: item.universe,
         };
       });
       return { dataExists: true, moviesData: modifiedResponse };
@@ -286,6 +290,7 @@ export const getMovieDetails: GetMovieDetailsCall = async (id) => {
         rating: item.rating,
         url: item.url,
         meta_description: item.meta_description,
+        universe: item.universe,
       };
     });
     return modifiedResponse[0];

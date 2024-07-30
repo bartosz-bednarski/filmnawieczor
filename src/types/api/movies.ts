@@ -21,6 +21,7 @@ export type MovieCover = {
   rating: string;
   production_year: string;
   movie_length: string;
+  universe: string;
 };
 export type GetLast10MoviesCall = () => Promise<
   GetLast10MoviesResponse | GetError
@@ -55,6 +56,7 @@ export type MovieDetails = {
   movie_length: string;
   url: string;
   meta_description: string;
+  universe: string;
 };
 export type GetMovieDetailsCall = (
   id: string

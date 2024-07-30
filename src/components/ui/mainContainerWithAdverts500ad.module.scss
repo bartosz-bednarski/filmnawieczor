@@ -5,11 +5,13 @@
   min-height: 80vh;
 }
 .main-container {
+  position: relative;
   display: flex;
   box-sizing: content-box;
   flex-direction: row;
   background-color: black;
   min-height: 74vh;
+
   &__content-container {
     display: flex;
     flex-direction: column;
@@ -19,7 +21,6 @@
   }
   &__advert-box {
     width: 500px;
-    border-top: 1px solid black;
   }
 }
 @media only screen and (max-width: 1660px) {

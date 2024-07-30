@@ -1,99 +1,102 @@
 import React from "react";
 import * as classes from "./movie.module.scss";
-import { useNavigate } from "react-router-dom";
-import { MovieCover } from "api/movies";
-import CategoryText from "./CategoryText";
-const Movie: React.FC<{ movie: MovieCover }> = ({ movie }) => {
-  const navigate = useNavigate();
-  const movieCoverImage =
-    require(`../../../assets/movies/details/${movie.image_cover.replace(
-      ".webp",
-      "-details.webp"
-    )}`).default;
-
+import * as layoutClasses from "../../ui/mainContainerWithAdverts500ad.module.scss";
+import * as universesStyles from "./universes.module.scss";
+import { useLoaderData } from "react-router-dom";
+import { MovieDetails as MovieDetailsType } from "api/movies";
+import RowBoxCategories from "./RowBoxCategories";
+const Movie: React.FC = () => {
+  const loaderData = useLoaderData() as MovieDetailsType;
+  const coverImage =
+    require(`../../../assets/movies/details/${loaderData.image_cover}`).default;
   return (
-    <div
-      className={classes["container"]}
-      id={`${movie.id}`}
-      role="link"
-      onClick={() =>
-        navigate(
-          `/filmy/${movie.name.replace(/\s/g, "").toLowerCase()}-${movie.id}`
-        )
-      }
-    >
-      <img
-        src={movieCoverImage}
-        alt={`${movie.name} cover`}
-        className={classes["container__main-img"]}
-        width={175}
-        height="auto"
-        title={movie.name}
-        loading="eager"
-      />
-      <div className={classes["container__content-box"]}>
-        <div className={classes["container__content-box__header-box"]}>
-          <h3>{movie.name}</h3>
-          <span
-            className={classes["container__content-box__header-box__rating"]}
-          >
-            {" "}
+    <div className={layoutClasses.container}>
+      <div className={layoutClasses["main-container"]}>
+        <div className={layoutClasses["main-container__advert-box"]}> </div>
+        <div className={layoutClasses["main-container__content-container"]}>
+          <div className={classes["movie"]}>
+            <div className={classes["movie__top-container"]}>
+              <h1
+                className={`${classes["movie__top-container__title"]} ${
+                  universesStyles[`${loaderData.universe.toLowerCase()}-title`]
+                }`}
+              >
+                {loaderData.name}
+              </h1>
+              <img
+                src={coverImage}
+                className={classes["movie__top-container__image"]}
+                alt={loaderData.name}
+                title={loaderData.name}
+                width={620}
+                height={400}
+                loading="eager"
+              />
+            </div>
+            <div className={classes["movie__categories-box"]}>
+              <RowBoxCategories
+                type="button"
+                title="Miejsce akcji"
+                text={loaderData.action_place.split(",")}
+                universe={loaderData.universe.toLowerCase()}
+              />
+              <RowBoxCategories
+                type="static"
+                title="Czas akcji"
+                text={String(loaderData.action_time)}
+                universe={loaderData.universe.toLowerCase()}
+              />
+              <RowBoxCategories
+                type="button"
+                title="Gatunek"
+                text={loaderData.category.split(",")}
+                universe={loaderData.universe.toLowerCase()}
+              />
+              <RowBoxCategories
+                type="static"
+                title="Rok produkcji"
+                text={String(loaderData.production_year)}
+                universe={loaderData.universe.toLowerCase()}
+              />
+              <RowBoxCategories
+                type="static"
+                title="Długość"
+                text={String(loaderData.movie_length)}
+                universe={loaderData.universe.toLowerCase()}
+              />
+              <RowBoxCategories
+                type="static"
+                title="Ocena"
+                text={loaderData.rating}
+                universe={loaderData.universe.toLowerCase()}
+              />
+            </div>
             <span
-              className={
-                classes["container__content-box__header-box__rating__star"]
-              }
-            ></span>{" "}
-            {movie.rating}
-          </span>
-        </div>
-        <span className={classes["container__content-box__description"]}>
-          {movie.description}
-        </span>
-      </div>
-      <div className={classes["container__content-box-hover"]}>
-        <div className={classes["container__content-box-hover__header-box"]}>
-          <h3>{movie.name}</h3>
-          <span
-            className={
-              classes["container__content-box-hover__header-box__rating"]
-            }
-          >
-            <span
-              className={
-                classes[
-                  "container__content-box-hover__header-box__rating__star"
+              className={`${classes["movie__description"]} ${
+                universesStyles[
+                  `${loaderData.universe.toLowerCase()}-description`
                 ]
-              }
-            ></span>
-            {movie.rating}
-          </span>
+              }`}
+            >
+              {loaderData.description}
+            </span>
+            <div className={classes["movie__youtube-box"]}>
+              {" "}
+              <iframe
+                width="560"
+                height="315"
+                src={loaderData.url}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+          ;
         </div>
-
-        <div
-          className={classes["container__content-box-hover__content-details"]}
-        >
-          <CategoryText
-            title="Miejsce akcji"
-            text={movie.action_place}
-            type="button"
-          />
-          <CategoryText
-            title="Czas akcji"
-            text={String(movie.action_time)}
-            type="static"
-          />
-          <CategoryText title="Gatunek:" text={movie.category} type="button" />
-          <CategoryText
-            title="Rok produkcji"
-            text={String(movie.production_year)}
-            type="static"
-          />
-          <CategoryText
-            title="Długość filmu"
-            text={String(movie.movie_length)}
-            type="static"
-          />
-        </div>
+        <div className={layoutClasses["main-container__advert-box"]}> </div>
       </div>
     </div>
   );

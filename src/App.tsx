@@ -13,7 +13,7 @@ import { getLast10Series } from "./api/series";
 import PrivacyPolicyPage from "./pages/PrivacyPolicy";
 import ErrorPage from "./pages/Error";
 import ErrorRoutePage from "./pages/ErrorRoute";
-import MovieDetailsPage from "./pages/MovieDetails";
+import MoviePage from "./pages/Movie";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: "filmy/:movieId",
-        element: <MovieDetailsPage />,
+        element: <MoviePage />,
         loader: async ({ params }) => {
           const id = params.movieId.slice(params.movieId.indexOf("-") + 1);
           const movieDetails = await getMovieDetails(id);
