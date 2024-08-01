@@ -4,9 +4,9 @@ import * as classes from "./moviesSection.module.scss";
 import SingleMovie from "./SingleMovie";
 import { useState, useEffect } from "react";
 import { getLatestMovies } from "../../../api/home";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LatestMovie } from "../../../types/api/home";
-import Demo from "./SingleMovie";
+import backgroundImage from "../../../assets/home/bg-red.webp";
 const MoviesSection: React.FC = () => {
   const navigate = useNavigate();
   const [latestMovies, setLatestMovies] = useState<[] | LatestMovie[]>([]);
@@ -22,8 +22,32 @@ const MoviesSection: React.FC = () => {
     getLatestMoviesHandler();
   }, []);
   return (
-    <div className={classes["home-container__movies-section-container"]}>
-      <H2Banner header="Nowe filmy" secondaryHeader="w bazie danych" />
+    <section className={classes["home-container__movies-section-container"]}>
+      <picture
+        className={classes["home-container__movies-section-container__picture"]}
+      >
+        <img
+          src={backgroundImage}
+          alt="movies background"
+          width={1920}
+          height={1920}
+          loading="eager"
+        />
+      </picture>
+      <H2Banner
+        header="Nowe filmy"
+        secondaryHeader="w bazie danych"
+        h2Styles={{
+          zIndex: "1",
+          margin: "0.5rem 0",
+          color: "white",
+        }}
+        h3Styles={{
+          background: "white",
+          border: "1px solid black",
+          color: "#EC1D23",
+        }}
+      />
       <div
         className={
           classes["home-container__movies-section-container__movies-box"]
@@ -57,7 +81,7 @@ const MoviesSection: React.FC = () => {
           nowe filmy i seriale do naszego zbioru dzieł filmowych.
         </h4>
       </span>
-    </div>
+    </section>
   );
 };
 export default MoviesSection;
