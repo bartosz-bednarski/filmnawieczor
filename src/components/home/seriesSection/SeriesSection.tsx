@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { getLatestSeries } from "../../../api/home";
 import { useNavigate } from "react-router-dom";
 import { LatestSerie } from "api/home";
+import backgroundImage from "../../../assets/home/bg-white.webp";
 const SeriesSection: React.FC = () => {
   const navigate = useNavigate();
   const [latestSeries, setLatestSeries] = useState<[] | LatestSerie[]>([]);
@@ -21,8 +22,28 @@ const SeriesSection: React.FC = () => {
     getLatestSeriesHandler();
   }, []);
   return (
-    <div className={classes["home-container__series-section-container"]}>
-      <H2Banner header="Nowe seriale" secondaryHeader="w bazie danych" />
+    <section className={classes["home-container__series-section-container"]}>
+      <picture
+        className={classes["home-container__series-section-container__picture"]}
+      >
+        <img
+          src={backgroundImage}
+          alt="series background"
+          width={1920}
+          height={1920}
+          loading="eager"
+        />
+      </picture>
+      <H2Banner
+        header="Nowe seriale"
+        secondaryHeader="w bazie danych"
+        h2Styles={{ color: "#e01821" }}
+        h3Styles={{
+          backgroundColor: "black",
+          color: "#FFE500",
+          border: "1px solid #ffe500",
+        }}
+      />
       <div
         className={
           classes["home-container__series-section-container__series-box"]
@@ -57,7 +78,7 @@ const SeriesSection: React.FC = () => {
           co jakiś czas żeby zobaczyć jak idą postępy.
         </h4>
       </span>
-    </div>
+    </section>
   );
 };
 export default SeriesSection;
