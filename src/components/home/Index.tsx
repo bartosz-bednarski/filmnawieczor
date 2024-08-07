@@ -7,6 +7,7 @@ import MoviesSection from "./moviesSection/MoviesSection";
 import SeriesSection from "./seriesSection/SeriesSection";
 import playBack from "../../assets/play-back.png";
 import playForward from "../../assets/play-forward.png";
+import AnimationLayout from "./animationLayout/AnimationLayout";
 const Home: React.FC = () => {
   const slides = [
     {
@@ -78,7 +79,8 @@ const Home: React.FC = () => {
   return (
     <div className={classes["home-container"]}>
       <div className={classes["home-container__slider-container"]}>
-        <Slider content={sliderContent} />
+        <AnimationLayout />
+        {/* <Slider content={sliderContent} />
         <div
           className={
             classes["home-container__slider-container__active-slide-box"]
@@ -102,7 +104,7 @@ const Home: React.FC = () => {
             title="Play forward"
             onClick={() => changeSlideOnClick(1)}
           />
-        </div>
+        </div> */}
       </div>
       <NewsSection />
       <MoviesSection />

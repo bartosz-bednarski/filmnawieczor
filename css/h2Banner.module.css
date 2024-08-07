@@ -1,4 +1,5 @@
 .header-container {
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -9,7 +10,7 @@
 }
 .header-container__header {
   color: #ffe500;
-  font-size: 3rem;
+  font-size: 4rem;
   margin: 0;
   padding-left: 1rem;
 }
@@ -30,9 +31,9 @@
     font-size: 3rem;
   }
   .header-container__secondary-header {
-    width: 100%;
     font-size: 2rem;
     -webkit-clip-path: none;
             clip-path: none;
+    padding-right: 4rem;
   }
 }/*# sourceMappingURL=h2Banner.module.css.map */
