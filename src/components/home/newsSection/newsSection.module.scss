@@ -1,13 +1,15 @@
 .home-container {
+  overflow-y: hidden;
   &__news-section-container {
     position: relative;
-    width: 100%;
     display: flex;
     flex-direction: column;
     min-height: 120vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    gap: 2rem;
+    padding: 20vh 0;
     &__picture {
       clip-path: polygon(0 0, 100% 13%, 100% 100%, 0 87%);
       position: absolute;
@@ -24,41 +26,59 @@
       }
     }
     &__news-box {
+      transition: 0.2s ease-in-out;
       z-index: 1;
+      padding: 1rem 0;
       position: relative;
       display: flex;
       flex-direction: row;
+      background-color: #ffe600cd;
       // flex-wrap: wrap;
       height: auto;
       // padding: 50px;
       justify-content: flex-start;
       // gap: 1rem;
+      &:hover {
+        padding: 0;
+      }
     }
-    // &__text-box {
-    //   z-index: 1;
-    //   background-color: #ffe500;
-    //   font-size: 1rem;
-    //   color: black;
-    //   padding: 1rem 3rem;
-    //   text-align: center;
-    //   h2 {
-    //     z-index: 1;
-    //     margin: 0.5rem 0;
-    //     color: black;
-    //   }
-    // }
+    &__text-box {
+      background-color: rgba(0, 0, 0, 0.267);
+      z-index: 1;
+      font-size: 1rem;
+      color: white;
+      -webkit-text-stroke-width: 0.1px;
+      -webkit-text-stroke-color: black;
+      padding: 1rem 3rem;
+      text-align: center;
+      h3 {
+        color: #e01821;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: black;
+      }
+      h4 {
+        color: #ffe500;
+        margin: 0.5rem 0;
+        -webkit-text-stroke-width: 0.1px;
+        -webkit-text-stroke-color: black;
+      }
+    }
   }
 }
 @media only screen and (max-width: 1100px) {
   .home-container__news-section-container__news-box {
     flex-wrap: wrap;
-    padding: 50px;
+    padding: 0;
     gap: 1rem;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
     &__news-box {
       justify-content: center;
     }
+  }
+  .home-container__news-section-container__news-box:hover {
+    padding: 0;
   }
   .home-container__news-section-container__text-box {
     font-size: 1rem;

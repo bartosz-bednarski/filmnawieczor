@@ -15,13 +15,13 @@ const SingleNews: React.FC<{ title: string; image: string; url: string }> = ({
         role="link"
         onClick={() => navigate(url)}
       >
-        {/* <img
-        className={classes["single-news-box__image"]}
-        src={newsCoverImage}
-        alt="news cover"
-        width={175}
-        height={300}
-      /> */}
+        <img
+          className={classes["single-news-box__image"]}
+          src={newsCoverImage}
+          alt="news cover"
+          width={175}
+          height={300}
+        />
         <img
           className={classes["single-news-box__image-1100"]}
           src={newsCoverImage}
@@ -31,9 +31,9 @@ const SingleNews: React.FC<{ title: string; image: string; url: string }> = ({
         />
         <div className={classes["single-news-box__text-box"]}>
           <h2>{title}</h2>
-          <span className={classes["single-news-box__text-box__description"]}>
-            {/* {description} */}
-          </span>
+          {/* <span className={classes["single-news-box__text-box__description"]}>
+          {description}
+        </span> */}
         </div>
       </div>
     </article>
