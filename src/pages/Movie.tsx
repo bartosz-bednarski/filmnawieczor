@@ -30,6 +30,43 @@ const MoviePage = () => {
           rel="canonical"
           href={`https://filmnawieczor.pl/filmy/${encodePolishChars(movieId)}`}
         />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content={"name" in data ? data.name : "Szczegóły filmu"}
+        />
+        <meta
+          property="og:description"
+          content={
+            "meta_description" in data
+              ? `${data.meta_description}`
+              : "Szczegółowy opis filmu zawierający informację szczegółowe jak gatunek, długość itp. oraz zwiastun filmu."
+          }
+        />
+        <meta
+          property="og:image"
+          content="https://filmnawieczor.pl/dist/src/assets/home/home-fs-2.webp"
+        />
+        <meta
+          property="og:url"
+          content={`https://filmnawieczor.pl/filmy/${encodePolishChars(
+            movieId
+          )}`}
+        ></meta>
+        <meta name="twitter:creator" content="Film na wieczór" />
+        <meta name="twitter:card" content="article" />
+        <meta
+          name="twitter:title"
+          content={"name" in data ? data.name : "Szczegóły filmu"}
+        />
+        <meta
+          name="twitter:description"
+          content={
+            "meta_description" in data
+              ? `${data.meta_description}`
+              : "Szczegółowy opis filmu zawierający informację szczegółowe jak gatunek, długość itp. oraz zwiastun filmu."
+          }
+        />
       </Helmet>
       <Movie />
     </>
