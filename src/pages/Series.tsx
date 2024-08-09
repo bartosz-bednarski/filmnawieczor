@@ -21,6 +21,31 @@ const SeriesPage = () => {
           content="Znajdź swój serial na wieczór korzystając z naszej bazy danych i nietypowych filtrów czasu lub miejsca akcji."
         />
         <link rel="canonical" href={`https://filmnawieczor.pl/seriale`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={"Baza seriali"} />
+        <meta
+          property="og:description"
+          content={
+            "Znajdź swój serial na wieczór korzystając z naszej bazy danych i nietypowych filtrów czasu lub miejsca akcji."
+          }
+        />
+        <meta
+          property="og:image"
+          content="https://filmnawieczor.pl/dist/src/assets/home/home-fs-2.webp"
+        />
+        <meta
+          property="og:url"
+          content={"https://filmnawieczor.pl/seriale"}
+        ></meta>
+        <meta name="twitter:creator" content="Film na wieczór" />
+        <meta name="twitter:card" content="article" />
+        <meta name="twitter:title" content={"Baza seriali"} />
+        <meta
+          name="twitter:description"
+          content={
+            "Znajdź swój serial na wieczór korzystając z naszej bazy danych i nietypowych filtrów czasu lub miejsca akcji."
+          }
+        />
       </Helmet>
       <Series />
     </>
