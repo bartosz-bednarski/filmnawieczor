@@ -19,6 +19,15 @@
   background-color: black;
   color: #ffe500;
 }
+.none-category-box__category-item-button {
+  background-color: black;
+  color: #ffe500;
+  &:hover {
+    cursor: pointer;
+    color: black;
+    background-color: white;
+  }
+}
 .marvel-title {
   color: white;
 }
@@ -39,4 +48,13 @@
 .marvel-category-box__category-item {
   background-color: black;
   color: white;
+}
+.marvel-category-box__category-item-button {
+  background-color: black;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    color: black;
+    background-color: white;
+  }
 }

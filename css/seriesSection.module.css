@@ -28,6 +28,7 @@
      object-fit: cover;
 }
 .home-container__series-section-container__series-box {
+  transition: 0.2s ease-in-out;
   z-index: 1;
   padding: 1rem 0;
   position: relative;
