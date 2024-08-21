@@ -4,8 +4,9 @@ import * as layoutClasses from "../../ui/mainContainerWithAdverts500ad.module.sc
 import * as universesStyles from "./universes.module.scss";
 import { useLoaderData } from "react-router-dom";
 import { MovieDetails as MovieDetailsType } from "api/movies";
-import RowBoxCategories from "./RowBoxCategories";
-const Movie: React.FC = () => {
+import CategoriesArray from "./categories/CategoriesArray";
+import CategoriesStatic from "./categories/CategoriesStatic";
+const MovieDetails: React.FC = () => {
   const loaderData = useLoaderData() as MovieDetailsType;
   const coverImage =
     require(`../../../assets/movies/details/${loaderData.image_cover}`).default;
@@ -34,37 +35,43 @@ const Movie: React.FC = () => {
               />
             </div>
             <div className={classes["movie__categories-box"]}>
-              <RowBoxCategories
+              <CategoriesArray
                 type="button"
                 title="Miejsce akcji"
+                queryName="ap.action_place"
+                queryValue="Miejsce akcji"
+                catName="miejsce_akcji"
                 text={loaderData.action_place.split(",")}
                 universe={loaderData.universe.toLowerCase()}
               />
-              <RowBoxCategories
+              <CategoriesStatic
                 type="static"
                 title="Czas akcji"
                 text={String(loaderData.action_time)}
                 universe={loaderData.universe.toLowerCase()}
               />
-              <RowBoxCategories
+              <CategoriesArray
                 type="button"
                 title="Gatunek"
+                queryName="mc.movie_category"
+                queryValue="Gatunek"
+                catName="gatunek"
                 text={loaderData.category.split(",")}
                 universe={loaderData.universe.toLowerCase()}
               />
-              <RowBoxCategories
+              <CategoriesStatic
                 type="static"
                 title="Rok produkcji"
                 text={String(loaderData.production_year)}
                 universe={loaderData.universe.toLowerCase()}
               />
-              <RowBoxCategories
+              <CategoriesStatic
                 type="static"
                 title="Długość"
                 text={String(loaderData.movie_length)}
                 universe={loaderData.universe.toLowerCase()}
               />
-              <RowBoxCategories
+              <CategoriesStatic
                 type="static"
                 title="Ocena"
                 text={loaderData.rating}
@@ -102,4 +109,4 @@ const Movie: React.FC = () => {
   );
 };
 
-export default Movie;
+export default MovieDetails;

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { encodePolishChars } from "../components/globals/scripts/encodePolishChars";
-import Movie from "../components/movies/movie/Movie";
+import MovieDetails from "../components/movies/movieDetails/MovieDetails";
 type Loader = MovieDetailsType | GetError;
 const MoviePage = () => {
   const data = useLoaderData() as Loader;
@@ -68,7 +68,7 @@ const MoviePage = () => {
           }
         />
       </Helmet>
-      <Movie />
+      <MovieDetails />
     </>
   );
 };
