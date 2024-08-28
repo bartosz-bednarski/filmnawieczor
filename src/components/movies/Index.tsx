@@ -12,6 +12,7 @@ import MovieCoverBox from "./movieCoverBox/MovieCoverBox";
 import * as classes from "./movies.module.scss";
 import * as classesGlobal from "../ui/mainContainerWithAdverts.module.scss";
 import { GetLast10MoviesResponse, MovieCover } from "api/movies";
+import SortingFilters from "../filters/movie/sorting/SortingFilters";
 
 const Movies: React.FC = () => {
   const navigate = useNavigate();
@@ -160,6 +161,7 @@ const Movies: React.FC = () => {
       <div className={classesGlobal["main-container"]}>
         <div className={classesGlobal["main-container__advert-box"]}> </div>
         <div className={classes["movies-container"]}>
+          <SortingFilters />
           {moviesToDisplay.dataExists &&
             moviesToDisplay.moviesData.map((data: MovieCover) => {
               return <MovieCoverBox movie={data} key={data.id} />;

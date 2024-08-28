@@ -7,6 +7,11 @@ export type Category = {
   queryName: string;
   secondaryCats?: SecondaryCategory[];
 };
+export type SortingItem = {
+  name: string;
+  order: "ASC" | "DESC";
+  active: boolean;
+};
 export type SecondaryCategory = {
   id: string;
   catName: string;
@@ -15,6 +20,7 @@ export type SecondaryCategory = {
 export type MoviesFiltersInitialState = {
   categories: Category[];
   secondaryCatsToDisplay: string;
+  sorting: SortingItem[];
   activeFilters: ActiveFilter[];
 };
 export type SecondaryCatsToDisplayAction = { payload: string; type: string };
