@@ -1,0 +1,21 @@
+.sortingFilters-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  &__active-btn {
+    position: relative;
+  }
+  &__list-box {
+    z-index: 3;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    background-color: black;
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

@@ -81,6 +81,34 @@ const moviesFiltersInitialState: MoviesFiltersInitialState = {
     },
   ],
   secondaryCatsToDisplay: "",
+  sorting: [
+    {
+      name: "production_year",
+      buttonName: "Rok produkcji",
+      order: "DESC",
+      active: true,
+    },
+    {
+      name: "production_year",
+      buttonName: "Rok produkcji",
+      order: "ASC",
+      active: false,
+    },
+    { name: "rating", buttonName: "Ocena", order: "DESC", active: false },
+    { name: "rating", buttonName: "Ocena", order: "ASC", active: false },
+    {
+      name: "action_time",
+      buttonName: "Czas akcji",
+      order: "DESC",
+      active: false,
+    },
+    {
+      name: "action_time",
+      buttonName: "Czas akcji",
+      order: "ASC",
+      active: false,
+    },
+  ],
   activeFilters: [],
 };
 
