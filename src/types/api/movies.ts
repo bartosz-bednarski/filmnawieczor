@@ -23,22 +23,37 @@ export type MovieCover = {
   movie_length: string;
   universe: string;
 };
-export type GetLast10MoviesCall = () => Promise<
-  GetLast10MoviesResponse | GetError
->;
+export type FilterBy =
+  | "py.production_year"
+  | "mr.movie_rating"
+  | "at.action_time_end"
+  | "at.action_time_start";
+export type GetLast10MoviesCall = (
+  filterBy: FilterBy,
+  filterOrder: "ASC" | "DESC"
+) => Promise<GetLast10MoviesResponse | GetError>;
 
 type GetNext5MoviesResponse = GetDataExsists | GetDataNotExsists;
 export type GetNext5MoviesCall = (
-  id: number
+  offset: number,
+  filterBy: FilterBy,
+  filterOrder: "ASC" | "DESC"
 ) => Promise<GetNext5MoviesResponse | GetError>;
 
 type GetLast10FilteredMoviesResponse = GetDataExsists | GetDataNotExsists;
 export type GetLast10FilteredMoviesCall = (
-  params: ActiveFilter[]
+  params: ActiveFilter[],
+  filterBy: FilterBy,
+  order: "ASC" | "DESC"
 ) => Promise<GetLast10FilteredMoviesResponse | GetError>;
 
 type GetNext5FilteredMoviesResponse = GetDataExsists | GetDataNotExsists;
-type ParamsGetNext5FilteredMoviesCall = { params: ActiveFilter[]; id: number };
+type ParamsGetNext5FilteredMoviesCall = {
+  params: ActiveFilter[];
+  offset: number;
+  filterBy: FilterBy;
+  filterOrder: "ASC" | "DESC";
+};
 export type GetNext5FilteredMoviesCall = (
   params: ParamsGetNext5FilteredMoviesCall
 ) => Promise<GetNext5FilteredMoviesResponse | GetError>;

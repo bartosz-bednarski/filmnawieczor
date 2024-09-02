@@ -5,6 +5,7 @@ import {
   MoviesFiltersInitialState,
   RemoveActiveFilterAction,
   SecondaryCatsToDisplayAction,
+  SetActiveSortingAction,
 } from "redux/moviesFilters";
 
 const moviesFiltersInitialState: MoviesFiltersInitialState = {
@@ -83,32 +84,49 @@ const moviesFiltersInitialState: MoviesFiltersInitialState = {
   secondaryCatsToDisplay: "",
   sorting: [
     {
-      name: "production_year",
+      sortingName: "py.production_year_DESC",
+      queryName: "py.production_year",
       buttonName: "Rok produkcji",
       order: "DESC",
       active: true,
     },
     {
-      name: "production_year",
+      sortingName: "py.production_year_ASC",
+      queryName: "py.production_year",
       buttonName: "Rok produkcji",
       order: "ASC",
       active: false,
     },
-    { name: "rating", buttonName: "Ocena", order: "DESC", active: false },
-    { name: "rating", buttonName: "Ocena", order: "ASC", active: false },
     {
-      name: "action_time",
+      sortingName: "mr.movie_rating_DESC",
+      queryName: "mr.movie_rating",
+      buttonName: "Ocena",
+      order: "DESC",
+      active: false,
+    },
+    {
+      sortingName: "mr.movie_rating_ASC",
+      queryName: "mr.movie_rating",
+      buttonName: "Ocena",
+      order: "ASC",
+      active: false,
+    },
+    {
+      sortingName: "at.action_time_end_DESC",
+      queryName: "at.action_time_end",
       buttonName: "Czas akcji",
       order: "DESC",
       active: false,
     },
     {
-      name: "action_time",
+      sortingName: "at.action_time_start_ASC",
+      queryName: "at.action_time_start",
       buttonName: "Czas akcji",
       order: "ASC",
       active: false,
     },
   ],
+  offset: 5,
   activeFilters: [],
 };
 
@@ -123,6 +141,8 @@ const moviesFiltersSlice = createSlice({
       state.secondaryCatsToDisplay = action.payload;
     },
     setActivefilter: (state, action: ActivefilterAction) => {
+      state.offset = 5;
+      state.sorting = moviesFiltersInitialState.sorting;
       state.activeFilters = [
         ...state.activeFilters,
         {
@@ -167,6 +187,22 @@ const moviesFiltersSlice = createSlice({
       state.activeFilters = state.activeFilters.filter(
         (item) => item.queryValue !== action.payload.queryValue
       );
+      state.sorting = moviesFiltersInitialState.sorting;
+      state.offset = 5;
+    },
+    setActiveSorting: (state, action: SetActiveSortingAction) => {
+      state.offset = 5;
+      const updatedFiltersArray = state.sorting.map((item) => {
+        return {
+          ...item,
+          active:
+            item.sortingName === action.payload.sortingName ? true : false,
+        };
+      });
+      state.sorting = updatedFiltersArray;
+    },
+    setIncreaseOffset: (state) => {
+      state.offset = state.offset += 5;
     },
   },
 });
@@ -177,3 +213,5 @@ export const setSecondaryCatsToDisplayMovie =
 export const setActivefilterMovie = moviesFiltersSlice.actions.setActivefilter;
 export const removeActiveFilterMovie =
   moviesFiltersSlice.actions.removeActiveFilter;
+export const setActiveSorting = moviesFiltersSlice.actions.setActiveSorting;
+export const setIncreaseOffset = moviesFiltersSlice.actions.setIncreaseOffset;
