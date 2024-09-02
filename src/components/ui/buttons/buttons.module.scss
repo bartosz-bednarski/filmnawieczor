@@ -162,9 +162,13 @@
   width: 12rem;
   gap: 0.8rem;
   color: #ffe500;
-  background-color: black;
+  background: linear-gradient(to top, #71681f 50%, black 50%) top;
+  background-size: 100% 200%;
+  transition: 0.3s ease-in-out;
   &:hover {
     cursor: pointer;
+    background-position: bottom;
+    color: black;
   }
   &--active {
     gap: 0.8rem;
@@ -199,6 +203,12 @@
     width: 11rem;
     margin-left: -6%;
   }
+  .sortingButton-box {
+    height: 2rem;
+    &--active {
+      height: 2rem;
+    }
+  }
 }
 @media only screen and (max-width: 780px) {
   .box,
@@ -215,5 +225,11 @@
 @media only screen and (max-width: 500px) {
   .arrow-up-button-box {
     width: 100%;
+  }
+  .sortingButton-box {
+    width: 15rem;
+    &--active {
+      width: 15rem;
+    }
   }
 }

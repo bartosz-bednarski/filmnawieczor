@@ -5,17 +5,27 @@ import {
   GetNext5FilteredMoviesCall,
   GetNext5MoviesCall,
 } from "../types/api/movies";
-export const getLast10Movies: GetLast10MoviesCall = async () => {
+export const getLast10Movies: GetLast10MoviesCall = async (
+  filterBy,
+  filterOrder
+) => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/movies/last10`,
       // `http://localhost:9001/api/movies/last10`,
       {
-        method: "GET",
+        method: "POST",
+        cache: "no-cache",
+        credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
         },
-        mode: "cors",
+        body: JSON.stringify({
+          data: {
+            filterBy: filterBy,
+            filterOrder: filterOrder,
+          },
+        }),
       }
     );
     if (!response.ok) {
@@ -62,7 +72,11 @@ export const getLast10Movies: GetLast10MoviesCall = async () => {
   }
 };
 
-export const getNext5Movies: GetNext5MoviesCall = async (id) => {
+export const getNext5Movies: GetNext5MoviesCall = async (
+  offset,
+  filterBy,
+  filterOrder
+) => {
   try {
     const response = await fetch(
       `https://filmnawieczor.online/api/movies/next5`,
@@ -75,7 +89,11 @@ export const getNext5Movies: GetNext5MoviesCall = async (id) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          data: { id: id },
+          data: {
+            offset: offset,
+            filterBy: filterBy,
+            filterOrder: filterOrder,
+          },
         }),
       }
     );
@@ -123,7 +141,9 @@ export const getNext5Movies: GetNext5MoviesCall = async (id) => {
 };
 
 export const getLast10FilteredMovies: GetLast10FilteredMoviesCall = async (
-  params
+  params,
+  filterBy,
+  filterOrder
 ) => {
   try {
     const response = await fetch(
@@ -138,6 +158,8 @@ export const getLast10FilteredMovies: GetLast10FilteredMoviesCall = async (
         },
         body: JSON.stringify({
           data: params,
+          filterBy: filterBy,
+          filterOrder: filterOrder,
         }),
       }
     );
@@ -199,7 +221,9 @@ export const getNext5FilteredMovies: GetNext5FilteredMoviesCall = async (
         },
         body: JSON.stringify({
           data: params.params,
-          id: params.id,
+          offset: params.offset,
+          filterBy: params.filterBy,
+          filterOrder: params.filterOrder,
         }),
       }
     );

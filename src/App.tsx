@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         path: "filmy",
         element: <MoviesPage />,
         loader: async () => {
-          const movies = await getLast10Movies();
+          const movies = await getLast10Movies("py.production_year", "DESC");
           return movies;
         },
       },
