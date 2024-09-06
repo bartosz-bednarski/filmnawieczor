@@ -14,6 +14,8 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicy";
 import ErrorPage from "./pages/Error";
 import ErrorRoutePage from "./pages/ErrorRoute";
 import MoviePage from "./pages/Movie";
+import UniversesPage from "./pages/Universes";
+import UniversePage from "./pages/Universe";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +67,14 @@ const router = createBrowserRouter([
           const series = await getLast10Series();
           return series;
         },
+      },
+      {
+        path: "uniwersa",
+        element: <UniversesPage />,
+      },
+      {
+        path: "uniwersa/:universeId",
+        element: <UniversePage />,
       },
       {
         path: "politykaprywatnosci",
