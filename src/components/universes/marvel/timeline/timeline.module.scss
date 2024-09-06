@@ -1,0 +1,123 @@
+.timeline-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  &__line {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 49.9%;
+    background-color: #ed1d24;
+    width: 0.3%;
+    height: 100%;
+    z-index: 3;
+  }
+}
+.timelineMovie-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 200px;
+  &:hover {
+    cursor: pointer;
+    img {
+      width: 100%;
+      left: 0px !important;
+      transition: width 0.5s;
+    }
+  }
+  img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  &__content-box {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    &__title-box {
+      box-sizing: border-box;
+      padding: 0.5rem;
+      display: flex;
+      width: 48%;
+      height: 100%;
+      justify-content: center;
+      align-items: flex-end;
+      flex-direction: column;
+      font-size: 1.5rem;
+      font-weight: 500;
+      &__title {
+        color: #ed1d24;
+        margin: 0;
+        text-align: right;
+      }
+      &__date {
+        color: white;
+      }
+    }
+    &__dot-box {
+      display: flex;
+      width: 4%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      &__dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: #ed1d24;
+      }
+    }
+    &__description-box {
+      box-sizing: border-box;
+      padding: 1rem;
+      display: flex;
+      width: 48%;
+      height: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      color: white;
+      font-size: 1rem;
+    }
+  }
+}
+@media only screen and (max-width: 700px) {
+  .timelineMovie-container {
+    img {
+      width: 100%;
+      left: 0px !important;
+    }
+  }
+  .timelineMovie-container__content-box__title-box {
+    font-size: 1rem;
+  }
+  .timelineMovie-container__content-box__description-box {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .timelineMovie-container__content-box__title-box {
+    width: 47%;
+  }
+  .timelineMovie-container__content-box__dot-box {
+    width: 6%;
+  }
+  .timelineMovie-container__content-box__description-box {
+    width: 47%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .timelineMovie-container__content-box__description-box {
+    font-size: 0.6rem;
+  }
+}

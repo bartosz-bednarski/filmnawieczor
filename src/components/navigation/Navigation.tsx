@@ -75,6 +75,19 @@ const Navigation: React.FC = () => {
           >
             Seriale
           </NavLink>
+        </li>{" "}
+        <li>
+          <NavLink
+            to={"/uniwersa"}
+            className={({ isActive, isPending, isTransitioning }) =>
+              [
+                isPending ? classes["pending"] : "navLink",
+                isActive ? classes["active"] : "navLink",
+              ].join(" ")
+            }
+          >
+            Uniwersa Filmowe
+          </NavLink>
         </li>
       </ul>
       {showMobileList && (
@@ -129,6 +142,19 @@ const Navigation: React.FC = () => {
               }
             >
               Seriale
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/uniwersa"}
+              className={({ isActive, isPending, isTransitioning }) =>
+                [
+                  isPending ? classes["pending"] : "navLink",
+                  isActive ? classes["active"] : "navLink",
+                ].join(" ")
+              }
+            >
+              Uniwersa Filmowe
             </NavLink>
           </li>
           <li>
