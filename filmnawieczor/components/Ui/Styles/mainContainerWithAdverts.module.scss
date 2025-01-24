@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 80vh;
+}
+.main-container {
+  display: flex;
+  box-sizing: content-box;
+  flex-direction: row;
+  background-color: black;
+  min-height: 75vh;
+  &__content-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 5px;
+    gap: 20px;
+  }
+  &__advert-box {
+    width: 800px;
+    border-top: 1px solid black;
+  }
+}
+@media only screen and (max-width: 1660px) {
+  .main-container {
+    &__advert-box {
+      max-width: 200px;
+    }
+  }
+}
+@media only screen and (max-width: 1150px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    &__content-container {
+      width: 90%;
+    }
+    &__advert-box {
+      width: 80%;
+    }
+  }
+}
