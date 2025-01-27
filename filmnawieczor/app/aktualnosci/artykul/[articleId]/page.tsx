@@ -1,7 +1,5 @@
-import { getLast10News, getNewsDetails } from '@/api/news';
-import News from '@/components/News/News';
+import  {getNewsDetails } from '@/api/news';
 import Article from '@/components/News/Article/Article';
-import { useRouter } from '@/node_modules/next/router';
 import { Metadata } from '@/node_modules/next/types';
 
 export const metadata: Metadata= {

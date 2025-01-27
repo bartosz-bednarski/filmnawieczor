@@ -1,3 +1,4 @@
+import { MovieLinkPropsType } from '@/components/Ui/Links/MovieLink/MovieLink';
 import {ActiveFilter} from 'filters';
 
 export type Category = {
@@ -29,13 +30,7 @@ export type SecondaryCategory = {
   catName: string;
   active: boolean;
 };
-export type MoviesFiltersInitialState = {
-  categories: Category[];
-  secondaryCatsToDisplay: string;
-  sorting: SortingItem[];
-  offset: number;
-  activeFilters: ActiveFilter[];
-};
+
 export type SecondaryCatsToDisplayAction = {payload: string; type: string};
 export type ActivefilterAction = {
   payload: {queryName: string; queryValue: string; catName: string};

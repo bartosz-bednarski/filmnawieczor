@@ -1,28 +1,17 @@
+import { MovieLinkPropsType } from '@/components/Ui/Links/MovieLink/MovieLink';
 import {ActiveFilter} from 'filters';
 
 export type GetLast10MoviesResponse = GetDataExsists | GetDataNotExsists;
 type GetDataExsists = {
   dataExists: true;
-  moviesData: MovieCover[];
+  moviesData: MovieLinkPropsType[];
 };
 type GetDataNotExsists = {dataExists: false; moviesData: []};
 export type GetError = {
   status: 'error';
   message: string;
 };
-export type MovieCover = {
-  id: number;
-  name: string;
-  description: string;
-  image_cover: string;
-  action_place: string;
-  action_time: string;
-  category: string;
-  rating: string;
-  production_year: string;
-  movie_length: string;
-  universe: string;
-};
+
 export type FilterBy =
   | 'py.production_year'
   | 'mr.movie_rating'

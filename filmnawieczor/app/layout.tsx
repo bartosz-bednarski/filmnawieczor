@@ -3,8 +3,8 @@ import { Provider } from '@/../node_modules/react-redux/dist/react-redux';
 import Footer from '@/components/Footer/Footer';
 import Navigation from '@/components/Navigation/Navigation';
 import { Metadata } from '@/node_modules/next/types';
-import store from '@/redux/store';
 import './layout.scss'
+import StoreProvider from './StoreProvider';
 export const metadata: Metadata= {
   title: 'Film na wieczór',
   description:
@@ -29,15 +29,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <StoreProvider>
     <html lang="en">
       <body>
-      {/* <Provider store={store}> */}
+      
         <Navigation/>
       {children}
       <Footer />
-      {/* </Provider> */}
+      
        
       </body>
     </html>
+    </StoreProvider>
   );
 }
