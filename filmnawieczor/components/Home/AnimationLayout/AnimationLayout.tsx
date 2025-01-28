@@ -1,8 +1,8 @@
-'use client'
+'use client';
 import React, {useEffect, useState} from 'react';
 import styles from './animationLayout.module.scss';
 import logo from '../../../public/assets/logo/logo-footer.webp';
-import fs0 from  '../../../public/assets/home/home-fs-0.webp';
+import fs0 from '../../../public/assets/home/home-fs-0.webp';
 import fs1 from '../../../public/assets/home/home-fs-1.webp';
 import fs2 from '../../../public/assets/home/home-fs-2.webp';
 import fs3 from '../../../public/assets/home/home-fs-3.webp';

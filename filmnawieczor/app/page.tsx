@@ -1,12 +1,11 @@
-
 import AnimationLayout from '@/components/Home/AnimationLayout/AnimationLayout';
 import MoviesSection from '@/components/Home/MoviesSection/MoviesSection';
 import NewsSection from '@/components/Home/NewsSection/NewsSection';
 import SeriesSection from '@/components/Home/SeriesSection/SeriesSection';
-import { Metadata } from '@/node_modules/next/types';
-import styles from "./page.module.scss";
+import {Metadata} from '@/node_modules/next/types';
+import styles from './page.module.scss';
 
-export const metadata: Metadata= {
+export const metadata: Metadata = {
   title: 'Film na wieczór',
   description:
     'Film na wieczór to serwis, który posiada własną bazę danych filmów i seriali umożliwiającą korzystanie z nietypowych filtrów miejsca i czasu akcji.',
@@ -28,12 +27,12 @@ export default function Home() {
   return (
     <div className={styles['home-container']}>
       <div className={styles['home-container__slider-container']}>
-      <AnimationLayout/>
+        <AnimationLayout />
       </div>
       <NewsSection />
-      <MoviesSection/>
+      <MoviesSection />
       <SeriesSection />
-    {/* <NewsSection />
+      {/* <NewsSection />
     <MoviesSection />
     <SeriesSection /> */}
     </div>

@@ -1,30 +1,35 @@
-import  {getNewsDetails } from '@/api/news';
+import {getNewsDetails} from '@/api/news';
 import Article from '@/components/News/Article/Article';
-import { Metadata } from '@/node_modules/next/types';
+import {Metadata} from '@/node_modules/next/types';
 
-export const metadata: Metadata= {
-    title: 'Artykuł',
-    description:
-      'W naszej sekcji aktualności znajdziesz artykuły związane z tematyką kinową.',
-    metadataBase: new URL('https://filmnawieczor.pl/aktualnosci'),
-    alternates: {
-      canonical: 'https://filmnawieczor.pl/aktualnosci',
-      languages: {
-        'pl-PL': '/pl-PL',
-        'en-US': '/en-US',
-      },
+export const metadata: Metadata = {
+  title: 'Artykuł',
+  description:
+    'W naszej sekcji aktualności znajdziesz artykuły związane z tematyką kinową.',
+  metadataBase: new URL('https://filmnawieczor.pl/aktualnosci'),
+  alternates: {
+    canonical: 'https://filmnawieczor.pl/aktualnosci',
+    languages: {
+      'pl-PL': '/pl-PL',
+      'en-US': '/en-US',
     },
-    openGraph: {
-      url: 'https://filmnawieczor.pl',
-      type: 'website',
-    },
-  };
-  
-  export default async function ArticleIdPage({ params }: { params: { articleId: string } }) {
-    const {articleId} = await params
-    const articleResp = await getNewsDetails(articleId);
-    return (
-        <>
-      <Article article={articleResp}/></>
-    );
-  }
+  },
+  openGraph: {
+    url: 'https://filmnawieczor.pl',
+    type: 'website',
+  },
+};
+
+export default async function ArticleIdPage({
+  params,
+}: {
+  params: {articleId: string};
+}) {
+  const {articleId} = await params;
+  const articleResp = await getNewsDetails(articleId);
+  return (
+    <>
+      <Article article={articleResp} />
+    </>
+  );
+}

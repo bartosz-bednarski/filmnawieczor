@@ -1,0 +1,72 @@
+.movie {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  gap: 2rem;
+  &__top-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    &__image {
+      width: 60%;
+      height: auto;
+      object-fit: cover;
+      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    &__title {
+      font-size: 4rem;
+      // color: #ffe500;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__categories-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 0.5rem;
+  }
+  &__description {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem 1.5rem;
+    // color: #ffe500;
+    // border: 2px solid #ffe500;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  &__youtube-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    iframe {
+      width: 100%;
+    }
+  }
+}
+@media only screen and (max-width: 850px) {
+  .movie__top-container {
+    flex-direction: column;
+  }
+  .movie__top-container__image {
+    width: 100%;
+    clip-path: none;
+  }
+  .movie__top-container__title {
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .movie__top-container__title {
+    font-size: 2rem;
+  }
+}

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import {useEffect} from 'react';
 import styles from './navigation.module.scss';
@@ -26,86 +26,31 @@ const Navigation: React.FC = () => {
       />
       <ul className={styles['navigation__list']}>
         <li>
-          <Link href="/"
-           
-          >
-            Strona główna
-          </Link>
+          <Link href="/">Strona główna</Link>
         </li>
         <li>
-          <Link
-            href='/aktualnosci'
-           
-          >
-            Aktualności
-          </Link>
+          <Link href="/aktualnosci">Aktualności</Link>
         </li>
         <li>
-          <Link
-            href='/filmy'
-          
-          >
-            Filmy
-          </Link>
+          <Link href="/filmy">Filmy</Link>
         </li>
         <li>
-          <Link
-           href='/seriale'
-           
-          >
-            Seriale
-          </Link>
-        </li>
-        <li>
-          <Link
-           href='/uniwersa'
-           
-          >
-            Uniwersa Filmowe
-          </Link>
+          <Link href="/uniwersa">Uniwersa Filmowe</Link>
         </li>
       </ul>
       {showMobileList && (
         <ul className={styles['navigation__list-mobile']}>
           <li>
-            <Link
-             href='/'
-             
-            >
-              Strona główna
-            </Link>
+            <Link href="/">Strona główna</Link>
           </li>
           <li>
-            <Link
-             href='/aktualnosci'
-             
-            >
-              Aktualności
-            </Link>
+            <Link href="/aktualnosci">Aktualności</Link>
           </li>
           <li>
-            <Link
-             href='/filmy'
-             
-            >
-              Filmy
-            </Link>
+            <Link href="/filmy">Filmy</Link>
           </li>
           <li>
-            <Link
-              href='/seriale'
-             
-            >
-              Seriale
-            </Link>
-          </li>
-          <li>
-            <Link
-             href='/uniwersa'
-             
-            >
-              Uniwersa Filmowe
-            </Link>
+            <Link href="/uniwersa">Uniwersa Filmowe</Link>
           </li>
           <li>
             <span

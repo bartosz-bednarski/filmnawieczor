@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import styles from './buttons.module.scss';
 const SortingButton: React.FC<{
@@ -38,7 +38,8 @@ const SortingButton: React.FC<{
           loading="eager"
           alt="dropdown-menu-status"
           src={
-            require('../../../public/assets/ui/buttons/chevron-down.webp').default.src
+            require('../../../public/assets/ui/buttons/chevron-down.webp')
+              .default.src
           }
         />
       )}

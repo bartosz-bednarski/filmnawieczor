@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 import SortingButton from '../../../Ui/Buttons/SortingButton';
 import {useAppDispatch, useAppSelector} from '../../../../redux/hooks';
 import {setActiveSorting} from '../../../../redux/movies-slice';
-import { SortingItem } from '@/types/redux/moviesFilters';
-import { SortingFilterType } from '@/redux/utils/moviesSortingFilter';
+import {SortingItem} from '@/types/redux/moviesFilters';
+import {SortingFilterType} from '@/redux/utils/moviesSortingFilter';
 const SortingFilters: React.FC = () => {
   const dispatch = useAppDispatch();
   const sortingCategoriesStore = useAppSelector(

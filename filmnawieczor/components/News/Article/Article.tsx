@@ -1,16 +1,16 @@
-'use client'
+'use client';
 import React from 'react';
 import MainHeader from '../../Ui/Headers/MainHeader/MainHeader';
 import Section from './Section/Section';
 import styles from '../../Ui/Styles/mainContainerWithAdverts.module.scss';
 import {NewsDetails} from '../../../types/api/news';
 
-export type ArticlePropsType={
-  article:NewsDetails
-}
+export type ArticlePropsType = {
+  article: NewsDetails;
+};
 
-const Article = ({article}:ArticlePropsType) => {
-console.log(article)
+const Article = ({article}: ArticlePropsType) => {
+  console.log(article);
   return (
     <div className={styles.container}>
       <MainHeader title={article.news_title} />

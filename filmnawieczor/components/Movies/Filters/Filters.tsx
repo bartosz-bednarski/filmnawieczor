@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import styles from './filters.module.scss';
 import PrimaryFilters from './Primary/PrimaryFilters';

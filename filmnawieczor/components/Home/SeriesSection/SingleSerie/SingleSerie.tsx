@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Link from '@/node_modules/next/link';
 import React from 'react';
 import styles from './singleSerie.module.scss';
@@ -7,16 +7,14 @@ const SingleSerie: React.FC<{
   image: string;
   description: string;
 }> = ({title, image, description}) => {
-  const serieCoverImage = require(`../../../../public/assets/series/${image}`).default;
+  const serieCoverImage = require(
+    `../../../../public/assets/series/${image}`
+  ).default;
   const serieCoverImage1100 = require(
     `../../../../public/assets/series/details/${image.replace('.webp', '-details.webp')}`
   ).default;
   return (
-    <Link
-      className={styles['single-serie-box']}
-      role="link"
-      href="/seriale"
-    >
+    <Link className={styles['single-serie-box']} role="link" href="/seriale">
       <img
         className={styles['single-serie-box__image']}
         src={serieCoverImage.src}

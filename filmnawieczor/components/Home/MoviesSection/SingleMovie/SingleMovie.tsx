@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Link from '@/node_modules/next/link';
 import React from 'react';
 import styles from './singleMovie.module.scss';
@@ -12,13 +12,11 @@ const SingleMovie: React.FC<{
   const movieCoverImage1100 = require(
     `../../../../public/assets/movies/details/${image.replace('.webp', '-details.webp')}`
   ).default;
-  const movieCoverImage = require(`../../../../public/assets/movies/${image}`).default;
+  const movieCoverImage = require(
+    `../../../../public/assets/movies/${image}`
+  ).default;
   return (
-    <Link
-      className={styles['single-movie-box']}
-      role="link"
-     href={link}
-    >
+    <Link className={styles['single-movie-box']} role="link" href={link}>
       <img
         className={styles['single-movie-box__image']}
         src={movieCoverImage.src}

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import H2Banner from '../../Ui/Headers/H2Banner/H2Banner';
 import styles from './seriesSection.module.scss';
@@ -7,14 +7,14 @@ import {useState, useEffect} from 'react';
 import {getLatestSeries} from '../../../api/home';
 import {LatestSerie} from '../../../types/api/home';
 import backgroundImage from '../../../public/assets/home/bg-white.webp';
-import { useRouter } from '@/node_modules/next/navigation';
+import {useRouter} from '@/node_modules/next/navigation';
 const SeriesSection: React.FC = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [latestSeries, setLatestSeries] = useState<[] | LatestSerie[]>([]);
   const getLatestSeriesHandler = async () => {
     const latestSeriesFetched = await getLatestSeries();
     if ('status' in latestSeriesFetched) {
-      router.push("/error")
+      router.push('/error');
     } else {
       setLatestSeries(latestSeriesFetched);
     }
@@ -60,9 +60,7 @@ const SeriesSection: React.FC = () => {
         ))}
       </div>
       <span
-        className={
-          styles['home-container__series-section-container__text-box']
-        }
+        className={styles['home-container__series-section-container__text-box']}
       >
         <h4>To nie ten dzień na film? Wolisz obejrzeć coś krótszego?</h4>
         <h3> Wybierz serial!</h3>

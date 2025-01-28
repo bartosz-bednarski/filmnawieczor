@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import H2Banner from '../../Ui/Headers/H2Banner/H2Banner';
 import styles from './moviesSection.module.scss';
@@ -6,8 +6,8 @@ import SingleMovie from './SingleMovie/SingleMovie';
 import {useState, useEffect} from 'react';
 import {getLatestMovies} from '../../../api/home';
 import {LatestMovie} from '../../../types/api/home';
-import backgroundImage from  '../../../public/assets/home/bg-red.webp';
-import { useRouter } from '@/node_modules/next/navigation';
+import backgroundImage from '../../../public/assets/home/bg-red.webp';
+import {useRouter} from '@/node_modules/next/navigation';
 const MoviesSection: React.FC = () => {
   const router = useRouter();
   const [latestMovies, setLatestMovies] = useState<[] | LatestMovie[]>([]);
@@ -65,9 +65,7 @@ const MoviesSection: React.FC = () => {
         ))}
       </div>
       <span
-        className={
-          styles['home-container__movies-section-container__text-box']
-        }
+        className={styles['home-container__movies-section-container__text-box']}
       >
         <h3>Dlaczego warto zajrzeć do naszej bazy filmów?</h3> Zacznijmy od
         filtrowania. Gatunek czy rok produkcji to klasyczne filtry używane na

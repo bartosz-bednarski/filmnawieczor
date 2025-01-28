@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import {useAppDispatch, useAppSelector} from '../../../../redux/hooks';
 import {removeActiveFilterMovie} from '../../../../redux/movies-slice';

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Link from '@/node_modules/next/link';
 import React from 'react';
 import styles from './singleNews.module.scss';
@@ -7,14 +7,12 @@ const SingleNews: React.FC<{title: string; image: string; url: string}> = ({
   image,
   url,
 }) => {
-  const newsCoverImage = require(`../../../../public/assets/news/${image}`).default;
+  const newsCoverImage = require(
+    `../../../../public/assets/news/${image}`
+  ).default;
   return (
     <article className={styles['single-news-container']}>
-      <Link
-        className={styles['single-news-box']}
-        role="link"
-        href={url}
-      >
+      <Link className={styles['single-news-box']} role="link" href={url}>
         <img
           className={styles['single-news-box__image']}
           src={newsCoverImage.src}

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Link from '@/node_modules/next/link';
 import React from 'react';
 import styles from './newsLink.module.scss';
@@ -8,11 +8,16 @@ const NewsLink: React.FC<{
   coverTitle: string;
   coverImage: string;
   coverContent: string;
-  url:string
+  url: string;
 }> = ({coverTitle, coverImage, coverContent, url}) => {
-  const newsCoverImage = require(`../../../../public/assets/news/${coverImage}`).default;
+  const newsCoverImage = require(
+    `../../../../public/assets/news/${coverImage}`
+  ).default;
   return (
-    <Link className={styles['newsLink-container']} href={`/aktualnosci/artykul/${url}`}>
+    <Link
+      className={styles['newsLink-container']}
+      href={`/aktualnosci/artykul/${url}`}
+    >
       <img
         src={newsCoverImage.src}
         width={325}
@@ -25,7 +30,6 @@ const NewsLink: React.FC<{
       <div className={styles['newsLink-container__header']}>
         <h4>{coverTitle}</h4>
       </div>
-
     </Link>
   );
 };

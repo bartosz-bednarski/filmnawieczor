@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import styles from './newsSection.module.scss';
 import SingleNews from './SingleNews/SingleNews';
@@ -7,15 +7,15 @@ import {getLatestNews} from '../../../api/home';
 import {LatestNews} from '../../../types/api/home';
 import H2Banner from '../../Ui/Headers/H2Banner/H2Banner';
 import backgroundImage from '../../../public/assets/home/bg-yellow.webp';
-import { useRouter } from '@/node_modules/next/navigation';
+import {useRouter} from '@/node_modules/next/navigation';
 
 const NewsSection: React.FC = () => {
-const router = useRouter()
+  const router = useRouter();
   const [latestNews, setLatestNews] = useState<[] | LatestNews[]>([]);
   const getLatestNewsHandler = async () => {
     const latestNewsFetched = await getLatestNews();
     if ('status' in latestNewsFetched) {
-      router.push('/error')
+      router.push('/error');
     } else {
       setLatestNews(latestNewsFetched);
     }
@@ -43,9 +43,7 @@ const router = useRouter()
           h2Styles={{color: '#FFE500'}}
         />
         <div
-          className={
-            styles['home-container__news-section-container__news-box']
-          }
+          className={styles['home-container__news-section-container__news-box']}
         >
           {latestNews.map((news: LatestNews) => (
             <SingleNews

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import {useState, useEffect} from 'react';
 import {useAppDispatch} from '../../../../redux/hooks';
@@ -105,9 +105,7 @@ const ActionTimeFilter: React.FC<{onHide: () => void}> = ({onHide}) => {
               value={dateRangeStart}
               onChange={(e) => setDateRangeStart(e.target.value)}
               placeholder="0"
-              className={
-                styles['date-filter-container__box__input-box__input']
-              }
+              className={styles['date-filter-container__box__input-box__input']}
             ></input>
           </span>
           <span
@@ -130,9 +128,7 @@ const ActionTimeFilter: React.FC<{onHide: () => void}> = ({onHide}) => {
               value={dateRangeEnd}
               onChange={(e) => setDateRangeEnd(e.target.value)}
               placeholder="2025"
-              className={
-                styles['date-filter-container__box__input-box__input']
-              }
+              className={styles['date-filter-container__box__input-box__input']}
             ></input>
           </span>
           <span
@@ -165,9 +161,7 @@ const ActionTimeFilter: React.FC<{onHide: () => void}> = ({onHide}) => {
                 setDateRangeStart(e.target.value);
                 setDateRangeEnd(e.target.value);
               }}
-              className={
-                styles['date-filter-container__box__input-box__input']
-              }
+              className={styles['date-filter-container__box__input-box__input']}
             ></input>
           </span>
           <span

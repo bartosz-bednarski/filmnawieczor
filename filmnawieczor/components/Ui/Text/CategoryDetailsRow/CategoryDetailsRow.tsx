@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import styles from './categoryDetailsRow.module.scss';
 import universesStyles from '../../Styles/universes.module.scss';
@@ -10,7 +10,12 @@ export interface CategoryDetailsRowPropsType {
   universe: string;
 }
 
-const CategoryDetailsRow = ({title, text, type, universe}:CategoryDetailsRowPropsType) => {
+const CategoryDetailsRow = ({
+  title,
+  text,
+  type,
+  universe,
+}: CategoryDetailsRowPropsType) => {
   return (
     <div className={styles['category-box']}>
       <span
@@ -38,7 +43,8 @@ const CategoryDetailsRow = ({title, text, type, universe}:CategoryDetailsRowProp
       <div className={styles['category-box__category-items-box']}>
         {type === 'listItem' &&
           text.map((item: string) => (
-            <span key={item}
+            <span
+              key={item}
               className={`${styles['category-box__category-item-bg']} ${
                 universesStyles[`${universe}-category-box__category-item-bg`]
               }`}

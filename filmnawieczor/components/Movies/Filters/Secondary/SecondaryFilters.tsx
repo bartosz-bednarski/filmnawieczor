@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import styles from '../filters.module.scss';
 import FilterBtn from '../../../ui/buttons/FilterBtn';
@@ -14,14 +14,12 @@ const SecondaryFilters: React.FC<{onHide: () => void}> = ({onHide}) => {
   const secondaryCatsToDisplayStore = useAppSelector(
     (state) => state.movies.secondaryCatsToDisplay
   );
-  const categoriesStore = useAppSelector(
-    (state) => state.movies.categories
-  );
+  const categoriesStore = useAppSelector((state) => state.movies.categories);
   const [secondaryCategoriesToDisplay, setSecondaryCategoriestoDisplay] =
     useState<Category | null>(null);
 
   const onClickHandler = (catName: string) => {
-    if(secondaryCategoriesToDisplay){
+    if (secondaryCategoriesToDisplay) {
       const payloadToSend = {
         catName: secondaryCategoriesToDisplay.catName,
         queryName: secondaryCategoriesToDisplay.queryName,
@@ -29,7 +27,6 @@ const SecondaryFilters: React.FC<{onHide: () => void}> = ({onHide}) => {
       };
       dispatch(setActivefilterMovie(payloadToSend));
     }
-    
   };
   useEffect(() => {
     if (secondaryCatsToDisplayStore === 'gatunek') {

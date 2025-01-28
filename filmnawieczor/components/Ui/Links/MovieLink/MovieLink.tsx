@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import styles from './movieLink.module.scss';
 import universesStyles from '../../Styles/universes.module.scss';
@@ -6,29 +6,39 @@ import {useNavigate} from 'react-router-dom';
 import CategoryDetailsRow from '../../Text/CategoryDetailsRow/CategoryDetailsRow';
 import Link from 'next/link';
 
-
-export interface MovieLinkPropsType{
+export interface MovieLinkPropsType {
   id: number;
-    name: string;
-    description: string;
-    image_cover: string;
-    action_place: string[];
-    action_time: string;
-    category: string[];
-    rating: string;
-    production_year: string;
-    movie_length: string;
-    universe: string;
+  name: string;
+  description: string;
+  image_cover: string;
+  action_place: string[];
+  action_time: string;
+  category: string[];
+  rating: string;
+  production_year: string;
+  movie_length: string;
+  universe: string;
 }
 
-const MovieLink = ({id,name,description,image_cover,action_place,action_time,category,rating,production_year,movie_length,universe}:MovieLinkPropsType) => {
- 
+const MovieLink = ({
+  id,
+  name,
+  description,
+  image_cover,
+  action_place,
+  action_time,
+  category,
+  rating,
+  production_year,
+  movie_length,
+  universe,
+}: MovieLinkPropsType) => {
   const movieCoverImage = require(
     `../../../../public/assets/movies/details/${image_cover.replace(
       '.webp',
       '-details.webp'
     )}`
-  ).default;
+  ).default.src;
   return (
     <Link
       className={`${styles['container']} ${
@@ -37,10 +47,9 @@ const MovieLink = ({id,name,description,image_cover,action_place,action_time,cat
       id={`${id}`}
       role="link"
       href={`/filmy/${name.replace(/\s/g, '').toLowerCase()}-${id}`}
-      
     >
       <img
-        src={movieCoverImage.src}
+        src={movieCoverImage}
         alt={`${name} cover`}
         className={styles['container__main-img']}
         width={155}
@@ -83,8 +92,9 @@ const MovieLink = ({id,name,description,image_cover,action_place,action_time,cat
             {universe !== 'None' && (
               <img
                 src={
-                  require(`../../../../public/assets/universes/${universe}.webp`)
-                    .default.src
+                  require(
+                    `../../../../public/assets/universes/${universe}.webp`
+                  ).default.src
                 }
                 alt={`${universe} cover`}
                 className={
@@ -128,9 +138,7 @@ const MovieLink = ({id,name,description,image_cover,action_place,action_time,cat
           >
             <span
               className={`${
-                styles[
-                  'container__content-box-hover__header-box__rating__star'
-                ]
+                styles['container__content-box-hover__header-box__rating__star']
               } ${
                 universesStyles[
                   `${universe.toLowerCase()}-container__content-box-hover__header-box__rating__star`

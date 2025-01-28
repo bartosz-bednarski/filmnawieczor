@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import styles from './h2Banner.module.scss';
 const H2Banner: React.FC<{

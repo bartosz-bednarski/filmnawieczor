@@ -1,4 +1,4 @@
-import { MovieLinkPropsType } from '@/components/Ui/Links/MovieLink/MovieLink';
+import {MovieLinkPropsType} from '@/components/Ui/Links/MovieLink/MovieLink';
 import {ActiveFilter} from 'filters';
 
 export type GetLast10MoviesResponse = GetDataExsists | GetDataNotExsists;

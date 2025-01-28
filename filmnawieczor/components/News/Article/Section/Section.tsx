@@ -18,15 +18,11 @@ const Section: React.FC<{section: ArticleDetails}> = ({section}) => {
         href={section.article_url}
       >
         <div
-          className={
-            styles['article-list-item-box__header-box__header-column']
-          }
+          className={styles['article-list-item-box__header-box__header-column']}
         >
           <h2
             className={
-              styles[
-                'article-list-item-box__header-box__header-column__header'
-              ]
+              styles['article-list-item-box__header-box__header-column__header']
             }
           >
             {section.article_title}

@@ -9,21 +9,16 @@ const Footer: React.FC = () => {
         <div className={styles['footer__content-container__nav-menu-box']}>
           <ul>
             <li>
-              <Link href='/'>Strona główna</Link>
+              <Link href="/">Strona główna</Link>
             </li>
             <li>
-              <Link href='/aktualnosci'>Aktualności</Link>
+              <Link href="/aktualnosci">Aktualności</Link>
             </li>
             <li>
-              <Link href='/filmy'>Filmy</Link>
+              <Link href="/filmy">Filmy</Link>
             </li>
             <li>
-              <Link href='/seriale'>Seriale</Link>
-            </li>
-            <li>
-              <Link href='/politykaprywatnosci'>
-                Polityka prywatności
-              </Link>
+              <Link href="/politykaprywatnosci">Polityka prywatności</Link>
             </li>
           </ul>
         </div>

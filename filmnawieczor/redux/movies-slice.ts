@@ -1,13 +1,17 @@
-import { MovieLinkPropsType } from '@/components/Ui/Links/MovieLink/MovieLink';
+import {MovieLinkPropsType} from '@/components/Ui/Links/MovieLink/MovieLink';
 import {createSlice} from '@reduxjs/toolkit';
 
-import { MoviesCategoriesType, MOVIES_CATEGORIES } from './utils/moviesCategories';
-import { MoviesSortingFilterType, MOVIES_SORTING_FILTER } from './utils/moviesSortingFilter';
+import {
+  MoviesCategoriesType,
+  MOVIES_CATEGORIES,
+} from './utils/moviesCategories';
+import {
+  MoviesSortingFilterType,
+  MOVIES_SORTING_FILTER,
+} from './utils/moviesSortingFilter';
 
-
-
-const moviesInitialState: MoviesInitialState= {
-  moviesToDisplay:null,
+const moviesInitialState: MoviesInitialState = {
+  moviesToDisplay: null,
   categories: MOVIES_CATEGORIES,
   secondaryCatsToDisplay: '',
   sorting: MOVIES_SORTING_FILTER,
@@ -19,20 +23,11 @@ const moviesSlice = createSlice({
   name: 'Movies',
   initialState: moviesInitialState,
   reducers: {
-    setMoviesToDisplay:(state,action:{payload: MovieLinkPropsType[];})=>{
-      state.moviesToDisplay = action.payload
+    setMoviesToDisplay: (state, action: {payload: MovieLinkPropsType[]}) => {
+      state.moviesToDisplay = action.payload;
     },
 
-setFilteredMoviesToDisplay:(state,action)=>{
-if(state.activeFilters.length===0)return;
-const params = state.activeFilters.map((item) => {return {queryName: item.queryName, queryValue: item.queryValue}});
-const sorting = state.sorting.filter((item) => item.active === true);
-},
-
-    setSecondaryCatsToDisplay: (
-      state,
-      action
-    ) => {
+    setSecondaryCatsToDisplay: (state, action) => {
       state.secondaryCatsToDisplay = action.payload;
     },
 
@@ -45,7 +40,7 @@ const sorting = state.sorting.filter((item) => item.active === true);
           queryName: action.payload.queryName,
           queryValue: action.payload.queryValue,
         },
-      ]
+      ];
       state.activeFilters = newActiveFilters;
       if (
         action.payload.queryName === 'mc.movie_category' ||
@@ -54,16 +49,13 @@ const sorting = state.sorting.filter((item) => item.active === true);
         const indexOfPrimaryCategory = state.categories.findIndex(
           (item) => item.catName === action.payload.catName
         );
-        const selectedSecondaryCategories = state.categories[
-          indexOfPrimaryCategory
-        ].secondaryCats
-        if(!selectedSecondaryCategories)return
+        const selectedSecondaryCategories =
+          state.categories[indexOfPrimaryCategory].secondaryCats;
+        if (!selectedSecondaryCategories) return;
         const indexOfSecondaryCategory = selectedSecondaryCategories.findIndex(
           (item) => item.catName === action.payload.queryValue
         );
-        selectedSecondaryCategories[
-          indexOfSecondaryCategory
-        ].active = false;
+        selectedSecondaryCategories[indexOfSecondaryCategory].active = false;
       }
     },
 
@@ -75,17 +67,14 @@ const sorting = state.sorting.filter((item) => item.active === true);
         const indexOfPrimaryCategory = state.categories.findIndex(
           (primCat) => primCat.queryName === action.payload.queryName
         );
-        const selectedSecondaryCategories = state.categories[
-          indexOfPrimaryCategory
-        ].secondaryCats
-        if(!selectedSecondaryCategories)return
+        const selectedSecondaryCategories =
+          state.categories[indexOfPrimaryCategory].secondaryCats;
+        if (!selectedSecondaryCategories) return;
 
         const indexOfSecondaryCategory = selectedSecondaryCategories.findIndex(
           (secCat) => secCat.catName === action.payload.queryValue
         );
-                  selectedSecondaryCategories[
-            indexOfSecondaryCategory
-          ].active = true; 
+        selectedSecondaryCategories[indexOfSecondaryCategory].active = true;
       }
 
       state.activeFilters = state.activeFilters.filter(
@@ -113,12 +102,11 @@ const sorting = state.sorting.filter((item) => item.active === true);
 });
 
 export default moviesSlice.reducer;
-export const setMoviesToDisplay = moviesSlice.actions.setMoviesToDisplay
+export const setMoviesToDisplay = moviesSlice.actions.setMoviesToDisplay;
 export const setSecondaryCatsToDisplayMovie =
   moviesSlice.actions.setSecondaryCatsToDisplay;
 export const setActivefilterMovie = moviesSlice.actions.setActivefilter;
-export const removeActiveFilterMovie =
-  moviesSlice.actions.removeActiveFilter;
+export const removeActiveFilterMovie = moviesSlice.actions.removeActiveFilter;
 export const setActiveSorting = moviesSlice.actions.setActiveSorting;
 export const setIncreaseOffset = moviesSlice.actions.setIncreaseOffset;
 
@@ -128,7 +116,7 @@ export type ActiveFilterType = {
 };
 
 export type MoviesInitialState = {
-  moviesToDisplay:MovieLinkPropsType[]|null
+  moviesToDisplay: MovieLinkPropsType[] | null;
   categories: MoviesCategoriesType;
   secondaryCatsToDisplay: string;
   sorting: MoviesSortingFilterType;
