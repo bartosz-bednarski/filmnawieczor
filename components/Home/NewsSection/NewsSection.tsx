@@ -3,15 +3,16 @@ import React from 'react';
 import styles from './newsSection.module.scss';
 import SingleNews, { SingleNewsHomePropsType } from './SingleNews/SingleNews';
 import {useState, useEffect} from 'react';
-import {LatestNews} from '../../../types/api/home';
 import H2Banner from '../../Ui/Headers/H2Banner/H2Banner';
 import backgroundImage from '../../../public/assets/home/bg-yellow.webp';
 import {useRouter} from '@/node_modules/next/navigation';
 import { getLatestNews } from '@/api/news/getLatestNews';
 
 const NewsSection: React.FC = () => {
+
   const router = useRouter();
   const [latestNews, setLatestNews] = useState<[] | SingleNewsHomePropsType[]>([]);
+
   const getLatestNewsHandler = async () => {
     const latestNewsResponse = await getLatestNews();
     if(latestNewsResponse.status==='OK'){
@@ -21,14 +22,15 @@ const NewsSection: React.FC = () => {
       router.push('/error');
     }
   };
+
   useEffect(() => {
     getLatestNewsHandler();
   }, []);
+
   return (
-    <>
-      <section className={styles['home-container__news-section-container']}>
+      <section className={styles.container}>
         <picture
-          className={styles['home-container__news-section-container__picture']}
+          className={styles.backgroundPicture}
         >
           <img
             src={backgroundImage.src}
@@ -44,7 +46,7 @@ const NewsSection: React.FC = () => {
           h2Styles={{color: '#FFE500'}}
         />
         <div
-          className={styles['home-container__news-section-container__news-box']}
+          className={styles.newsBox}
         >
           {latestNews.map((news: SingleNewsHomePropsType) => (
             <SingleNews
@@ -57,7 +59,7 @@ const NewsSection: React.FC = () => {
           ))}
         </div>
       </section>
-    </>
   );
 };
+
 export default NewsSection;

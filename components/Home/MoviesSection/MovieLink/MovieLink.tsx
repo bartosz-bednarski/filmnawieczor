@@ -1,46 +1,46 @@
 'use client';
 import Link from '@/node_modules/next/link';
 import React from 'react';
-import styles from './singleMovie.module.scss';
+import styles from './movieLink.module.scss';
 
-export interface SingleMovieHomePropsType{
+export interface MovieLinkHomePropsType{
   name: string;
   image_cover: string;
   id: number;
   description: string;
 }
 
-const SingleMovie = ({name, image_cover, id, description}:SingleMovieHomePropsType) => {
+const MovieLink = ({name, image_cover, id, description}:MovieLinkHomePropsType) => {
   const link = `/filmy/${name.replace(/\s/g, '').toLowerCase()}-${id}`;
-  const movieCoverImage1100 = require(
+  const MOVIE_COVER_IMAGE_PC = require(
     `../../../../public/assets/movies/details/${image_cover.replace('.webp', '-details.webp')}`
   ).default;
-  const movieCoverImage = require(
+  const MOVIE_COVER_IMAGE_MOBILE = require(
     `../../../../public/assets/movies/${image_cover}`
   ).default;
   return (
-    <Link className={styles['single-movie-box']} role="link" href={link}>
+    <Link className={styles.container} role="link" href={link}>
       <img
-        className={styles['single-movie-box__image']}
-        src={movieCoverImage.src}
+        className={styles.imagePhone}
+        src={MOVIE_COVER_IMAGE_MOBILE.src}
         alt="movie cover"
         width={175}
         height={300}
       />
       <img
-        className={styles['single-movie-box__image-1100']}
-        src={movieCoverImage1100.src}
+        className={styles.imagePc}
+        src={MOVIE_COVER_IMAGE_PC.src}
         alt="movie cover"
         width={200}
         height={300}
       />
-      <div className={styles['single-movie-box__text-box']}>
+      <div className={styles.textBox}>
         <h2>{name}</h2>
-        <span className={styles['single-movie-box__text-box__description']}>
+        <span className={styles.description}>
           {description}
         </span>
       </div>
     </Link>
   );
 };
-export default SingleMovie;
+export default MovieLink;

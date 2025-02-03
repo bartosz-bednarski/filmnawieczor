@@ -2,15 +2,16 @@
 import React from 'react';
 import H2Banner from '../../Ui/Headers/H2Banner/H2Banner';
 import styles from './moviesSection.module.scss';
-import SingleMovie, { SingleMovieHomePropsType } from './SingleMovie/SingleMovie';
 import {useState, useEffect} from 'react';
-import {LatestMovie} from '../../../types/api/home';
 import backgroundImage from '../../../public/assets/home/bg-red.webp';
 import {useRouter} from '@/node_modules/next/navigation';
 import { getLatestMovies } from '@/api/movies/getLatestMovies';
-const MoviesSection: React.FC = () => {
+import MovieLink, { MovieLinkHomePropsType } from './MovieLink/MovieLink';
+
+const MoviesSection= () => {
   const router = useRouter();
-  const [latestMovies, setLatestMovies] = useState<[] | SingleMovieHomePropsType[]>([]);
+  const [latestMovies, setLatestMovies] = useState<[] | MovieLinkHomePropsType[]>([]);
+
   const getLatestMoviesHandler = async () => {
     const latestMoviesResponse = await getLatestMovies();
     if(latestMoviesResponse.status==='OK'){
@@ -20,13 +21,15 @@ const MoviesSection: React.FC = () => {
       router.push('/error');
     }
   };
+
   useEffect(() => {
     getLatestMoviesHandler();
   }, []);
+
   return (
-    <section className={styles['home-container__movies-section-container']}>
+    <section className={styles.container}>
       <picture
-        className={styles['home-container__movies-section-container__picture']}
+        className={styles.backgroundPicture}
       >
         <img
           src={backgroundImage.src}
@@ -52,11 +55,11 @@ const MoviesSection: React.FC = () => {
       />
       <div
         className={
-          styles['home-container__movies-section-container__movies-box']
+          styles.moviesBox
         }
       >
-        {latestMovies.map((movie: SingleMovieHomePropsType) => (
-          <SingleMovie
+        {latestMovies.map((movie: MovieLinkHomePropsType) => (
+          <MovieLink
           name={movie.name}
             image_cover={movie.image_cover}
             description={movie.description}
@@ -66,7 +69,7 @@ const MoviesSection: React.FC = () => {
         ))}
       </div>
       <span
-        className={styles['home-container__movies-section-container__text-box']}
+        className={styles.textBox}
       >
         <h3>Dlaczego warto zajrzeć do naszej bazy filmów?</h3> Zacznijmy od
         filtrowania. Gatunek czy rok produkcji to klasyczne filtry używane na
@@ -84,4 +87,5 @@ const MoviesSection: React.FC = () => {
     </section>
   );
 };
+
 export default MoviesSection;
