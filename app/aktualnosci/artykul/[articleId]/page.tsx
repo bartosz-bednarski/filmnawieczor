@@ -36,7 +36,6 @@ export default async function ArticleIdPage({
   const { articleId } = await params;
 
   const articleResp = await getNewsDetails(articleId);
-  console.log(articleResp)
   if (articleResp.status === 'OK') {
     return <Article {...articleResp.data} />;
   }

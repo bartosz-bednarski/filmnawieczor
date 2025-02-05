@@ -1,9 +1,8 @@
 'use client';
 import React from 'react';
-import styles from './movieLink.module.scss';
-import universesStyles from '../../Styles/universes.module.scss';
 import CategoryDetailsRow from '../../Text/CategoryDetailsRow/CategoryDetailsRow';
 import Link from 'next/link';
+import { UNIVERSES_STYLES } from '@/styles/Universes/universesStyles';
 
 export interface MovieLinkPropsType {
   id: number;
@@ -16,7 +15,8 @@ export interface MovieLinkPropsType {
   rating: string;
   production_year: string;
   movie_length: string;
-  universe: string;
+  universe: "Marvel"|"None";
+  url:string
 }
 
 const MovieLink = ({
@@ -30,63 +30,46 @@ const MovieLink = ({
   rating,
   production_year,
   movie_length,
-  universe,
+  universe,url
 }: MovieLinkPropsType) => {
+const styles = UNIVERSES_STYLES[universe]
+
+
   const movieCoverImage = require(
     `../../../../public/assets/movies/details/${image_cover.replace(
       '.webp',
       '-details.webp'
     )}`
   ).default.src;
-  console.log('this name!',name)
+  const link = `/filmy/${url}`
   return (
     <Link
-      className={`${styles['container']} ${
-        universesStyles[`${universe.toLowerCase()}-container`]
-      }`}
-      id={`${id}`}
+      className={styles.movieLink}
+      id={String(id)}
       role="link"
-      href={`/filmy/${name.replace(/\s/g, '').toLowerCase()}-${id}`}
+      href={link}
     >
       <img
         src={movieCoverImage}
         alt={`${name} cover`}
-        className={styles['container__main-img']}
+        className={styles.image}
         width={155}
         height="auto"
         title={name}
         loading="eager"
       />
-      <div className={styles['container__content-box']}>
+      <div className={styles.contentBox}>
         <div
-          className={`${styles['container__content-box__header-box']} ${
-            universesStyles[
-              `${universe.toLowerCase()}-container__content-box__header-box`
-            ]
-          }`}
+          className={styles.headerBox}
         >
           <h3>{name}</h3>
-          <div className={styles['container__content-box__header-box__right']}>
+          <div className={styles.right}>
             <span
-              className={`${
-                styles['container__content-box__header-box__right__rating']
-              } ${
-                universesStyles[
-                  `${universe.toLowerCase()}-container__content-box__header-box__right__rating`
-                ]
-              }`}
+              className={styles.rating}
             >
               <span
-                className={`${
-                  styles[
-                    'container__content-box__header-box__right__rating__star'
-                  ]
-                } ${
-                  universesStyles[
-                    `${universe.toLowerCase()}-container__content-box__header-box__right__rating__star`
-                  ]
-                }`}
-              ></span>{' '}
+                className={styles.star}
+              ></span>
               {rating}
             </span>
             {universe !== 'None' && (
@@ -98,7 +81,7 @@ const MovieLink = ({
                 }
                 alt={`${universe} cover`}
                 className={
-                  styles['container__content-box__header-box__right__universe']
+                  styles.universe
                 }
                 width={155}
                 height={45}
@@ -109,48 +92,28 @@ const MovieLink = ({
           </div>
         </div>
         <span
-          className={`${styles['container__content-box__description']} ${
-            universesStyles[
-              `${universe.toLowerCase()}-container__content-box__description`
-            ]
-          }`}
+          className={styles.description}
         >
           {description}
         </span>
       </div>
-      <div className={styles['container__content-box-hover']}>
+      <div className={styles.contentBoxHover}>
         <div
-          className={`${styles['container__content-box-hover__header-box']} ${
-            universesStyles[
-              `${universe.toLowerCase()}-container__content-box-hover__header-box`
-            ]
-          }`}
+          className={styles.headerBox}
         >
           <h3>{name}</h3>
           <span
-            className={`${
-              styles['container__content-box-hover__header-box__rating']
-            } ${
-              universesStyles[
-                `${universe.toLowerCase()}-container__content-box-hover__header-box__rating`
-              ]
-            }`}
+            className={styles.rating}
           >
             <span
-              className={`${
-                styles['container__content-box-hover__header-box__rating__star']
-              } ${
-                universesStyles[
-                  `${universe.toLowerCase()}-container__content-box-hover__header-box__rating__star`
-                ]
-              }`}
+              className={styles.star}
             ></span>
             {rating}
           </span>
         </div>
 
         <div
-          className={styles['container__content-box-hover__content-details']}
+          className={styles.details}
         >
           <CategoryDetailsRow
             title="Miejsce akcji"

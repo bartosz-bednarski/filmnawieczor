@@ -1,3 +1,4 @@
+@use '../../../../styles/fonts.scss';
 .timeline-container {
   position: relative;
   display: flex;
@@ -60,9 +61,11 @@
         color: #ed1d24;
         margin: 0;
         text-align: right;
+        font-family: 'Poppins-600';
       }
       &__date {
         color: white;
+        font-family: 'Poppins-600';
       }
     }
     &__dot-box {
@@ -88,6 +91,7 @@
       align-items: center;
       color: white;
       font-size: 1rem;
+      font-family: 'Poppins-400';
     }
   }
 }

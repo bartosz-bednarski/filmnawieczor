@@ -13,10 +13,6 @@ export const metadata: Metadata = {
       'en-US': '/en-US',
     },
   },
-  openGraph: {
-    url: 'https://filmnawieczor.pl/uniwersa/marvel',
-    type: 'website',
-  },
 };
 
 export default function MarvelUniversePage() {

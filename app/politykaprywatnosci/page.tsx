@@ -2,20 +2,16 @@ import PrivacyPolicy from '@/components/PrivacyPolicy/PrivacyPolicy';
 import {Metadata} from 'next';
 
 export const metadata: Metadata = {
-  title: 'Film na wieczór',
+  title: 'Polityka prywatnosci',
   description:
-    'Film na wieczór to serwis, który posiada własną bazę danych filmów i seriali umożliwiającą korzystanie z nietypowych filtrów miejsca i czasu akcji.',
-  metadataBase: new URL('https://nemosportowaprzygoda.pl/'),
+    'Baza filmów zawierająca setki dzieł filmowych, ich oceny i opisy. Nasza wyszukiwarka oferuje zastosowanie unikatowych filtrów miejsca i czasu akcji filmu.',
+  metadataBase: new URL('https://filmnawieczor.pl/politykaprywatnosci'),
   alternates: {
-    canonical: 'https://nemosportowaprzygoda.pl/',
+    canonical: 'https://filmnawieczor.pl/politykaprywatnosci',
     languages: {
       'pl-PL': '/pl-PL',
       'en-US': '/en-US',
     },
-  },
-  openGraph: {
-    url: 'https://filmnawieczor.pl',
-    type: 'website',
   },
 };
 

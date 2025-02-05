@@ -1,12 +1,12 @@
 'use client';
-import React from 'react';
 import styles from './filters.module.scss';
 import PrimaryFilters from './Primary/PrimaryFilters';
 import {useState} from 'react';
 import SecondaryFilters from './Secondary/SecondaryFilters';
 import ActiveFilters from './Active/ActiveFilters';
 import {useAppSelector} from '../../../redux/hooks';
-const Filters: React.FC = () => {
+
+const Filters = () => {
   const activeFiltersStore = useAppSelector(
     (state) => state.movies.activeFilters
   );
@@ -17,14 +17,15 @@ const Filters: React.FC = () => {
     setShowPrimaryFilters(false);
     setShowSecondaryFilters(true);
   };
+
   const showPrimaryFiltersHandler = () => {
     setShowPrimaryFilters(true);
     setShowSecondaryFilters(false);
   };
+
   return (
     <div
-      className={styles['filters-container']}
-      style={{flexDirection: 'column'}}
+      className={styles.container}
     >
       {showPrimaryFilters && (
         <PrimaryFilters onHide={hidePrimaryFiltersHandler} />
@@ -36,4 +37,5 @@ const Filters: React.FC = () => {
     </div>
   );
 };
+
 export default Filters;

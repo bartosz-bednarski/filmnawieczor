@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 import {useAppDispatch} from '../../../../redux/hooks';
 import styles from './actionTimeFilter.module.scss';
 import {setActivefilterMovie} from '../../../../redux/movies-slice';
-import FilterButton from '@/components/Ui/Buttons/FilterButton';
+import FilterButton from '@/components/Ui/Buttons/FilterButton/FilterButton';
 import { submitHandler } from './submitHandler';
 import FilterInput from '@/components/Ui/Inputs/FilterInput';
 
@@ -82,7 +82,6 @@ const ActionTimeFilter = ({onHide}:ActionTimeFilterMoviesPropsType) => {
         onChange={(e) => setDateRangeEnd(e.target.value)} 
         error={error.dateRangeStart} 
         label='Do roku'/>
-      
       </div>
       <div className={styles.commitBox}>
         <span className={styles.text}>

@@ -65,6 +65,7 @@ const MoviesSection= () => {
             description={movie.description}
             key={movie.id}
             id={movie.id}
+            url={movie.url}
           />
         ))}
       </div>

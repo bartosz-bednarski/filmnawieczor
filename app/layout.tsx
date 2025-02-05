@@ -1,23 +1,29 @@
 import Footer from '@/components/Footer/Footer';
 import Navigation from '@/components/Navigation/Navigation';
 import {Metadata} from '@/node_modules/next/types';
-import './layout.scss';
+import '../styles/globals.scss';
 import StoreProvider from './StoreProvider';
+
 export const metadata: Metadata = {
-  title: 'Film na wieczór',
+  title:{
+default:'FILM NA WIECZÓR',
+template:'%s - FILM NA WIECZÓR'
+  }, 
   description:
-    'Film na wieczór to serwis, który posiada własną bazę danych filmów i seriali umożliwiającą korzystanie z nietypowych filtrów miejsca i czasu akcji.',
-  metadataBase: new URL('https://nemosportowaprzygoda.pl/'),
+    'Baza filmów zawierająca setki dzieł filmowych, ich oceny i opisy. Nasza wyszukiwarka oferuje zastosowanie unikatowych filtrów miejsca i czasu akcji filmu.',
+  metadataBase: new URL('https://filmnawieczor.pl'),
+  authors: [{name: 'Bartosz Bednarski'}],
+  publisher: 'Bartosz Bednarski',
   alternates: {
-    canonical: 'https://nemosportowaprzygoda.pl/',
+    canonical: '/',
     languages: {
       'pl-PL': '/pl-PL',
       'en-US': '/en-US',
     },
   },
+  robots: {index: true, follow: true},
   openGraph: {
-    url: 'https://filmnawieczor.pl',
-    type: 'website',
+    images: '/og-image.png',
   },
 };
 

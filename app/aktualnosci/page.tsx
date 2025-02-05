@@ -14,10 +14,6 @@ export const metadata: Metadata = {
       'en-US': '/en-US',
     },
   },
-  openGraph: {
-    url: 'https://filmnawieczor.pl',
-    type: 'website',
-  },
 };
 
 export default async function NewsPage() {

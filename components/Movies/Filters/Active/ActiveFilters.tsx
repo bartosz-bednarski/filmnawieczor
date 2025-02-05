@@ -2,18 +2,21 @@
 import React from 'react';
 import {useAppDispatch, useAppSelector} from '../../../../redux/hooks';
 import {removeActiveFilterMovie} from '../../../../redux/movies-slice';
-import styles from '../filters.module.scss';
-import ActiveFilterButton from '@/components/Ui/Buttons/ActiveFilterButton';
-const ActiveFilters: React.FC = () => {
+import styles from './activeFilters.module.scss';
+import ActiveFilterButton from '@/components/Ui/Buttons/ActiveFilterButton/ActiveFilterButton';
+
+const ActiveFilters = () => {
+  
   const dispatch = useAppDispatch();
   const activeFiltersStore = useAppSelector(
     (state) => state.movies.activeFilters
   );
+
   return (
-    <div className={styles['filters-container__active-filters-container']}>
+    <div className={styles.activeFilters}>
       <h3>Aktywne filtry</h3>
       <div
-        className={styles['filters-container__active-filters-container__box']}
+        className={styles.box}
       >
         {activeFiltersStore.map((filter) => {
           return (
@@ -35,4 +38,5 @@ const ActiveFilters: React.FC = () => {
     </div>
   );
 };
+
 export default ActiveFilters;

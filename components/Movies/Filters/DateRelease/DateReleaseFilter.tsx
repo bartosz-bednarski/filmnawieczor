@@ -2,10 +2,17 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import {useAppDispatch} from '../../../../redux/hooks';
-import styles from '../dateFilter.module.scss';
+import styles from './dateReleaseFilter.module.scss';
 import {setActivefilterMovie} from '../../../../redux/movies-slice';
-import FilterButton from '@/components/Ui/Buttons/FilterButton';
-const DateReleaseFilter: React.FC<{onHide: () => void}> = ({onHide}) => {
+import FilterButton from '@/components/Ui/Buttons/FilterButton/FilterButton';
+import FilterInput from '@/components/Ui/Inputs/FilterInput';
+import { submitHandler } from './submitHandler';
+
+export interface DateReleaseFilterMoviesPropsType{
+  onHide:()=>void
+}
+
+const DateReleaseFilter = ({onHide}:DateReleaseFilterMoviesPropsType) => {
   const dispatch = useAppDispatch();
   const [dateRangeStart, setDateRangeStart] = useState('');
   const [dateRangeEnd, setDateRangeEnd] = useState('');
@@ -30,52 +37,7 @@ const DateReleaseFilter: React.FC<{onHide: () => void}> = ({onHide}) => {
       dispatch(setActivefilterMovie(payloadToSend));
     }
   };
-  const submitHandler = () => {
-    if (dateRangeStart === '') {
-      setError((state) => ({
-        dateRangeStart: true,
-        dateRangeEnd: state.dateRangeEnd,
-      }));
-    }
-    if (dateRangeEnd === '') {
-      setError((state) => ({
-        dateRangeStart: state.dateRangeStart,
-        dateRangeEnd: true,
-      }));
-    }
-    if (dateRangeStart > dateRangeEnd) {
-      setError({
-        dateRangeStart: true,
-        dateRangeEnd: true,
-      });
-    }
-
-    if (Number(dateRangeStart) < 1900) {
-      setError((state) => ({
-        dateRangeStart: true,
-        dateRangeEnd: state.dateRangeEnd,
-      }));
-    }
-    if (Number(dateRangeEnd) < 1900) {
-      setError((state) => ({
-        dateRangeStart: state.dateRangeStart,
-        dateRangeEnd: true,
-      }));
-    }
-    if (
-      dateRangeStart !== '' &&
-      dateRangeEnd !== '' &&
-      dateRangeStart <= dateRangeEnd &&
-      Number(dateRangeStart) >= 1900 &&
-      Number(dateRangeEnd) >= 1900
-    ) {
-      addDateRangeFilter();
-      setDateRangeStart('');
-      setDateRangeEnd('');
-      setError({dateRangeEnd: false, dateRangeStart: false});
-      onHide();
-    }
-  };
+ 
   useEffect(() => {
     if (Number(dateRangeStart) >= 1900 && Number(dateRangeEnd) >= 1900) {
       if (error.dateRangeStart && dateRangeStart !== '') {
@@ -95,93 +57,57 @@ const DateReleaseFilter: React.FC<{onHide: () => void}> = ({onHide}) => {
       }
     }
   }, [dateRangeStart, dateRangeEnd]);
+
   return (
-    <div className={styles['date-filter-container']}>
-      <div className={styles['date-filter-container__box']}>
-        <div className={styles['date-filter-container__box__input-box']}>
-          <span
-            className={`${
-              styles['date-filter-container__box__input-box__input-bg']
-            } ${error.dateRangeStart ? styles['error'] : ''}`}
-          >
-            <input
-              type="number"
-              min={1900}
-              max={2030}
-              value={dateRangeStart}
-              onChange={(e) => setDateRangeStart(e.target.value)}
-              placeholder="1900"
-              className={styles['date-filter-container__box__input-box__input']}
-            ></input>
-          </span>
-          <span
-            className={`${
-              styles['date-filter-container__box__input-box__text']
-            } ${error.dateRangeStart ? styles['error'] : ''}`}
-          >
-            Od roku
-          </span>
-        </div>
-        <span className={styles['date-filter-container__box__text']}>-</span>
-        <div className={styles['date-filter-container__box__input-box']}>
-          <span
-            className={`${
-              styles['date-filter-container__box__input-box__input-bg']
-            } ${error.dateRangeStart ? styles['error'] : ''}`}
-          >
-            <input
-              type="number"
-              min={1900}
-              max={2030}
-              value={dateRangeEnd}
-              onChange={(e) => setDateRangeEnd(e.target.value)}
-              placeholder="2025"
-              className={styles['date-filter-container__box__input-box__input']}
-            ></input>
-          </span>
-          <span
-            className={`${
-              styles['date-filter-container__box__input-box__text']
-            } ${error.dateRangeStart ? styles['error'] : ''}`}
-          >
-            Do roku
-          </span>
-        </div>
+    <div className={styles.container}>
+      <div className={styles.inputBox}>
+        
+            <FilterInput 
+            max={2030} 
+            min={1900} 
+            value={dateRangeStart} 
+            placeholder='1900' 
+            onChange={(e) => setDateRangeStart(e.target.value)}
+            label='Od roku'
+            error={error.dateRangeStart}
+            type='number'
+            /> - 
+            <FilterInput 
+            max={2030} 
+            min={1900} 
+            value={dateRangeEnd} 
+            placeholder='2025' 
+            onChange={(e) => setDateRangeEnd(e.target.value)}
+            label='Do roku'
+            error={error.dateRangeEnd}
+            type='number'
+            />
+           
       </div>
-      <div className={styles['date-filter-container__commit-box']}>
-        <span className={styles['date-filter-container__commit-box__text']}>
+      <div className={styles.commitBox}>
+        <span className={styles.text}>
           {dateRangeStart}-{dateRangeEnd}
         </span>
-        <FilterButton value="Zatwierdź" onClick={() => submitHandler()} />
+        <FilterButton 
+        value="Zatwierdź" 
+        onClick={() => submitHandler({dateRangeStart,dateRangeEnd,setError,addDateRangeFilter,setDateRangeEnd,setDateRangeStart,onHide})} />
       </div>
-      <div className={styles['date-filter-container__box']}>
-        <div className={styles['date-filter-container__box__input-box']}>
-          <span
-            className={`${
-              styles['date-filter-container__box__input-box__input-bg']
-            } ${error.dateRangeStart ? styles['error'] : ''}`}
-          >
-            <input
-              type="number"
-              placeholder="2005"
-              min={1900}
-              max={2030}
-              value={dateRangeEnd && dateRangeStart}
-              onChange={(e) => {
-                setDateRangeStart(e.target.value);
-                setDateRangeEnd(e.target.value);
-              }}
-              className={styles['date-filter-container__box__input-box__input']}
-            ></input>
-          </span>
-          <span
-            className={`${
-              styles['date-filter-container__box__input-box__text']
-            } ${error.dateRangeStart ? styles['error'] : ''}`}
-          >
-            Podaj rok
-          </span>
-        </div>
+      <div className={styles.inputBox}>
+       
+              <FilterInput 
+            max={2030} 
+            min={1900} 
+            value={dateRangeEnd} 
+            placeholder='2005' 
+            onChange={(e) => {
+              setDateRangeStart(e.target.value);
+              setDateRangeEnd(e.target.value);
+            }}
+            label='Podaj rok'
+            error={error.dateRangeStart}
+            type='number'
+            />
+           
       </div>
     </div>
   );

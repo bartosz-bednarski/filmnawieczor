@@ -49,7 +49,7 @@ const NewsSection: React.FC = () => {
           className={styles.newsBox}
         >
           {latestNews.map((news: SingleNewsHomePropsType) => (
-            <SingleNews
+            <SingleNews key={news.id}
             id={news.id}
               title={news.title}
               image_cover={news.image_cover}

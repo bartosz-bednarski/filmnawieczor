@@ -1,15 +1,20 @@
 'use client';
 import React from 'react';
-import styles from '../filters.module.scss';
+import styles from './secondaryFilters.module.scss';
 import ActionTimeFilter from '../ActionTime/ActionTimeFilter';
 import DateReleaseFilter from '../DateRelease/DateReleaseFilter';
 import {useAppDispatch, useAppSelector} from '../../../../redux/hooks';
 import {useEffect, useState} from 'react';
 import {setActivefilterMovie} from '../../../../redux/movies-slice';
 import {Category} from '../../../../types/redux/moviesFilters';
-import ArrowUpButton from '@/components/Ui/Buttons/ArrowUpButton';
-import FilterButton from '@/components/Ui/Buttons/FilterButton';
-const SecondaryFilters: React.FC<{onHide: () => void}> = ({onHide}) => {
+import FilterButton from '@/components/Ui/Buttons/FilterButton/FilterButton';
+import SecondaryFiltersCloseButton from '@/components/Ui/Buttons/SecondaryFiltersCloseButton/SecondaryFiltersCloseButton';
+
+export interface SecondaryFiltersMoviesPropsType{
+  onHide:()=>void
+}
+
+const SecondaryFilters= ({onHide}:SecondaryFiltersMoviesPropsType) => {
   const dispatch = useAppDispatch();
   const secondaryCatsToDisplayStore = useAppSelector(
     (state) => state.movies.secondaryCatsToDisplay
@@ -28,6 +33,7 @@ const SecondaryFilters: React.FC<{onHide: () => void}> = ({onHide}) => {
       dispatch(setActivefilterMovie(payloadToSend));
     }
   };
+
   useEffect(() => {
     if (secondaryCatsToDisplayStore === 'gatunek') {
       const catStoreIndex = categoriesStore.findIndex(
@@ -42,37 +48,62 @@ const SecondaryFilters: React.FC<{onHide: () => void}> = ({onHide}) => {
     }
   }, [categoriesStore, secondaryCatsToDisplayStore]);
 
-  return (
-    <div className={styles['filters-container__secondary-filters-container']}>
-      <ArrowUpButton onClick={() => onHide()} text="Kategorie główne" />
-      <div
-        className={
-          styles['filters-container__secondary-filters-container__box']
-        }
-      >
-        {secondaryCatsToDisplayStore === 'czas_akcji' && (
-          <ActionTimeFilter onHide={onHide} />
-        )}
-        {secondaryCatsToDisplayStore === 'rok_produkcji' && (
-          <DateReleaseFilter onHide={onHide} />
-        )}
-        {secondaryCategoriesToDisplay?.secondaryCats &&
-          secondaryCategoriesToDisplay.secondaryCats.map((secCat) => {
-            if (secCat.active) {
-              return (
-                <FilterButton
+if(secondaryCatsToDisplayStore === 'czas_akcji'){
+  return(
+    <div className={styles.container}>
+    <SecondaryFiltersCloseButton onClick={() => onHide()} text="Kategorie główne" />
+    <div
+      className={
+        styles.rowBox
+      }
+    >
+      <ActionTimeFilter onHide={onHide} />
+       </div>
+       </div>
+  )
+}
+
+if(secondaryCatsToDisplayStore === 'rok_produkcji'){
+  return(
+    <div className={styles.container}>
+    <SecondaryFiltersCloseButton onClick={() => onHide()} text="Kategorie główne" />
+    <div
+      className={
+        styles.rowBox
+      }
+    >
+       <DateReleaseFilter onHide={onHide} />
+       </div>
+       </div>
+  )
+}
+
+if(secondaryCategoriesToDisplay!==null){
+  if(!secondaryCategoriesToDisplay.secondaryCats)return;
+
+  const secondaryCats = secondaryCategoriesToDisplay.secondaryCats.filter(item=>item.active)
+  return(
+    <div className={styles.container}>
+    <SecondaryFiltersCloseButton onClick={() => onHide()} text="Kategorie główne" />
+    <div
+      className={
+        styles.rowBox
+      }
+    >
+      {secondaryCats.map(secCat=><FilterButton
                   value={secCat.catName}
                   key={secCat.id}
                   onClick={() => {
                     onClickHandler(secCat.catName);
                     onHide();
                   }}
-                />
-              );
-            }
-          })}
-      </div>
-    </div>
-  );
+                />)}
+     
+       </div>
+       </div>
+  )
+}
+ return null
 };
+
 export default SecondaryFilters;

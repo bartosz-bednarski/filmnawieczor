@@ -8,8 +8,23 @@
       @content;
     }
   }
+  @mixin pc1000px {
+    @media only screen and (max-width: 1000px) {
+      @content;
+    }
+  }
+  @mixin phone900px {
+    @media only screen and (max-width: 900px) {
+      @content;
+    }
+  }
   @mixin phone700px {
     @media only screen and (max-width: 700px) {
+      @content;
+    }
+  }
+  @mixin phone500px {
+    @media only screen and (max-width: 500px) {
       @content;
     }
   }

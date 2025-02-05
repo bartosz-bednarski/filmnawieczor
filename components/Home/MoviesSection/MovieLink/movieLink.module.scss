@@ -1,4 +1,5 @@
 @use '../../../../styles/mixin.scss' as mixin;
+@use '../../../../styles/fonts.scss';
 @keyframes stretch {
   from {
     width: 100%;
@@ -81,6 +82,7 @@
     padding-right: 2rem;
     flex-direction: column;
     width: 60%;
+    font-family: 'Poppins-400';
     @include mixin.pc1100px{
       box-sizing: border-box;
       width: 100%;
@@ -88,6 +90,7 @@
       min-height: 90px;
     }
     h2{
+      font-family: 'Poppins-700';
       @include mixin.pc1100px{
         box-sizing: border-box;
         font-size: 1rem;
@@ -96,6 +99,7 @@
         text-align: center;
         font-weight: 500;
         width: 100%;
+        
       }
     }
   }

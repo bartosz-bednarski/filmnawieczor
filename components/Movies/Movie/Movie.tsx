@@ -2,58 +2,70 @@
 import React from 'react';
 import styles from './movie.module.scss';
 import layoutStyles from '../../Ui/Styles/mainContainerWithAdverts500ad.module.scss';
-import universesStyles from './universes.module.scss';
 import CategoriesArray from './Categories/CategoriesArray';
 import CategoriesStatic from './Categories/CategoriesStatic';
-import {MovieDetailsType} from '@/api/movies/getMovieDetails';
+import { UNIVERSES_STYLES } from '@/styles/Universes/universesStyles';
 
 export interface MoviePropsType {
-  movieData: MovieDetailsType;
+  id: number;
+  name: string;
+  description: string;
+  image_cover: string;
+  action_place: string;
+  action_time: string;
+  category: string;
+  rating: string;
+  production_year: string;
+  movie_length: string;
+  url: string;
+  meta_description: string;
+  universe: 'Marvel'|'None';
 }
 
-const Movie = ({movieData}: MoviePropsType) => {
+const Movie = ({id,name,description,image_cover,action_place,action_time,category,rating,production_year,movie_length,url,meta_description,universe}: MoviePropsType) => {
+  
+  const universeStyles = UNIVERSES_STYLES[universe]
   const coverImage = require(
-    `../../../public/assets/movies/details/${movieData.image_cover}`
+    `../../../public/assets/movies/details/${image_cover}`
   ).default;
+  
   return (
     <div className={layoutStyles.container}>
       <div className={layoutStyles['main-container']}>
         <div className={layoutStyles['main-container__advert-box']}> </div>
         <div className={layoutStyles['main-container__content-container']}>
-          <div className={styles['movie']}>
-            <div className={styles['movie__top-container']}>
+          <div className={styles.movie}>
+            <div className={styles.topContainer}>
               <h1
-                className={`${styles['movie__top-container__title']} ${
-                  universesStyles[`${movieData.universe.toLowerCase()}-title`]
-                }`}
+                className={universeStyles.titleMovie}
               >
-                {movieData.name}
+                {name}
               </h1>
               <img
                 src={coverImage.src}
-                className={styles['movie__top-container__image']}
-                alt={movieData.name}
-                title={movieData.name}
+                className={styles.image}
+                alt={name}
+                title={name}
                 width={620}
                 height={400}
                 loading="eager"
               />
             </div>
-            <div className={styles['movie__categories-box']}>
+            <div className={styles.categoriesBox}>
               <CategoriesArray
                 type="button"
                 title="Miejsce akcji"
                 queryName="ap.action_place"
                 queryValue="Miejsce akcji"
                 catName="miejsce_akcji"
-                text={movieData.action_place.split(',')}
-                universe={movieData.universe.toLowerCase()}
+                text={action_place.split(',')}
+                universe={universe}
               />
               <CategoriesStatic
                 type="static"
                 title="Czas akcji"
-                text={String(movieData.action_time)}
-                universe={movieData.universe.toLowerCase()}
+                text={String(action_time)}
+                universe={universe}
               />
               <CategoriesArray
                 type="button"
@@ -61,43 +73,38 @@ const Movie = ({movieData}: MoviePropsType) => {
                 queryName="mc.movie_category"
                 queryValue="Gatunek"
                 catName="gatunek"
-                text={movieData.category.split(',')}
-                universe={movieData.universe.toLowerCase()}
+                text={category.split(',')}
+                universe={universe}
               />
               <CategoriesStatic
                 type="static"
                 title="Rok produkcji"
-                text={String(movieData.production_year)}
-                universe={movieData.universe.toLowerCase()}
+                text={String(production_year)}
+                universe={universe}
               />
               <CategoriesStatic
                 type="static"
                 title="Długość"
-                text={String(movieData.movie_length)}
-                universe={movieData.universe.toLowerCase()}
+                text={String(movie_length)}
+                universe={universe}
               />
               <CategoriesStatic
                 type="static"
                 title="Ocena"
-                text={movieData.rating}
-                universe={movieData.universe.toLowerCase()}
+                text={rating}
+                universe={universe}
               />
             </div>
             <span
-              className={`${styles['movie__description']} ${
-                universesStyles[
-                  `${movieData.universe.toLowerCase()}-description`
-                ]
-              }`}
+              className={universeStyles.descriptionMovie}
             >
-              {movieData.description}
+              {description}
             </span>
-            <div className={styles['movie__youtube-box']}>
-              {' '}
+            <div className={styles.youtubeBox}>
               <iframe
                 width="560"
                 height="315"
-                src={movieData.url}
+                src={url}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

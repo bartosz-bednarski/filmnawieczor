@@ -5,9 +5,9 @@ import {Metadata} from '@/node_modules/next/types';
 import styles from './page.module.scss';
 
 export const metadata: Metadata = {
-  title: 'Film na wieczór',
+  title: 'FILM NA WIECZÓR',
   description:
-    'Film na wieczór to serwis, który posiada własną bazę danych filmów i seriali umożliwiającą korzystanie z nietypowych filtrów miejsca i czasu akcji.',
+    'Baza filmów zawierająca setki dzieł filmowych, ich oceny i opisy. Nasza wyszukiwarka oferuje zastosowanie unikatowych filtrów miejsca i czasu akcji filmu.',
   metadataBase: new URL('https://filmnawieczor.pl/'),
   alternates: {
     canonical: 'https://filmnawieczor.pl/',
@@ -15,10 +15,6 @@ export const metadata: Metadata = {
       'pl-PL': '/pl-PL',
       'en-US': '/en-US',
     },
-  },
-  openGraph: {
-    url: 'https://filmnawieczor.pl',
-    type: 'website',
   },
 };
 

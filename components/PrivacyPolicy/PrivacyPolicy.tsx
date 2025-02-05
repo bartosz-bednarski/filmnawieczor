@@ -2,10 +2,11 @@
 import React from 'react';
 import MainHeader from '../Ui/Headers/MainHeader/MainHeader';
 import styles from './privacyPolicy.module.scss';
+
 const PrivacyPolicy: React.FC = () => {
   return (
-    <div className={styles['privacyPolicy']}>
-      <div className={styles['privacyPolicy__content-box']}>
+    <div className={styles.privacyPolicy}>
+      <div className={styles.contentBox}>
         <MainHeader title="Polityka Prywatności" />
         <h2>Wprowadzenie</h2>
         <p>
@@ -55,4 +56,5 @@ const PrivacyPolicy: React.FC = () => {
     </div>
   );
 };
+
 export default PrivacyPolicy;

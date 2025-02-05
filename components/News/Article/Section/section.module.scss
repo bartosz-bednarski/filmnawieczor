@@ -1,0 +1,118 @@
+@use '../../../../styles/fonts.scss';
+@use '../../../../styles/mixin.scss' as mixin;
+@keyframes showRedirect {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 15px;
+    background-color: black;
+    gap: 0.5rem;
+  
+    
+  }
+  .linkBox {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffe500;
+    @include mixin.phone700px{
+        flex-direction: column;
+        background-color: transparent;
+    }
+    &:hover {
+      cursor: pointer;
+
+      .image {
+        transition: height 0.5s;
+        height: 300px;
+        @include mixin.phone700px{
+            transition: none;
+            height: 300px;
+        }
+      }
+      .linkInfo{
+        display: flex;
+        animation: showRedirect 1s;
+        opacity: 1;
+        @include mixin.phone700px{
+            display: none;
+        }
+      }
+    }
+    
+  }
+  .headerColumn {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 30%;
+    @include mixin.phone700px{
+        width: 100%;
+        border-bottom: 10px solid black;
+        background-color: #ffe500;
+    }
+  }
+  .header {
+      color: black;
+      font-weight: 700;
+      padding-left: 20px;
+      font-size: 2rem;
+      font-family: 'Poppins-700';
+      @include mixin.phone700px{
+        font-size: 1.2rem;
+    }
+    }
+    .linkInfo {
+      opacity: 0;
+      display: none;
+      background-color: black;
+      color: #ffe500;
+      clip-path: polygon(0% 0%, 90% 0, 100% 100%, 0% 100%);
+      font-weight: 700;
+      padding: 0.5rem 1.5rem;
+      font-size: 1.2rem;
+    }
+  .image {
+    transition: height 0.5s;
+    width: 70%;
+    height: 200px;
+    object-fit: cover;
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 15% 100%);
+    @include mixin.phone700px{
+        transition: none;
+        width: 100%;
+        height: 300px;
+        clip-path: none; 
+    }
+  }
+  .contentBox {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #ffe500;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 1rem 0.5rem;
+    
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 20px;
+    p {
+      font-size: 0.9em;
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: white;
+      font-family: 'Poppins-400';
+    }
+  }

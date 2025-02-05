@@ -3,16 +3,17 @@
   min-height: 90vh;
   justify-content: center;
   padding: 2em 0;
-  &__content-box {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    h2,
-    p {
-      color: white;
-    }
-    p {
-      margin: 0;
-    }
+ 
+}
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  h2,
+  p {
+    color: white;
+  }
+  p {
+    margin: 0;
   }
 }

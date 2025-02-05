@@ -10,21 +10,23 @@ import Link from '@/node_modules/next/link';
 
 const Navigation: React.FC = () => {
   const [showMobileList, setShowMobileList] = useState(false);
+
   useEffect(() => {
     setShowMobileList(false);
   }, []);
+
   return (
-    <div className={styles['navigation']}>
+    <div className={styles.navigation}>
       <img
         src={logo.src}
+        className={styles.logo}
         alt="logo"
-        className={styles['navigation__logo-img']}
         width={194}
         height={37}
         title="Film na wieczór"
         loading="eager"
       />
-      <ul className={styles['navigation__list']}>
+      <ul className={styles.listPc}>
         <li>
           <Link href="/">Strona główna</Link>
         </li>
@@ -39,7 +41,7 @@ const Navigation: React.FC = () => {
         </li>
       </ul>
       {showMobileList && (
-        <ul className={styles['navigation__list-mobile']}>
+        <ul className={styles.listPhone}>
           <li>
             <Link href="/">Strona główna</Link>
           </li>
@@ -54,11 +56,11 @@ const Navigation: React.FC = () => {
           </li>
           <li>
             <span
-              className={styles['navigation__list-mobile__arrow-up-button']}
+              className={styles.arrowUpButton}
             >
               <img
                 src={ArrowUpIcon.src}
-                className={styles['navigation__mobile-hamburger-icon']}
+                className={styles.hamburgerIcon}
                 width={100}
                 height={50}
                 onClick={() => setShowMobileList(false)}
@@ -73,7 +75,7 @@ const Navigation: React.FC = () => {
       )}
       <img
         src={hamburgerIcon.src}
-        className={styles['navigation__mobile-hamburger-icon']}
+        className={styles.hamburgerIcon}
         width={40}
         height={40}
         onClick={() => setShowMobileList(true)}
@@ -84,7 +86,7 @@ const Navigation: React.FC = () => {
       <img
         src={logo.src}
         alt="logo"
-        className={styles['navigation__img-2']}
+        className={styles.imgHidden}
         width={194}
         height={37}
         title="film na wieczor"
@@ -93,4 +95,5 @@ const Navigation: React.FC = () => {
     </div>
   );
 };
+
 export default Navigation;

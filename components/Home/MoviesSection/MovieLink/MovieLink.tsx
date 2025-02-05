@@ -8,10 +8,11 @@ export interface MovieLinkHomePropsType{
   image_cover: string;
   id: number;
   description: string;
+  url:string;
 }
 
-const MovieLink = ({name, image_cover, id, description}:MovieLinkHomePropsType) => {
-  const link = `/filmy/${name.replace(/\s/g, '').toLowerCase()}-${id}`;
+const MovieLink = ({name, image_cover,url, id, description}:MovieLinkHomePropsType) => {
+  const link = `/filmy/${url}`;
   const MOVIE_COVER_IMAGE_PC = require(
     `../../../../public/assets/movies/details/${image_cover.replace('.webp', '-details.webp')}`
   ).default;

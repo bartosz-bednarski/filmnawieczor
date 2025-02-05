@@ -1,52 +1,40 @@
 'use client';
 import React from 'react';
-import styles from './categories.module.scss';
-import universesStyles from '../universes.module.scss';
 import {setActivefilterMovie} from '@/redux/movies-slice';
 import Link from 'next/link';
 import {useAppDispatch} from '@/redux/hooks';
+import { UNIVERSES_STYLES } from '@/styles/Universes/universesStyles';
 const CategoriesStatic: React.FC<{
   title: string;
   text: string;
   type: 'button' | 'static';
-  universe: string;
+  universe: "Marvel"|"None";
   queryName?: string;
   queryValue?: string;
   catName?: string;
 }> = ({title, text, type, universe, queryName, catName}) => {
+  const styles = UNIVERSES_STYLES[universe]
   const dispatch = useAppDispatch();
   return (
     <div
-      className={`${styles['category-box']} ${
-        universesStyles[`${universe}-category-box`]
-      }`}
+      className={styles.categoriesBox}
     >
       <span
-        className={`${styles['category-box__category']} ${
-          universesStyles[`${universe}-category-box__category`]
-        }`}
+        className={styles.title}
       >
         {title}
       </span>
 
       <span
-        className={`${styles['category-box__category-item-bg']} ${
-          universesStyles[`${universe}-category-box__category-item-bg`]
-        }`}
+        className={styles.linkBackground}
       >
         <Link
           href="/filmy"
-          className={`${
+          className={
             styles[
-              `category-box__category-item${type === 'button' ? '-button' : ''}`
+              `${type === 'button' ? 'linkButton' : 'link'}`
             ]
-          } ${
-            universesStyles[
-              `${universe}-category-box__category-item${
-                type === 'button' ? '-button' : ''
-              }`
-            ]
-          }`}
+          }
           onClick={() => {
             dispatch(
               setActivefilterMovie({

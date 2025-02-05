@@ -1,3 +1,4 @@
+@use '../../../styles/fonts.scss';
 .container {
   display: flex;
   flex-direction: column;
@@ -15,6 +16,7 @@
     font-size: 2rem;
     font-weight: 700;
     color: white;
+    font-family: 'Poppins-700';
   }
 }
 .section-title-container {
@@ -31,6 +33,7 @@
     color: white;
     background-color: #ed1d24;
     padding: 1rem 1rem 1rem 1rem;
+    font-family: 'Poppins-600';
   }
 }
 .marvel-container {
@@ -46,6 +49,7 @@
     font-size: 1rem;
     color: white;
     text-align: center;
+    font-family: 'Poppins-400';
     b {
       color: #ed1d24;
       font-weight: 600;

@@ -1,13 +1,13 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import MainHeader from '../Ui/Headers/MainHeader/MainHeader';
 import stylesGlobal from '../Ui/Styles/mainContainerWithAdverts.module.scss';
 import styles from './universes.module.scss';
+import H1SideBoxes from '../Ui/Headers/H1SideBoxes/H1SideBoxes';
 const Universes: React.FC = () => {
   return (
     <div className={styles['container']}>
-      <MainHeader title="Uniwersa Filmowe" />
+      <H1SideBoxes title="Uniwersa Filmowe" />
       <div className={stylesGlobal['main-container']}>
         <div className={stylesGlobal['main-container__advert-box']}> </div>
 

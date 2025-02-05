@@ -24,7 +24,6 @@ const MarvelUniverse: React.FC = () => {
       <div className={stylesGlobal['main-container']}>
         <div className={stylesGlobal['main-container__advert-box']}> </div>
         <div className={stylesGlobal['main-container__content-container']}>
-          {' '}
           <div className={styles['marvel-container']}>
             <AboutMarvel />
             <TitleMarvel title="Oś czasu" />

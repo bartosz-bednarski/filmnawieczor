@@ -1,11 +1,13 @@
-import { SingleMovieHomePropsType } from '@/components/Home/MoviesSection/SingleMovie/SingleMovie';
+import { MovieLinkHomePropsType } from '@/components/Home/MoviesSection/MovieLink/MovieLink';
+import { MoviePropsType } from '@/components/Movies/Movie/Movie';
+
 
 export type GetLatestMoviesType = (
 ) => Promise<OkResponseType | ErrorType>;
 
 type OkResponseType = {
   status: 'OK';
-  data: SingleMovieHomePropsType[];
+  data: MovieLinkHomePropsType[];
 };
 type ErrorType = {
   status: 'error';

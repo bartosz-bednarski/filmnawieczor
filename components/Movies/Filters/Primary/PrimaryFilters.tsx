@@ -1,27 +1,35 @@
 'use client';
 import React from 'react';
-import styles from '../filters.module.scss';
+import styles from './primaryFilters.module.scss';
 import {useAppDispatch, useAppSelector} from '../../../../redux/hooks';
 import {setSecondaryCatsToDisplayMovie} from '../../../../redux/movies-slice';
-import FilterButton from '@/components/Ui/Buttons/FilterButton';
-const PrimaryFilters: React.FC<{onHide: () => void}> = ({onHide}) => {
+import FilterButton from '@/components/Ui/Buttons/FilterButton/FilterButton';
+
+export interface PrimaryFiltersMoviesPropsType{
+  onHide:()=>void
+}
+
+const PrimaryFilters= ({onHide}:PrimaryFiltersMoviesPropsType) => {
+
   const dispatch = useAppDispatch();
   const primaryCategoriesStore = useAppSelector(
     (state) => state.movies.categories
   );
+
   const onClickHandler = (catName: string) => {
     onHide();
     dispatch(setSecondaryCatsToDisplayMovie(catName));
   };
+
   return (
-    <>
-      <div className={styles['filters-container']}>
-        <div className={styles['filters-container__side-boxes']}></div>
-        <div className={styles['filters-container__primary-filters-container']}>
+   
+      <div className={styles.container}>
+        <div className={styles.sideBox}></div>
+        <div className={styles.contentBox}>
           <h1>Baza filmów</h1>
           <div
             className={
-              styles['filters-container__primary-filters-container__box']
+              styles.rowBox
             }
           >
             {primaryCategoriesStore.map((primaryCategory) => {
@@ -35,9 +43,10 @@ const PrimaryFilters: React.FC<{onHide: () => void}> = ({onHide}) => {
             })}
           </div>
         </div>
-        <div className={styles['filters-container__side-boxes']}></div>
+        <div className={styles.sideBox}></div>
       </div>
-    </>
+   
   );
 };
+
 export default PrimaryFilters;

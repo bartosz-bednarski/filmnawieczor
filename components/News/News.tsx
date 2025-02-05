@@ -1,15 +1,15 @@
 'use client';
 import React from 'react';
 import styles from '../Ui/Styles/mainContainerWithAdverts.module.scss';
-import MainHeader from '../Ui/Headers/MainHeader/MainHeader';
 import NewsLink, { NewsLinkPropsType } from '../Ui/Links/NewsLink/NewsLink';
+import H1SideBoxes from '../Ui/Headers/H1SideBoxes/H1SideBoxes';
 
 export type NewsPropsType ={last10News:NewsLinkPropsType[]} ;
 
 const News = ({last10News}:NewsPropsType) => {
   return (
     <div className={styles.container}>
-      <MainHeader title="Aktualności" />
+      <H1SideBoxes title="Aktualności" />
       <div className={styles['main-container']}>
         <div className={styles['main-container__advert-box']}> </div>
         <div className={styles['main-container__content-container']}>
@@ -28,4 +28,5 @@ const News = ({last10News}:NewsPropsType) => {
     </div>
   );
 };
+
 export default News;

@@ -1,7 +1,6 @@
 import React from 'react';
 import parse from '@/node_modules/html-react-parser';
-import styles from '../newsArticleSection.module.scss';
-import {ArticleDetails} from '../../../../types/api/news';
+import styles from './section.module.scss';
 import Link from '@/node_modules/next/link';
 
 export interface SectionPropsType {
@@ -13,34 +12,34 @@ export interface SectionPropsType {
 }
 
 const Section = ({article_title,article_image,article_content,article_id,article_url}:SectionPropsType) => {
+  
   const image = require(
     `../../../../public/assets/movies/details/${article_image.replace(
       '.webp',
       '-details.webp'
     )}`
   ).default;
+
   return (
-    <div className={styles['article-list-item-box']}>
+    <div className={styles.container}>
       <Link
-        className={styles['article-list-item-box__header-box']}
+        className={styles.linkBox}
         role="link"
         href={article_url}
       >
         <div
-          className={styles['article-list-item-box__header-box__header-column']}
+          className={styles.headerColumn}
         >
           <h2
             className={
-              styles['article-list-item-box__header-box__header-column__header']
+              styles.header
             }
           >
             {article_title}
           </h2>
           <h2
             className={
-              styles[
-                'article-list-item-box__header-box__header-column__redirect-info'
-              ]
+              styles.linkInfo
             }
           >
             Przejdź do bazy filmów
@@ -51,18 +50,19 @@ const Section = ({article_title,article_image,article_content,article_id,article
           width={700}
           height={320}
           alt={`${article_title} cover`}
-          className={styles['article-list-item-box__header-box__image']}
+          className={styles.image}
           title={`${article_title}`}
           loading="eager"
         />
       </Link>
 
-      <div className={styles['article-list-item-box__content-box']}>
-        <div className={styles['article-list-item-box__content-box__text']}>
+      <div className={styles.contentBox}>
+        <div className={styles.text}>
           {parse(article_content)}
         </div>
       </div>
     </div>
   );
 };
+
 export default Section;

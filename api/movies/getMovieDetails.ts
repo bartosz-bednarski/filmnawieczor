@@ -1,3 +1,5 @@
+import { MoviePropsType } from '@/components/Movies/Movie/Movie';
+
 export type ErrorType = {
   status: 'error';
 };
@@ -13,7 +15,7 @@ export type GetMovieDetailsType = (
 
 export type OkResponseType = {
   status: 'OK';
-  data: MovieDetailsType;
+  data: MoviePropsType;
 };
 export type MovieDetailsResponseType = {
   id: number;
@@ -29,23 +31,9 @@ export type MovieDetailsResponseType = {
   rating: string;
   production_year: string;
   movie_length: number;
-  universe: string;
+  universe: "Marvel"|"None";
 };
-export type MovieDetailsType = {
-  id: number;
-  name: string;
-  description: string;
-  image_cover: string;
-  action_place: string;
-  action_time: string;
-  category: string;
-  rating: string;
-  production_year: string;
-  movie_length: string;
-  url: string;
-  meta_description: string;
-  universe: string;
-};
+
 
 export const getMovieDetails: GetMovieDetailsType = async (id) => {
   try {
@@ -71,7 +59,7 @@ export const getMovieDetails: GetMovieDetailsType = async (id) => {
       }
     }
     const data: MovieDetailsResponseType[] = await response.json();
-    const modifiedResponse: MovieDetailsType[] = data.map((item) => {
+    const modifiedResponse: MoviePropsType[] = data.map((item) => {
       const movieLengthToHoursAndMinutes = new Date(item.movie_length * 1000)
         .toISOString()
         .slice(11, 19);
