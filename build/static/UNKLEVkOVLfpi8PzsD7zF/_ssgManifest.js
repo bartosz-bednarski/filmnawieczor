@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Faktualnosci\u002Fartykul\u002F[articleId]","\u002Ffilmy\u002F[movieId]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
