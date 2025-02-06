@@ -17,10 +17,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
-    "sass": "^1.83.4",
-    "prettier": "prettier . --write './**/*.{js,jsx,ts,tsx}'",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "sass": "^1.83.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
