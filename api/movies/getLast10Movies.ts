@@ -21,7 +21,7 @@ export type OkResponseType = {
 export type MovieResponseType = {
   id: number;
   name: string;
-  url:string;
+  url: string;
   description: string;
   image_cover: string;
   action_place: string;
@@ -31,7 +31,7 @@ export type MovieResponseType = {
   rating: string;
   production_year: string;
   movie_length: number;
-  universe:"marvel"|"None";
+  universe: 'Marvel' | 'None';
 };
 
 export const getLast10Movies: GetLast10MoviesType = async (
@@ -90,7 +90,7 @@ export const getLast10Movies: GetLast10MoviesType = async (
         production_year: item.production_year,
         rating: item.rating,
         universe: item.universe,
-        url:item.url
+        url: item.url,
       };
     });
     return {status: 'OK', data: modifiedResponse};

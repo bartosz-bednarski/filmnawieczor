@@ -1,6 +1,6 @@
-import { getNewsDetails } from '@/api/news/getNewsDetails';
+import {getNewsDetails} from '@/api/news/getNewsDetails';
 import Article from '@/components/News/Article/Article';
-import { Metadata } from 'next'; // 🚀 poprawka: usunięcie błędnej ścieżki
+import {Metadata} from 'next'; // 🚀 poprawka: usunięcie błędnej ścieżki
 
 export const metadata: Metadata = {
   title: 'Artykuł',
@@ -19,10 +19,11 @@ export const metadata: Metadata = {
     type: 'website',
   },
 };
-export const dynamic = 'force-static'
+export const dynamic = 'force-static';
 export async function generateStaticParams() {
-  const news: {id:number,url:string}[] = await fetch('https://filmnawieczor.online/api/news/allIds')
-    .then((res) => res.json());
+  const news: {id: number; url: string}[] = await fetch(
+    'https://filmnawieczor.online/api/news/allIds'
+  ).then((res) => res.json());
   return news.map((item) => ({
     articleId: item.url,
   }));
@@ -31,9 +32,9 @@ export async function generateStaticParams() {
 export default async function ArticleIdPage({
   params,
 }: {
-  params: Promise<{ articleId: string }>;
+  params: Promise<{articleId: string}>;
 }) {
-  const { articleId } = await params;
+  const {articleId} = await params;
 
   const articleResp = await getNewsDetails(articleId);
   if (articleResp.status === 'OK') {

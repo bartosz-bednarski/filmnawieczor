@@ -55,9 +55,7 @@ const Navigation: React.FC = () => {
             <Link href="/uniwersa">Uniwersa Filmowe</Link>
           </li>
           <li>
-            <span
-              className={styles.arrowUpButton}
-            >
+            <span className={styles.arrowUpButton}>
               <img
                 src={ArrowUpIcon.src}
                 className={styles.hamburgerIcon}

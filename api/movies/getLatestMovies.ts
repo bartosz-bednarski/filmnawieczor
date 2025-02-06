@@ -1,9 +1,7 @@
-import { MovieLinkHomePropsType } from '@/components/Home/MoviesSection/MovieLink/MovieLink';
-import { MoviePropsType } from '@/components/Movies/Movie/Movie';
+import {MovieLinkHomePropsType} from '@/components/Home/MoviesSection/MovieLink/MovieLink';
+import {MoviePropsType} from '@/components/Movies/Movie/Movie';
 
-
-export type GetLatestMoviesType = (
-) => Promise<OkResponseType | ErrorType>;
+export type GetLatestMoviesType = () => Promise<OkResponseType | ErrorType>;
 
 type OkResponseType = {
   status: 'OK';
@@ -39,7 +37,7 @@ export const getLatestMovies: GetLatestMoviesType = async () => {
 
     const data = await response.json();
 
-    return {status:"OK",data:data};
+    return {status: 'OK', data: data};
   } catch (error) {
     return {status: 'error'} as ErrorType;
   }

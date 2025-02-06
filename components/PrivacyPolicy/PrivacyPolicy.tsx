@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
-import MainHeader from '../Ui/Headers/MainHeader/MainHeader';
 import styles from './privacyPolicy.module.scss';
+import H1SideBoxes from '../Ui/Headers/H1SideBoxes/H1SideBoxes';
 
 const PrivacyPolicy: React.FC = () => {
   return (
     <div className={styles.privacyPolicy}>
       <div className={styles.contentBox}>
-        <MainHeader title="Polityka Prywatności" />
+        <H1SideBoxes title="Polityka Prywatności" />
         <h2>Wprowadzenie</h2>
         <p>
           Twoja prywatność jest dla nas ważna. Niniejsza polityka prywatności

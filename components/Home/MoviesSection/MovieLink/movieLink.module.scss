@@ -21,7 +21,7 @@
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
   margin-left: -4%;
   align-items: center;
-  @include mixin.pc1100px{
+  @include mixin.pc1100px {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -41,13 +41,13 @@
     background-color: #ec1d23;
     clip-path: none;
     margin: 0;
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       position: static;
       animation: none;
       z-index: 0;
       width: 175px;
       background-color: black;
-      .imagePhone{
+      .imagePhone {
         width: 175px;
         clip-path: none;
       }
@@ -59,7 +59,7 @@
   }
   .imagePhone {
     display: none;
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       display: flex;
       width: 175px;
       height: 255px;
@@ -73,25 +73,25 @@
     object-fit: cover;
     height: 300px;
     width: 100%;
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       display: none;
     }
   }
-  .textBox{
+  .textBox {
     display: flex;
     padding-right: 2rem;
     flex-direction: column;
     width: 60%;
     font-family: 'Poppins-400';
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       box-sizing: border-box;
       width: 100%;
       padding: 0;
       min-height: 90px;
     }
-    h2{
+    h2 {
       font-family: 'Poppins-700';
-      @include mixin.pc1100px{
+      @include mixin.pc1100px {
         box-sizing: border-box;
         font-size: 1rem;
         color: white;
@@ -99,18 +99,15 @@
         text-align: center;
         font-weight: 500;
         width: 100%;
-        
       }
     }
   }
-.description{
-  @include mixin.pc1400px{
-    font-size: 0.9rem;
-    
-  }
-  @include mixin.pc1100px{
-    display: none;
+  .description {
+    @include mixin.pc1400px {
+      font-size: 0.9rem;
+    }
+    @include mixin.pc1100px {
+      display: none;
+    }
   }
 }
-}
-

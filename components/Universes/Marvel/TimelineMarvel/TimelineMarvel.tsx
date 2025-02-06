@@ -1,13 +1,12 @@
 'use client';
-import React from 'react';
 import styles from './timeline.module.scss';
 import MovieMarvel from './MovieMarvel/MovieMarvel';
 import {MARVEL_TIMELINE} from '../UtilsMarvel/MarvelTimeline';
 
-const TimelineMarvel: React.FC = () => {
+const TimelineMarvel = () => {
   return (
-    <div className={styles['timeline-container']}>
-      <span className={styles['timeline-container__line']}></span>
+    <div className={styles.container}>
+      <span className={styles.line}></span>
       {MARVEL_TIMELINE.map((movie, index) => {
         return (
           <MovieMarvel
@@ -24,4 +23,5 @@ const TimelineMarvel: React.FC = () => {
     </div>
   );
 };
+
 export default TimelineMarvel;

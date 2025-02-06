@@ -1,8 +1,9 @@
 'use client';
 import React from 'react';
-import CategoryDetailsRow from '../../Text/CategoryDetailsRow/CategoryDetailsRow';
+// import CategoryDetailsRow from '../../Text/CategoryDetailsRow/CategoryDetailsRow';
 import Link from 'next/link';
-import { UNIVERSES_STYLES } from '@/styles/Universes/universesStyles';
+import {UNIVERSES_STYLES} from '@/styles/Universes/universesStyles';
+import CategoryHover from './CategoryDetailsRow/CategoryHover';
 
 export interface MovieLinkPropsType {
   id: number;
@@ -15,8 +16,8 @@ export interface MovieLinkPropsType {
   rating: string;
   production_year: string;
   movie_length: string;
-  universe: "Marvel"|"None";
-  url:string
+  universe: 'Marvel' | 'None';
+  url: string;
 }
 
 const MovieLink = ({
@@ -30,10 +31,10 @@ const MovieLink = ({
   rating,
   production_year,
   movie_length,
-  universe,url
+  universe,
+  url,
 }: MovieLinkPropsType) => {
-const styles = UNIVERSES_STYLES[universe]
-
+  const styles = UNIVERSES_STYLES[universe];
 
   const movieCoverImage = require(
     `../../../../public/assets/movies/details/${image_cover.replace(
@@ -41,14 +42,9 @@ const styles = UNIVERSES_STYLES[universe]
       '-details.webp'
     )}`
   ).default.src;
-  const link = `/filmy/${url}`
+  const link = `/filmy/${url}`;
   return (
-    <Link
-      className={styles.movieLink}
-      id={String(id)}
-      role="link"
-      href={link}
-    >
+    <Link className={styles.movieLink} id={String(id)} role="link" href={link}>
       <img
         src={movieCoverImage}
         alt={`${name} cover`}
@@ -59,17 +55,11 @@ const styles = UNIVERSES_STYLES[universe]
         loading="eager"
       />
       <div className={styles.contentBox}>
-        <div
-          className={styles.headerBox}
-        >
+        <div className={styles.headerBox}>
           <h3>{name}</h3>
           <div className={styles.right}>
-            <span
-              className={styles.rating}
-            >
-              <span
-                className={styles.star}
-              ></span>
+            <span className={styles.rating}>
+              <span className={styles.star}></span>
               {rating}
             </span>
             {universe !== 'None' && (
@@ -80,9 +70,7 @@ const styles = UNIVERSES_STYLES[universe]
                   ).default.src
                 }
                 alt={`${universe} cover`}
-                className={
-                  styles.universe
-                }
+                className={styles.universe}
                 width={155}
                 height={45}
                 title={universe}
@@ -91,59 +79,47 @@ const styles = UNIVERSES_STYLES[universe]
             )}
           </div>
         </div>
-        <span
-          className={styles.description}
-        >
-          {description}
-        </span>
+        <span className={styles.description}>{description}</span>
       </div>
       <div className={styles.contentBoxHover}>
-        <div
-          className={styles.headerBox}
-        >
+        <div className={styles.headerBox}>
           <h3>{name}</h3>
-          <span
-            className={styles.rating}
-          >
-            <span
-              className={styles.star}
-            ></span>
+          <span className={styles.rating}>
+            <span className={styles.star}></span>
             {rating}
           </span>
         </div>
 
-        <div
-          className={styles.details}
-        >
-          <CategoryDetailsRow
+        <div className={styles.details}>
+          <CategoryHover
             title="Miejsce akcji"
             text={action_place}
             type="listItem"
-            universe={universe.toLowerCase()}
+            universe={universe}
           />
-          <CategoryDetailsRow
+          <CategoryHover
             title="Czas akcji"
             text={String(action_time)}
             type="static"
-            universe={universe.toLowerCase()}
+            universe={universe}
           />
-          <CategoryDetailsRow
+          <CategoryHover
             title="Gatunek:"
             text={category}
             type="listItem"
-            universe={universe.toLowerCase()}
+            universe={universe}
           />
-          <CategoryDetailsRow
+          <CategoryHover
             title="Rok produkcji"
             text={String(production_year)}
             type="static"
-            universe={universe.toLowerCase()}
+            universe={universe}
           />
-          <CategoryDetailsRow
+          <CategoryHover
             title="Długość filmu"
             text={String(movie_length)}
             type="static"
-            universe={universe.toLowerCase()}
+            universe={universe}
           />
         </div>
       </div>

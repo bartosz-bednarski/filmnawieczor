@@ -1,27 +1,26 @@
 @use '../../../../styles/mixin.scss' as mixin;
 .container {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  .listContainer {
     position: relative;
-    .listContainer {
-      position: relative;
+  }
+  .listBox {
+    z-index: 3;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    background-color: black;
+    @include mixin.pc1100px {
+      top: 2.5rem;
     }
-    .listBox {
-      z-index: 3;
-      position: absolute;
-      top: 3rem;
-      left: 0;
-      background-color: black;
-      @include mixin.pc1100px{
-        top: 2.5rem;
-      }
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-      }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
     }
   }
-  
+}

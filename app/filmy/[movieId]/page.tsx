@@ -20,24 +20,28 @@ import {Metadata} from '@/node_modules/next/types';
 //   },
 // };
 export async function generateStaticParams() {
-  const movies:{url:string}[] = await fetch('https://filmnawieczor.online/api/movies/allUrls').then((res)=>res.json());
-  
-  return movies.map(item=>({movieId:item.url}))
+  const movies: {url: string}[] = await fetch(
+    'https://filmnawieczor.online/api/movies/allUrls'
+  ).then((res) => res.json());
+
+  return movies.map((item) => ({movieId: item.url}));
 }
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{movieId: string}>;
-}){
+}) {
   const {movieId} = await params;
   const id = movieId.slice(movieId.indexOf('-') + 1);
   const movieResp = await getMovieDetails(id);
-  if(movieResp.status==='OK'){
+  if (movieResp.status === 'OK') {
     return {
       title: movieResp.data.name,
-      description:
-        movieResp.data.description.slice(0,movieResp.data.description.indexOf('.')+1),
+      description: movieResp.data.description.slice(
+        0,
+        movieResp.data.description.indexOf('.') + 1
+      ),
       metadataBase: new URL(`https://filmnawieczor.pl/filmy/${movieId}`),
       alternates: {
         canonical: `https://filmnawieczor.pl/filmy/${movieId}`,
@@ -50,7 +54,7 @@ export async function generateMetadata({
         url: 'https://filmnawieczor.pl',
         type: 'website',
       },
-    }
+    };
   }
   return {
     title: 'Szczegóły filmu',
@@ -64,7 +68,7 @@ export async function generateMetadata({
         'en-US': '/en-US',
       },
     },
-  }
+  };
 }
 
 export default async function MovieIdPage({
@@ -78,5 +82,5 @@ export default async function MovieIdPage({
   if (movieResp.status === 'OK') {
     return <Movie {...movieResp.data} />;
   }
-  return null
+  return null;
 }

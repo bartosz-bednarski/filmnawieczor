@@ -77,7 +77,7 @@ export const getLast10FilteredMovies: GetLast10FilteredMoviesType = async (
         production_year: item.production_year,
         rating: item.rating,
         universe: item.universe,
-        url:item.url
+        url: item.url,
       };
     });
     return {status: 'OK', data: filteredResponse};

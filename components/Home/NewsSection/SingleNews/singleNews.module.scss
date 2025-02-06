@@ -18,7 +18,7 @@
   width: 100%;
   padding: 0rem 0;
   background-color: #ffe600cd;
-  @include mixin.pc1100px{
+  @include mixin.pc1100px {
     background-color: transparent;
     height: auto;
     width: auto;
@@ -32,7 +32,7 @@
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
   margin-left: -4%;
   align-items: center;
-  @include mixin.pc1100px{
+  @include mixin.pc1100px {
     flex-direction: column;
     margin: 0;
     width: 325px;
@@ -55,7 +55,7 @@
       width: 40%;
       clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
     }
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       position: static;
       z-index: 0;
       animation: none;
@@ -79,11 +79,11 @@
     object-fit: cover;
     height: 300px;
     width: 100%;
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       width: 325px;
       height: 183px;
       clip-path: none;
-      object-fit: fill; 
+      object-fit: fill;
     }
   }
   .textBox {
@@ -92,13 +92,13 @@
     flex-direction: column;
     width: 60%;
     font-family: 'Poppins-400';
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       width: 100%;
       padding: 0;
     }
-    h2{
+    h2 {
       font-family: 'Poppins-700';
-      @include mixin.pc1100px{
+      @include mixin.pc1100px {
         box-sizing: border-box;
         font-size: 1rem;
         color: black;
@@ -109,11 +109,11 @@
       }
     }
   }
-  .description{
-    @include mixin.pc1400px{
+  .description {
+    @include mixin.pc1400px {
       font-size: 0.9rem;
     }
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       display: none;
     }
   }

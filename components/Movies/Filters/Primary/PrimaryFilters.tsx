@@ -5,12 +5,11 @@ import {useAppDispatch, useAppSelector} from '../../../../redux/hooks';
 import {setSecondaryCatsToDisplayMovie} from '../../../../redux/movies-slice';
 import FilterButton from '@/components/Ui/Buttons/FilterButton/FilterButton';
 
-export interface PrimaryFiltersMoviesPropsType{
-  onHide:()=>void
+export interface PrimaryFiltersMoviesPropsType {
+  onHide: () => void;
 }
 
-const PrimaryFilters= ({onHide}:PrimaryFiltersMoviesPropsType) => {
-
+const PrimaryFilters = ({onHide}: PrimaryFiltersMoviesPropsType) => {
   const dispatch = useAppDispatch();
   const primaryCategoriesStore = useAppSelector(
     (state) => state.movies.categories
@@ -22,30 +21,24 @@ const PrimaryFilters= ({onHide}:PrimaryFiltersMoviesPropsType) => {
   };
 
   return (
-   
-      <div className={styles.container}>
-        <div className={styles.sideBox}></div>
-        <div className={styles.contentBox}>
-          <h1>Baza filmów</h1>
-          <div
-            className={
-              styles.rowBox
-            }
-          >
-            {primaryCategoriesStore.map((primaryCategory) => {
-              return (
-                <FilterButton
-                  value={primaryCategory.catDisplayName}
-                  key={primaryCategory.id}
-                  onClick={() => onClickHandler(primaryCategory.catName)}
-                />
-              );
-            })}
-          </div>
+    <div className={styles.container}>
+      <div className={styles.sideBox}></div>
+      <div className={styles.contentBox}>
+        <h1>Baza filmów</h1>
+        <div className={styles.rowBox}>
+          {primaryCategoriesStore.map((primaryCategory) => {
+            return (
+              <FilterButton
+                value={primaryCategory.catDisplayName}
+                key={primaryCategory.id}
+                onClick={() => onClickHandler(primaryCategory.catName)}
+              />
+            );
+          })}
         </div>
-        <div className={styles.sideBox}></div>
       </div>
-   
+      <div className={styles.sideBox}></div>
+    </div>
   );
 };
 

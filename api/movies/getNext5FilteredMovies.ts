@@ -80,7 +80,7 @@ export const getNext5FilteredMovies: GetNext5FilteredMoviesType = async (
         production_year: item.production_year,
         rating: item.rating,
         universe: item.universe,
-        url:item.url
+        url: item.url,
       };
     });
     return {status: 'OK', data: modifiedResponse};

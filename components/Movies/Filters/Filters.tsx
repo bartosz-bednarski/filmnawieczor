@@ -24,9 +24,7 @@ const Filters = () => {
   };
 
   return (
-    <div
-      className={styles.container}
-    >
+    <div className={styles.container}>
       {showPrimaryFilters && (
         <PrimaryFilters onHide={hidePrimaryFiltersHandler} />
       )}

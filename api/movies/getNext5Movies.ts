@@ -78,7 +78,7 @@ export const getNext5Movies: getNext5MoviesType = async (
         production_year: item.production_year,
         rating: item.rating,
         universe: item.universe,
-        url:item.url
+        url: item.url,
       };
     });
     return {status: 'OK', data: modifiedResponse};

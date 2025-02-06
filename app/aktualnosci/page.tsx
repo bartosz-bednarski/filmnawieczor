@@ -1,4 +1,4 @@
-import { getLast10News } from '@/api/news/getLast10News';
+import {getLast10News} from '@/api/news/getLast10News';
 import News from '@/components/News/News';
 import {Metadata} from '@/node_modules/next/types';
 
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 
 export default async function NewsPage() {
   const news = await getLast10News();
-  if(news.status==='OK'){
-    console.log(news.data)
+  if (news.status === 'OK') {
+    console.log(news.data);
     return <News last10News={news.data} />;
   }
- return null
+  return null;
 }

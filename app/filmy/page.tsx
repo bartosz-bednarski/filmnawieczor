@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 
 export default async function MoviesPage() {
   const movies = await getLast10Movies('py.production_year', 'DESC');
-  if (movies.status === 'OK'){
+  if (movies.status === 'OK') {
     return <Movies moviesData={movies.data} />;
-}
-return null;
+  }
+  return null;
 }

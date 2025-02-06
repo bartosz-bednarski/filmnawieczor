@@ -3,18 +3,21 @@ import Link from '@/node_modules/next/link';
 import React from 'react';
 import styles from './singleNews.module.scss';
 
-export interface SingleNewsHomePropsType{
-  id:number,image_cover:string,cover_content:string, title: string; url: string
+export interface SingleNewsHomePropsType {
+  id: number;
+  image_cover: string;
+  cover_content: string;
+  title: string;
+  url: string;
 }
 
-const SingleNews= ({
+const SingleNews = ({
   id,
   title,
   image_cover,
   cover_content,
   url,
-}:SingleNewsHomePropsType) => {
-
+}: SingleNewsHomePropsType) => {
   const newsCoverImage = require(
     `../../../../public/assets/news/${image_cover}`
   ).default;

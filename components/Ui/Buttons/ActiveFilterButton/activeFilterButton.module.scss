@@ -1,24 +1,23 @@
 @use '../../../../styles/mixin.scss' as mixin;
 .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    padding: .7rem 4rem;
-    color: green;
-    font-weight: 600;
-    border: 2px solid green;
-    background: linear-gradient(to left, black 50%, #bd0404 50%) right;
-    background-size: 200% 100%;
-    transition: 0.3s ease-out;
-    @include mixin.phone700px{
-        font-size: .7rem;
-    }
-    &:hover {
-      cursor: pointer;
-      background-position: left;
-      border: 2px solid #bd0404;
-      color: black;
-    }
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.7rem 4rem;
+  color: green;
+  font-weight: 600;
+  border: 2px solid green;
+  background: linear-gradient(to left, black 50%, #bd0404 50%) right;
+  background-size: 200% 100%;
+  transition: 0.3s ease-out;
+  @include mixin.phone700px {
+    font-size: 0.7rem;
   }
+  &:hover {
+    cursor: pointer;
+    background-position: left;
+    border: 2px solid #bd0404;
+    color: black;
+  }
+}

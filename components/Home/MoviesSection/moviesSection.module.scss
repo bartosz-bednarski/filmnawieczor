@@ -1,84 +1,81 @@
 @use '../../../styles/mixin.scss' as mixin;
-  .container {
-    position: relative;
-    min-height: 120vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2rem;
-    @include mixin.pc1100px{
-      padding: 20vh 0;
+.container {
+  position: relative;
+  min-height: 120vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  @include mixin.pc1100px {
+    padding: 20vh 0;
+  }
+  @include mixin.phone700px {
+    padding: 25vh 0;
+  }
+  .backgroundPicture {
+    clip-path: polygon(0 0, 100% 13%, 100% 100%, 0 87%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    opacity: 0.95;
+    @include mixin.phone700px {
+      clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
+      background: #ec1d24c7;
     }
-    @include mixin.phone700px{
-      padding: 25vh 0;
-    }
-    .backgroundPicture {
-      clip-path: polygon(0 0, 100% 13%, 100% 100%, 0 87%);
-      position: absolute;
-      top: 0;
-      left: 0;
+    img {
       height: 100%;
       width: 100%;
-      z-index: 0;
-      opacity: 0.95;
-      @include mixin.phone700px{
-        clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
-    background: #ec1d24c7;
-      }
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        @include mixin.phone700px{
-          display: none;
-        }
-      }
-    }
-    .moviesBox {
-      z-index: 1;
-      padding: 1rem 0;
-      background-color: #ec1d24c7;
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      height: auto;
-      justify-content: space-between;
-      transition: 0.2s ease-in-out;
-      @include mixin.pc1100px{
-        flex-wrap: wrap;
-        padding: 50px;
-        gap: 1rem;
-        justify-content: center;
-        background-color: transparent;
-      }
-      &:hover {
-        padding: 0;
-        @include mixin.pc1100px{
-          padding: 50px;
-        }
-      }
-     
-    }
-   .textBox {
-      z-index: 1;
-      font-size: 1rem;
-      color: white;
-      -webkit-text-stroke-width: 0.1px;
-      -webkit-text-stroke-color: black;
-      padding: 1rem 3rem;
-      text-align: center;
-      h3 {
-        color: #ffe500;
-        -webkit-text-stroke-width: 0.5px;
-        -webkit-text-stroke-color: black;
-      }
-      h4 {
-        color: #ffe500;
-        margin: 0.5rem 0;
-        -webkit-text-stroke-width: 0.5px;
-        -webkit-text-stroke-color: black;
+      object-fit: cover;
+      @include mixin.phone700px {
+        display: none;
       }
     }
   }
-
-
+  .moviesBox {
+    z-index: 1;
+    padding: 1rem 0;
+    background-color: #ec1d24c7;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    justify-content: space-between;
+    transition: 0.2s ease-in-out;
+    @include mixin.pc1100px {
+      flex-wrap: wrap;
+      padding: 50px;
+      gap: 1rem;
+      justify-content: center;
+      background-color: transparent;
+    }
+    &:hover {
+      padding: 0;
+      @include mixin.pc1100px {
+        padding: 50px;
+      }
+    }
+  }
+  .textBox {
+    z-index: 1;
+    font-size: 1rem;
+    color: white;
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: black;
+    padding: 1rem 3rem;
+    text-align: center;
+    h3 {
+      color: #ffe500;
+      -webkit-text-stroke-width: 0.5px;
+      -webkit-text-stroke-color: black;
+    }
+    h4 {
+      color: #ffe500;
+      margin: 0.5rem 0;
+      -webkit-text-stroke-width: 0.5px;
+      -webkit-text-stroke-color: black;
+    }
+  }
+}

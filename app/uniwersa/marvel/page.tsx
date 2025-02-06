@@ -1,4 +1,4 @@
-import MarvelUniverse from '@/components/Universes/MarvelUniverse';
+import MarvelUniverse from '@/components/Universes/Marvel/MarvelUniverse';
 import {Metadata} from 'next';
 
 export const metadata: Metadata = {

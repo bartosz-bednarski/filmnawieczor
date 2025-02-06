@@ -1,7 +1,6 @@
-import { SingleNewsHomePropsType } from '@/components/Home/NewsSection/SingleNews/SingleNews';
+import {SingleNewsHomePropsType} from '@/components/Home/NewsSection/SingleNews/SingleNews';
 
-export type GetLatestNewsType = (
-) => Promise<OkResponseType | ErrorType>;
+export type GetLatestNewsType = () => Promise<OkResponseType | ErrorType>;
 
 type OkResponseType = {
   status: 'OK';
@@ -10,7 +9,6 @@ type OkResponseType = {
 type ErrorType = {
   status: 'error';
 };
-
 
 export const getLatestNews: GetLatestNewsType = async () => {
   try {
@@ -36,9 +34,9 @@ export const getLatestNews: GetLatestNewsType = async () => {
       }
     }
 
-    const data:SingleNewsHomePropsType[] = await response.json();
+    const data: SingleNewsHomePropsType[] = await response.json();
 
-    return {status:"OK",data:data};
+    return {status: 'OK', data: data};
   } catch (error) {
     return {status: 'error'} as ErrorType;
   }

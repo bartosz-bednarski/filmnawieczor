@@ -4,7 +4,7 @@ import styles from './movie.module.scss';
 import layoutStyles from '../../Ui/Styles/mainContainerWithAdverts500ad.module.scss';
 import CategoriesArray from './Categories/CategoriesArray';
 import CategoriesStatic from './Categories/CategoriesStatic';
-import { UNIVERSES_STYLES } from '@/styles/Universes/universesStyles';
+import {UNIVERSES_STYLES} from '@/styles/Universes/universesStyles';
 
 export interface MoviePropsType {
   id: number;
@@ -19,16 +19,29 @@ export interface MoviePropsType {
   movie_length: string;
   url: string;
   meta_description: string;
-  universe: 'Marvel'|'None';
+  universe: 'Marvel' | 'None';
 }
 
-const Movie = ({id,name,description,image_cover,action_place,action_time,category,rating,production_year,movie_length,url,meta_description,universe}: MoviePropsType) => {
-  
-  const universeStyles = UNIVERSES_STYLES[universe]
+const Movie = ({
+  id,
+  name,
+  description,
+  image_cover,
+  action_place,
+  action_time,
+  category,
+  rating,
+  production_year,
+  movie_length,
+  url,
+  meta_description,
+  universe,
+}: MoviePropsType) => {
+  const universeStyles = UNIVERSES_STYLES[universe];
   const coverImage = require(
     `../../../public/assets/movies/details/${image_cover}`
   ).default;
-  
+
   return (
     <div className={layoutStyles.container}>
       <div className={layoutStyles['main-container']}>
@@ -36,11 +49,7 @@ const Movie = ({id,name,description,image_cover,action_place,action_time,categor
         <div className={layoutStyles['main-container__content-container']}>
           <div className={styles.movie}>
             <div className={styles.topContainer}>
-              <h1
-                className={universeStyles.titleMovie}
-              >
-                {name}
-              </h1>
+              <h1 className={universeStyles.titleMovie}>{name}</h1>
               <img
                 src={coverImage.src}
                 className={styles.image}
@@ -95,9 +104,7 @@ const Movie = ({id,name,description,image_cover,action_place,action_time,categor
                 universe={universe}
               />
             </div>
-            <span
-              className={universeStyles.descriptionMovie}
-            >
+            <span className={universeStyles.descriptionMovie}>
               {description}
             </span>
             <div className={styles.youtubeBox}>

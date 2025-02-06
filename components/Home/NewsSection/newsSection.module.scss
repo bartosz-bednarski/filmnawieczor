@@ -1,53 +1,50 @@
 @use '../../../styles/mixin.scss' as mixin;
-  .container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 120vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 20vh 0;
-   
-    
-  }
-  .backgroundPicture {
-    clip-path: polygon(0 0, 100% 13%, 100% 100%, 0 87%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 120vh;
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 120vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 20vh 0;
+}
+.backgroundPicture {
+  clip-path: polygon(0 0, 100% 13%, 100% 100%, 0 87%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 120vh;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.95;
+  img {
+    height: 100%;
     width: 100%;
-    z-index: 0;
-    opacity: 0.95;
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
+    object-fit: cover;
   }
-  .newsBox {
-    transition: 0.2s ease-in-out;
-    z-index: 1;
-    padding: 1rem 0;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    background-color: #ffe600cd;
-    height: auto;
-    justify-content: flex-start;
-    @include mixin.pc1100px{
-      flex-wrap: wrap;
-      padding: 0;
-      gap: 1rem;
-      justify-content: center;
-      align-items: center;
-      background-color: transparent;
-      justify-content: center;
-    }
-    &:hover {
-      padding: 0;
-    }
+}
+.newsBox {
+  transition: 0.2s ease-in-out;
+  z-index: 1;
+  padding: 1rem 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffe600cd;
+  height: auto;
+  justify-content: flex-start;
+  @include mixin.pc1100px {
+    flex-wrap: wrap;
+    padding: 0;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    justify-content: center;
   }
-
+  &:hover {
+    padding: 0;
+  }
+}

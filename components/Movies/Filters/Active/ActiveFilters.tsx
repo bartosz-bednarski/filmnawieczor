@@ -6,7 +6,6 @@ import styles from './activeFilters.module.scss';
 import ActiveFilterButton from '@/components/Ui/Buttons/ActiveFilterButton/ActiveFilterButton';
 
 const ActiveFilters = () => {
-  
   const dispatch = useAppDispatch();
   const activeFiltersStore = useAppSelector(
     (state) => state.movies.activeFilters
@@ -15,9 +14,7 @@ const ActiveFilters = () => {
   return (
     <div className={styles.activeFilters}>
       <h3>Aktywne filtry</h3>
-      <div
-        className={styles.box}
-      >
+      <div className={styles.box}>
         {activeFiltersStore.map((filter) => {
           return (
             <ActiveFilterButton

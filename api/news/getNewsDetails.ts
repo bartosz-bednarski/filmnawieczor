@@ -1,7 +1,7 @@
-import { ArticlePropsType } from '@/components/News/Article/Article';
+import {ArticlePropsType} from '@/components/News/Article/Article';
 
-export type GetNewsDetailsType = (params:string
-
+export type GetNewsDetailsType = (
+  params: string
 ) => Promise<OkResponseType | ErrorType>;
 
 type OkResponseType = {
@@ -11,7 +11,6 @@ type OkResponseType = {
 type ErrorType = {
   status: 'error';
 };
-
 
 export const getNewsDetails: GetNewsDetailsType = async (params) => {
   try {
@@ -36,8 +35,8 @@ export const getNewsDetails: GetNewsDetailsType = async (params) => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     }
-    const data:ArticlePropsType = await response.json();
-    return {status:'OK',data:data};
+    const data: ArticlePropsType = await response.json();
+    return {status: 'OK', data: data};
   } catch (error) {
     return {status: 'error'};
   }

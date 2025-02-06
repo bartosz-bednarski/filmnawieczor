@@ -6,23 +6,22 @@
   padding: 25px 50px;
   align-items: center;
   justify-content: space-between;
- 
 }
 .imgHidden {
   visibility: hidden;
-  @include mixin.pc1100px{
+  @include mixin.pc1100px {
     display: none;
   }
 }
-.logo{
-  @include mixin.phone500px{
+.logo {
+  @include mixin.phone500px {
     width: 150px;
     height: 28.6px;
   }
 }
 .listPhone {
   display: none;
-  @include mixin.pc1100px{
+  @include mixin.pc1100px {
     position: absolute;
     top: 0;
     left: 0;
@@ -72,7 +71,7 @@
 }
 .listPc {
   list-style-type: none;
-  @include mixin.pc1100px{
+  @include mixin.pc1100px {
     display: none;
   }
   li {
@@ -97,25 +96,24 @@
 }
 .hamburgerIcon {
   display: none;
-  @include mixin.pc1100px{
+  @include mixin.pc1100px {
     display: block;
     &:hover {
       cursor: pointer;
     }
   }
 }
-.arrowUpButton{
-  @include mixin.pc1100px{
+.arrowUpButton {
+  @include mixin.pc1100px {
     width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        &:hover {
-          cursor: pointer;
-          background-color: yellow;
-          color: black;
-        }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+      background-color: yellow;
+      color: black;
+    }
   }
 }
-

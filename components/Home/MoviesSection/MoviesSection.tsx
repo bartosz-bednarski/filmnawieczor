@@ -5,19 +5,20 @@ import styles from './moviesSection.module.scss';
 import {useState, useEffect} from 'react';
 import backgroundImage from '../../../public/assets/home/bg-red.webp';
 import {useRouter} from '@/node_modules/next/navigation';
-import { getLatestMovies } from '@/api/movies/getLatestMovies';
-import MovieLink, { MovieLinkHomePropsType } from './MovieLink/MovieLink';
+import {getLatestMovies} from '@/api/movies/getLatestMovies';
+import MovieLink, {MovieLinkHomePropsType} from './MovieLink/MovieLink';
 
-const MoviesSection= () => {
+const MoviesSection = () => {
   const router = useRouter();
-  const [latestMovies, setLatestMovies] = useState<[] | MovieLinkHomePropsType[]>([]);
+  const [latestMovies, setLatestMovies] = useState<
+    [] | MovieLinkHomePropsType[]
+  >([]);
 
   const getLatestMoviesHandler = async () => {
     const latestMoviesResponse = await getLatestMovies();
-    if(latestMoviesResponse.status==='OK'){
-      setLatestMovies(latestMoviesResponse.data)
-    }
-    else {
+    if (latestMoviesResponse.status === 'OK') {
+      setLatestMovies(latestMoviesResponse.data);
+    } else {
       router.push('/error');
     }
   };
@@ -28,9 +29,7 @@ const MoviesSection= () => {
 
   return (
     <section className={styles.container}>
-      <picture
-        className={styles.backgroundPicture}
-      >
+      <picture className={styles.backgroundPicture}>
         <img
           src={backgroundImage.src}
           alt="movies background"
@@ -53,14 +52,10 @@ const MoviesSection= () => {
           color: '#EC1D23',
         }}
       />
-      <div
-        className={
-          styles.moviesBox
-        }
-      >
+      <div className={styles.moviesBox}>
         {latestMovies.map((movie: MovieLinkHomePropsType) => (
           <MovieLink
-          name={movie.name}
+            name={movie.name}
             image_cover={movie.image_cover}
             description={movie.description}
             key={movie.id}
@@ -69,9 +64,7 @@ const MoviesSection= () => {
           />
         ))}
       </div>
-      <span
-        className={styles.textBox}
-      >
+      <span className={styles.textBox}>
         <h3>Dlaczego warto zajrzeć do naszej bazy filmów?</h3> Zacznijmy od
         filtrowania. Gatunek czy rok produkcji to klasyczne filtry używane na
         wielu serwisach internetowych powiązanych z branżą filmową. My mamy do

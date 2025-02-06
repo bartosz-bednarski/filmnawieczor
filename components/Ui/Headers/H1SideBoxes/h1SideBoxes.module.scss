@@ -14,12 +14,12 @@
     height: 9rem;
     z-index: 2;
     border: 1px solid #ffe500;
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       display: none;
     }
   }
   .textBox {
-    @include mixin.pc1100px{
+    @include mixin.pc1100px {
       width: 100%;
       max-width: 100%;
       height: auto;
@@ -40,4 +40,3 @@
     text-align: center;
   }
 }
-

@@ -1,18 +1,18 @@
 'use client';
 import Link from 'next/link';
-import React from 'react';
 import stylesGlobal from '../Ui/Styles/mainContainerWithAdverts.module.scss';
 import styles from './universes.module.scss';
 import H1SideBoxes from '../Ui/Headers/H1SideBoxes/H1SideBoxes';
-const Universes: React.FC = () => {
+
+const Universes = () => {
   return (
-    <div className={styles['container']}>
+    <div className={styles.container}>
       <H1SideBoxes title="Uniwersa Filmowe" />
       <div className={stylesGlobal['main-container']}>
         <div className={stylesGlobal['main-container__advert-box']}> </div>
 
-        <div className={styles['universes-container']}>
-          <span className={styles['universes-container__about']}>
+        <div className={styles.universesContainer}>
+          <span className={styles.about}>
             <h1>Witamy w świecie Filmowych Uniwersów</h1>
             Na naszej stronie odkryjesz fascynujące uniwersa filmowe, które
             przeniosą Cię w niesamowite światy pełne bohaterów, epickich starć i
@@ -21,10 +21,7 @@ const Universes: React.FC = () => {
             historie w Conjuring Universe – każda z tych opowieści ma coś
             wyjątkowego do zaoferowania.
           </span>
-          <Link
-            href="/uniwersa/marvel"
-            className={styles['universes-container__universes-box']}
-          >
+          <Link href="/uniwersa/marvel" className={styles.link}>
             <img
               width={300}
               height={200}
@@ -38,9 +35,10 @@ const Universes: React.FC = () => {
             />
           </Link>
         </div>
-        <div className={stylesGlobal['main-container__advert-box']}> </div>
+        <div className={stylesGlobal.about}> </div>
       </div>
     </div>
   );
 };
+
 export default Universes;

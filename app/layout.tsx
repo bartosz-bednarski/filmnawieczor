@@ -5,10 +5,10 @@ import '../styles/globals.scss';
 import StoreProvider from './StoreProvider';
 
 export const metadata: Metadata = {
-  title:{
-default:'FILM NA WIECZÓR',
-template:'%s - FILM NA WIECZÓR'
-  }, 
+  title: {
+    default: 'FILM NA WIECZÓR',
+    template: '%s - FILM NA WIECZÓR',
+  },
   description:
     'Baza filmów zawierająca setki dzieł filmowych, ich oceny i opisy. Nasza wyszukiwarka oferuje zastosowanie unikatowych filtrów miejsca i czasu akcji filmu.',
   metadataBase: new URL('https://filmnawieczor.pl'),

@@ -1,4 +1,4 @@
-import MarvelUniverse from '../MarvelUniverse';
+import MarvelUniverse from '../Marvel/MarvelUniverse';
 
 export const PAGES = {
   marvel: {

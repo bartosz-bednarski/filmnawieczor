@@ -1,10 +1,11 @@
 @use '../../styles/fonts.scss';
+@use '../../styles/mixin.scss' as mixin;
 .container {
   display: flex;
   flex-direction: column;
 }
 
-.universes-container {
+.universesContainer {
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -13,49 +14,41 @@
   justify-content: flex-start;
   align-items: center;
   padding: 5rem 3rem;
-  &__about {
-    display: flex;
-    flex-direction: column;
-    h1 {
-      font-size: 2rem;
-      color: #ffe500;
-      font-family: 'Poppins-700';
-    }
-
-    font-size: 1rem;
-    color: white;
-    width: 100%;
-    padding: 1rem;
-    font-family: 'Poppins-400';
-  }
-  &__universes-box {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: flex-start;
-    align-items: flex-start;
-    img {
-      width: auto;
-      height: auto;
-      max-width: 50%;
-      &:hover {
-        cursor: pointer;
-      }
-    }
-  }
 }
-@media only screen and (max-width: 700px) {
-  .universes-container__universes-box {
-    img {
+.about {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    font-size: 2rem;
+    color: #ffe500;
+    font-family: 'Poppins-700';
+    @include mixin.phone500px {
+      font-size: 1.2rem;
+    }
+  }
+
+  font-size: 1rem;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  font-family: 'Poppins-400';
+}
+.link {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  img {
+    width: auto;
+    height: auto;
+    max-width: 50%;
+    @include mixin.phone700px {
       max-width: 100%;
     }
-  }
-}
-@media only screen and (max-width: 500px) {
-  .universes-container__about {
-    h1 {
-      font-size: 1.2rem;
+    &:hover {
+      cursor: pointer;
     }
   }
 }

@@ -1,91 +1,60 @@
 @use '../../../../styles/mixin.scss' as mixin;
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: fit-content;
+  width: 100%;
+
+  h1 {
     text-align: center;
-    height: fit-content;
+  }
+  .contentBox {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    color: #ffe500;
+    border-top: 1px solid #ffe500;
+    border-bottom: 1px solid #ffe500;
+    padding: 0 6rem;
     width: 100%;
-  
-    h1 {
+    min-width: 80%;
+    min-height: 9rem;
+    @include mixin.pc1400px {
+      height: 11rem;
+    }
+    @include mixin.pc1000px {
+      height: auto;
+      width: 100%;
+      margin: 0;
+    }
+    h2 {
       text-align: center;
     }
- .contentBox {
-      position: relative;
-      box-sizing: border-box;
+    .rowBox {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       justify-content: center;
-      background-color: black;
-      margin-left: -10%;
-      color: #ffe500;
-  
-      // border: 1px solid #ffe500;
-      min-width: 84%;
-      padding: 0 10%;
-      // clip-path: polygon(25% 0, 100% 0, 75% 100%, 0% 100%);
-      min-height: 9rem;
-      @include mixin.pc1400px{
-        height: 11rem;
-       }
-       @include mixin.pc1000px{
-        height: auto;
-    width: 100%;
-    margin: 0;
-       }
-      &::before {
-        content: '';
-        position: absolute;
-        top: 2px;
-        left: 0;
-        height: 1px;
-        width: 80%;
-        background-color: #ffe500;
-        @include mixin.pc1400px{
-            top: -1px;
-           }
-      }
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 2px;
-        right: 0;
-        height: 1px;
-        width: 80%;
-        background-color: #ffe500;
-        @include mixin.pc1400px{
-            bottom: -1px;
-           }
-      }
-      h2 {
-        text-align: center;
-      }
-     .rowBox {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        justify-content: center;
-        padding-bottom: 10px;
-      }
+      padding-bottom: 10px;
+      width: 100%;
     }
- .sideBox {
-        background-color: #ffe500;
-        width: 33%;
-        clip-path: polygon(25% 0, 100% 0, 75% 100%, 0% 100%);
-        height: 9rem;
-        z-index: 2;
-        border: 1px solid #ffe500;
-        @include mixin.pc1400px{
-            height: 11rem;
-           }
-           @include mixin.pc1000px{
-            display: none;
-           }
-        &:nth-of-type(3) {
-          margin-left: -10%;
-          width: 33%;
-        }
-      }
+  }
+  .sideBox {
+    background-color: #ffe500;
+    min-width: 10%;
+    height: 9rem;
+    z-index: 2;
+    @include mixin.pc1400px {
+      height: 11rem;
+    }
+    @include mixin.pc1000px {
+      display: none;
+    }
+  }
 }

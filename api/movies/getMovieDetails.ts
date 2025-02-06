@@ -1,4 +1,4 @@
-import { MoviePropsType } from '@/components/Movies/Movie/Movie';
+import {MoviePropsType} from '@/components/Movies/Movie/Movie';
 
 export type ErrorType = {
   status: 'error';
@@ -31,9 +31,8 @@ export type MovieDetailsResponseType = {
   rating: string;
   production_year: string;
   movie_length: number;
-  universe: "Marvel"|"None";
+  universe: 'Marvel' | 'None';
 };
-
 
 export const getMovieDetails: GetMovieDetailsType = async (id) => {
   try {

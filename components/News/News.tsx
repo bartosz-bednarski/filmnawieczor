@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
 import styles from '../Ui/Styles/mainContainerWithAdverts.module.scss';
-import NewsLink, { NewsLinkPropsType } from '../Ui/Links/NewsLink/NewsLink';
+import NewsLink, {NewsLinkPropsType} from '../Ui/Links/NewsLink/NewsLink';
 import H1SideBoxes from '../Ui/Headers/H1SideBoxes/H1SideBoxes';
 
-export type NewsPropsType ={last10News:NewsLinkPropsType[]} ;
+export type NewsPropsType = {last10News: NewsLinkPropsType[]};
 
-const News = ({last10News}:NewsPropsType) => {
+const News = ({last10News}: NewsPropsType) => {
   return (
     <div className={styles.container}>
       <H1SideBoxes title="Aktualności" />

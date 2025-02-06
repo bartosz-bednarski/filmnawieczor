@@ -11,8 +11,13 @@ export interface SectionPropsType {
   article_url: string;
 }
 
-const Section = ({article_title,article_image,article_content,article_id,article_url}:SectionPropsType) => {
-  
+const Section = ({
+  article_title,
+  article_image,
+  article_content,
+  article_id,
+  article_url,
+}: SectionPropsType) => {
   const image = require(
     `../../../../public/assets/movies/details/${article_image.replace(
       '.webp',
@@ -22,28 +27,10 @@ const Section = ({article_title,article_image,article_content,article_id,article
 
   return (
     <div className={styles.container}>
-      <Link
-        className={styles.linkBox}
-        role="link"
-        href={article_url}
-      >
-        <div
-          className={styles.headerColumn}
-        >
-          <h2
-            className={
-              styles.header
-            }
-          >
-            {article_title}
-          </h2>
-          <h2
-            className={
-              styles.linkInfo
-            }
-          >
-            Przejdź do bazy filmów
-          </h2>
+      <Link className={styles.linkBox} role="link" href={article_url}>
+        <div className={styles.headerColumn}>
+          <h2 className={styles.header}>{article_title}</h2>
+          <h2 className={styles.linkInfo}>Przejdź do bazy filmów</h2>
         </div>
         <img
           src={image.src}
@@ -57,9 +44,7 @@ const Section = ({article_title,article_image,article_content,article_id,article
       </Link>
 
       <div className={styles.contentBox}>
-        <div className={styles.text}>
-          {parse(article_content)}
-        </div>
+        <div className={styles.text}>{parse(article_content)}</div>
       </div>
     </div>
   );

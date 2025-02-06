@@ -1,16 +1,16 @@
-export type GetAllIdsMoviesType = () => Promise<OkResponseType | ErrorType>;
+export type GetAllUrlsMoviesType = () => Promise<OkResponseType | ErrorType>;
 
 type ErrorType = {
   status: 'error';
 };
 type OkResponseType = {
   status: 'OK';
-  data: {id: number; name: string}[];
+  data: {url:string}[];
 };
-export const getAllIdsMovies: GetAllIdsMoviesType = async () => {
+export const getAllUrlsMovies: GetAllUrlsMoviesType = async () => {
   try {
     const response = await fetch(
-      `https://filmnawieczor.online/api/movies/allIds`,
+      `https://filmnawieczor.online/api/movies/allUrls`,
       // `http://localhost:9001/api/homePage/latestMovies`,
       {
         method: 'GET',
@@ -31,7 +31,7 @@ export const getAllIdsMovies: GetAllIdsMoviesType = async () => {
       }
     }
 
-    const data: {id: number; name: string}[] = await response.json();
+    const data: {url:string}[] = await response.json();
 
     return {status: 'OK', data: data};
   } catch (error) {

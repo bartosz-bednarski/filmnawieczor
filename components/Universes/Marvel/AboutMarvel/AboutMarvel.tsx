@@ -1,9 +1,9 @@
 'use client';
-import React from 'react';
-import styles from '../marvelUniverse.module.scss';
-const AboutMarvel: React.FC = () => {
+import styles from './aboutMarvel.module.scss';
+
+const AboutMarvel = () => {
   return (
-    <span className={styles['marvel-container__about']}>
+    <span className={styles.about}>
       <b>Marvel Cinematic Universe (MCU)</b> to rozbudowane i wielowątkowe
       uniwersum filmowe i telewizyjne, stworzone przez Marvel Studios, oparte na
       postaciach i historiach z komiksów Marvela. MCU to jedno z najbardziej
@@ -20,4 +20,5 @@ const AboutMarvel: React.FC = () => {
     </span>
   );
 };
+
 export default AboutMarvel;

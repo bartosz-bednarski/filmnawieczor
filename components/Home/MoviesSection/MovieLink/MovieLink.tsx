@@ -3,15 +3,21 @@ import Link from '@/node_modules/next/link';
 import React from 'react';
 import styles from './movieLink.module.scss';
 
-export interface MovieLinkHomePropsType{
+export interface MovieLinkHomePropsType {
   name: string;
   image_cover: string;
   id: number;
   description: string;
-  url:string;
+  url: string;
 }
 
-const MovieLink = ({name, image_cover,url, id, description}:MovieLinkHomePropsType) => {
+const MovieLink = ({
+  name,
+  image_cover,
+  url,
+  id,
+  description,
+}: MovieLinkHomePropsType) => {
   const link = `/filmy/${url}`;
   const MOVIE_COVER_IMAGE_PC = require(
     `../../../../public/assets/movies/details/${image_cover.replace('.webp', '-details.webp')}`
@@ -37,9 +43,7 @@ const MovieLink = ({name, image_cover,url, id, description}:MovieLinkHomePropsTy
       />
       <div className={styles.textBox}>
         <h2>{name}</h2>
-        <span className={styles.description}>
-          {description}
-        </span>
+        <span className={styles.description}>{description}</span>
       </div>
     </Link>
   );

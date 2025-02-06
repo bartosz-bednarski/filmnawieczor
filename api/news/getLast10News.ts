@@ -1,7 +1,6 @@
-import { NewsLinkPropsType } from '@/components/Ui/Links/NewsLink/NewsLink';
+import {NewsLinkPropsType} from '@/components/Ui/Links/NewsLink/NewsLink';
 
-export type GetLast10NewsType = (
-) => Promise<OkResponseType | ErrorType>;
+export type GetLast10NewsType = () => Promise<OkResponseType | ErrorType>;
 
 type OkResponseType = {
   status: 'OK';
@@ -35,7 +34,7 @@ export const getLast10News: GetLast10NewsType = async () => {
       }
     }
     const data = await response.json();
-    return {status:"OK",data:data};
+    return {status: 'OK', data: data};
   } catch (error) {
     return {status: 'error'} as ErrorType;
   }
