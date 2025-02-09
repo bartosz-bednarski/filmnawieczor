@@ -1,0 +1,60 @@
+@use '../../../../styles/mixin.scss' as mixin;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: fit-content;
+  width: 100%;
+
+  h1 {
+    text-align: center;
+  }
+  .contentBox {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    color: #ffe500;
+    border-top: 1px solid #ffe500;
+    border-bottom: 1px solid #ffe500;
+    padding: 0 6rem;
+    width: 100%;
+    min-width: 80%;
+    min-height: 9rem;
+    @include mixin.pc1400px {
+      height: 11rem;
+    }
+    @include mixin.pc1000px {
+      height: auto;
+      width: 100%;
+      margin: 0;
+    }
+    h2 {
+      text-align: center;
+    }
+    .rowBox {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      padding-bottom: 10px;
+      width: 100%;
+    }
+  }
+  .sideBox {
+    background-color: #ffe500;
+    min-width: 10%;
+    height: 9rem;
+    z-index: 2;
+    @include mixin.pc1400px {
+      height: 11rem;
+    }
+    @include mixin.pc1000px {
+      display: none;
+    }
+  }
+}

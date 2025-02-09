@@ -1,0 +1,113 @@
+@use '../../../../styles/mixin.scss' as mixin;
+@use '../../../../styles/fonts.scss';
+@keyframes stretch {
+  from {
+    width: 100%;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+    left: 0;
+    top: 0;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 14%;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  margin-left: -4%;
+  align-items: center;
+  @include mixin.pc1100px {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin: 0;
+    width: 175px;
+    clip-path: none;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: black;
+  }
+  &:hover {
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    animation: stretch ease-in-out 0.5s;
+    width: 100%;
+    background-color: #ec1d23;
+    clip-path: none;
+    margin: 0;
+    @include mixin.pc1100px {
+      position: static;
+      animation: none;
+      z-index: 0;
+      width: 175px;
+      background-color: black;
+      .imagePhone {
+        width: 175px;
+        clip-path: none;
+      }
+    }
+    .imagePc {
+      width: 40%;
+      clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+    }
+  }
+  .imagePhone {
+    display: none;
+    @include mixin.pc1100px {
+      display: flex;
+      width: 175px;
+      height: 255px;
+      clip-path: none;
+      object-fit: fill;
+    }
+  }
+  .imagePc {
+    display: flex;
+    object-position: top center;
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    @include mixin.pc1100px {
+      display: none;
+    }
+  }
+  .textBox {
+    display: flex;
+    padding-right: 2rem;
+    flex-direction: column;
+    width: 60%;
+    font-family: 'Poppins-400';
+    @include mixin.pc1100px {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0;
+      min-height: 90px;
+    }
+    h2 {
+      font-family: 'Poppins-700';
+      @include mixin.pc1100px {
+        box-sizing: border-box;
+        font-size: 1rem;
+        color: white;
+        padding: 5px 10px;
+        text-align: center;
+        font-weight: 500;
+        width: 100%;
+      }
+    }
+  }
+  .description {
+    @include mixin.pc1400px {
+      font-size: 0.9rem;
+    }
+    @include mixin.pc1100px {
+      display: none;
+    }
+  }
+}

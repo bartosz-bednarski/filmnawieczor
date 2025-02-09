@@ -1,0 +1,363 @@
+@use '../mixin.scss' as mixin;
+.categoriesBox {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffe500;
+  @include mixin.phone900px {
+    background-color: transparent;
+    gap: 0.5rem;
+    flex-direction: column;
+    width: 100%;
+  }
+  .title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #ffe500;
+    clip-path: polygon(0% 0, 100% 0, 75% 100%, 0% 100%);
+    height: 2.2rem;
+    width: 10rem;
+    padding-left: 1rem;
+    color: black;
+    font-weight: 600;
+    @include mixin.phone900px {
+      clip-path: none;
+      width: 100%;
+    }
+  }
+  .linkBackground {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe500;
+    padding: 2px 4px;
+    height: 2.2rem;
+    width: 13rem;
+    margin-left: -2.8rem;
+    @include mixin.phone900px {
+      margin-left: 0;
+      padding: 2px;
+    }
+  }
+  .link {
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    color: #ffe500;
+    font-weight: 600;
+  }
+  .linkButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    color: #ffe500;
+    font-weight: 600;
+  }
+  .linksBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @include mixin.phone900px {
+      gap: 0.5rem;
+    }
+  }
+}
+.titleMovie {
+  font-size: 4rem;
+  color: #ffe500;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins-800';
+  @include mixin.phone900px {
+    font-size: 3rem;
+  }
+  @include mixin.phone500px {
+    font-size: 2rem;
+  }
+}
+.descriptionMovie {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 1.5rem;
+  font-family: 'Poppins-400';
+  color: #ffe500;
+  border: 2px solid #ffe500;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.movieLink {
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  gap: 2rem;
+  color: white;
+  height: auto;
+  background: linear-gradient(to left, black 50%, #ffe500 50%) right;
+  border: 1px solid #ffe500;
+  background-size: 200% 100%;
+  color: white;
+  @include mixin.phone900px {
+    flex-direction: column;
+  }
+  &:hover {
+    animation: increase 1s alternate;
+    background-position: left;
+    padding: 0.5rem 0;
+    @include mixin.phone500px {
+      animation: none;
+      background-position: right;
+      padding: 0;
+    }
+    .contentBoxHover {
+      display: flex;
+      width: 100%;
+      @include mixin.phone500px {
+        display: none;
+      }
+    }
+    .contentBox {
+      display: none;
+      @include mixin.phone500px {
+        display: flex;
+      }
+    }
+    .image {
+      display: none;
+      @include mixin.phone500px {
+        display: flex;
+      }
+    }
+    cursor: pointer;
+  }
+  .image {
+    height: 100%;
+    width: 40%;
+    object-position: center;
+    object-fit: cover;
+    clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+    @include mixin.phone900px {
+      width: 100%;
+      height: 200px;
+      clip-path: none;
+      object-position: top;
+    }
+  }
+  .contentBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include mixin.phone900px {
+      padding-left: 1rem;
+    }
+    .description {
+      font-size: 1rem;
+      padding: 1rem 1rem 1rem 0;
+      color: white;
+      font-family: 'Poppins-400';
+      @include mixin.pc1100px {
+        font-size: 0.8rem;
+      }
+    }
+    .headerBox {
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      h3 {
+        color: #ffe500;
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin: 0;
+        font-family: 'Poppins-500';
+        @include mixin.pc1100px {
+          font-size: 1.2rem;
+        }
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        .universe {
+          object-fit: fill;
+          height: 45px;
+          @include mixin.phone500px {
+            height: 30px;
+            width: 100px;
+          }
+        }
+        .rating {
+          height: fit-content;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.3rem 4rem 0.3rem 1rem;
+          background-color: #ffe500;
+          color: black;
+          font-size: 1.5rem;
+          @include mixin.pc1100px {
+            font-size: 1rem;
+          }
+          @include mixin.phone900px {
+            padding-right: 1rem;
+          }
+          @include mixin.phone500px {
+            width: 100px;
+            padding-right: 0;
+          }
+          .star {
+            height: 30px;
+            width: 30px;
+            background-color: black;
+            clip-path: polygon(
+              50% 0%,
+              61% 35%,
+              98% 35%,
+              68% 57%,
+              79% 91%,
+              50% 70%,
+              21% 91%,
+              32% 57%,
+              2% 35%,
+              39% 35%
+            );
+            @include mixin.pc1100px {
+              height: 16px;
+              width: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .contentBoxHover {
+    box-sizing: border-box;
+    display: none;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.8rem;
+    width: 0%;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    transition: 2s ease-in-out;
+    @include mixin.phone900px {
+      flex-direction: column;
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-top: 1rem;
+    }
+    .headerBox {
+      padding-top: 1rem;
+      display: flex;
+      h3 {
+        display: none;
+        color: black;
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      .rating {
+        height: fit-content;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.3rem 4rem 0.3rem 1rem;
+        background-color: black;
+        color: #ffe500;
+        font-size: 1.5rem;
+        .star {
+          height: 30px;
+          width: 30px;
+          background-color: #ffe500;
+          clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+          );
+        }
+      }
+    }
+  }
+}
+.categoryHoverBox {
+  display: flex;
+  flex-direction: row;
+  .categoryTitle {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    clip-path: polygon(0% 0, 100% 0, 75% 100%, 0% 100%);
+    height: 2.2rem;
+    width: 9rem;
+    padding-left: 1rem;
+    color: #ffe500;
+    font-weight: 600;
+    background-color: black;
+  }
+  .categoryBg {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    padding: 2px 4px;
+    clip-path: polygon(26% 0, 100% 0, 74% 100%, 0% 100%);
+    height: 2.2rem;
+    width: 9rem;
+    margin-left: -2.5rem;
+  }
+  .category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe500;
+    clip-path: polygon(25% 0, 100% 0, 75% 100%, 0% 100%);
+    height: 100%;
+    width: 100%;
+    color: black;
+    font-weight: 600;
+  }
+  .categoriesBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@keyframes increase {
+  from {
+    background-position: right;
+  }
+  to {
+    background-position: left;
+  }
+}

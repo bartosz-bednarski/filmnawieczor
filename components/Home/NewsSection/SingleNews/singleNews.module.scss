@@ -1,0 +1,203 @@
+@use '../../../../styles/mixin.scss' as mixin;
+@use '../../../../styles/fonts.scss';
+@keyframes stretch {
+  from {
+    width: 100%;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+    left: 0;
+    top: 0;
+  }
+}
+.container {
+  display: flex;
+  height: 300px;
+  width: 100%;
+  padding: 0rem 0;
+  background-color: #ffe600cd;
+  @include mixin.pc1100px {
+    background-color: transparent;
+    height: auto;
+    width: auto;
+  }
+}
+.box {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 20%;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  margin-left: -4%;
+  align-items: center;
+  @include mixin.pc1100px {
+    flex-direction: column;
+    margin: 0;
+    width: 325px;
+    height: auto;
+    clip-path: none;
+    background-color: #ffe500;
+    border: 2px solid black;
+  }
+  &:hover {
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    animation: stretch ease-in-out 0.5s;
+    width: 100%;
+    background-color: #ffe600cd;
+    color: black;
+    clip-path: none;
+    margin: 0;
+    .imagePc {
+      width: 40%;
+      clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+    }
+    @include mixin.pc1100px {
+      position: static;
+      z-index: 0;
+      animation: none;
+      width: 325px;
+      background-color: #ffe500;
+      color: black;
+      clip-path: none;
+      margin: 0;
+      .imagePc {
+        width: 325px;
+        clip-path: none;
+      }
+    }
+  }
+  .imagePhone {
+    display: none;
+  }
+  .imagePc {
+    display: flex;
+    object-position: top center;
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    @include mixin.pc1100px {
+      width: 325px;
+      height: 183px;
+      clip-path: none;
+      object-fit: fill;
+    }
+  }
+  .textBox {
+    display: flex;
+    padding-right: 2rem;
+    flex-direction: column;
+    width: 60%;
+    font-family: 'Poppins-400';
+    @include mixin.pc1100px {
+      width: 100%;
+      padding: 0;
+    }
+    h2 {
+      font-family: 'Poppins-700';
+      @include mixin.pc1100px {
+        box-sizing: border-box;
+        font-size: 1rem;
+        color: black;
+        padding: 5px 10px;
+        text-align: center;
+        font-weight: 500;
+        width: 100%;
+      }
+    }
+  }
+  .description {
+    @include mixin.pc1400px {
+      font-size: 0.9rem;
+    }
+    @include mixin.pc1100px {
+      display: none;
+    }
+  }
+}
+// @media only screen and (max-width: 1400px) {
+//   .single-news-box__text-box {
+//     &__description {
+//       font-size: 0.9rem;
+//     }
+//   }
+// }
+// @media only screen and (max-width: 1100px) {
+//   .single-news-container {
+//     background-color: transparent;
+//     height: auto;
+//     width: auto;
+//   }
+//   .single-news-box {
+//     display: flex;
+//     align-items: center;
+//     flex-direction: column;
+//     margin: 0;
+//     width: 325px;
+//     height: auto;
+//     clip-path: none;
+//     background-color: #ffe500;
+//     border: 2px solid black;
+//     &:hover {
+//       position: static;
+//       z-index: 0;
+//       animation: none;
+//       width: 325px;
+//       background-color: #ffe500;
+//       color: black;
+//       clip-path: none;
+//       margin: 0;
+//       .single-news-box__image-1100 {
+//         width: 325px;
+//         clip-path: none;
+//       }
+//     }
+//     // &:hover {
+//     //   position: static;
+//     //   animation: none t;
+//     //   z-index: 0;
+//     //   width: 325px;
+//     //   height: 183px;
+//     //   background-color: black;
+//     //   .single-news-box__image {
+//     //     width: 175px;
+//     //     clip-path: none;
+//     //   }
+//     // }
+//     //   &__image {
+//     //     display: flex;
+//     //     width: 175px;
+//     //     height: 255px;
+//     //     clip-path: none;
+//     //     object-fit: fill;
+//     //   }
+//     &__image-1100 {
+//       display: flex;
+//       width: 325px;
+//       height: 183px;
+//       clip-path: none;
+//       object-fit: fill;
+//     }
+//     &__text-box {
+//       display: flex;
+//       flex-direction: column;
+//       width: 100%;
+//       padding: 0;
+//       h2 {
+//         box-sizing: border-box;
+//         font-size: 1rem;
+//         color: black;
+//         padding: 5px 10px;
+//         text-align: center;
+//         font-weight: 500;
+//         width: 100%;
+//       }
+//       &__description {
+//         display: none;
+//       }
+//     }
+//   }
+// }

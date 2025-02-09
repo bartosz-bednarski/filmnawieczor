@@ -1,0 +1,35 @@
+@import './fonts.scss';
+html {
+  font-family: 'Inter-VariableFont_opsz', sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+body {
+  box-sizing: border-box;
+  margin: 0px;
+}
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 20px;
+  margin: 0;
+}
+p {
+  font-size: 16px;
+  line-height: 1.4rem;
+}
