@@ -5,7 +5,7 @@ type ErrorType = {
 };
 type OkResponseType = {
   status: 'OK';
-  data: {url:string}[];
+  data: {url: string}[];
 };
 export const getAllUrlsMovies: GetAllUrlsMoviesType = async () => {
   try {
@@ -31,7 +31,7 @@ export const getAllUrlsMovies: GetAllUrlsMoviesType = async () => {
       }
     }
 
-    const data: {url:string}[] = await response.json();
+    const data: {url: string}[] = await response.json();
 
     return {status: 'OK', data: data};
   } catch (error) {

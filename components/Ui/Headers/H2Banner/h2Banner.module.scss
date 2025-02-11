@@ -1,40 +1,21 @@
-.header-container {
+@use '../../../../styles/mixin.scss' as mixin;
+.header {
+  box-sizing: border-box;
   z-index: 1;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 3rem;
   text-align: left;
-  &__header {
-    color: #ffe500;
-    font-size: 4rem;
-    margin: 0;
-    padding-left: 1rem;
-  }
-  &__secondary-header {
-    padding-left: 1rem;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    text-align: left;
+  padding: 2rem 4rem;
+  border-bottom: 3px solid #ffe500;
+  color: #ffe500;
+  width: 100%;
+  font-size: 4rem;
+  @include mixin.phone500px {
     font-size: 2rem;
-    padding-right: 30rem;
-    height: auto;
-    background-color: #ffe500;
-    // clip-path: polygon(0 0, 100% 0%, 70% 100%, 0% 100%);
-  }
-}
-@media only screen and (max-width: 1100px) {
-  .header-container {
-    &__header {
-      font-size: 3rem;
-    }
-    &__secondary-header {
-      font-size: 2rem;
-      clip-path: none;
-      padding-right: 4rem;
-    }
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0.5rem;
   }
 }

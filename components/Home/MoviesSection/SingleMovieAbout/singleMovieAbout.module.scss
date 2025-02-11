@@ -1,0 +1,59 @@
+@use '../../../../styles/mixin.scss' as mixin;
+.container {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  gap: 4rem;
+  padding-left: 2rem;
+  border-bottom: 3px solid #ffe500;
+  @include mixin.pc1100px {
+    flex-direction: column;
+    padding: 0;
+  }
+}
+.textBox {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 2rem;
+  @include mixin.phone500px {
+    justify-content: center;
+    align-items: center;
+  }
+}
+.title {
+  font-size: 2rem;
+  color: #ffe500;
+  text-align: left;
+  margin: 0;
+  @include mixin.phone500px {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+.about {
+  font-size: 1.2rem;
+  color: white;
+  text-align: left;
+  line-height: 1.7rem;
+  @include mixin.pc1400px {
+    font-size: 1rem;
+  }
+  @include mixin.phone500px {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    text-align: center;
+  }
+}
+.image {
+  transition: height 0.5s;
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 15% 100%);
+  @include mixin.pc1100px {
+    width: 100%;
+    max-height: 20vh;
+    clip-path: none;
+  }
+}

@@ -1,0 +1,20 @@
+@use '../../../../styles/fonts.scss';
+@use '../../../../styles/mixin.scss' as mixin;
+.link {
+  background-color: #ffe500;
+  padding: 0.7rem 2rem;
+  width: fit-content;
+  color: black;
+  font-size: 1.2rem;
+  font-family: 'poppins-500';
+  border-radius: 30px;
+  border: 2px solid #ffe500;
+  @include mixin.phone700px {
+    font-size: 1rem;
+  }
+  &:hover {
+    background-color: black;
+    color: #ffe500;
+    transition: all 0.5s;
+  }
+}
