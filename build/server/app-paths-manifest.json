@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/aktualnosci/page": "app/aktualnosci/page.js",
+  "/page": "app/page.js",
+  "/aktualnosci/artykul/[articleId]/page": "app/aktualnosci/artykul/[articleId]/page.js",
+  "/politykaprywatnosci/page": "app/politykaprywatnosci/page.js",
+  "/uniwersa/marvel/page": "app/uniwersa/marvel/page.js",
+  "/filmy/page": "app/filmy/page.js",
+  "/uniwersa/page": "app/uniwersa/page.js",
+  "/filmy/[movieId]/page": "app/filmy/[movieId]/page.js"
+}

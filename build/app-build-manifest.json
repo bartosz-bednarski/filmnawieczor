@@ -1,0 +1,104 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/chunks/app/_not-found/page-199b5a5c07340824.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/css/052593bc2acc53f2.css",
+      "static/chunks/173-84977032b4537095.js",
+      "static/chunks/505-9e60852b72578645.js",
+      "static/chunks/app/layout-28ff057f96678f7f.js"
+    ],
+    "/aktualnosci/page": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/css/6c0e1e2b6bb5b1df.css",
+      "static/chunks/173-84977032b4537095.js",
+      "static/chunks/app/aktualnosci/page-fdb105ee3a2b5d9a.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/css/5bb52096db7273fb.css",
+      "static/chunks/173-84977032b4537095.js",
+      "static/chunks/438-958f91ea2c5592c9.js",
+      "static/chunks/app/page-0d739686b7eff8a6.js"
+    ],
+    "/aktualnosci/artykul/[articleId]/page": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/css/6c0e1e2b6bb5b1df.css",
+      "static/chunks/173-84977032b4537095.js",
+      "static/chunks/979-9ea6a856dbee2128.js",
+      "static/chunks/438-958f91ea2c5592c9.js",
+      "static/chunks/app/aktualnosci/artykul/[articleId]/page-91c407100f91e4e3.js"
+    ],
+    "/politykaprywatnosci/page": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/css/c28f93b4e895e7ed.css",
+      "static/css/6c0e1e2b6bb5b1df.css",
+      "static/chunks/app/politykaprywatnosci/page-b45db3e871871c06.js"
+    ],
+    "/uniwersa/marvel/page": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/css/bdf7b5434873404c.css",
+      "static/chunks/173-84977032b4537095.js",
+      "static/chunks/438-958f91ea2c5592c9.js",
+      "static/chunks/app/uniwersa/marvel/page-531dba8b6052264f.js"
+    ],
+    "/filmy/page": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/css/9b3424308dc31855.css",
+      "static/css/6c0e1e2b6bb5b1df.css",
+      "static/chunks/173-84977032b4537095.js",
+      "static/chunks/505-9e60852b72578645.js",
+      "static/chunks/438-958f91ea2c5592c9.js",
+      "static/chunks/app/filmy/page-fda35b836b577461.js"
+    ],
+    "/uniwersa/page": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/css/6c0e1e2b6bb5b1df.css",
+      "static/chunks/173-84977032b4537095.js",
+      "static/chunks/app/uniwersa/page-3fe555c665871cb8.js"
+    ],
+    "/filmy/[movieId]/page": [
+      "static/chunks/webpack-ce95a8e375af5677.js",
+      "static/chunks/4bd1b696-365ebf7951ada067.js",
+      "static/chunks/517-868c6fa9724e1472.js",
+      "static/chunks/main-app-0ffbca6a795496fa.js",
+      "static/css/9b01f82849dbe7b3.css",
+      "static/css/bdf7b5434873404c.css",
+      "static/css/6c0e1e2b6bb5b1df.css",
+      "static/chunks/173-84977032b4537095.js",
+      "static/chunks/505-9e60852b72578645.js",
+      "static/chunks/438-958f91ea2c5592c9.js",
+      "static/chunks/app/filmy/[movieId]/page-3bbc889e42e32651.js"
+    ]
+  }
+}

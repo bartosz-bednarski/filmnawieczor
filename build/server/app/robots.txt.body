@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /politykaprywatnosci
+
+Sitemap: https://filmnawieczor.pl/sitemap.xml
