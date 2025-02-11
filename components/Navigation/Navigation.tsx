@@ -11,6 +11,9 @@ import Link from '@/node_modules/next/link';
 const Navigation: React.FC = () => {
   const [showMobileList, setShowMobileList] = useState(false);
 
+  const hideMobileListHandler = () => {
+    setShowMobileList(false);
+  };
   useEffect(() => {
     setShowMobileList(false);
   }, []);
@@ -43,16 +46,24 @@ const Navigation: React.FC = () => {
       {showMobileList && (
         <ul className={styles.listPhone}>
           <li>
-            <Link href="/">Strona główna</Link>
+            <Link href="/" onClick={hideMobileListHandler}>
+              Strona główna
+            </Link>
           </li>
           <li>
-            <Link href="/aktualnosci">Aktualności</Link>
+            <Link href="/aktualnosci" onClick={hideMobileListHandler}>
+              Aktualności
+            </Link>
           </li>
           <li>
-            <Link href="/filmy">Filmy</Link>
+            <Link href="/filmy" onClick={hideMobileListHandler}>
+              Filmy
+            </Link>
           </li>
           <li>
-            <Link href="/uniwersa">Uniwersa Filmowe</Link>
+            <Link href="/uniwersa" onClick={hideMobileListHandler}>
+              Uniwersa Filmowe
+            </Link>
           </li>
           <li>
             <span className={styles.arrowUpButton}>

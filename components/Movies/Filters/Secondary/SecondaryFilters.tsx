@@ -8,7 +8,7 @@ import {useEffect, useState} from 'react';
 import {setActivefilterMovie} from '../../../../redux/movies-slice';
 import FilterButton from '@/components/Ui/Buttons/FilterButton/FilterButton';
 import SecondaryFiltersCloseButton from '@/components/Ui/Buttons/SecondaryFiltersCloseButton/SecondaryFiltersCloseButton';
-import { CategoryType } from '@/redux/utils/moviesCategories';
+import {CategoryType} from '@/redux/utils/moviesCategories';
 
 export interface SecondaryFiltersMoviesPropsType {
   onHide: () => void;

@@ -1,43 +1,13 @@
 @use '../../../styles/mixin.scss' as mixin;
 .container {
   position: relative;
-  min-height: 120vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
-  @include mixin.pc1100px {
-    padding: 20vh 0;
-  }
-  @include mixin.phone700px {
-    padding: 25vh 0;
-  }
-  .backgroundPicture {
-    clip-path: polygon(0 0, 100% 13%, 100% 100%, 0 87%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 0;
-    opacity: 0.95;
-    @include mixin.phone700px {
-      clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
-      background: #ec1d24c7;
-    }
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      @include mixin.phone700px {
-        display: none;
-      }
-    }
-  }
   .moviesBox {
     z-index: 1;
     padding: 1rem 0;
-    background-color: #ec1d24c7;
     position: relative;
     display: flex;
     flex-direction: row;
